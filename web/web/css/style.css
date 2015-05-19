@@ -479,6 +479,49 @@ html,body,#dreambox{
 }
 
 
+/* form */
+#form{
+	background:#ececec;
+
+}
+.header_img{
+	position: relative;
+	display: inline-block;
+	width:92%;
+	margin: 0px 0px 0px 4%;
+	
+}
+.invitation{
+	position: relative;
+	display: inline-block;
+	width:60%;
+	margin: 4% 0px 0px 20%;
+}
+.form{
+	position: relative;
+	display: inline-block;
+	width:74%;
+	margin: 4% 0px 0px 13%;
+}
+.form ul li{
+	background: #dcdcdc;
+	margin: 10px 0;
+	padding: 10px 0px 10px 20px;
+	font-size: 1.2em;
+	color:#767676;
+}
+.sub_btn{
+	position: relative;
+	display: inline-block;
+	width:40%;
+	margin: 4% 0px 0px 30%;
+	border: 1px solid #000;
+	font-size: 1.2em;
+	padding: 10px 0px;
+
+
+}	
+
 
 
 

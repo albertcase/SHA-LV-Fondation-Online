@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>FONDATION</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<!--禁用手机号码链接(for iPhone)-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+	<!--自适应设备宽度-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--控制全屏时顶部状态栏的外，默认白色-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+
+<div id="dreambox">
+
+<div class="chapter">
+	
+	<div class="chapter-c">
+	<div class="chapter-l swiper-button-prev">
+		<span><img src="imgs/arr-l.png"></span>
+	</div>
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<img src="imgs/chapter-1.jpg">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="imgs/chapter-1.jpg">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="imgs/chapter-1.jpg">
+		    </div>
+		  </div>
+
+		<!-- 如果需要分页器 -->
+    	<div class="swiper-pagination"></div>
+
+		</div>
+	<div class="chapter-r swiper-button-next">
+		<span><img src="imgs/arr-r.png"></span>
+	</div>
+	</div>
+	
+</div>
+
+<div class="dreamTrip">
+	<a href="javascript:;">
+		<img src="imgs/dreamTrip.jpg">
+	</a>
+</div>
+
+
+</div>
+
+
+
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+var mySwiper = $('.swiper-container').swiper({
+		pagination: '.swiper-pagination',
+		nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        loop: false
+});
+</script>
+
+</body>
+</html>

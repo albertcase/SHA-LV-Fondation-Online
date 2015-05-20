@@ -69,8 +69,8 @@
 		<img src="imgs/form/invitation.png" width="100%" class="invitation"/>
 		<div class="form">
 			<ul>
-				<li>姓名</li>
-				<li>手机号码</li>
+				<li>姓名<input type="text" name="name" value="" class="form_name" placeholder=""></li>
+				<li>手机号码<input type="tel" name="tel" maxlength="11" value="" class="form_tel" placeholder=""></li>
 			</ul>	
 		</div>
 		<input type="submit" value="提交" class="sub_btn">	
@@ -89,6 +89,7 @@
 </div>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/spring.js"></script>
 <script type="text/javascript">
 
 $(window).load(function() {

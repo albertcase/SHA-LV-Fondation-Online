@@ -511,6 +511,7 @@ html,body,#dreambox{
 	color:#767676;
 }
 .sub_btn{
+	background: none;
 	position: relative;
 	display: inline-block;
 	width:40%;
@@ -518,9 +519,17 @@ html,body,#dreambox{
 	border: 1px solid #000;
 	font-size: 1.2em;
 	padding: 10px 0px;
-
-
 }	
+.form ul li input{
+	height:1.2em;
+	margin-left: 10px;
+	background: none;
+	border:none;
+	text-transform: lowercase;
+	color:#767676;
+	line-height: 1.2em;
+
+}
 
 
 

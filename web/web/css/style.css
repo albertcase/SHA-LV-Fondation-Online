@@ -271,7 +271,7 @@ html,body,#dreambox{
 }
 
 .contentImg{
-	width: 92%;
+	width: 99%;
 	display: inline-block;
 }
 
@@ -321,6 +321,48 @@ html,body,#dreambox{
 .btnArea a{
 	margin: 6px 0; 
 	display: inline-block; 
+}
+
+
+/* chapter2 */
+.chapter2-content{
+	width: 90%;
+	display: inline-block;
+	padding: 1.5em 0 1em 0; 
+}
+
+
+/* chapter4 */
+.chapter4{
+	padding: 1.2em 0 0 0;
+	display: inline-block;
+}
+
+.chapter4_text{
+	width: 80%;
+	display: inline-block;
+	margin: 0.5em 0 0 0; 
+}
+
+.chapter4_text h2{
+	font-size: 30px;
+	color: #000;
+	border-bottom: 1px #020202 solid;
+	padding: 0 0 0.5em 0;
+	display: inline-block;
+}
+
+.chapter4_text p{
+	font-size: 12px;
+	color: #000;
+	line-height: 18px;
+	padding: 6px 0 9px 0;
+	width: 100%;
+}
+
+.chapter4_text p.time{
+	padding-top: 25px;
+	opacity: 0.9;
 }
 
 

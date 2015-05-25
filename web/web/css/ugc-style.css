@@ -364,7 +364,7 @@ html,body,#dreambox{
 
 .create-content{
 	position: absolute;
-	left: 5.5em;
+	left: 5.2em;
 	top: 9em;
 	line-height: 16px;
 	width: 60%;
@@ -398,6 +398,7 @@ html,body,#dreambox{
 	border: none;
 	background: none;
 	display: inline-block;
+	text-align: center;
 }
 
 

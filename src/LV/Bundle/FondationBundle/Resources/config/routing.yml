@@ -1,0 +1,12 @@
+lv_fondation_homepage:
+    path:     /api/{name}
+    defaults: { _controller: LVFondationBundle:Page:index }
+lv_fondation_test:
+    path:     /create/user
+    defaults: { _controller: LVFondationBundle:Page:createUser }
+lv_fondation_userinfo:
+    path:     /create/userinfo
+    defaults: { _controller: LVFondationBundle:Page:createUserInfo }
+lv_fondation_testevent:
+    path:     /test/event
+    defaults: { _controller: LVFondationBundle:Page:testEvent }

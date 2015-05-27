@@ -781,8 +781,8 @@ html,body,#dreambox{
 	-webkit-animation: turn-top 600ms ease-in-out  1;
 	-webkit-transform-origin: top center;
 	transform-origin: top center;
-	animation-delay:600ms;
-	-webkit-animation-delay:600ms; 
+	animation-delay:400ms;
+	-webkit-animation-delay:400ms; 
 }
 @keyframes turn-top{
 	0% {transform: rotateX(-30deg);}
@@ -808,8 +808,8 @@ html,body,#dreambox{
 	-webkit-animation: turn-top 600ms ease-in-out  1;
 	-webkit-transform-origin: top center;
 	transform-origin: top center;
-	animation-delay:1200ms;
-	-webkit-animation-delay:1200ms; 
+	animation-delay:800ms;
+	-webkit-animation-delay:800ms; 
 }
 .title_ny{
 	position: absolute;
@@ -820,8 +820,8 @@ html,body,#dreambox{
 	-webkit-animation: turn-right 600ms ease-in-out  1;
 	-webkit-transform-origin: right center;
 	transform-origin: right center;
-	animation-delay:1800ms;
-	-webkit-animation-delay:1800ms; 
+	animation-delay:1200ms;
+	-webkit-animation-delay:1200ms; 
 }
 @keyframes turn-right{
 	0% {transform: rotateY(-30deg);}

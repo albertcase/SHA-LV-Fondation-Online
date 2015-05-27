@@ -1,0 +1,3 @@
+same_wechat_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SameWechatBundle:Default:index }

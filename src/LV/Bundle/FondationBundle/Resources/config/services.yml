@@ -1,0 +1,23 @@
+# services:
+#    lv_fondation.example:
+#        class: LV\Bundle\FondationBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    lv.page.action_listener:
+        class: LV\Bundle\FondationBundle\EventListener\LVPageRequestListener
+        arguments: [@router, @service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    lv.user.service:
+        class: LV\Bundle\FondationBundle\Services\User\UserService
+        arguments: [@doctrine.orm.entity_manager, @request_stack]
+
+    lv.page.test_listener_one:
+        class: LV\Bundle\FondationBundle\EventListener\TestOneListener
+        tags:
+            - { name: kernel.event_listener, event: test.one, method: onTestOne, priority: 0 }
+    lv.page.test_listener_two:
+        class: LV\Bundle\FondationBundle\EventListener\TestTwoListener
+        tags:
+            - { name: kernel.event_listener, event: test.one, method: onTestTwo, priority: -1 }

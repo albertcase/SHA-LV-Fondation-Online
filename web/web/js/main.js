@@ -6,9 +6,6 @@ dis.addEventListener('touchmove' , function (ev){
 } , false)
 
 
-$(".ani_area").css({"height":$(window).height()});
-
-
 $('.page-out').bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
  	$(this).removeClass('page-out');
 });

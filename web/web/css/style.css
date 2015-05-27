@@ -753,20 +753,20 @@ html,body,#dreambox{
 
 }
 @keyframes turn-left{
-	0% {-webkit-transform: perspective(600px) rotateY(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateY(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateY(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateY(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateY(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateY(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
 }
 @-webkit-keyframes turn-left{
-	0% {-webkit-transform: perspective(600px) rotateY(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateY(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateY(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateY(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateY(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateY(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
 
 }  
 .title_bj{
@@ -782,20 +782,20 @@ html,body,#dreambox{
 	-webkit-animation-delay:400ms; 
 }
 @keyframes turn-top{
-	0% {-webkit-transform: perspective(600px) rotateX(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateX(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateX(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateX(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateX(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateX(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateX(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateX(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateX(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateX(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateX(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateX(0deg);}
 }
 @-webkit-keyframes turn-top{
-	0% {-webkit-transform: perspective(600px) rotateX(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateX(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateX(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateX(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateX(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateX(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateX(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateX(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateX(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateX(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateX(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateX(0deg);}
 
 }  
 .title_ty{
@@ -823,20 +823,20 @@ html,body,#dreambox{
 	-webkit-animation-delay:1200ms; 
 }
 @keyframes turn-right{
-	0% {-webkit-transform: perspective(600px) rotateY(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateY(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateY(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateY(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateY(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateY(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
 }
 @-webkit-keyframes turn-right{
-	0% {-webkit-transform: perspective(600px) rotateY(40deg);}
-    50% {-webkit-transform: perspective(600px) rotateY(-45deg);}
-    60% {-webkit-transform: perspective(600px) rotateY(15deg);}
-    80% {-webkit-transform: perspective(600px) rotateY(-15deg);}
-	90% {-webkit-transform: perspective(600px) rotateY(5deg);}
-	100% {-webkit-transform: perspective(600px) rotateY(0deg);}
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
 
 }  			
 

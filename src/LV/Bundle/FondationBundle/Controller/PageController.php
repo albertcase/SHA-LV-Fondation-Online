@@ -57,6 +57,8 @@ class PageController extends Controller
 
     public function testEventAction()
     {
+        $a = $this->container->getParameter('api_user');
+        var_dump($a);exit;
         $event = new FilterTestOneEvent(new TestEvent());
         $dispatcher = $this->get('event_dispatcher'); 
         $dispatcher->dispatch('test.one', $event);

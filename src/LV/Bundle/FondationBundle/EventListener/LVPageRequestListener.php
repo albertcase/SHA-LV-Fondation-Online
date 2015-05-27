@@ -21,6 +21,7 @@ class LVPageRequestListener
 
     public function onKernelRequest(GetResponseEvent $event)
     {
+        
     	//$a = $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');
     	$routes = array(
     		'lv_fondation_homepage',

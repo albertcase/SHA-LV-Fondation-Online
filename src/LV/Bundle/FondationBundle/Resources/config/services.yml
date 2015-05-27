@@ -20,4 +20,6 @@ services:
     lv.page.test_listener_two:
         class: LV\Bundle\FondationBundle\EventListener\TestTwoListener
         tags:
-            - { name: kernel.event_listener, event: test.one, method: onTestTwo, priority: -1 }
+            - { name: kernel.event_listener, event: test.one, method: onTestTwo, priority: 1 }
+    lv.hello_controller:
+        class:     LV\Bundle\FondationBundle\Controller\TestController

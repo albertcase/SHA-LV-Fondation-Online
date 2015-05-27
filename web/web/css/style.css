@@ -746,25 +746,30 @@ html,body,#dreambox{
 	left: 7%;
 	top: 34%;
 	width:12%;
-	animation: turn 1s ease-in-out  1;
-	-webkit-animation: turn 1s ease-in-out  1;
+	animation: turn-left 600ms ease-in-out  1;
+	-webkit-animation: turn-left 600ms ease-in-out  1;
 	-webkit-transform-origin: left center;
 	transform-origin: left center;
 
 }
-@keyframes turn{
-	0% {transform: rotate3d(0,10,0,90deg);}
-	25% {transform: rotate3d(0,0,0,67.5deg);}
-    50% {transform: rotate3d(0,-10,0,45deg);}
-	75% {transform: rotate3d(0,0,0,22.5deg);}
-	100% {transform: rotate3d(0,10,0,0deg);}
+@keyframes turn-left{
+	0% {transform: rotateY(-30deg);}
+	25% {transform: rotateY(0deg);}
+    50% {transform: rotateY(30deg);}
+	75% {transform: rotateY(0deg);}
+	100% {transform: rotateY(30deg);}
 }
-@-webkit-keyframes turn{
-	0% {transform: rotate3d(0,10,0,90deg);}
+@-webkit-keyframes turn-left{
+	0% {transform: rotateY(-30deg);}
+	25% {transform: rotateY(0deg);}
+    50% {transform: rotateY(30deg);}
+	75% {transform: rotateY(0deg);}
+	100% {transform: rotateY(30deg);}
+	/*0% {transform: rotate3d(0,10,0,90deg);}
 	25% {transform: rotate3d(0,0,0,67.5deg);}
     50% {transform: rotate3d(0,－10,0,45deg);}
 	75% {transform: rotate3d(0,0,0,22.5deg);}
-	100% {transform: rotate3d(0,10,0,0deg);}
+	100% {transform: rotate3d(0,10,0,0deg);}*/
 
 }  
 .title_bj{
@@ -772,19 +777,67 @@ html,body,#dreambox{
 	left: 34%;
 	top: 28%;
 	width:12%;
+	animation: turn-top 600ms ease-in-out  1;
+	-webkit-animation: turn-top 600ms ease-in-out  1;
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	animation-delay:600ms;
+	-webkit-animation-delay:600ms; 
 }
+@keyframes turn-top{
+	0% {transform: rotateX(-30deg);}
+	25% {transform: rotateX(0deg);}
+    50% {transform: rotateX(30deg);}
+	75% {transform: rotateX(0deg);}
+	100% {transform: rotateX(30deg);}
+}
+@-webkit-keyframes turn-top{
+	0% {transform: rotateX(-30deg);}
+	25% {transform: rotateX(0deg);}
+    50% {transform: rotateX(30deg);}
+	75% {transform: rotateX(0deg);}
+	100% {transform: rotateX(30deg);}
+
+}  
 .title_ty{
 	position: absolute;
 	left: 50%;
 	top: 42%;
 	width:12%;
+	animation: turn-top 600ms ease-in-out  1;
+	-webkit-animation: turn-top 600ms ease-in-out  1;
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	animation-delay:1200ms;
+	-webkit-animation-delay:1200ms; 
 }
 .title_ny{
 	position: absolute;
 	top: 40%;
 	right:7%;
 	width:12%;
-}			
+	animation: turn-right 600ms ease-in-out  1;
+	-webkit-animation: turn-right 600ms ease-in-out  1;
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+	animation-delay:1800ms;
+	-webkit-animation-delay:1800ms; 
+}
+@keyframes turn-right{
+	0% {transform: rotateY(-30deg);}
+	25% {transform: rotateY(0deg);}
+    50% {transform: rotateY(30deg);}
+	75% {transform: rotateY(0deg);}
+	100% {transform: rotateY(30deg);}
+}
+@-webkit-keyframes turn-right{
+	0% {transform: rotateY(-30deg);}
+	25% {transform: rotateY(0deg);}
+    50% {transform: rotateY(30deg);}
+	75% {transform: rotateY(0deg);}
+	100% {transform: rotateY(30deg);}
+
+}  			
 
 
 

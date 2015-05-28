@@ -626,19 +626,18 @@ html,body,#dreambox{
 
 .loc_bj{
 	position: absolute;
-	width:16%;
-	top:12%;
-	right:9.5%;
+	width:15%;
+	top:42%;
+	right:6%;
+	opacity: 0;
 
 }
 .loc_ps{
 	position: absolute;
-	width:16%;
-	top:6.5%;
-	left:2%;
-	cursor:auto;
-
-
+	width:15%;
+	top:24%;
+	left:1%;
+	opacity: 0;
 }
 .loc_lv{
 	position: absolute;
@@ -719,8 +718,41 @@ html,body,#dreambox{
 	margin: 10% 0 0 0;
 	background: url('../imgs/address/map1.png') no-repeat;
 	background-size: 100%;
+	
 
 }
+.add{
+	animation: scale 400ms ease-in-out;
+	-webkit-animation: scale 400ms ease-in-out;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+}
+@keyframes scale {
+	0% { background-size: 100%;}
+	25% { background-size: 130%; background-position:0.75% 9%;}
+	50% { background-size: 160%; background-position:1.5% 18%;}
+	75% { background-size: 190%; background-position:2.25% 27%;}
+	100% { background-size: 220%; background-position:3% 36%;}
+}
+@-webkit-keyframes scale {
+	0% { background-size: 100%; }
+	25% { background-size: 130%; background-position:0.75% 9%;}
+	50% { background-size: 160%; background-position:1.5% 18%;}
+	75% { background-size: 190%; background-position:2.25% 27%;}
+	100% { background-size: 220%; background-position:3% 36%;}
+}
+.map_2{
+	width:100%;
+	height:220px;
+	position:absolute;
+	margin: 10% 0 0 0;
+	background: url('../imgs/address/map.png') no-repeat;
+	background-size: 100%;
+    opacity: 0;
+
+}
+
 .dot{
 	width:3%;
 }
@@ -839,8 +871,15 @@ html,body,#dreambox{
 	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
 
 }  			
-
-
+.cloud{
+    width:100%;
+    position: absolute;
+    top:-4%;
+    opacity: 0;
+}
+.cloud_animation{
+	
+}
 
 
 

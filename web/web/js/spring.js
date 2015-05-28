@@ -38,6 +38,32 @@
 
 
 		$("#mask").animate({"width":"10%"});
+		/*$(".map_1").animate({"opacity":"0"},3000,function(){
+			$(".dot").fadeOut();
+			$(".title_ps").fadeOut();
+			$(".title_bj").fadeOut();
+			$(".title_ty").fadeOut();
+			$(".title_ny").fadeOut();
+			$(".map_2").animate({"opacity":"1"});
+			
+			
+
+		});*/
+
+        var animationListener_home = function(){
+			$(".dot").fadeOut();
+			$(".title_ps").fadeOut();
+			$(".title_bj").fadeOut();
+			$(".title_ty").fadeOut();
+			$(".title_ny").fadeOut();
+			$(".map_1").addClass("add");
+			$(".loc_ps").animate({"opacity":"1"},1000);
+			$(".loc_bj").animate({"opacity":"1"},1000);
+			$(".cloud").addClass();
+		}
+
+		var anim_home = document.getElementById("end");
+		anim_home.addEventListener("webkitAnimationEnd", animationListener_home, false);
 
  	})
 

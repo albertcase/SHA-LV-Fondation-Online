@@ -57,6 +57,7 @@ class PageController extends Controller
 
     public function testEventAction()
     {
+        var_dump($this->container->getParameter('session_memcached_prefix'));exit;
         $session = $this->getRequest()->getSession();
         //$session->set('albertshen22', '2dsdf23234sdfadffas');
         var_dump($session->get('albertshen22'));

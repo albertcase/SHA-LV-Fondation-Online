@@ -21,7 +21,7 @@ class LVPageRequestListener
 
     public function onKernelRequest(GetResponseEvent $event)
     {
-        
+
     	//$a = $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');
     	$routes = array(
     		'lv_fondation_homepage',
@@ -29,10 +29,13 @@ class LVPageRequestListener
     	$current_route = $event->getRequest()->get('_route');
 
     	if(in_array($current_route, $routes)) {
+
+            $wechat = $this->container->get('same.wechat');
             $current_url = $this->router->generate($current_route);
 
             $us = $this->container->get('lv.user.service');
             //if(!$us->userIsLogin())
+
 
 	    	//$em = $this->container->get('doctrine');
             //$user = $em->getRepository('LVFondationBundle:User');

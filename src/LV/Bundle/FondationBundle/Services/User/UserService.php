@@ -22,7 +22,7 @@ class UserService
     public function userIsLogin() 
     {
         $session = $this->requestStack->getCurrentRequest()->getSession();
-        $openid = $session->get('openid');
+        $openid = $session->get('user');
         if($openid) {
             return $openid;
         }
@@ -37,7 +37,7 @@ class UserService
         $user = $user ? $user : $this->userRegister($openid);
         $session = $this->requestStack->getCurrentRequest()->getSession();
         $openid = $user->getOpenId();
-        $session->set('openid', $openid);
+        $session->set('user', $openid);
         return $openid;
         // $this->requestStack->getCurrentRequest()->cookies;
         // $cookie = new Cookie('openid', $openid, time() + 3600 * 24 * 7);

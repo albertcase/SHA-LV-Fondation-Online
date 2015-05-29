@@ -107,7 +107,7 @@ class Wechat
 		if(isset($rs['access_token'])){
 			return $rs['access_token'];
 		}
-		return $rs['errcode']);
+		return $rs['errcode'];
 	}
 
 	/** 
@@ -157,7 +157,12 @@ class Wechat
 	* @return array access_token&openid
 	*/ 
 	public function getOauthAccessToken($code) {
-		$result = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?code='.$code.'&grant_type=authorization_code&appid='.$this->_container->getParameter('appid').'&secret='.$this->_container->getParameter('appsecret'));
+		$http_data = array();
+		$http_data['code'] = $code;
+		$http_data['grant_type'] = 'authorization_code';
+		$http_data['appid'] = $this->_container->getParameter('appid');
+		$http_data['secret'] = $this->_container->getParameter('appsecret');
+		$result = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?' . http_build_query($http_data));
 		$result = json_decode($result, true);
 		if(isset($result['access_token'])){
 			$this->_session->set('wechat_user_access_token', $result['access_token']);

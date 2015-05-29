@@ -28,9 +28,11 @@ class LVPageRequestListener
     		);
     	$current_route = $event->getRequest()->get('_route');
 
-    	if(in_array($current_route, $routes)) {
+    	if(!in_array($current_route, $routes)) {
 
             $wechat = $this->container->get('same.wechat');
+            var_dump($wechat->isLoginBase('d'));exit;
+            if($wechat->isLoginBase('d'))
             $current_url = $this->router->generate($current_route);
 
             $us = $this->container->get('lv.user.service');

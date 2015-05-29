@@ -1,3 +1,19 @@
+same_wechat_oauth:
+    path:     /same/wechat/oauth/{type}
+    defaults: { _controller: SameWechatBundle:Wechat:oauth }
+
 same_wechat_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: SameWechatBundle:Default:index }
+    path:     /same/wechat/index
+    defaults: { _controller: SameWechatBundle:Wechat:index }
+
+same_wechat_callback_userinfo:
+    path:     /same/wechat/callback_userinfo
+    defaults: { _controller: SameWechatBundle:Wechat:callback_userinfo }
+
+same_wechat_callback_base:
+    path:     /same/wechat/callback_base
+    defaults: { _controller: SameWechatBundle:Wechat:callback_base }
+
+same_wechat_islogin:
+    path:     /same/wechat/islogin
+    defaults: { _controller: SameWechatBundle:Wechat:islogin }

@@ -10,4 +10,10 @@ class DefaultController extends Controller
     {
         return $this->render('SameWechatBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function oauthAction()
+    {
+    	echo 1;
+        exit;
+    }
 }

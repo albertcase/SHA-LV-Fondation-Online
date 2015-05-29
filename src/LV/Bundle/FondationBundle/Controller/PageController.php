@@ -57,6 +57,11 @@ class PageController extends Controller
 
     public function testEventAction()
     {
+        $session = $this->getRequest()->getSession();
+        //$session->set('albertshen22', '2dsdf23234sdfadffas');
+        var_dump($session->get('albertshen22'));
+exit;
+        return new Response(json_encode(array('name' => 33)));
         $a = $this->container->getParameter('api_user');
         var_dump($a);exit;
         $event = new FilterTestOneEvent(new TestEvent());

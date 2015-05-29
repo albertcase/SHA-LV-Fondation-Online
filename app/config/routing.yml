@@ -1,3 +1,7 @@
+same_session:
+    resource: "@SameSessionBundle/Resources/config/routing.yml"
+    prefix:   /
+
 same_wechat:
     resource: "@SameWechatBundle/Resources/config/routing.yml"
     prefix:   /

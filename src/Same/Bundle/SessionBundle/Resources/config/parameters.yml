@@ -1,5 +1,3 @@
 parameters:
-    session_memcached_host:     127.0.0.1
-    session_memcached_port:     11211
     session_memcached_prefix:   lv_
     session_memcached_expire:   43200

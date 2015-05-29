@@ -5,3 +5,7 @@ services:
     same.wechat:
        class: Same\Bundle\WechatBundle\Model\Wechat
        arguments: [@service_container]
+    same.memcached:
+       class: Memcached
+       calls:
+            - [ addServer, [ %memcached_host%, %memcached_port% ]]

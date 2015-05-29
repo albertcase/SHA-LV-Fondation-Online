@@ -37,6 +37,7 @@ class Wechat
 		$this->_container = $container;
 		$this->_router = $this->_container->get('router');
 		$this->_session = $this->_container->get('session');
+		$this->_memcache = $this->_container->get('same.memcached');
 		//echo $this->_container->get('session')->get('aaa');exit;
 	}
 
@@ -96,13 +97,17 @@ class Wechat
 	* @return string $access_token
 	*/ 
 	private function getAccessToken() {
-		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$this->_container->getParameter('appid').'&secret='.$this->_container->getParameter('appsecret'));
+
+		$http_data = array();
+		$http_data['grant_type'] = 'client_credential';
+		$http_data['appid'] = $this->_container->getParameter('appid');
+		$http_data['secret'] = $this->_container->getParameter('appsecret');
+		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?' . http_build_query($http_data));
 		$rs = json_decode($rs,true);
 		if(isset($rs['access_token'])){
 			return $rs['access_token'];
 		}
-		throw new Exception($rs['errcode']);
-		return;	
+		return $rs['errcode']);
 	}
 
 	/** 
@@ -112,23 +117,21 @@ class Wechat
 	* @since 1.0 
 	* @return json $access_token
 	*/ 
-	private function getJsTicket($url) {
+	public function getJsTicket($url) {
 		$appid = $this->_container->getParameter('appid');
-		$appsecret = $this->_container->getParameter('appsecret');
-		$time = $this->_container->getParameter('wechat_server_time');
-		$access_token = $this->_container->getParameter('wechat_server_accesstoken');
-		$ticket = $this->_container->getParameter('wechat_server_ticket');
+		$time = $this->_memcache->get('wechat_server_time');
+		$ticket = $this->_memcache->get('wechat_server_ticket');
 		if(time() - $time >= 1800){
-			//token过期重新获取
 			$access_token = $this->getAccessToken();
-			//获取ticket
-			$ticketfile = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" . $access_token . "&type=jsapi");
+			$http_data = array();
+			$http_data['access_token'] = $access_token;
+			$http_data['type'] = 'jsapi';
+			$ticketfile = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?" . http_build_query($http_data));
 			$ticketfile = json_decode($ticketfile, true);
 			$ticket = $ticketfile['ticket'];
 			$time = time();
-			$this->_container->setParameter('wechat_server_time', $time);
-			$this->_container->setParameter('wechat_server_accesstoken', $access_token);
-			$this->_container->setParameter('wechat_server_ticket', $ticket);
+			$this->_memcache->set('wechat_server_time', $time);
+			$this->_memcache->set('wechat_server_ticket', $ticket);
 			
 		}
 		$str = '1234567890abcdefghijklmnopqrstuvwxyz';
@@ -137,10 +140,13 @@ class Wechat
 			$randval = mt_rand(0,35);
 			$noncestr .= $str[$randval];
 		}
-		$ticketstr = "jsapi_ticket=" . $ticket . "&noncestr=" . $noncestr. "&timestamp=" . $time . "&url=" . $url;
-		$sign = sha1($ticketstr);
-		print json_encode(array("time" => $time . "", "access_token" => $access_token, "sign" => $sign));
-		return new Response(json_encode($info));
+		$ticket_data = array();
+		$ticket_data['jsapi_ticket'] = $ticket;
+		$ticket_data['noncestr'] = $noncestr;
+		$ticket_data['timestamp'] = $time;
+		$ticket_data['url'] = $url;
+		$sign = sha1(http_build_query($ticket_data));
+		return new Response(json_encode(array("appid" => $appid, "time" => $time, "noncestr"=> $noncestr, "sign" => $sign)));
 	}
 
 	/** 

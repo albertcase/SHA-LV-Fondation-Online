@@ -66,6 +66,14 @@ class WechatController extends Controller
     public function isloginAction()
     {
         $wechat = $this->get('same.wechat');
-        return $rs = $wechat->isLoginUserInfo();
+        return $wechat->isLoginUserInfo();
     }
+
+    public function jssdkAction()
+    {   
+        $url = $this->getRequest()->get('url');
+        $wechat = $this->get('same.wechat');
+        return $wechat->getJsTicket($url);
+    }
+
 }

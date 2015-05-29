@@ -1,6 +1,6 @@
 <?php
 
-namespace Same\Bundle\WechatBundle\DependencyInjection;
+namespace Same\Bundle\SessionBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class SameWechatExtension extends Extension
+class SameSessionExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -24,6 +24,6 @@ class SameWechatExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-        $loader->load('config.yml');
+        $loader->load('parameters.yml');
     }
 }

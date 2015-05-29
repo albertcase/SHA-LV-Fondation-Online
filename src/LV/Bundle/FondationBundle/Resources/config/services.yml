@@ -4,8 +4,13 @@
 #        arguments: [@service_id, "plain_value", %parameter%]
 
 services:
-    lv.page.action_listener:
+    lv.page.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVPageRequestListener
+        arguments: [@router, @service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    lv.api.listener:
+        class: LV\Bundle\FondationBundle\EventListener\LVApiRequestListener
         arguments: [@router, @service_container]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
@@ -23,3 +28,14 @@ services:
             - { name: kernel.event_listener, event: test.one, method: onTestTwo, priority: 1 }
     lv.hello_controller:
         class:     LV\Bundle\FondationBundle\Controller\TestController
+
+    session.memcached:
+        class: Memcached
+        arguments:
+            persistent_id: %session_memcached_prefix%
+        calls:
+            - [ addServer, [ %session_memcached_host%, %session_memcached_port% ]]
+
+    session.handler.memcached:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler
+        arguments: [@session.memcached, { prefix: %session_memcached_prefix%, expiretime: %session_memcached_expire% }]

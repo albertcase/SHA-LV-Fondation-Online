@@ -4,8 +4,13 @@
 #        arguments: [@service_id, "plain_value", %parameter%]
 
 services:
-    lv.page.action_listener:
+    lv.page.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVPageRequestListener
+        arguments: [@router, @service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    lv.api.listener:
+        class: LV\Bundle\FondationBundle\EventListener\LVApiRequestListener
         arguments: [@router, @service_container]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

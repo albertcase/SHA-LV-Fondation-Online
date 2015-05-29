@@ -22,9 +22,9 @@ class UserService
     public function userIsLogin() 
     {
         $session = $this->requestStack->getCurrentRequest()->getSession();
-        $openid = $session->get('user');
-        if($openid) {
-            return $openid;
+        $user = $session->get('user');
+        if($user) {
+            return $user;
         }
         
         return NULL;

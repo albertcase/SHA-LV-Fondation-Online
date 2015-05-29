@@ -17,3 +17,7 @@ same_wechat_callback_base:
 same_wechat_islogin:
     path:     /same/wechat/islogin
     defaults: { _controller: SameWechatBundle:Wechat:islogin }
+
+same_wechat_jssdk:
+    path:     /same/wechat/jssdk
+    defaults: { _controller: SameWechatBundle:Wechat:jssdk }

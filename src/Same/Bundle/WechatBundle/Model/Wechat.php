@@ -37,6 +37,7 @@ class Wechat
 		$this->_container = $container;
 		$this->_router = $this->_container->get('router');
 		$this->_session = $this->_container->get('session');
+		$this->_memcache = $this->_container->get('same.memcached');
 		//echo $this->_container->get('session')->get('aaa');exit;
 	}
 
@@ -96,13 +97,56 @@ class Wechat
 	* @return string $access_token
 	*/ 
 	private function getAccessToken() {
-		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$this->_container->getParameter('appid').'&secret='.$this->_container->getParameter('appsecret'));
+
+		$http_data = array();
+		$http_data['grant_type'] = 'client_credential';
+		$http_data['appid'] = $this->_container->getParameter('appid');
+		$http_data['secret'] = $this->_container->getParameter('appsecret');
+		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?' . http_build_query($http_data));
 		$rs = json_decode($rs,true);
 		if(isset($rs['access_token'])){
 			return $rs['access_token'];
 		}
-		throw new Exception($rs['errcode']);
-		return;	
+		return $rs['errcode']);
+	}
+
+	/** 
+	* wechat_js_sdk
+	* get js ticket
+	* @access private
+	* @since 1.0 
+	* @return json $access_token
+	*/ 
+	public function getJsTicket($url) {
+		$appid = $this->_container->getParameter('appid');
+		$time = $this->_memcache->get('wechat_server_time');
+		$ticket = $this->_memcache->get('wechat_server_ticket');
+		if(time() - $time >= 1800){
+			$access_token = $this->getAccessToken();
+			$http_data = array();
+			$http_data['access_token'] = $access_token;
+			$http_data['type'] = 'jsapi';
+			$ticketfile = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?" . http_build_query($http_data));
+			$ticketfile = json_decode($ticketfile, true);
+			$ticket = $ticketfile['ticket'];
+			$time = time();
+			$this->_memcache->set('wechat_server_time', $time);
+			$this->_memcache->set('wechat_server_ticket', $ticket);
+			
+		}
+		$str = '1234567890abcdefghijklmnopqrstuvwxyz';
+		$noncestr = '';
+		for($i=0;$i<8;$i++){
+			$randval = mt_rand(0,35);
+			$noncestr .= $str[$randval];
+		}
+		$ticket_data = array();
+		$ticket_data['jsapi_ticket'] = $ticket;
+		$ticket_data['noncestr'] = $noncestr;
+		$ticket_data['timestamp'] = $time;
+		$ticket_data['url'] = $url;
+		$sign = sha1(http_build_query($ticket_data));
+		return new Response(json_encode(array("appid" => $appid, "time" => $time, "noncestr"=> $noncestr, "sign" => $sign)));
 	}
 
 	/** 
@@ -129,19 +173,14 @@ class Wechat
 	* @since 1.0 
 	* @return json access_token&openid or RedirectResponse
 	*/ 
-	public function isLoginUserInfo() {
-		if(!$this->_container->get('session')->get('wechat_user_access_token')){
-			$callback = $this->_router
-				  		 	 ->generate('same_wechat_islogin', 
-						  	          	array(), 
-						  	          	true
-						  	          	);
-			return $this->oauthUserInfo($callback);
+	public function isLoginUserInfo($redirecturl) {
+		if($access_token = $this->_session->get('wechat_user_access_token')){
+			$info = array();
+			$info['access_token'] = $access_token;
+			$info['openid'] = $this->_session->get('wechat_user_openid');
+			return new Response(json_encode($info));
 		}
-		$info = array();
-		$info['access_token'] = $this->_session->get('wechat_user_access_token');
-		$info['openid'] = $this->_session->get('wechat_user_openid');
-		return new Response(json_encode($info));
+		return $this->oauthUserInfo($redirecturl);
 		
 	}
 
@@ -152,19 +191,14 @@ class Wechat
 	* @since 1.0 
 	* @return json access_token&openid or RedirectResponse
 	*/ 
-	public function isLoginBase() {
-		if(!$this->_container->get('session')->get('wechat_user_access_token')){
-			$callback = $this->_router
-				  		 	 ->generate('same_wechat_islogin', 
-						  	          	array(), 
-						  	          	true
-						  	          	);
-			return $this->oauthBase($callback);
+	public function isLoginBase($redirecturl) {
+		if($access_token = $this->_session->get('wechat_user_access_token')){
+			$info = array();
+			$info['access_token'] = $access_token;
+			$info['openid'] = $this->_session->get('wechat_user_openid');
+			return new Response(json_encode($info));		
 		}
-		$info = array();
-		$info['access_token'] = $this->_session->get('wechat_user_access_token');
-		$info['openid'] = $this->_session->get('wechat_user_openid');
-		return new Response(json_encode($info));
+		return $this->oauthBase($redirecturl);
 		
 	}
 

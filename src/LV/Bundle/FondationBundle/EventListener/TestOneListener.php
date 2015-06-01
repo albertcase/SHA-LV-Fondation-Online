@@ -9,7 +9,7 @@ class TestOneListener
 
     public function onTestOne(FilterTestOneEvent $event)
     {
-        var_dump('one');
+        var_dump('fuck');
     }
 
 }

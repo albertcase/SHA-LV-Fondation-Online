@@ -1,0 +1,3 @@
+same_session_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SameSessionBundle:Default:index }

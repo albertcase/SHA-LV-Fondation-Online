@@ -21,10 +21,76 @@
 				$(".form_tel").val('');
 				$(".form_tel").attr('placeholder','请输入正确的手机号码');
         		return false; 
-			}	
-
-
+			}
 		});
+		$(".loc_ps").on("click",function(){
+			$(".loc_ps").fadeOut();
+			$(".loc_bj").fadeOut();
+			$(".mask").animate({"opacity":"0","left":"20px"});
+			$(".map_bg").animate({"opacity":"0","left":"20px"},1000,function(){
+				$(".map_bg").addClass("bg_paris").animate({"opacity":"1","left":"0"});
+				$(".mask1").addClass("ps_green");
+				$(".loc_lv").animate({"opacity":"1","z-index":"9999"});
+
+			});
+            
+		});	
+
+
+		$("#mask").animate({"width":"10%"});
+		/*$(".map_1").animate({"opacity":"0"},3000,function(){
+			$(".dot").fadeOut();
+			$(".title_ps").fadeOut();
+			$(".title_bj").fadeOut();
+			$(".title_ty").fadeOut();
+			$(".title_ny").fadeOut();
+			$(".map_2").animate({"opacity":"1"});
+			
+			
+
+		});*/
+
+        var animationListener_home = function(){
+			$(".dot").fadeOut();
+			$(".title_ps").fadeOut();
+			$(".title_bj").fadeOut();
+			$(".title_ty").fadeOut();
+			$(".title_ny").fadeOut();
+			$(".map_1").addClass("add");
+			$(".loc_ps").animate({"opacity":"1"},1000);
+			$(".loc_bj").animate({"opacity":"1"},1000);
+
+			
+			$(".cloud_img").addClass("pulse").animate({"opacity":"1"},2000);
+			$(".line_img").addClass("line_animation").animate({"opacity":"1"});
+			$(".arrow").addClass("arrow_animation").animate({"opacity":"1"},1000);
+		}
+
+		var anim_home = document.getElementById("end");
+		anim_home.addEventListener("webkitAnimationEnd", animationListener_home, false);
+
+
+		var animationListener_home_2 = function(){
+
+			$(".loc_ps").fadeOut();
+			$(".loc_bj").fadeOut();
+			$(".line_img").fadeOut();
+			$(".arrow").fadeOut();
+			$(".cloud_img").fadeOut();
+			$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
+			$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
+			$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},6000,function(){
+				$(".lv_home").fadeIn().addClass("show");
+				$(".lv_title").addClass("show2").fadeIn(3000);
+
+			});
+			
+		
+		}
+
+		var anim_home = document.getElementById("arrow");
+		anim_home.addEventListener("webkitAnimationEnd", animationListener_home_2, false);
+
 
  	})
 

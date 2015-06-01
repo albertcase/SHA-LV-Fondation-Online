@@ -1,0 +1,30 @@
+@import "../css/reset.css";
+$fontSize:12px !default;
+$line-height: 2 !default;
+$line-height: 1.5 !default;
+$px: 5px 10px 20px 30px;
+
+body{
+	background: #eee;
+	font-size: $fontSize;
+}
+p{
+	font-size: #{$fontSize}/#{$line-height};
+	line-height: $line-height;
+	margin:nth($px,1);
+}
+$linkColor:         #08c #333 !default;
+a{
+  color:nth($linkColor,1);
+
+  &:hover{
+    color:nth($linkColor,2);
+  }
+}
+$headings: (h1:2em, h2:1.5em, h3:1.2em);
+@each $header, $size in $headings {
+	#{$header} {
+	font-size: $size;
+	}
+}
+

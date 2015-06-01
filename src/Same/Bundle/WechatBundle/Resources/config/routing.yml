@@ -6,13 +6,9 @@ same_wechat_homepage:
     path:     /same/wechat/index
     defaults: { _controller: SameWechatBundle:Wechat:index }
 
-same_wechat_callback_userinfo:
+same_wechat_callback:
     path:     /same/wechat/callback_userinfo
-    defaults: { _controller: SameWechatBundle:Wechat:callback_userinfo }
-
-same_wechat_callback_base:
-    path:     /same/wechat/callback_base
-    defaults: { _controller: SameWechatBundle:Wechat:callback_base }
+    defaults: { _controller: SameWechatBundle:Wechat:callback}
 
 same_wechat_islogin:
     path:     /same/wechat/islogin

@@ -47,6 +47,71 @@ html,body,#dreambox{
     overflow: hidden;
 }
 
+
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/* --------- frame --------- */
+.page-active {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  z-index: 9;
+}
+
+.demo-test {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: none;
+}
+
+.page-in {
+  -webkit-transition: -webkit-transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+  -ms-transition: transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+
+  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+}
+
+.page-out {
+  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  -ms-transition: transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .bg-index{
 	width: 100%;
 	position: absolute;
@@ -108,19 +173,36 @@ html,body,#dreambox{
 .dreamlist dt{
 	width: 100%;
 	text-align: center;
-}
-
-.dreamlist dt.m-1 img{
-	width: 82%;
+	margin:1em 0 0 0;
 	display: inline-block;
-	margin: 1em 0 0 4em;
+	position: relative;
 }
 
 .dreamlist dd{
+	width: 85%;
 	margin: -3em 0 0 0;
 	display: inline-block; 
 	position: relative;
+	z-index: 2;
 }
+
+.dreamlist dd a{
+	width: 100%;
+	height: 60%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.listmodel{
+	width: 236px;
+	display: inline-block;
+}
+
+.listmodel.m-1 img{
+	margin: 0 0 0 2em; 
+}
+
 
 .d-tips {
 	width: 80%;
@@ -140,7 +222,7 @@ html,body,#dreambox{
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	z-index: 2;
+	z-index: 9;
 }
 
 .btn{
@@ -158,28 +240,29 @@ html,body,#dreambox{
 	width: 40%;
 	position: absolute;
 	left: 50%;
-	margin: 0 0 0 -20%;
-	top:4.5em; 
+	margin: 0 0 0 -21%;
+	top: 18%; 
+	height: 45%;
 }
 
 .d-text{
 	width: 100%;
-	height: 90px;
+	height: 60%;
 	color: #001238;
 	font-size: 14px;
 	overflow: hidden;
-	margin: 2.6em 0 0 0;
+	margin: 20% 0 0 0;
 	display: inline-block; 
 	text-align: left;
 }
 
 .d-from{
-	margin: 0.7em 0 0 0;
 	display: inline-block; 
+	margin: 15% 0 0 0;
 }
 
 .completionRatio{
-	width: 27%;
+	width: 30%;
 	font-size: 12px;
 	position: absolute;
 	top: 0.1em;
@@ -304,6 +387,7 @@ html,body,#dreambox{
 	position: absolute;
 	left: 5%;
 	top:7em;
+	z-index: 2;
 }
 
 .glassTips img{
@@ -313,23 +397,67 @@ html,body,#dreambox{
 }
 
 
+.gl{
+	width: 37%;
+	position: absolute;
+	z-index: 2;
+}
+
+.g-1{
+	width: 37%;
+	left: 2%;
+	top: 37%;
+}
+
+.g-2{
+	width: 34%;
+	left: 53%;
+	top: 44%;
+}
+
+.g-3{
+	width: 32%;
+	left: 56.8%;
+	top: 40.3%;
+}
+
+.g-4{
+	width: 23%;
+	left: 53%;
+	top: 41%;
+}
+
+.g-5{
+	width: 33%;
+	left: 40%;
+	top: 40%;
+}
+
+.g-6{
+	width: 29%;
+	left: 38.8%;
+	top: 45.5%;
+}
+
+
 /* selected */
 .dreamMode{
 	position: absolute;
 	left: 12%;
 	top: 4.6em;
-	width: 67%;
+	width: 210px;
 }
 
 .selectedModel_con{
 	position: absolute;
 	left: 1.6em;
-	top: 4em;
+	top: 20%;
 	width: 70%;
+	height:57%;
 }
 
 .selectedCon{
-	margin: 2.5em 0 2em 0;
+	margin: 1.5em 0;
 	display: inline-block;
 	font-size: 14px;
 	color: #001238;
@@ -362,18 +490,31 @@ html,body,#dreambox{
 	border-bottom: 1px #2d2c2d solid;
 }
 
+
+
+/* create */
+.create_con{
+	width: 250px;
+	display: inline-block;
+	margin: 22% 0 0 0;
+	position: relative;
+}
+
 .create-content{
 	position: absolute;
-	left: 5.2em;
-	top: 9em;
+	left: 50%;
+	top: 10%;
 	line-height: 16px;
-	width: 60%;
+	width: 80%;
+	margin: 0 0 0 -40%;
+	height: 80%;
 }
 
 .create-context{
 	width: 100%;
-	margin:2.7em 0;
+	margin:2.5em 0;
 	display: inline-block;
+	height: 36%;
 }
 
 .create-context,.create-name{
@@ -382,13 +523,13 @@ html,body,#dreambox{
 }
 
 .create-context textarea{
-	height:100px;
 	width: 80%;
 	background: none;
 	border: none;
 	display: inline-block;
 	font-size: 16px;
 	color: #2e3c5b;
+	text-align: center;
 }
 
 .create-name input{
@@ -401,7 +542,9 @@ html,body,#dreambox{
 	text-align: center;
 }
 
-
+.finshBtn{
+	display: none;
+}
 
 
 /* 样式放在结尾，防止 base64 图片造成拥塞 */
@@ -498,6 +641,89 @@ html,body,#dreambox{
 	  font-size: 15px;
 	  color: #fff
 	}
+
+
+
+
+
+
+
+.gl { 
+  -webkit-animation: shine 1.5s infinite ease-in-out;
+     -moz-animation: shine 1.5s infinite ease-in-out;
+          animation: shine 1.5s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes shine {
+  0%,30% {opacity: 0.4;}
+  60% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+@-moz-keyframes shine {
+  0%,30% {opacity: 0.4;}
+  60% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+@keyframes shine {
+  0%,30% {opacity: 0.4;}
+  60% {opacity: 1;}
+  100% {opacity: 0.4;}
+}
+
+
+
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.listmodel{
+		width: 80%;
+	}
+	.dreamlist dd{
+		width: 90%;
+		margin:-8em 0 0 0;
+	}
+	.dreamlist dt{
+		margin:0 0 0 0;
+	}
+
+	.modelView{
+		position: absolute;
+		left: 0;
+		top: 10em;
+	}
+
+	.backBtn{
+		top: 1em;
+	}
+
+	.attention_con,.formCon{
+		margin: 3em 0 0 0;
+	}
+
+	.create_con{
+		margin:15% 0 0 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

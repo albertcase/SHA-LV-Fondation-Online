@@ -24,90 +24,200 @@
 <img src="../imgs/ugc/form_bg.jpg" class="bg-index" />
 <div id="dreambox">
 
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-	    <div class="swiper-slide">
-	    	<div class="dreamlist">
-	    		<dl>
-	    			<dt class="m-1">
-	    				<div class="d_content">
-	    					<p class="d-to">2340<sup>th</sup></p>
-	    					<p class="d-text">辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展</p>
-	    					<p class="d-from">Michel</p>
-	    				</div>
-	    				<img src="../imgs/ugc/listmodel.png" width="100%" />
-	    			</dt>
-	    			<dd>
-	    				<div class="completionRatio">
-	    					<h2>65<sup>%</sup></h2>
-	    					<p>基金会已完成</p>
-	    				</div>
-	    				<img src="../imgs/ugc/m.png" width="100%" />
-	    				<div class="d-tips"><img src="../imgs/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
-	    			</dd>
-	    		</dl>
-	    	</div>
-	    </div>
-	    <div class="swiper-slide">
-	    	<div class="dreamlist">
-	    		<dl>
-	    			<dt class="m-1">
-	    				<div class="d_content">
-	    					<p class="d-to">5678<sup>th</sup></p>
-	    					<p class="d-text">辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展</p>
-	    					<p class="d-from">Michel</p>
-	    				</div>
-	    				<img src="../imgs/ugc/listmodel.png" width="100%" />
-	    			</dt>
-	    			<dd>
-	    				<div class="completionRatio">
-	    					<h2>65<sup>%</sup></h2>
-	    					<p>基金会已完成</p>
-	    				</div>
-	    				<img src="../imgs/ugc/m.png" width="100%" />
-	    				<div class="d-tips"><img src="../imgs/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
-	    			</dd>
-	    		</dl>
-	    	</div>
-	    </div>
-	    <div class="swiper-slide">
-	    	<div class="dreamlist">
-	    		<dl>
-	    			<dt class="m-1">
-	    				<div class="d_content">
-	    					<p class="d-to">7869<sup>th</sup></p>
-	    					<p class="d-text">辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展</p>
-	    					<p class="d-from">Michel</p>
-	    				</div>
-	    				<img src="../imgs/ugc/listmodel.png" width="100%" />
-	    			</dt>
-	    			<dd>
-	    				<div class="completionRatio">
-	    					<h2>65<sup>%</sup></h2>
-	    					<p>基金会已完成</p>
-	    				</div>
-	    				<img src="../imgs/ugc/m.png" width="100%" />
-	    				<div class="d-tips"><img src="../imgs/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
-	    			</dd>
-	    		</dl>
-	    	</div>
-	    </div>
-  </div>
+<!-- index page -->
+<div class="page" id="index" data-page="index">
+
+	<div class="demo-test">
+
+		<div class="dreamlist">
+    		<dl>
+    			<dt>
+					<div class="swiper-container dream-swiper">
+					  <div class="swiper-wrapper" id="dreamListCon">
+						   
+					    </div>
+					</div>
+    			</dt>
+    			<dd>
+    				<a href="javascript:pagechange.moveClick('chose');"></a>
+    				<div class="completionRatio">
+    					<h2>65<sup>%</sup></h2>
+    					<p>基金会已完成</p>
+    				</div>
+    				<img src="../imgs/ugc/m.png" width="100%" />
+    				<div class="d-tips"><img src="../imgs/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
+    			</dd>
+    		</dl>
+    	</div>
+
+    	<!-- Add Navigation -->
+		<div class="swiper-button-prev listPrev">
+				<img src="../imgs/ugc/list_arr_l.png" width="100%" />
+		</div>
+		<div class="swiper-button-next listNext">
+				<img src="../imgs/ugc/list_arr_r.png" width="100%" />
+		</div>
+
+	</div>
+
 </div>
 
 
-<!-- Add Navigation -->
-<div class="swiper-button-prev">
-		<img src="../imgs/ugc/list_arr_l.png" width="100%" />
+<!-- chose page -->
+<div class="page" id="chose" data-page="chose">
+
+	<div class="demo-test">
+		<div class="choseGlass">
+			<div class="glassTips"><img src="../imgs/ugc/green-dot.png" width="100%" />点击玻璃，了解大家的梦想之旅</div>
+			<div class="swiper-container glass-swiper">
+			  	<div class="swiper-wrapper" id="glassListCon">
+				    
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Add Navigation -->
+		<div class="swiper-button-prev glassArr-prev">
+				<img src="../imgs/ugc/arr-l.png" />
+		</div>
+		<div class="swiper-button-next glassArr-next">
+				<img src="../imgs/ugc/arr-r.png" />
+		</div>
+	</div>
+
 </div>
-<div class="swiper-button-next">
-		<img src="../imgs/ugc/list_arr_r.png" width="100%" />
+
+
+
+<!-- selected page -->
+<div class="page" id="selected" data-page="selected">
+
+	<div class="demo-test">
+		<div class="selected_con">
+		<img src="../imgs/ugc/glass-bg-1.jpg" width="100%" id="cur-glass" />
+
+			<div class="hotArea">
+				<div class="supportIcon">
+					<img src="../imgs/ugc/like.png" width="100%" />
+					<i>支持</i>
+				</div>	
+				<div class="shareIcon">
+					<img src="../imgs/ugc/shareIcon.png" width="100%" />
+					<i>分享</i>
+				</div>	
+			</div>
+
+			<div class="dreamMode">
+				<div id="selectedContent"> <!-- 选中信息 --> </div>		
+			</div>
+			
+
+		</div>	
+	
+	</div>
+
 </div>
+	    	
+
+<!-- create page -->
+<div class="page" id="create" data-page="create">
+
+	<div class="demo-test">
+		<a href="javascript:;" class="backBtn">
+			<img src="../imgs/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="create_con">
+			<div class="create-content">
+
+				<div class="create-num">你是构建路易威登基金会的<br />第<span></span>块玻璃</div>
+				<div class="create-context">
+					<textarea name="" cols="" rows="" placeholder="请输入创作内容"></textarea>
+				</div>
+				<div class="create-name">
+					<input type="text" placeholder="请输入您的姓名">
+				</div>
+
+
+			</div>
+			<img src="../imgs/ugc/c_g_1.png" width="100%"/>
+		</div>
+
+
+	</div>
+
+</div>
+
+
+<!-- form page -->
+<div class="page" id="form" data-page="form">
+
+	<div class="demo-test">
+		<a href="javascript:;" class="backBtn">
+			<img src="../imgs/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="formCon">
+			<img src="../imgs/ugc/formTips.png" width="78%" />
+			<ul class="formlist">
+				<li>
+					<span>姓名</span> <input type="text" name="fname">
+				</li>
+
+				<li>
+					<span>电子邮箱</span> <input type="text" name="femail">
+				</li>
+
+				<li>
+					<span>手机号码</span> <input type="tel" maxlength="11" name="ftel">
+				</li>
+
+				<li>
+					<span>邮寄地址</span> <input type="text" name="faddress">
+				</li>
+			</ul>
+
+			<a href="javascript:_doing.formData();" class="btn formSubmit_btn">
+				提交
+			</a>
+
+			<a href="javascript:pagechange.moveClick('attention');" class="attention_btn">
+				<img src="../imgs/ugc/attention_btn.png" />
+			</a>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- attention page -->
+<div class="page" id="attention" data-page="attention">
+
+	<div class="demo-test">
+		<a href="javascript:pagechange.moveClick('form');" class="backBtn">
+			<img src="../imgs/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="attention_con">
+			<img src="../imgs/ugc/attention_tips.png" />
+			<img src="../imgs/ugc/wechat.png" />
+		</div>
+	</div>
+
+</div>
+
+
+
 
 
 
 <div class="dream_footer">
-<a href="javascript:;" class="btn">告诉大家你的梦想之旅</a>
+<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+<a href="javascript:;" class="btn finshBtn">完成</a>
 <a href="javascript:;">
 	<img src="../imgs/ugc/story.jpg" width="100%" />
 </a>
@@ -126,15 +236,8 @@
     </div>
 </div>
 
-<script type="text/javascript">
-var mySwiper = $('.swiper-container').swiper({
-		pagination: '.swiper-pagination',
-		nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        loop: false
-});
-</script>
+<script type="text/javascript" src="../js/frame.js"></script>
+<script type="text/javascript" src="../js/ugc-main.js"></script>
 
 </body>
 </html>

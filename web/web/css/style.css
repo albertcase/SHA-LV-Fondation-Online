@@ -135,7 +135,9 @@ html,body,#dreambox{
 }
 
 
-
+#homeList img{
+	width: 100%;
+}
 
 .chapter{
 	width: 100%;
@@ -196,11 +198,6 @@ html,body,#dreambox{
 
 .swiper-container, .swiper-wrapper, .swiper-slide{
 	width: 100%;
-}
-
-.swiper-slide img{
-	width: 100%;
-	display: inline-block;
 }
 
 .swiper-pagination-bullet{
@@ -329,6 +326,121 @@ html,body,#dreambox{
 	width: 90%;
 	display: inline-block;
 	padding: 1.5em 0 1em 0; 
+}
+
+
+/* chapter3 */
+.glassInstall{
+	width: 100%;
+	height: 100%;
+	background: url("../imgs/chapter3/building.jpg") center bottom no-repeat;
+	background-size: 100% auto;
+	position: relative;
+}
+
+.page-con{
+	width: 100%;
+	height: 100%;
+}
+
+.glassInstall_con{
+	position: relative;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall h2{
+	font-size: 16px;
+	width: 100%;
+	margin: 5em 0 0 0;
+	display: inline-block; 
+	color: #3b3b3c;
+}
+
+.glassBlock{
+	width: 60%;
+	margin: 0.8em 0 0 0; 
+	display: inline-block;
+}
+
+.glassBlock_tips{
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	font-size: 14px;
+	color: #3b3b3c;
+	margin: 0 0 0.8em 0;
+	display: inline-block;
+}
+
+.glassInstall_fin{
+	width: 100%;
+	height: 100%;
+	background: url("../imgs/chapter3/building_fin.jpg") center 56% no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+}
+
+.glassInfo{
+	display: none;
+	margin: 0.4em 0 0 0;
+}
+
+.glassInfo p{
+	padding: 1em 0;
+	width: 100%;
+	display: inline-block;
+	font-size: 12px;
+	color: #686868;
+}
+
+.glassInfo p span{
+	color: #4c4c4c;
+	border-bottom: 1px #4c4c4c solid;
+	margin: 0 0.3em 0 0;
+	font-size: 14px;
+}
+
+
+.btn{
+	width:60%;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	border: 1px #000 solid;
+	color: #040301;
+	font-size: 14px;
+}
+
+.goonSearch{
+	display: none;
+}
+
+.glass_footer{
+	position: absolute;
+	left: 0;
+	bottom: 0.7em;
+	width: 100%;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall_info{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+	display: none;
+	opacity: 0;
 }
 
 
@@ -608,7 +720,47 @@ html,body,#dreambox{
 
 
 
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
 
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("../imgs/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glassBlock_tips{
+		margin: 0 0 0.6em 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}
 
 
 

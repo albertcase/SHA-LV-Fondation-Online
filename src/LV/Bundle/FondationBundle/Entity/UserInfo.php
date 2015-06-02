@@ -57,7 +57,7 @@ class UserInfo
     private $created;
     
     /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="uinfo")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="userinfo")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

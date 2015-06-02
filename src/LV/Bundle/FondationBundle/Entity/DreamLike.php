@@ -53,10 +53,10 @@ class DreamLike
     /**
      * Set user
      *
-     * @param \LV\Bundle\FondationBundle\Entity\UserDream $user
+     * @param \LV\Bundle\FondationBundle\Entity\User $user
      * @return DreamLike
      */
-    public function setUser(\LV\Bundle\FondationBundle\Entity\UserDream $user = null)
+    public function setUser(\LV\Bundle\FondationBundle\Entity\User $user = null)
     {
         $this->user = $user;
 

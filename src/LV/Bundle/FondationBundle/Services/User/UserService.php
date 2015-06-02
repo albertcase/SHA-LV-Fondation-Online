@@ -5,9 +5,7 @@ namespace LV\Bundle\FondationBundle\Services\User;
 use LV\Bundle\FondationBundle\Entity\User;
 use LV\Bundle\FondationBundle\Entity\UserInfo;
 use LV\Bundle\FondationBundle\Entity\UserDream;
-use LV\Bundle\FondationBundle\Entity\UserLike;
-//use Symfony\Component\HttpFoundation\Cookie;
-//use Symfony\Component\HttpFoundation\Response;
+use LV\Bundle\FondationBundle\Entity\DreamLike;
 
 class UserService
 {
@@ -22,7 +20,7 @@ class UserService
         $this->requestStack = $requestStack;
     }
 
-    public function userIsLogin() 
+    public function userIsLogin()
     {
         $session = $this->requestStack->getCurrentRequest()->getSession();
         $uid = $session->get('user');
@@ -34,7 +32,7 @@ class UserService
         
     }
 
-    public function userLoad() 
+    public function userLoad()
     {
         if($login = $this->userIsLogin()) {
             $user = $this->em->getRepository(self::ENTITY_NAME)
@@ -44,7 +42,7 @@ class UserService
         return NULL;
     }
 
-    public function userLogin($openid) 
+    public function userLogin($openid)
     {
         $user = $this->findUserByOpenId($openid);
         $user = $user ? $user : $this->userRegister($openid);
@@ -63,11 +61,11 @@ class UserService
         $user = new User();
         $user->setOpenid($openid);
         $user->setCreated(time());
-        $this->create($user);
+        $this->save($user);
         return $user;
     }
 
-    public function createUserInfo($data) 
+    public function createUserInfo($data)
     {
         if($user = $this->userLoad()) {
             $userinfo = new UserInfo();
@@ -77,7 +75,7 @@ class UserService
             $userinfo->setCellphone($data['cellphone']);
             $userinfo->setAddress($data['address']);
             $userinfo->setCreated(time());
-            $this->create($userinfo);
+            $this->save($userinfo);
             return $user;
         }
         return FALSE;
@@ -86,12 +84,41 @@ class UserService
     public function createUserDream($data) 
     {
         if($user = $this->userLoad()) {
-            $dream = new UserInfo();
+            $dream = new UserDream();
             $dream->setUser($user);
+            $dream->setNickname($data['nickname']);
             $dream->setContent($data['content']);
             $dream->setCreated(time());
-            $this->create($dream);
+            $dream->setUpdated(time());
+            $this->save($dream);
             return $dream;
+        }
+        return FALSE;
+    }
+
+    public function updateUserDream($data) 
+    {
+        if($user = $this->userLoad()) {
+            $dream = $user->getUserdream();
+            $dream->setUser($user);
+            $dream->setNickname($data['nickname']);
+            $dream->setContent($data['content']);
+            $dream->setUpdated(time());
+            $this->save($dream);
+            return $dream;
+        }
+        return FALSE;
+    }
+
+    public function dreamLike(UserDream $userdream)
+    {
+        if($user = $this->userLoad()) {
+            $dreamlike = new DreamLike();
+            $dreamlike->setUser($user);
+            $dreamlike->setUserdream($userdream);
+            $dreamlike->setCreated(time());
+            $this->save($dreamlike);
+            return $dreamlike;
         }
         return FALSE;
     }
@@ -109,7 +136,7 @@ class UserService
         return $this->em->getRepository(self::ENTITY_NAME)->findAll();
     }
 
-    public function create($entity)
+    public function save($entity)
     {
         $this->em->persist($entity);
         $this->em->flush($entity);

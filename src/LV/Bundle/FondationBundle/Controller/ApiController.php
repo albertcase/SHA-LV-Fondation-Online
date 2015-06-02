@@ -66,15 +66,54 @@ class ApiController extends Controller
     {
         $request = $this->getRequest()->request;
         $status = 0;
-        $content = $request->get('content');
+        $data = array(
+            'nickname' => $request->get('nickname'),
+            'content' => $request->get('content'),
+            );
         $user = $this->container->get('lv.user.service');
 
-        if($user->createUserDream($content)) {
+        if($user->createUserDream($data)) {
             $status = 1;
         }
         $response = new JsonResponse();
         $response->setData(array('status' => $status));
         return $response;
     }
-    
+
+    public function userDreamUpdateAction()
+    {
+        $request = $this->getRequest()->request;
+        $status = 0;
+        $data = array(
+            'nickname' => $request->get('nickname'),
+            'content' => $request->get('content'),
+            );
+        $user = $this->container->get('lv.user.service');
+
+        if($user->updateUserDream($data)) {
+            $status = 1;
+        }
+        $response = new JsonResponse();
+        $response->setData(array('status' => $status));
+        return $response;
+    }
+
+    public function dreamLikeAction()
+    {
+        $request = $this->getRequest()->request;
+        $status = 0;
+
+        $user = $this->container->get('lv.user.service');
+
+        $userdream = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:UserDream')
+            ->findOneBy(array('id' => $request->get('dream_id')));
+
+        if($user->dreamLike($userdream)) {
+            $status = 1;
+        }
+        $response = new JsonResponse();
+        $response->setData(array('status' => $status));
+        return $response;
+    }
 }

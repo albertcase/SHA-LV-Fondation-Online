@@ -40,7 +40,7 @@ class User
      * @ORM\OneToOne(targetEntity="UserInfo", mappedBy="user")
      * @ORM\OrderBy({"id" = "DESC"})
      */
-    private $uinfo;
+    private $userinfo;
 
     /**
      *
@@ -55,7 +55,6 @@ class User
      * @ORM\OrderBy({"id" = "DESC"})
      */
     private $dreamlike;
-
 
     /**
      * Constructor
@@ -122,26 +121,26 @@ class User
     }
 
     /**
-     * Set uinfo
+     * Set userinfo
      *
-     * @param \LV\Bundle\FondationBundle\Entity\UserInfo $uinfo
+     * @param \LV\Bundle\FondationBundle\Entity\UserInfo $userinfo
      * @return User
      */
-    public function setUinfo(\LV\Bundle\FondationBundle\Entity\UserInfo $uinfo = null)
+    public function setUserinfo(\LV\Bundle\FondationBundle\Entity\UserInfo $userinfo = null)
     {
-        $this->uinfo = $uinfo;
+        $this->userinfo = $userinfo;
 
         return $this;
     }
 
     /**
-     * Get uinfo
+     * Get userinfo
      *
      * @return \LV\Bundle\FondationBundle\Entity\UserInfo 
      */
-    public function getUinfo()
+    public function getUserinfo()
     {
-        return $this->uinfo;
+        return $this->userinfo;
     }
 
     /**

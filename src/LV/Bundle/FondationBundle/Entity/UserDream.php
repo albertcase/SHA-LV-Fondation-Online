@@ -41,7 +41,14 @@ class UserDream
      * @ORM\Column(name="created", type="string", length=255)
      */
     private $created;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated", type="string", length=255)
+     */
+    private $updated;
+
     /**
      * @ORM\OneToOne(targetEntity="User", inversedBy="userdream")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -195,5 +202,28 @@ class UserDream
     public function getNickname()
     {
         return $this->nickname;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param string $updated
+     * @return UserDream
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return string 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

@@ -1,9 +1,12 @@
 
 var dis = document.querySelector(".ani_area");
-dis.addEventListener('touchmove' , function (ev){
-	ev.preventDefault();
-	return false;
-} , false)
+if(dis!=null){
+	dis.addEventListener('touchmove' , function (ev){
+		ev.preventDefault();
+		return false;
+	} , false)
+}
+
 
 
 $('.page-out').bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){

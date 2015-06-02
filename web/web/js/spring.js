@@ -59,11 +59,38 @@
 			$(".map_1").addClass("add");
 			$(".loc_ps").animate({"opacity":"1"},1000);
 			$(".loc_bj").animate({"opacity":"1"},1000);
-			$(".cloud").addClass();
+
+			
+			$(".cloud_img").addClass("pulse").animate({"opacity":"1"},2000);
+			$(".line_img").addClass("line_animation").animate({"opacity":"1"});
+			$(".arrow").addClass("arrow_animation").animate({"opacity":"1"},1000);
 		}
 
 		var anim_home = document.getElementById("end");
 		anim_home.addEventListener("webkitAnimationEnd", animationListener_home, false);
+
+
+		var animationListener_home_2 = function(){
+
+			$(".loc_ps").fadeOut();
+			$(".loc_bj").fadeOut();
+			$(".line_img").fadeOut();
+			$(".arrow").fadeOut();
+			$(".cloud_img").fadeOut();
+			$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
+			$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
+			$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},6000,function(){
+				$(".lv_home").fadeIn().addClass("show");
+				$(".lv_title").addClass("show2").fadeIn(3000);
+
+			});
+			
+		
+		}
+
+		var anim_home = document.getElementById("arrow");
+		anim_home.addEventListener("webkitAnimationEnd", animationListener_home_2, false);
+
 
  	})
 

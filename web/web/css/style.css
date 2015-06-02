@@ -136,7 +136,9 @@ html,body,#dreambox{
 }
 
 
-
+#homeList img{
+	width: 100%;
+}
 
 .chapter{
 	width: 100%;
@@ -197,11 +199,6 @@ html,body,#dreambox{
 
 .swiper-container, .swiper-wrapper, .swiper-slide{
 	width: 100%;
-}
-
-.swiper-slide img{
-	width: 100%;
-	display: inline-block;
 }
 
 .swiper-pagination-bullet{
@@ -330,6 +327,121 @@ html,body,#dreambox{
 	width: 90%;
 	display: inline-block;
 	padding: 1.5em 0 1em 0; 
+}
+
+
+/* chapter3 */
+.glassInstall{
+	width: 100%;
+	height: 100%;
+	background: url("../imgs/chapter3/building.jpg") center bottom no-repeat;
+	background-size: 100% auto;
+	position: relative;
+}
+
+.page-con{
+	width: 100%;
+	height: 100%;
+}
+
+.glassInstall_con{
+	position: relative;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall h2{
+	font-size: 16px;
+	width: 100%;
+	margin: 5em 0 0 0;
+	display: inline-block; 
+	color: #3b3b3c;
+}
+
+.glassBlock{
+	width: 60%;
+	margin: 0.8em 0 0 0; 
+	display: inline-block;
+}
+
+.glassBlock_tips{
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	font-size: 14px;
+	color: #3b3b3c;
+	margin: 0 0 0.8em 0;
+	display: inline-block;
+}
+
+.glassInstall_fin{
+	width: 100%;
+	height: 100%;
+	background: url("../imgs/chapter3/building_fin.jpg") center 56% no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+}
+
+.glassInfo{
+	display: none;
+	margin: 0.4em 0 0 0;
+}
+
+.glassInfo p{
+	padding: 1em 0;
+	width: 100%;
+	display: inline-block;
+	font-size: 12px;
+	color: #686868;
+}
+
+.glassInfo p span{
+	color: #4c4c4c;
+	border-bottom: 1px #4c4c4c solid;
+	margin: 0 0.3em 0 0;
+	font-size: 14px;
+}
+
+
+.btn{
+	width:60%;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	border: 1px #000 solid;
+	color: #040301;
+	font-size: 14px;
+}
+
+.goonSearch{
+	display: none;
+}
+
+.glass_footer{
+	position: absolute;
+	left: 0;
+	bottom: 0.7em;
+	width: 100%;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall_info{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+	display: none;
+	opacity: 0;
 }
 
 
@@ -630,6 +742,7 @@ html,body,#dreambox{
 	top:42%;
 	right:6%;
 	opacity: 0;
+	z-index:2;
 
 }
 .loc_ps{
@@ -638,6 +751,7 @@ html,body,#dreambox{
 	top:24%;
 	left:1%;
 	opacity: 0;
+	z-index: 2;
 }
 .loc_lv{
 	position: absolute;
@@ -728,6 +842,16 @@ html,body,#dreambox{
 	-webkit-animation-fill-mode: forwards;
 	
 }
+.add2{
+	background: url('../imgs/address/map3.png') no-repeat;
+	background-size:100%;
+	animation: scale2 600ms linear;
+	-webkit-animation: scale2 600ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+
+}
 @keyframes scale {
 	0% { background-size: 100%;}
 	25% { background-size: 130%; background-position:0.75% 9%;}
@@ -741,6 +865,28 @@ html,body,#dreambox{
 	50% { background-size: 160%; background-position:1.5% 18%;}
 	75% { background-size: 190%; background-position:2.25% 27%;}
 	100% { background-size: 220%; background-position:3% 36%;}
+}
+@keyframes scale2 {
+	0% { background-size: 0%;background-position:50% 50%; }
+	12.5% { background-size: 12.5%;background-position:50% 50%; }
+	25% { background-size: 25%; background-position:50% 50%;}
+	37.5% { background-size: 37.5%;background-position:50% 50%; }
+	50% { background-size: 50%; background-position:50% 50%;}
+	62.5% { background-size: 62.5%; background-position:50% 50%;}
+	75% { background-size: 75%; background-position:50% 50%;}
+	87.5% { background-size: 87.5%; background-position:50% 50%;}
+	100% { background-size: 100%; background-position:50% 50%;}
+}
+@-webkit-keyframes scale2 {
+	0% { background-size: 0%;background-position:50% 50%; }
+	12.5% { background-size: 12.5%;background-position:50% 50%; }
+	25% { background-size: 25%; background-position:50% 50%;}
+	37.5% { background-size: 37.5%;background-position:50% 50%; }
+	50% { background-size: 50%; background-position:50% 50%;}
+	62.5% { background-size: 62.5%; background-position:50% 50%;}
+	75% { background-size: 75%; background-position:50% 50%;}
+	87.5% { background-size: 87.5%; background-position:50% 50%;}
+	100% { background-size: 100%; background-position:50% 50%;}
 }
 .map_2{
 	width:100%;
@@ -883,6 +1029,7 @@ html,body,#dreambox{
     position: absolute;
     top:-4%;
     opacity: 0;
+    -webkit-mask:url('../imgs/address/cloud7.png') no-repeat 0% center;
 }
 
 /*.cloud-mask{
@@ -897,38 +1044,269 @@ html,body,#dreambox{
 }*/
 
 .cloud_animation{
-	animation: cloud_float 800ms ease-in-out  1;
-	-webkit-animation: cloud_float 800ms ease-in-out  1;
+	animation: cloud_float 1s step-start 1;
+	-webkit-animation: cloud_float 1s step-start  1;
 }
 @keyframes cloud_float{
 	0% {-webkit-mask-image: -webkit-gradient(
-    linear, -56% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 0% 0%, 19% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	25% {-webkit-mask-image: -webkit-gradient(
-    linear, -20% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 4% 8%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	50% {-webkit-mask-image: -webkit-gradient(
-    linear, 20% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 15% 20%, 40% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	75% {-webkit-mask-image: -webkit-gradient(
-    linear, 30% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 27% 26%, 31% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	100% {-webkit-mask-image: -webkit-gradient(
-    linear, 40% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 30% 34%, 24% 0%, from(#fff), to(rgba(0,0,0,0)));}
 
 }
 @-webkit-keyframes cloud_float{
 	0% {-webkit-mask-image: -webkit-gradient(
-    linear, -56% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 0% 0%, 19% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	25% {-webkit-mask-image: -webkit-gradient(
-    linear, -20% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 4% 8%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	50% {-webkit-mask-image: -webkit-gradient(
-    linear, 20% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 15% 20%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	75% {-webkit-mask-image: -webkit-gradient(
-    linear, 30% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 27% 26%, 31% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	100% {-webkit-mask-image: -webkit-gradient(
-    linear, 40% 0%, 0% 100%, from(#fff), to(rgba(0,0,0,0)));}
+    linear, 30% 34%, 24% 0%, from(#fff), to(rgba(0,0,0,0)));}
 	
+}
+.pulse{
+    -webkit-animation-name: pulsed;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count:1;
+    /*-webkit-animation-direction:alternate;*/
+    -webkit-mask-size: 150%;
+}
+@-webkit-keyframes pulsed {
+    0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 150%; }
+}
+.line_animation{
+	animation: line_animation 2s ease-in-out 1;
+	-webkit-animation: line_animation 2s ease-in-out  1;
+
+}
+@keyframes line_animation {
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 10% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    25% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 30% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    50% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 50% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    75% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 70% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 100% 0%, from(#fff), to(rgba(0,0,0,0)));}
+}
+@-webkit-keyframes line_animation {
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 10% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    25% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 30% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    50% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 50% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    75% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 70% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 100% 0%, from(#fff), to(rgba(0,0,0,0)));}
+}
+.line_img{
+	width: 76%;
+	position: absolute;
+	left: 8%;
+	top: 35%;
+	opacity: 0;
+    
+}
+.arrow{
+	width:3%;
+	position: absolute;
+	top: 36%;
+	left: 12%;
+	opacity: 0;
+}
+.arrow_animation{
+	animation: arrow_animation 2.2s ease-in-out 1;
+	-webkit-animation: arrow_animation 2.2s ease-in-out 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes arrow_animation{
+	0% {top:36%; left:12%;transform: rotateX(85deg);}
+    25% {top:34%; left:20%;transform: rotateX(40deg);}
+    37.5% {top:32%; left:30%;transform: rotateX(20deg);}
+    50% {top:33%; left:39%;transform: rotateX(85deg);}
+    62.5% {top:34%;left:46%;transform: rotateX(120deg);}
+    75% {top:36%; left:55%;transform: rotate(20deg);}
+	100% {top:56%; left:82%;transform: rotate(40deg);}
+}
+@-webkit-keyframes arrow_animation{
+	0% {top:36%; left:12%;-webkit-transform: rotateX(85deg);}
+    25% {top:34%; left:20%;-webkit-transform: rotateX(40deg);}
+    37.5% {top:32%; left:30%;-webkit-transform: rotateX(20deg);}
+    50% {top:33%; left:39%;-webkit-transform: rotateX(85deg);}
+    62.5% {top:34%;left:46%;-webkit-transform: rotateX(120deg);}
+    75% {top:36%; left:55%;-webkit-transform: rotate(20deg);}
+	100% {top:56%; left:82%;-webkit-transform: rotate(40deg);}
+}
+
+.cloud_2_img{
+	width:86%;
+	position: absolute;
+	top: -9%;
+    left: 10%;
+    opacity: 0;
+    -webkit-mask:url('../imgs/address/mask_1.png') no-repeat  center; 
+
+}
+.cloud_2_animation{
+	-webkit-animation-name: cloud_center;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count:1;
+    -webkit-mask-size: 100%;
+
+
+}
+@keyframes cloud_center{
+	0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 100%; }
+}
+@-webkit-keyframes cloud_center{
+	0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 100%; }
+}
+.dot_lt{
+	width:3%;
+	position: absolute;
+	top:46%;
+    left:52%;
+	opacity: 0;
+	z-index:10;
+}
+.dot_animation{
+	animation: scale_dot 3s ease-in-out infinite;
+	-webkit-animation: scale_dot 3s ease-in-out infinite;
+	animation-delay:2s;
+	-webkit-animation-delay:2s;
+
+}
+@keyframes scale_dot{
+	0% {transform: scale(0,0);}
+	20% {transform: scale(1,1);}
+	40% {transform: scale(0,0);}
+	60% {transform: scale(1,1);}
+	80% {transform: scale(0,0);}
+	100% {transform: scale(1,1);}
+}
+@-webkit-keyframes scale_dot{
+	0% {-webkit-transform: scale(0,0);}
+	20% {-webkit-transform: scale(1,1);}
+	40% {-webkit-transform: scale(0,0);}
+	60% {-webkit-transform: scale(1,1);}
+	80% {-webkit-transform: scale(0,0);}
+	100% {-webkit-transform: scale(1,1);}
+}
+.lv_home{
+	width:20%;
+	position: absolute;
+	top:25%;
+	left:44%;
+	display: none;
+	
+	
+}
+.lv_title{
+	width:16%;
+	position: absolute;
+	top:36%;
+	left:46%;
+	display: none;
+	
+
+}
+.show{
+	animation: show 600ms ease-in-out 1;
+	-webkit-animation: show 600ms ease-in-out 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+}
+@keyframes show {
+	0%{top:34%;}
+	100%{top:25%;}
+
+}
+@-webkit-keyframes show {
+	0%{top:34%;}
+	100%{top:25%;}
+}
+.show2{
+	animation: show2 600ms ease-in-out 1;
+	-webkit-animation: show2 600ms ease-in-out 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-delay:1200ms;
+	-webkit-animation-delay:1200ms;
+	
+}
+@keyframes show2 {
+	0%{top:42%;transform:rotate(1deg);}
+	100%{top:36%;transform:rotate(1deg);}
+
+}
+@-webkit-keyframes show2 {
+	0%{top:42%;-webkit-transform:rotate(1deg);}
+	100%{top:36%;-webkit-transform:rotate(1deg);}
 }
 
 
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
 
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("../imgs/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glassBlock_tips{
+		margin: 0 0 0.6em 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}
 
 
 

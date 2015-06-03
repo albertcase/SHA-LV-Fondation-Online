@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <!--禁用手机号码链接(for iPhone)-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+        <!--自适应设备宽度-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--控制全屏时顶部状态栏的外，默认白色-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="Keywords" content="">
+        <meta name="Description" content="...">
+        {% block head_style %}
+        {% endblock %}
+        {% block head_scripts %}
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div id="dreambox">
+            {% block dreambox %}
+                <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/blog">Blog</a></li>
+                </ul>
+            {% endblock %}
+            <div class="dream_footer">
+                <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+                <a href="javascript:;" class="btn finshBtn">完成</a>
+                <a href="javascript:;">
+                    <img src="../imgs/ugc/story.jpg" width="100%" />
+                </a>
+            </div>
+        </div>
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content">
+                <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+            </div>
+        </div>
     </body>
 </html>

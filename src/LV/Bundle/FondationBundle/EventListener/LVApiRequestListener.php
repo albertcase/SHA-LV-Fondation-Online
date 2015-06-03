@@ -16,7 +16,7 @@ class LVApiRequestListener
     {
         $this->router = $router;
         $this->container = $container;
-    }    
+    }
 
     public function onKernelRequest(GetResponseEvent $event)
     {
@@ -29,10 +29,10 @@ class LVApiRequestListener
             $user = $this->container->get('lv.user.service');
 
             if($event->getRequest()->isXmlHttpRequest()) 
-                $event->setResponse($this->getResponseCode('002')); //is not XmlHttpRequest
+                $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
             if(!$user->userIsLogin())
-                $event->setResponse($this->getResponseCode('001')); //user is not login
+                $event->setResponse($this->getResponseCode('001')); //User is not login
 
             if($current_route == 'api_fondation_invite' && $code = $this->inviteValidate($request))
                 $event->setResponse($this->getResponseCode($code)); 

@@ -1,12 +1,12 @@
-lv_fondation_test:
-    path:     /create/user
-    defaults: { _controller: LVFondationBundle:Page:createUser }
-lv_fondation_userinfo:
-    path:     /create/userinfo
-    defaults: { _controller: LVFondationBundle:Page:createUserInfo }
-lv_fondation_testevent:
-    path:     /test/event
-    defaults: { _controller: LVFondationBundle:Page:testEvent }
+lv_fondation_ugc:
+    path:     /ugc
+    defaults: { _controller: LVFondationBundle:Page:ugc }
+# lv_fondation_userinfo:
+#     path:     /create/userinfo
+#     defaults: { _controller: LVFondationBundle:Page:createUserInfo }
+# lv_fondation_testevent:
+#     path:     /test/event
+#     defaults: { _controller: LVFondationBundle:Page:testEvent }
 api_fondation_jssdk:
     path:     /api/jssdk
     defaults: { _controller: LVFondationBundle:Api:jssdk }

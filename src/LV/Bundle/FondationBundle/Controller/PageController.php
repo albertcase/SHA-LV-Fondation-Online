@@ -11,10 +11,10 @@ use LV\Bundle\FondationBundle\Services\User\TestEvent;
 
 class PageController extends Controller
 {
-    public function indexAction($name)
+    public function ugcAction()
     {
     	//return new Response(json_encode(array(3)), 200);
-        return $this->render('LVFondationBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
     }
 
     public function createUserAction()

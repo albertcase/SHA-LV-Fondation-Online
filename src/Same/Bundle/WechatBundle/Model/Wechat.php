@@ -10,12 +10,8 @@
 namespace Same\Bundle\WechatBundle\Model;
 
 use Doctrine\ORM\EntityRepository;
-
 use Symfony\Component\HttpFoundation\RedirectResponse;
-
-use Symfony\Component\HttpFoundation\Request;
-
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class Wechat
 {
@@ -42,40 +38,16 @@ class Wechat
 	}
 
 	/** 
-	* wechat_oauth userinfo
-	* 
-	* @access public
-	* @param mixed $redirecturl  callBackUrl 
-	* @since 1.0 
-	* @return RedirectResponse
-	*/  
-	public function oauthUserinfo($redirecturl) {
-		$callback = $this->_router
-				  		 ->generate('same_wechat_callback_userinfo', 
-						  	          array(
-						  	          	'redirecturl'=> $redirecturl
-						  	          ), 
-				  	         		  true);
-		$http_data = array();
-		$http_data['appid'] = $this->_container->getParameter('appid');
-		$http_data['redirect_uri'] = $callback;
-		$http_data['response_type'] = 'code';
-		$http_data['scope'] = 'snsapi_userinfo';
-		$http_data['state'] = 'STATE';
-		return new RedirectResponse('https://open.weixin.qq.com/connect/oauth2/authorize?' . http_build_query($http_data) . '#wechat_redirect', 302);
-	}
-
-	/** 
-	* wechat_oauth base
+	* wechat_oauth
 	* 
 	* @access public
 	* @param mixed $redirecturl  callBackUrl 
 	* @since 1.0 
 	* @return RedirectResponse
 	*/ 
-	public function oauthBase($redirecturl) {
+	public function oauth($redirecturl, $scope = 'snsapi_userinfo', $state = 'STATE', $type = 'code') {
 		$callback = $this->_router
-				  		 ->generate('same_wechat_callback_base', 
+				  		 ->generate('same_wechat_callback', 
 						  	          array(
 						  	          	'redirecturl'=> $redirecturl
 						  	          ), 
@@ -83,10 +55,10 @@ class Wechat
 		$http_data = array();
 		$http_data['appid'] = $this->_container->getParameter('appid');
 		$http_data['redirect_uri'] = $callback;
-		$http_data['response_type'] = 'code';
-		$http_data['scope'] = 'snsapi_base';
-		$http_data['state'] = 'STATE';
-		return new RedirectResponse('https://open.weixin.qq.com/connect/oauth2/authorize?' . http_build_query($http_data) . '#wechat_redirect', 302);
+		$http_data['response_type'] = $type;
+		$http_data['scope'] = $scope;
+		$http_data['state'] = $state;
+		return new RedirectResponse($this->_container->getParameter('oauthApiUrl') . http_build_query($http_data) . '#wechat_redirect', 302);
 	}
 
 	/** 
@@ -102,7 +74,7 @@ class Wechat
 		$http_data['grant_type'] = 'client_credential';
 		$http_data['appid'] = $this->_container->getParameter('appid');
 		$http_data['secret'] = $this->_container->getParameter('appsecret');
-		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?' . http_build_query($http_data));
+		$rs = file_get_contents($this->_container->getParameter('tokenApiUrl') . http_build_query($http_data));
 		$rs = json_decode($rs,true);
 		if(isset($rs['access_token'])){
 			return $rs['access_token'];
@@ -126,7 +98,7 @@ class Wechat
 			$http_data = array();
 			$http_data['access_token'] = $access_token;
 			$http_data['type'] = 'jsapi';
-			$ticketfile = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?" . http_build_query($http_data));
+			$ticketfile = file_get_contents($this->_container->getParameter('ticketApiUrl') . http_build_query($http_data));
 			$ticketfile = json_decode($ticketfile, true);
 			$ticket = $ticketfile['ticket'];
 			$time = time();
@@ -146,7 +118,14 @@ class Wechat
 		$ticket_data['timestamp'] = $time;
 		$ticket_data['url'] = $url;
 		$sign = sha1(http_build_query($ticket_data));
-		return new Response(json_encode(array("appid" => $appid, "time" => $time, "noncestr"=> $noncestr, "sign" => $sign)));
+		$response = new JsonResponse();
+		$data = array();
+		$data['appid'] = $appid;
+		$data['time'] = $time;
+		$data['noncestr'] = $noncestr;
+		$data['sign'] = $sign;
+        $response->setData($data);
+        return $response;
 	}
 
 	/** 
@@ -162,50 +141,37 @@ class Wechat
 		$http_data['grant_type'] = 'authorization_code';
 		$http_data['appid'] = $this->_container->getParameter('appid');
 		$http_data['secret'] = $this->_container->getParameter('appsecret');
-		$result = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?' . http_build_query($http_data));
+		$result = file_get_contents($this->_container->getParameter('accessTokenApiUrl') . http_build_query($http_data));
 		$result = json_decode($result, true);
 		if(isset($result['access_token'])){
 			$this->_session->set('wechat_user_access_token', $result['access_token']);
 			$this->_session->set('wechat_user_openid', $result['openid']);
+			$this->_session->set('wechat_user_scope', $result['scope']);
 		}
 		return $result;
 	}
 
 	/** 
-	* wechat_islogin userinfo
+	* wechat_islogin
 	* get user's login status
 	* @access public
 	* @since 1.0 
 	* @return json access_token&openid or RedirectResponse
 	*/ 
-	public function isLoginUserInfo($redirecturl) {
+	public function isLogin($redirecturl) {
 		if($access_token = $this->_session->get('wechat_user_access_token')){
 			$info = array();
 			$info['access_token'] = $access_token;
 			$info['openid'] = $this->_session->get('wechat_user_openid');
-			return new Response(json_encode($info));
+			$info['scope'] = $this->_session->get('wechat_user_scope');
+			$response = new JsonResponse();
+	        $response->setData($info);
+	        return $response;
 		}
 		return $this->oauthUserInfo($redirecturl);
 		
 	}
 
-	/** 
-	* wechat_islogin base
-	* get user's login status
-	* @access public
-	* @since 1.0 
-	* @return json access_token&openid or RedirectResponse
-	*/ 
-	public function isLoginBase($redirecturl) {
-		if($access_token = $this->_session->get('wechat_user_access_token')){
-			$info = array();
-			$info['access_token'] = $access_token;
-			$info['openid'] = $this->_session->get('wechat_user_openid');
-			return new Response(json_encode($info));		
-		}
-		return $this->oauthBase($redirecturl);
-		
-	}
 
 }
 ?>

@@ -24,22 +24,22 @@ class LVPageRequestListener
         
     	if($current_route && !preg_match('/^api_fondation_*/', $current_route)) {
 
-            $wechat = $this->container->get('same.wechat');
-
-            $url = $this->router->generate($current_route);
-
-            $isWechatLogin = $wechat->isLoginBase($url);
-
-            if($isWechatLogin instanceof RedirectResponse)
-                $event->setResponse($isWechatLogin);
-
             $user = $this->container->get('lv.user.service');
 
             if(!$user->userIsLogin()) {
-                $openid = $isWechatLogin;
-                $user->userLogin($openid);
-            }
+                
+                $wechat = $this->container->get('same.wechat');
 
+                $url = $this->router->generate($current_route);
+
+                $isWechatLogin = $wechat->isLoginBase($url);
+
+                if($isWechatLogin instanceof RedirectResponse)
+                    $event->setResponse($isWechatLogin);
+
+                $user->userLogin($isWechatLogin);
+
+            }
     	}
     }
 

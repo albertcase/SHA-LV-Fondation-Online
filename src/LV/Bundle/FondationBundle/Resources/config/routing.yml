@@ -10,3 +10,29 @@ lv_fondation_testevent:
 api_fondation_jssdk:
     path:     /api/jssdk
     defaults: { _controller: LVFondationBundle:Api:jssdk }
+    methods: [GET]
+
+api_fondation_invite:
+    path:     /api/invite
+    defaults: { _controller: LVFondationBundle:Api:invite }
+    methods: [POST]
+
+api_fondation_userinfo:
+    path:     /api/userinfo
+    defaults: { _controller: LVFondationBundle:Api:userInfo }
+    methods: [POST]
+
+api_fondation_userdream:
+    path:     /api/userdream
+    defaults: { _controller: LVFondationBundle:Api:userDream }
+    methods: [POST]
+
+api_fondation_dreamlike:
+    path:     /api/dreamlike
+    defaults: { _controller: LVFondationBundle:Api:dreamLike }
+    methods: [POST]
+
+api_fondation_dreamupdate:
+    path:     /api/dreamupdate
+    defaults: { _controller: LVFondationBundle:Api:userDreamUpdate }
+    methods: [POST]

@@ -14,13 +14,9 @@
 	<meta name="Description" content="...">
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/animate.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/touch.js"></script>
 </head>
 <body id="form">
 <div id="navLevel" class="page-prev">
@@ -56,21 +52,22 @@
 
 
 <div id="dreambox">
-
 	<div class="head">
-		<img src="imgs/nav_bg.png">
+		<img src="imgs/nav_bg.png" class="nav-bg" />
 		<a href="javascript:;" class="nav_icon">
 			<img src="imgs/nav_icon.png" />
 		</a>
+		<img src="imgs/menu-bg.png" width="100%" />
 	</div>
+
 
 	<div class="form_con">
 		<img src="imgs/form/bg.jpg" width="100%" class="header_img"/>
 		<img src="imgs/form/invitation.png" width="100%" class="invitation"/>
 		<div class="form">
 			<ul>
-				<li>姓名<input type="text" name="name" value="" class="form_name" placeholder=""></li>
-				<li>手机号码<input type="tel" name="tel" maxlength="11" value="" class="form_tel" placeholder=""></li>
+				<li><span>姓名</span><input type="text" name="name" value="" class="form_name" placeholder=""></li>
+				<li><span>手机号码</span><input type="tel" name="tel" maxlength="11" value="" class="form_tel" placeholder=""></li>
 			</ul>	
 		</div>
 		<input type="submit" value="提交" class="sub_btn">	
@@ -88,19 +85,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/spring.js"></script>
-<script type="text/javascript">
-
-$(window).load(function() {
-	mCustomScrollbars();
-});
-
-function mCustomScrollbars(){
-	$(".chapter_content").mCustomScrollbar(); 
-}
-
-</script>
 
 </body>
 </html>

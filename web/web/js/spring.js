@@ -61,11 +61,11 @@
 
 		var animationListener_home_2 = function(){
 
-			$(".loc_ps").fadeOut("600");
-			$(".loc_bj").fadeOut("600");
-			$(".line_img").fadeOut("600");
-			$(".arrow").fadeOut("600");
-			$(".cloud_img").fadeOut("600");
+			$(".loc_ps").fadeOut("900");
+			$(".loc_bj").fadeOut("900");
+			$(".line_img").fadeOut("900");
+			$(".arrow").fadeOut("900");
+			$(".cloud_img").fadeOut("900");
 			$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
 			$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
 			$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},3000,function(){

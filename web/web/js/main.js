@@ -26,15 +26,11 @@ touch.on(l, 'swipeup', function(event){
     event.preventDefault();
 });
 
-
-
-$(".nav_icon").click(function(){
-	$("#navLevel").removeClass('page-prev').addClass('page-active page-in');
-})
-
-$(".close").click(function(){
-	$("#navLevel").removeClass('page-active').addClass('page-prev page-out');
-})
+touch.on(j, 'swipedown', function(event){
+	j.removeClass('page-active').addClass('page-prev page-out');
+    l.removeClass('page-next').addClass('page-active page-in');
+    event.preventDefault();
+});
 
 
 

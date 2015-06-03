@@ -196,18 +196,21 @@ html, body {
         width: 80%;
     }
 
+
     .dreamParameters{
-        top: 6.2em;
+        width: 227px;
+        margin: 0 0 0 -32%;
     }
 
-    .dp_name{
-        margin: 0.6em 0 0 0;
-    }
 
     .dp_curGlass{
-        margin: 0.6em 0 0.2em 0;
+        margin: 0.2em 0 0.2em 0;
         font-size: 12px;
         line-height: 16px;
+    }
+
+    .dp_curGlass i{
+        padding: 0 0 0.6em 0;
     }
 
     .dp_curGlass span{
@@ -215,7 +218,7 @@ html, body {
     }
 
     .dp_info{
-        margin-top: 0.8em;
+        margin: 0.6em 0 0.2em 0; 
     }
 
     .s-img{

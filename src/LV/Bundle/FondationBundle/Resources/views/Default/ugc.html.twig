@@ -1,0 +1,215 @@
+{% extends '::base.html.twig' %}
+{% block title %}LV UGC{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/main.css"
+	'%kernel.root_dir%/Resources/public/css/*'
+	'bundles/lvfondation/css/swiper.min.css'
+	'bundles/lvfondation/css/ugc-style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/main.js"
+    '%kernel.root_dir%/Resources/public/js/*'
+    '@LVFondationBundle/Resources/public/js/data.js'
+    '@LVFondationBundle/Resources/public/js/swiper.min.js'
+    '@LVFondationBundle/Resources/public/js/frame.js'
+    '@LVFondationBundle/Resources/public/js/ugc-main.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+{% block dreambox %}
+<!-- index page -->
+<div class="page" id="index" data-page="index">
+
+	<div class="demo-test">
+
+		<div class="dreamlist">
+    		<dl>
+    			<dt>
+					<div class="swiper-container dream-swiper">
+					  <div class="swiper-wrapper" id="dreamListCon">
+						   
+					    </div>
+					</div>
+    			</dt>
+    			<dd>
+    				<a href="javascript:pagechange.moveClick('chose');"></a>
+    				<div class="completionRatio">
+    					<h2>65<sup>%</sup></h2>
+    					<p>基金会已完成</p>
+    				</div>
+    				<img src="/images/ugc/m.png" width="100%" />
+    				<div class="d-tips"><img src="/images/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
+    			</dd>
+    		</dl>
+    	</div>
+
+    	<!-- Add Navigation -->
+		<div class="swiper-button-prev listPrev">
+				<img src="/images/ugc/list_arr_l.png" width="100%" />
+		</div>
+		<div class="swiper-button-next listNext">
+				<img src="/images/ugc/list_arr_r.png" width="100%" />
+		</div>
+
+	</div>
+
+</div>
+
+
+<!-- chose page -->
+<div class="page" id="chose" data-page="chose">
+
+	<div class="demo-test">
+		<div class="choseGlass">
+			<div class="glassTips"><img src="/images/ugc/green-dot.png" width="100%" />点击玻璃，了解大家的梦想之旅</div>
+			<div class="swiper-container glass-swiper">
+			  	<div class="swiper-wrapper" id="glassListCon">
+				    
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Add Navigation -->
+		<div class="swiper-button-prev glassArr-prev">
+				<img src="/images/ugc/arr-l.png" />
+		</div>
+		<div class="swiper-button-next glassArr-next">
+				<img src="/images/ugc/arr-r.png" />
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- selected page -->
+<div class="page" id="selected" data-page="selected">
+
+	<div class="demo-test">
+		<div class="selected_con">
+		<img src="/images/ugc/glass-bg-1.jpg" width="100%" id="cur-glass" />
+
+			<div class="hotArea">
+				<div class="supportIcon">
+					<img src="/images/ugc/like.png" width="100%" />
+					<i>支持</i>
+				</div>	
+				<div class="shareIcon">
+					<img src="/images/ugc/shareIcon.png" width="100%" />
+					<i>分享</i>
+				</div>	
+			</div>
+
+			<div class="dreamMode">
+				<div id="selectedContent"> <!-- 选中信息 --> </div>		
+			</div>
+			
+
+		</div>	
+	
+	</div>
+
+</div>
+	    	
+
+<!-- create page -->
+<div class="page" id="create" data-page="create">
+
+	<div class="demo-test">
+		<a href="javascript:;" class="backBtn">
+			<img src="/images/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="create_con">
+			<div class="create-content">
+
+				<div class="create-num">你是构建路易威登基金会的<br />第<span></span>块玻璃</div>
+				<div class="create-context">
+					<textarea name="" cols="" rows="" placeholder="请输入创作内容"></textarea>
+				</div>
+				<div class="create-name">
+					<input type="text" placeholder="请输入您的姓名">
+				</div>
+
+
+			</div>
+			<img src="/images/ugc/c_g_1.png" width="100%"/>
+		</div>
+
+
+	</div>
+
+</div>
+
+
+<!-- form page -->
+<div class="page" id="form" data-page="form">
+
+	<div class="demo-test">
+		<a href="javascript:;" class="backBtn">
+			<img src="/images/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="formCon">
+			<img src="/images/ugc/formTips.png" width="78%" />
+			<ul class="formlist">
+				<li>
+					<span>姓名</span> <input type="text" name="fname">
+				</li>
+
+				<li>
+					<span>电子邮箱</span> <input type="text" name="femail">
+				</li>
+
+				<li>
+					<span>手机号码</span> <input type="tel" maxlength="11" name="ftel">
+				</li>
+
+				<li>
+					<span>邮寄地址</span> <input type="text" name="faddress">
+				</li>
+			</ul>
+
+			<a href="javascript:_doing.formData();" class="btn formSubmit_btn">
+				提交
+			</a>
+
+			<a href="javascript:pagechange.moveClick('attention');" class="attention_btn">
+				<img src="/images/ugc/attention_btn.png" />
+			</a>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- attention page -->
+<div class="page" id="attention" data-page="attention">
+
+	<div class="demo-test">
+		<a href="javascript:pagechange.moveClick('form');" class="backBtn">
+			<img src="/images/ugc/reback_arr.png" />
+			返回
+		</a>
+
+		<div class="attention_con">
+			<img src="/images/ugc/attention_tips.png" />
+			<img src="/images/ugc/wechat.png" />
+		</div>
+	</div>
+
+</div>
+{# {% image output="images/apple-touch-icon.png"
+	'@LVFondationBundle/Resources/public/images/apple-touch-icon.png' 
+%}
+    <img src="{{ asset_url }}" alt="Symfony!" />
+{% endimage %}     #}
+    
+{% endblock %}

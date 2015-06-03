@@ -2,7 +2,8 @@
 {% block title %}LV UGC{% endblock %}
 {% block head_style %}
 {% stylesheets filter='cssrewrite' output="css/main.css"
-	'%kernel.root_dir%/Resources/public/css/*'
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+	'%kernel.root_dir%/Resources/public/css/menu.css'
 	'bundles/lvfondation/css/swiper.min.css'
 	'bundles/lvfondation/css/ugc-style.css'
 %}
@@ -19,7 +20,7 @@
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-{% endblock %}
+{% endblock %}   
 {% block dreambox %}
 <!-- index page -->
 <div class="page" id="index" data-page="index">

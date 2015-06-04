@@ -17,6 +17,26 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
     }
 
+    public function chapterOneAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter1.html.twig');
+    }
+
+    public function chapterTwoAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter2.html.twig');
+    }
+
+    public function chapterThreeAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter3.html.twig');
+    }
+
+    public function chapterFourAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter4.html.twig');
+    }
+
     public function createUserAction()
     {   
         $user = new User();

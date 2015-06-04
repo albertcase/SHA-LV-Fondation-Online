@@ -1,6 +1,22 @@
 lv_fondation_ugc:
     path:     /ugc
     defaults: { _controller: LVFondationBundle:Page:ugc }
+
+lv_fondation_chapter1:
+    path:     /chapter1
+    defaults: { _controller: LVFondationBundle:Page:chapterOne }
+
+lv_fondation_chapter2:
+    path:     /chapter2
+    defaults: { _controller: LVFondationBundle:Page:chapterTwo }
+
+lv_fondation_chapter3:
+    path:     /chapter3
+    defaults: { _controller: LVFondationBundle:Page:chapterThree }
+
+lv_fondation_chapter4:
+    path:     /chapter4
+    defaults: { _controller: LVFondationBundle:Page:chapterFour }
 # lv_fondation_userinfo:
 #     path:     /create/userinfo
 #     defaults: { _controller: LVFondationBundle:Page:createUserInfo }

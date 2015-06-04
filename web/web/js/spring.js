@@ -23,7 +23,7 @@
         		return false; 
 			}
 		});
-		$(".loc_ps").on("click",function(){
+		/*$(".loc_ps").on("click",function(){
 			$(".loc_ps").fadeOut();
 			$(".loc_bj").fadeOut();
 			$(".mask").animate({"opacity":"0","left":"20px"});
@@ -39,7 +39,7 @@
 
 		$("#mask").animate({"width":"10%"});
 
-		/*$(".map_1").animate({"opacity":"0"},3000,function(){
+		$(".map_1").animate({"opacity":"0"},3000,function(){
 
 
         var animationListener_home = function(){

@@ -17,6 +17,11 @@ lv_fondation_chapter3:
 lv_fondation_chapter4:
     path:     /chapter4
     defaults: { _controller: LVFondationBundle:Page:chapterFour }
+
+lv_fondation_invitation:
+    path:     /invitation
+    defaults: { _controller: LVFondationBundle:Page:invitation }
+
 # lv_fondation_userinfo:
 #     path:     /create/userinfo
 #     defaults: { _controller: LVFondationBundle:Page:createUserInfo }

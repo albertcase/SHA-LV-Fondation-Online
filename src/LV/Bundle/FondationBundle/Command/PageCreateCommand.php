@@ -53,10 +53,11 @@ EOF
             'chapter2' => 'chapter2.html',
             'chapter3' => 'chapter3.html',
             'chapter4' => 'chapter4.html',
+            'invitation' => 'invitation.html'
             );
         foreach($pages as $name => $pagename) {
-            $content = $this->getContainer()->get('templating')->render('LVFondationBundle:Default:ugc.html.twig');
-            $fs->dumpFile($pagename, $content);
+            $content = $this->getContainer()->get('templating')->render('LVFondationBundle:Default:' . $name . '.html.twig');
+            $fs->dumpFile('web/' . $pagename, $content);
             $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $name));
         }
 

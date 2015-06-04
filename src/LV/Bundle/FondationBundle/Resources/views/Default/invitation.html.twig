@@ -1,0 +1,15 @@
+{% extends 'LVFondationBundle::layout.html.twig' %} 
+{% block dreambox %}
+	<div class="form_con">
+		<img src="/images/form/bg.jpg" width="100%" class="header_img"/>
+		<img src="/images/form/invitation.png" width="100%" class="invitation"/>
+		<div class="form">
+			<ul>
+				<li><span>姓名</span><input type="text" name="name" value="" class="form_name" placeholder=""></li>
+				<li><span>手机号码</span><input type="tel" name="tel" maxlength="11" value="" class="form_tel" placeholder=""></li>
+			</ul>	
+		</div>
+		<input type="submit" value="提交" class="sub_btn">	
+
+	</div>	
+{% endblock %}

@@ -37,6 +37,11 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:chapter4.html.twig');
     }
 
+    public function invitationAction()
+    {
+        return $this->render('LVFondationBundle:Default:invitation.html.twig');
+    }
+    
     public function createUserAction()
     {   
         $user = new User();

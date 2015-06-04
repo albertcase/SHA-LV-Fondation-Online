@@ -1,12 +1,54 @@
-lv_fondation_test:
-    path:     /create/user
-    defaults: { _controller: LVFondationBundle:Page:createUser }
-lv_fondation_userinfo:
-    path:     /create/userinfo
-    defaults: { _controller: LVFondationBundle:Page:createUserInfo }
-lv_fondation_testevent:
-    path:     /test/event
-    defaults: { _controller: LVFondationBundle:Page:testEvent }
+lv_fondation_ugc:
+    path:     /ugc
+    defaults: { _controller: LVFondationBundle:Page:ugc }
+
+lv_fondation_chapter1:
+    path:     /chapter1
+    defaults: { _controller: LVFondationBundle:Page:chapterOne }
+
+lv_fondation_chapter2:
+    path:     /chapter2
+    defaults: { _controller: LVFondationBundle:Page:chapterTwo }
+
+lv_fondation_chapter3:
+    path:     /chapter3
+    defaults: { _controller: LVFondationBundle:Page:chapterThree }
+
+lv_fondation_chapter4:
+    path:     /chapter4
+    defaults: { _controller: LVFondationBundle:Page:chapterFour }
+# lv_fondation_userinfo:
+#     path:     /create/userinfo
+#     defaults: { _controller: LVFondationBundle:Page:createUserInfo }
+# lv_fondation_testevent:
+#     path:     /test/event
+#     defaults: { _controller: LVFondationBundle:Page:testEvent }
 api_fondation_jssdk:
     path:     /api/jssdk
     defaults: { _controller: LVFondationBundle:Api:jssdk }
+    methods: [GET]
+
+api_fondation_invite:
+    path:     /api/invite
+    defaults: { _controller: LVFondationBundle:Api:invite }
+    methods: [POST]
+
+api_fondation_userinfo:
+    path:     /api/userinfo
+    defaults: { _controller: LVFondationBundle:Api:userInfo }
+    methods: [POST]
+
+api_fondation_userdream:
+    path:     /api/userdream
+    defaults: { _controller: LVFondationBundle:Api:userDream }
+    methods: [POST]
+
+api_fondation_dreamlike:
+    path:     /api/dreamlike
+    defaults: { _controller: LVFondationBundle:Api:dreamLike }
+    methods: [POST]
+
+api_fondation_dreamupdate:
+    path:     /api/dreamupdate
+    defaults: { _controller: LVFondationBundle:Api:userDreamUpdate }
+    methods: [POST]

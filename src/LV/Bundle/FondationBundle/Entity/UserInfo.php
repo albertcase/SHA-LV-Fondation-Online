@@ -50,8 +50,15 @@ class UserInfo
     private $address;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="created", type="string", length=255)
+     */
+    private $created;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="User", inversedBy="userinfo")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
@@ -178,5 +185,28 @@ class UserInfo
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set created
+     *
+     * @param string $created
+     * @return UserInfo
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return string 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

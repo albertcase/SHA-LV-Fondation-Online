@@ -36,12 +36,33 @@ class User
     private $created;
 
     /**
-     * Bidirectional - One-To-Many (INVERSE SIDE)
      *
-     * @ORM\OneToMany(targetEntity="UserInfo", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="UserInfo", mappedBy="user")
      * @ORM\OrderBy({"id" = "DESC"})
      */
     private $userinfo;
+
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="UserDream", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $userdream;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="DreamLike", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $dreamlike;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dreamlike = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -98,44 +119,83 @@ class User
     {
         return $this->created;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->userinfo = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add userinfo
+     * Set userinfo
      *
      * @param \LV\Bundle\FondationBundle\Entity\UserInfo $userinfo
      * @return User
      */
-    public function addUserinfo(\LV\Bundle\FondationBundle\Entity\UserInfo $userinfo)
+    public function setUserinfo(\LV\Bundle\FondationBundle\Entity\UserInfo $userinfo = null)
     {
-        $this->userinfo[] = $userinfo;
+        $this->userinfo = $userinfo;
 
         return $this;
     }
 
     /**
-     * Remove userinfo
-     *
-     * @param \LV\Bundle\FondationBundle\Entity\UserInfo $userinfo
-     */
-    public function removeUserinfo(\LV\Bundle\FondationBundle\Entity\UserInfo $userinfo)
-    {
-        $this->userinfo->removeElement($userinfo);
-    }
-
-    /**
      * Get userinfo
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \LV\Bundle\FondationBundle\Entity\UserInfo 
      */
     public function getUserinfo()
     {
         return $this->userinfo;
+    }
+
+    /**
+     * Set userdream
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\UserDream $userdream
+     * @return User
+     */
+    public function setUserdream(\LV\Bundle\FondationBundle\Entity\UserDream $userdream = null)
+    {
+        $this->userdream = $userdream;
+
+        return $this;
+    }
+
+    /**
+     * Get userdream
+     *
+     * @return \LV\Bundle\FondationBundle\Entity\UserDream 
+     */
+    public function getUserdream()
+    {
+        return $this->userdream;
+    }
+
+    /**
+     * Add dreamlike
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamLike $dreamlike
+     * @return User
+     */
+    public function addDreamlike(\LV\Bundle\FondationBundle\Entity\DreamLike $dreamlike)
+    {
+        $this->dreamlike[] = $dreamlike;
+
+        return $this;
+    }
+
+    /**
+     * Remove dreamlike
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamLike $dreamlike
+     */
+    public function removeDreamlike(\LV\Bundle\FondationBundle\Entity\DreamLike $dreamlike)
+    {
+        $this->dreamlike->removeElement($dreamlike);
+    }
+
+    /**
+     * Get dreamlike
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDreamlike()
+    {
+        return $this->dreamlike;
     }
 }

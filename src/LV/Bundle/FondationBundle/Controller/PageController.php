@@ -11,10 +11,30 @@ use LV\Bundle\FondationBundle\Services\User\TestEvent;
 
 class PageController extends Controller
 {
-    public function indexAction($name)
+    public function ugcAction()
     {
     	//return new Response(json_encode(array(3)), 200);
-        return $this->render('LVFondationBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
+    }
+
+    public function chapterOneAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter1.html.twig');
+    }
+
+    public function chapterTwoAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter2.html.twig');
+    }
+
+    public function chapterThreeAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter3.html.twig');
+    }
+
+    public function chapterFourAction()
+    {
+        return $this->render('LVFondationBundle:Default:chapter4.html.twig');
     }
 
     public function createUserAction()
@@ -57,17 +77,11 @@ class PageController extends Controller
 
     public function testEventAction()
     {
-        // var_dump($this->container->getParameter('session_memcached_prefix'));exit;
-        $session = $this->getRequest()->getSession();
-        //$session->set('albertshen22', '2dsdf23234sdfadffas');
-        var_dump($session->get('albertshen22'));
+
+
+        
+
 exit;
-        return new Response(json_encode(array('name' => 33)));
-        $a = $this->container->getParameter('api_user');
-        var_dump($a);exit;
-        $event = new FilterTestOneEvent(new TestEvent());
-        $dispatcher = $this->get('event_dispatcher'); 
-        $dispatcher->dispatch('test.one', $event);
-        exit;
+
     }
 }

@@ -3,30 +3,6 @@ html, body {
     height: 100%;
 }
 
-.swiper-wrapper, .swiper-container {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: none;
-    /* Center slide text vertically */
-    /*display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;*/
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    text-align: center;
-}
 
 .step1_con{
     width: 90%;
@@ -196,18 +172,21 @@ html, body {
         width: 80%;
     }
 
+
     .dreamParameters{
-        top: 6.2em;
+        width: 227px;
+        margin: 0 0 0 -32%;
     }
 
-    .dp_name{
-        margin: 0.6em 0 0 0;
-    }
 
     .dp_curGlass{
-        margin: 0.6em 0 0.2em 0;
+        margin: 0.2em 0 0.2em 0;
         font-size: 12px;
         line-height: 16px;
+    }
+
+    .dp_curGlass i{
+        padding: 0 0 0.6em 0;
     }
 
     .dp_curGlass span{
@@ -215,7 +194,7 @@ html, body {
     }
 
     .dp_info{
-        margin-top: 0.8em;
+        margin: 0.6em 0 0.2em 0; 
     }
 
     .s-img{

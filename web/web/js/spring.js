@@ -38,18 +38,58 @@
 
 
 		$("#mask").animate({"width":"10%"});
+
 		/*$(".map_1").animate({"opacity":"0"},3000,function(){
+=======
+
+        var animationListener_home = function(){
+>>>>>>> 525a55654dba599c20343e9f1a073b05de396834
 			$(".dot").fadeOut();
 			$(".title_ps").fadeOut();
 			$(".title_bj").fadeOut();
 			$(".title_ty").fadeOut();
 			$(".title_ny").fadeOut();
+<<<<<<< HEAD
 			$(".map_2").animate({"opacity":"1"});
 			
 			
 
-		});*/
-        
+		});
+
+			$(".map_1").addClass("add");
+			$(".loc_ps").animate({"opacity":"1"},1000);
+			$(".loc_bj").animate({"opacity":"1"},1000);
+
+			
+			$(".cloud_img").addClass("pulse").animate({"opacity":"1"},2000);
+			$(".line_img").addClass("line_animation").animate({"opacity":"1"});
+			$(".arrow").addClass("arrow_animation").animate({"opacity":"1"},1000);
+		}
+
+		var anim_home = document.getElementById("end");
+		anim_home.addEventListener("webkitAnimationEnd", animationListener_home, false);
+
+
+		var animationListener_home_2 = function(){
+
+			$(".loc_ps").fadeOut("900");
+			$(".loc_bj").fadeOut("900");
+			$(".line_img").fadeOut("900");
+			$(".arrow").fadeOut("900");
+			$(".cloud_img").fadeOut("900");
+			$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
+			$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
+			$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},3000,function(){
+				$(".lv_home").fadeIn().addClass("show");
+				$(".lv_title").addClass("show2").fadeIn("1000");
+			});
+			
+		
+		}
+
+		var anim_home2 = document.getElementById("arrow");
+		anim_home2.addEventListener("webkitAnimationEnd", animationListener_home_2, false);
+*/
 
 
  	})

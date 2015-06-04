@@ -56,8 +56,8 @@ function GetQueryString_q(name){
                 if(curArrIndex>=pageArr.length-1)return false;
                 curArrIndex++;
 
-                a.removeClass('page-active').addClass('page-prev page-out');
-                $('#'+pageArr[curArrIndex]).removeClass('page-next').addClass('page-active page-in');
+                a.removeClass('page-active').addClass('page-out');
+                $('#'+pageArr[curArrIndex]).addClass('page-active page-in');
 
                 pageSlideOver();
                 history.pushState({"page": pageArr[curArrIndex]}, "" , "#"+pageArr[curArrIndex]);
@@ -67,8 +67,8 @@ function GetQueryString_q(name){
                 if(curArrIndex<=0)return false;
                 curArrIndex--;
 
-                a.removeClass('page-active').addClass('page-next page-out');
-                $('#'+pageArr[curArrIndex]).removeClass('page-prev').addClass('page-active page-in');
+                a.removeClass('page-active').addClass('page-out');
+                $('#'+pageArr[curArrIndex]).addClass('page-active page-in');
 
                 pageSlideOver();
                 history.pushState({"page": pageArr[curArrIndex]}, "" , "#"+pageArr[curArrIndex]);
@@ -82,11 +82,11 @@ function GetQueryString_q(name){
 
 
                 if(curShowIndex > curClickIndex){
-                  $("#"+curshow).removeClass('page-active').addClass('page-next page-out');
-                  $('#'+curclick).removeClass('page-prev').addClass('page-active page-in');
+                  $("#"+curshow).removeClass('page-active').addClass('page-out');
+                  $('#'+curclick).addClass('page-active page-in');
                 }else{
-                  $("#"+curshow).removeClass('page-active').addClass('page-prev page-out');
-                  $('#'+curclick).removeClass('page-next').addClass('page-active page-in');
+                  $("#"+curshow).removeClass('page-active').addClass('page-out');
+                  $('#'+curclick).addClass('page-active page-in');
                 }
 
                 pageSlideOver();

@@ -63,19 +63,19 @@ var _doing;
 				    femail = $("input[name='femail']"); 
 				    ftel = $("input[name='ftel']"); 
 				    faddress = $("input[name='faddress']"); 
-				console.log(!this.emailReg.test(femail.val()));
+				//console.log(!this.emailReg.test(femail.val()));
 
 				if(fname.val() == ""){
-					fname.addClass(".error").val("").attr("placeholder","姓名不能为空！");
+					fname.addClass("error").val("").attr("placeholder","姓名不能为空！");
 					return false;
 				}else if(!this.emailReg.test(femail.val())){
-					femail.addClass(".error").val("").attr("placeholder","邮箱输入有误！");
+					femail.addClass("error").val("").attr("placeholder","邮箱输入有误！");
 					return false;
 				}else if (!this.telReg.test(ftel.val())){
-					ftel.addClass(".error").val("").attr("placeholder","手机号码输入有误！");
+					ftel.addClass("error").val("").attr("placeholder","手机号码输入有误！");
 					return false;
 				}else if(faddress.val()==""){
-					faddress.addClass(".error").val("").attr("placeholder","地址不能为空！");
+					faddress.addClass("error").val("").attr("placeholder","地址不能为空！");
 					return false;
 				}else{
 					alert("提交成功！");

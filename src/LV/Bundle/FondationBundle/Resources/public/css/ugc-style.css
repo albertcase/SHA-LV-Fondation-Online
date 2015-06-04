@@ -56,6 +56,8 @@ html,body,#dreambox{
   left: 0;
   top: 0;
   opacity: 0;
+  transform: scale(1.02,1.02);
+  -webkit-transform: scale(1.02,1.02);
 }
 
 /* --------- frame --------- */
@@ -173,7 +175,7 @@ html,body,#dreambox{
 .dreamlist dt{
 	width: 100%;
 	text-align: center;
-	margin:1em 0 0 0;
+	margin:10% 0 0 0;
 	display: inline-block;
 	position: relative;
 }
@@ -200,7 +202,7 @@ html,body,#dreambox{
 }
 
 .listmodel.m-1 img{
-	margin: 0 0 0 2em; 
+	margin: 0 0 0 1em; 
 }
 
 
@@ -208,7 +210,7 @@ html,body,#dreambox{
 	width: 80%;
 	position: absolute;
 	left: 10%;
-	bottom: 4.5em;
+	bottom: 27%;
 }
 
 .d-tips img{
@@ -251,14 +253,19 @@ html,body,#dreambox{
 	color: #001238;
 	font-size: 14px;
 	overflow: hidden;
-	margin: 20% 0 0 0;
+	margin: 19% 0 0 0;
 	display: inline-block; 
 	text-align: left;
+}
+
+.d-to{
+	font-size: 14px;
 }
 
 .d-from{
 	display: inline-block; 
 	margin: 15% 0 0 0;
+	font-size: 14px;
 }
 
 .completionRatio{
@@ -297,7 +304,7 @@ html,body,#dreambox{
 	width: 20%;
 	position: absolute;
 	left: 0;
-	top: 3em;
+	top: 4em;
 	font-size: 14px;
 	color: #363533;
 }
@@ -624,7 +631,7 @@ html,body,#dreambox{
 	}
 
 	.mod-orient-layer__icon-orient {
-	  background-image: url('/images/heng.png');
+	  background-image: url('../imgs/heng.png');
 	  display: inline-block;
 	  width: 67px;
 	  height: 109px;

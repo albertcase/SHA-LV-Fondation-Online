@@ -825,16 +825,41 @@ html,body,#dreambox{
 
 }
 /* address1 */
+.map_content{
+	width:100%;
+	height:220px;
+	overflow: hidden;
+	position: absolute;
+	margin-top:10%;
+}
 .map_1{
 	width:100%;
 	height:220px;
 	position:absolute;
-	margin: 10% 0 0 0;
+	margin-top: 10%;
 	background: url('../imgs/address/map1.png') no-repeat;
 	background-size: 100%;
 	
 
 }
+.map_3{
+	width:100%;
+	height:220px;
+	position:absolute;
+	background: url('../imgs/address/map1.png') no-repeat;
+	background-size: 100%;
+}
+.map_4{
+	width:100%;
+	height:220px;
+	position:absolute;
+	margin-top: 10%;
+	background: url('../imgs/address/map5.png') no-repeat center;
+	background-size: auto 100%;
+	opacity: 0;
+
+}
+
 .add{
 	animation: scale 400ms ease-in-out;
 	-webkit-animation: scale 400ms ease-in-out;
@@ -842,6 +867,7 @@ html,body,#dreambox{
 	-webkit-animation-fill-mode: forwards;
 	
 }
+
 .add2{
 	background: url('../imgs/address/map3.png') no-repeat;
 	background-size:100%;
@@ -852,6 +878,21 @@ html,body,#dreambox{
 	
 
 }
+.add4{
+	animation: scale2 600ms linear;
+	-webkit-animation: scale2 600ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-delay:600ms;
+	-webkit-animation-delay:600ms;
+}
+.add3{
+	animation: scale3 1s linear 1;
+	-webkit-animation: scale3 1s linear 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
 @keyframes scale {
 	0% { background-size: 100%;}
 	25% { background-size: 130%; background-position:0.75% 9%;}
@@ -888,17 +929,32 @@ html,body,#dreambox{
 	87.5% { background-size: 87.5%; background-position:50% 50%;}
 	100% { background-size: 100%; background-position:50% 50%;}
 }
+@keyframes scale3 {
+	0% { transform:scale(1);left:0;}
+	20% { transform:scale(1.5);left:44%;}
+	40% { transform:scale(2);left: 88%;}
+	60% { transform:scale(1.5);left: 90%;}
+	80% { transform:scale(1);left: 95%;}
+	100% { transform:scale(0);left: 100%;}
+}
+@-webkit-keyframes scale3 {
+	0% { -webkit-transform:scale(1);left:0;}
+	20% { -webkit-transform:scale(1.5);left:44%;}
+	40% { -webkit-transform:scale(2);left: 88%;}
+	60% { -webkit-transform:scale(1.5);left: 90%;}
+	80% { -webkit-transform:scale(1);left: 95%;}
+	100% { -webkit-transform:scale(0);left: 100%;}
+}
 .map_2{
 	width:100%;
 	height:220px;
 	position:absolute;
-	margin: 10% 0 0 0;
+	margin-top: 10%;
 	background: url('../imgs/address/map.png') no-repeat;
 	background-size: 100%;
     opacity: 0;
 
 }
-
 .dot{
 	width:3%;
 }
@@ -1158,21 +1214,22 @@ html,body,#dreambox{
 .cloud_2_img{
 	width:86%;
 	position: absolute;
-	top: -9%;
-    left: 10%;
+	top: 26%;
+    left: 5%;
     opacity: 0;
     -webkit-mask:url('../imgs/address/mask_1.png') no-repeat  center; 
 
 }
 .cloud_2_animation{
 	-webkit-animation-name: cloud_center;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count:1;
     -webkit-mask-size: 100%;
-
-
+    animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
 }
+
 @keyframes cloud_center{
 	0% { -webkit-mask-size: 0%; }
     100% { -webkit-mask-size: 100%; }
@@ -1190,8 +1247,8 @@ html,body,#dreambox{
 	z-index:10;
 }
 .dot_animation{
-	animation: scale_dot 3s ease-in-out infinite;
-	-webkit-animation: scale_dot 3s ease-in-out infinite;
+	animation: scale_dot 3s ease-in-out 1;
+	-webkit-animation: scale_dot 3s ease-in-out 1;
 	animation-delay:2s;
 	-webkit-animation-delay:2s;
 
@@ -1218,6 +1275,7 @@ html,body,#dreambox{
 	top:25%;
 	left:44%;
 	display: none;
+	z-index:10;
 	
 	
 }
@@ -1227,9 +1285,11 @@ html,body,#dreambox{
 	top:36%;
 	left:46%;
 	display: none;
+	z-index: 10;
 	
 
 }
+
 .show{
 	animation: show 600ms ease-in-out 1;
 	-webkit-animation: show 600ms ease-in-out 1;
@@ -1264,7 +1324,145 @@ html,body,#dreambox{
 	0%{top:42%;-webkit-transform:rotate(1deg);}
 	100%{top:36%;-webkit-transform:rotate(1deg);}
 }
+#start_ps{
+	width:8%;
+	position: absolute;
+	top: 31%;
+	left: .5%;
+	opacity: 0;
+	animation: start_ps 400ms ease-in-out 1;
+	-webkit-animation: start_ps 400ms ease-in-out 1;
+	animation-delay:1600ms;
+	-webkit-animation-delay:1600ms;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
 
+}
+@keyframes start_ps{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+
+}
+@-webkit-keyframes start_ps{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+
+}
+.cloud_forest{
+	width:86%;
+	position:absolute;
+	top:0;
+	left:6%;
+	opacity: 0;
+	-webkit-mask:url('../imgs/address/mask_4.png') no-repeat center;
+	-webkit-mask-size: 0%;
+}
+
+
+.park_all{
+	width:100%;
+	position: absolute;
+	left:16%;
+	top:2px;
+}
+.dot_first{
+	width: 3%;
+	position:relative;
+	opacity: 0;
+	z-index: 10;
+	margin:9% 0% 0% -12%
+
+}
+.building{
+	width:22%;
+	opacity: 0;
+	position:relative;
+	z-index: 10;
+	margin: 1% 0 4% 3%;
+	
+}
+.park{
+	width:22%;
+	opacity: 0;
+	position:relative;
+	z-index:10;
+	margin:22% 0% 0% -15%;
+	
+}
+
+.park_name{
+	width:20%;
+	opacity: 0;
+	position: relative;
+	z-index: 10;
+	margin:25% 0% -7% -22%;
+}
+.cloud_sky{
+	width: 100%;
+	height:220px;
+	position:absolute;
+
+
+}
+.cloud_left{
+	width: 100%;
+	position: absolute;
+	left:0%;
+
+}
+.cloud_right{
+	width: 100%;
+	position: absolute;
+	right: 0%;
+}
+.cloud_left_animation{
+	animation: cloud_scale_left 3s linear 1;
+	-webkit-animation: cloud_scale_left 3s linear 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
+	animation-delay:600ms;
+	－webkit-animation-delay:600ms;
+}
+@keyframes cloud_scale_left{
+	0%{transform: translate(0%) scale(2.5); opacity: 0.8}
+	20%{transform: translate(20%) scale(2.5); opacity: 0.7;}
+	40%{transform: translate(40%) scale(2); opacity: 0.8;}
+	60%{transform: translate(60%) scale(2); opacity: 0.9;}
+	80%{transform: translate(80%) scale(1); opacity: 0.9;}
+	100%{transform: translate(100%) scale(1); opacity: 1;}
+}
+@-webkit-keyframes cloud_scale_left{
+	0%{-webkit-transform: translate(0%) scale(2.5); opacity: 0.8;}
+	20%{-webkit-transform: translate(20%) scale(2.5); opacity: 0.7;}
+	40%{-webkit-transform: translate(40%) scale(2); opacity: 0.8;}
+	60%{-webkit-transform: translate(60%) scale(2); opacity: 0.9;}
+	80%{-webkit-transform: translate(80%) scale(1); opacity: 0.9;}
+	100%{-webkit-transform: translate(100%) scale(1); opacity: 1;}
+}
+.cloud_right_animation{
+	animation: cloud_scale_right 3s linear 1;
+	-webkit-animation: cloud_scale_right 3s linear 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
+	animation-delay:600ms;
+	－webkit-animation-delay:600ms;
+}
+@keyframes cloud_scale_right{
+	0%{transform: translate(0%) scale(2.5); opacity: 0.8;}
+	20%{transform: translate(-20%) scale(2.5); opacity: 0.7;}
+	40%{transform: translate(-40%) scale(2); opacity: 0.8;}
+	60%{transform: translate(-60%) scale(2); opacity: 0.9;}
+	80%{transform: translate(-80%) scale(1); opacity: 0.9;}
+	100%{transform: translate(-100%) scale(1); opacity: 1}
+}
+@-webkit-keyframes cloud_scale_right{
+	0%{-webkit-transform: translate(0%) scale(2.5);opacity: 0.8;}
+	20%{-webkit-transform: translate(-20%) scale(2.5);opacity: 0.7;}
+	40%{-webkit-transform: translate(-40%) scale(2);opacity: 0.8;}
+	60%{-webkit-transform: translate(-60%) scale(2);opacity: 0.9;}
+	80%{-webkit-transform: translate(-80%) scale(1);opacity: 0.9;}
+	100%{-webkit-transform: translate(-100%) scale(1);opacity: 1;}
+}
 
 @media handheld and (min-height:400px),screen and (max-height:420px) {
 	.menu li a{

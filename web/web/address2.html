@@ -63,81 +63,66 @@
 			<img src="imgs/nav_icon.png" />
 		</a>
 	</div>
-<!-- 	<div class="map">
-		<img src="imgs/address/info.png" width="100%" class="intro"/>
-		<div class="mask"></div>
-		
-		<div class="map_bg">
-			<img src="imgs/address/paris.png" width="100%" class="loc_ps">
-			<img src="imgs/address/beijing.png" width="100%" class="loc_bj">
-			<img src="imgs/address/lvhome.png" width="100%" class="loc_lv">	 
-		</div>
-		<div class="mask1"></div>
-		<img src="imgs/address/lvhome.png" width="100%" class="loc_lv">
-	</div>	 -->
-
 	<div class="map_con">
-		<img src="imgs/address/info.png" width="100%" class="intro"/>
-		<div class="map_1">
-			<div class="ps">
-				<img src="imgs/address/dot.png" width="100%" class="dot dot_ps" />
-				<img src="imgs/address/ps_icon.png" width="100%" class="title_ps">
-			</div>
-			<div class="bj">
-				<img src="imgs/address/dot.png" width="100%" class="dot dot_bj" />
-				<img src="imgs/address/bj_icon.png" width="100%" class="title_bj">
-			</div>
-			<div class="ty">
-				<img src="imgs/address/dot.png" width="100%" class="dot dot_ty" />
-				<img src="imgs/address/ty_icon.png" width="100%" class="title_ty">
-			</div>
-			<div class="ny">
-				<img src="imgs/address/dot.png" width="100%" class="dot dot_ny" />
-				<img src="imgs/address/ny_icon.png" width="100%" class="title_ny" id="end">
-			</div>
-			<div class="map_2_ps">
-				<img src="imgs/address/paris_12.png" width="100%" class="loc_ps" />
-			</div>
-			<div class="map_2_bj">	
-				<img src="imgs/address/beijing.png" width="100%" class="loc_bj" />
-			</div>
-			<div class="cloud">
-				<!-- <div class="cloud-mask"></div> -->
-				<img src="imgs/address/cloud.png" width="100%" class="cloud_img" />
-			</div>
-			<div class="line">
-				<img src="imgs/address/line.png" width="100%" class="line_img" />
-			</div>
-			<div class="arrow_rt">
-				<img src="imgs/address/arrow_rt.png" width="100%" id="arrow" class="arrow"/>
-			</div>
-			<!-- <div class="cloud2">
-				<img src="imgs/address/green2.png" width="100%" class="cloud_2_img" />
-			</div> -->
-			<div class="dot_last">
-				<img src="imgs/address/dot.png" width="100%" class="dot_lt">
-			</div>
-			<div class="lv_t">
-				<img src="imgs/address/lv.png" width="100%" class="lv_title" />
-			</div>
-			<div class="lv_w">
-				<img src="imgs/address/lv_home.png" width="100%" class="lv_home" />
+		<img src="imgs/address/info_2.png" width="100%" class="intro"/>
+
+		<div class="map_content">
+			<div class="map_3">
+				<div class="ps">
+					<img src="imgs/address/dot.png" width="100%" class="dot dot_ps" />
+					<img src="imgs/address/paris_green.png" width="100%" id="start_ps" >
+					<img src="imgs/address/ps_icon.png" width="100%" class="title_ps">
+				</div>
+				<div class="bj">
+					<img src="imgs/address/dot.png" width="100%" class="dot dot_bj" />
+					<img src="imgs/address/bj_icon.png" width="100%" class="title_bj">
+				</div>
+				<div class="ty">
+					<img src="imgs/address/dot.png" width="100%" class="dot dot_ty" />
+					<img src="imgs/address/ty_icon.png" width="100%" class="title_ty">
+				</div>
+				<div class="ny">
+					<img src="imgs/address/dot.png" width="100%" class="dot dot_ny" />
+					<img src="imgs/address/ny_icon.png" width="100%" class="title_ny" >
+				</div>
+				<!-- <div class="cloud_sky">
+					<img src="imgs/address/cloud_sky.png" width="100%" class="cloud_left"/>
+					<img src="imgs/address/cloud_sky.png" width="100%" class="cloud_right"/>
+				</div> -->
+
 			</div>
 		</div>
-		<div class="cloud2">
-				<img src="imgs/address/green2.png" width="100%" class="cloud_2_img" />
-			</div>
-		<!-- <div class="map_2">
-			<div class="map_2_ps">	
-				<img src="imgs/address/beijing.png" width="100%" class="loc_bj" />
-			</div>
-			<div class="map_2_bj">
-				<img src="imgs/address/paris.png" width="100%" class="loc_ps" />
-			</div>
-			<div class="cloud">
-				<img src="imgs/address/cloud.png" width="100%" class="cloud" />
+
+
+		<div class="map_4">
+
+			<img src="imgs/address/cloud_forest.png" height="100%" class="cloud_forest" />
+			<div class="cloud_sky">
+					<img src="imgs/address/cloud_sky.png" width="100%" class="cloud_left"/>
+					<img src="imgs/address/cloud_sky.png" width="100%" class="cloud_right"/>
+				</div>
+			
+			<div class="park_all">
+				
+				<img src="imgs/address/flv.png" width="100%" class="building" />
+				<img src="imgs/address/dot.png" width="100%" class="dot dot_first" />
+				<img src="imgs/address/park.png" width="100%" class="park" />
+				<img src="imgs/address/parkname_en.png" width="100%" class="park_name">
+				
 			</div>	
-		</div>	 -->
+		</div>
+		
+
+	  	
+		
+
+		
+		<!-- <div class="dot_first">
+			<img src="imgs/address/dot.png" width="100%" >
+		</div> -->	
+			
+		
+		
 	</div>	
 
 
@@ -158,15 +143,12 @@
 
 $(window).load(function() {
 	mCustomScrollbars();
-	animation1();
-	animation2();
 });
 
 function mCustomScrollbars(){
 	$(".chapter_content").mCustomScrollbar(); 
 }
-
-
+animation3();
 
 </script>
 

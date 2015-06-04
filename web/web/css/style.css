@@ -1104,11 +1104,7 @@ html,body,#dreambox{
 }
 .cloud_2_animation{
 	-webkit-animation-name: cloud_center;
-<<<<<<< HEAD
-    -webkit-animation-duration: 4s;
-=======
     -webkit-animation-duration: 2s;
->>>>>>> 525a55654dba599c20343e9f1a073b05de396834
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count:1;
     -webkit-mask-size: 100%;
@@ -1133,13 +1129,8 @@ html,body,#dreambox{
 	z-index:10;
 }
 .dot_animation{
-<<<<<<< HEAD
-	animation: scale_dot 3s ease-in-out 1;
-	-webkit-animation: scale_dot 3s ease-in-out 1;
-=======
 	animation: scale_dot 1s linear infinite;
 	-webkit-animation: scale_dot 1s linear infinite;
->>>>>>> 525a55654dba599c20343e9f1a073b05de396834
 	animation-delay:2s;
 	-webkit-animation-delay:2s;
 

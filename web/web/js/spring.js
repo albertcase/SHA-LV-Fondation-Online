@@ -40,16 +40,16 @@
 		$("#mask").animate({"width":"10%"});
 
 		/*$(".map_1").animate({"opacity":"0"},3000,function(){
-=======
+
 
         var animationListener_home = function(){
->>>>>>> 525a55654dba599c20343e9f1a073b05de396834
+
 			$(".dot").fadeOut();
 			$(".title_ps").fadeOut();
 			$(".title_bj").fadeOut();
 			$(".title_ty").fadeOut();
 			$(".title_ny").fadeOut();
-<<<<<<< HEAD
+
 			$(".map_2").animate({"opacity":"1"});
 			
 			

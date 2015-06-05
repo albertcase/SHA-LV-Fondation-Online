@@ -1,5 +1,6 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
+
 <div class="chapter modelpage">
 
 		<!-- Swiper -->
@@ -19,43 +20,42 @@
 
 
             <div class="swiper-slide">
-            	<div class="chapter_content" id="scrollArea">
-					<img data-src="/images/chapter1/c1.jpg" width="100%" class="swiper-lazy" />
+            	<div class="chapter_content swiper-no-swiping" id="scrollArea">
+						<img data-src="/images/chapter1/c1.jpg" width="100%" class="swiper-lazy" />
 
-					<div class="contentImg">
-						<p class="c2">
-							<img data-src="/images/chapter1/c2.png" width="94%" class="swiper-lazy" />
-						</p>
-						<p class="c3">
-							<img data-src="/images/chapter1/c3.png" width="94%" class="swiper-lazy" />
-						</p>
-						<p class="c4">
-							<img data-src="/images/chapter1/c4.png" width="94%" class="swiper-lazy" />
-						</p>
-						
-					</div>
-					
-					<div class="content_footer">
-						<p>
-						<img data-src="/images/chapter1/footer_tips.png" class="swiper-lazy" />
-						</p>
-						<div class="btnArea">
-
-							<a href="invitations.html" class="creat_btn">
-								<img data-src="/images/creat_btn.png" width="100%" class="swiper-lazy" />
-							</a>
-							<a href="ugc/index.html" class="talk_btn">
-								<img data-src="/images/talk_btn.png" width="100%" class="swiper-lazy" />
-							</a>
+						<div class="contentImg">
+							<p class="c2">
+								<img data-src="/images/chapter1/c2.png" width="94%" class="swiper-lazy" />
+							</p>
+							<p class="c3">
+								<img data-src="/images/chapter1/c3.png" width="94%" class="swiper-lazy" />
+							</p>
+							<p class="c4">
+								<img data-src="/images/chapter1/c4.png" width="94%" class="swiper-lazy" />
+							</p>
 							
 						</div>
-					</div>
-					
-					<a href="javascript:;">
-						<img data-src="/images/chapter1/kv.jpg" width="100%" class="c5 swiper-lazy" />
-					</a>
-				</div>
+						
+						<div class="content_footer">
+							<p>
+							<img data-src="/images/chapter1/footer_tips.png" class="swiper-lazy" />
+							</p>
+							<div class="btnArea">
 
+								<a href="invitations.html" class="creat_btn">
+									<img data-src="/images/creat_btn.png" width="100%" class="swiper-lazy" />
+								</a>
+								<a href="ugc/index.html" class="talk_btn">
+									<img data-src="/images/talk_btn.png" width="100%" class="swiper-lazy" />
+								</a>
+								
+							</div>
+						</div>
+						
+						<a href="javascript:;">
+							<img data-src="/images/chapter1/kv.jpg" width="100%" class="c5 swiper-lazy" />
+						</a>
+				</div>
 				<div class="swiper-lazy-preloader"></div>
             </div>
 
@@ -66,25 +66,12 @@
 	
 </div>
 <script type="text/javascript">
-document.addEventListener('touchmove' , function (ev){
-		ev.preventDefault();
-		return false;
-} , false)
 
-var swiper = new Swiper('.swiper-container', {
+
+var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
     direction: 'vertical'
 });
-
-var myScroll;
-function loaded () {
-	myScroll = new IScroll('#scrollArea', { 
-		scrollX: false, 
-		scrollY: true
-	});
-}
-
-loaded ()
 
 
 </script>

@@ -22,7 +22,7 @@ class LVPageRequestListener
 
     	$current_route = $event->getRequest()->get('_route');
         
-    	if($current_route && !preg_match('/^api_fondation_*/', $current_route) &&!preg_match('/^same_wechat_*/', $current_route)&&!preg_match('/^same_admin_*/', $current_route)) {
+    	if($current_route && preg_match('/^api_fondation_*/', $current_route)) {
 
             $user = $this->container->get('lv.user.service');
             if(!$user->userIsLogin()) {

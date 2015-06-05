@@ -76,4 +76,12 @@ class WechatController extends Controller
         return $wechat->isSubscribed($openid);
     }
 
+
+    public function testAction()
+    {   
+        $image = $this->container->get('lv.image.service');
+        return new Response($image->ImageCreateForOnline('Demon Zhang'));
+        return new Response($image->ImageCreateForOffline('images/imagesevice/test.jpg'));
+    }
+
 }

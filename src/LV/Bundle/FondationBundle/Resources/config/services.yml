@@ -17,7 +17,9 @@ services:
     lv.user.service:
         class: LV\Bundle\FondationBundle\Services\User\UserService
         arguments: [@doctrine.orm.entity_manager, @request_stack]
-
+    lv.image.service:
+        class: LV\Bundle\FondationBundle\Services\Image\ImageService
+        arguments: [@doctrine.orm.entity_manager, @request_stack]
     lv.page.test_listener_one:
         class: LV\Bundle\FondationBundle\EventListener\TestOneListener
         tags:

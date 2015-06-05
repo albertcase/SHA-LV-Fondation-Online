@@ -318,6 +318,28 @@ html,body,#dreambox{
 	padding: 1em 0; 
 }
 
+.mapInfo{
+	width: 100%;
+	position: absolute;
+	top: 16%;
+	left: 0;
+	text-align: center;
+}
+
+.mapInfo h2{
+	font-size: 27px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px #020202 solid;
+	display: inline-block;
+}
+
+.mapInfo p{
+	width: 90%;
+	display: inline-block;
+	padding: 16px 0 0 0;
+	font-size: 12px;
+	line-height: 18px;
+}
 
 /* chapter3 */
 .glassInstall{
@@ -798,17 +820,43 @@ html,body,#dreambox{
     
 
 }
+
+
 /* address1 */
+.map_content{
+	width:100%;
+	height:220px;
+	overflow: hidden;
+	position: absolute;
+	top: 49%;
+}
 .map_1{
 	width:100%;
 	height:220px;
 	position:absolute;
-	margin: 10% 0 0 0;
+	margin-top: 10%;
 	background: url('/images/address/map1.png') no-repeat;
 	background-size: 100%;
 	
 
 }
+.map_3{
+	width:100%;
+	height:220px;
+	position:absolute;
+	background: url('/images/address/map1.png') no-repeat;
+	background-size: 100%;
+}
+.map_4{
+	width:100%;
+	height:220px;
+	position:absolute;
+	background: url('/images/address/map5.png') no-repeat center;
+	background-size: auto 100%;
+	opacity: 0;
+
+}
+
 .add{
 	animation: scale 500ms linear;
 	-webkit-animation: scale 500ms linear;
@@ -816,6 +864,7 @@ html,body,#dreambox{
 	-webkit-animation-fill-mode: forwards;
 	
 }
+
 .add2{
 	background: url('/images/address/map3.png') no-repeat;
 	background-size:100%;
@@ -826,6 +875,21 @@ html,body,#dreambox{
 	
 
 }
+.add4{
+	animation: scale2 600ms linear;
+	-webkit-animation: scale2 600ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-delay:600ms;
+	-webkit-animation-delay:600ms;
+}
+.add3{
+	animation: scale3 2.4s ease-in;
+	-webkit-animation: scale3 2.4s ease-in;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
 @keyframes scale {
 	0% { background-size: 100%;}
 	25% { background-size: 130%; background-position:0.75% 9%;}
@@ -862,17 +926,30 @@ html,body,#dreambox{
 	87.5% { background-size: 87.5%; background-position:50% 50%;}
 	100% { background-size: 100%; background-position:50% 50%;}
 }
+@keyframes scale3 {
+	0% { transform:scale(1); left: 0;}
+	40% { transform:scale(1); left: 30%;}
+	60% { transform:scale(2); left: 70%;}
+	80% { transform:scale(3); left: 120%;}
+	100% { transform:scale(4); left: 160%;}
+}
+@-webkit-keyframes scale3 {
+	0% { -webkit-transform:scale(1); left:0;}
+	40% { -webkit-transform:scale(1); left:30%;}
+	60% { -webkit-transform:scale(2); left:70%;}
+	80% { -webkit-transform:scale(3); left:120%;}
+	100% { -webkit-transform:scale(4); left: 160%;}
+}
 .map_2{
 	width:100%;
 	height:220px;
 	position:absolute;
-	margin: 10% 0 0 0;
+	margin-top: 10%;
 	background: url('/images/address/map.png') no-repeat;
 	background-size: 100%;
     opacity: 0;
 
 }
-
 .dot{
 	width:3%;
 }
@@ -898,12 +975,15 @@ html,body,#dreambox{
 	left: 7%;
 	top: 34%;
 	width:12%;
+}
+
+.title_ps_Ani{
 	animation: turn-left 1000ms ease-in;
 	-webkit-animation: turn-left 1000ms ease-in;
 	-webkit-transform-origin: left center;
 	transform-origin: left center;
-
 }
+
 @keyframes turn-left{
 	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
     50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
@@ -926,6 +1006,9 @@ html,body,#dreambox{
 	left: 34%;
 	top: 28%;
 	width:12%;
+}
+
+.title_bj_ani{
 	animation: turn-top 1000ms ease-in;
 	-webkit-animation: turn-top 1000ms ease-in;
 	-webkit-transform-origin: top center;
@@ -933,6 +1016,7 @@ html,body,#dreambox{
 	animation-delay:400ms;
 	-webkit-animation-delay:400ms; 
 }
+
 @keyframes turn-top{
 	0% {-webkit-transform: perspective(200px) rotateX(40deg);}
     50% {-webkit-transform: perspective(200px) rotateX(-45deg);}
@@ -955,6 +1039,9 @@ html,body,#dreambox{
 	left: 50%;
 	top: 42%;
 	width:12%;
+}
+
+.title_ty_ani{
 	animation: turn-top 1000ms ease-in;
 	-webkit-animation: turn-top 1000ms ease-in;
 	-webkit-transform-origin: top center;
@@ -962,11 +1049,15 @@ html,body,#dreambox{
 	animation-delay:1000ms;
 	-webkit-animation-delay:1000ms; 
 }
+
 .title_ny{
 	position: absolute;
 	top: 40%;
 	right:7%;
-	width:12%;
+	width:12%;	
+}
+
+.title_ny_ani{
 	animation: turn-right 1000ms ease-in;
 	-webkit-animation: turn-right 1000ms ease-in;
 	-webkit-transform-origin: right center;
@@ -974,6 +1065,7 @@ html,body,#dreambox{
 	animation-delay:1400ms;
 	-webkit-animation-delay:1400ms; 
 }
+
 @keyframes turn-right{
 	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
     50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
@@ -1116,21 +1208,21 @@ html,body,#dreambox{
 .cloud_2_img{
 	width:86%;
 	position: absolute;
-	top: -9%;
-    left: 10%;
+	top: 26%;
+    left: 5%;
     opacity: 0;
     -webkit-mask:url('/images/address/mask_1.png') no-repeat  center; 
 
 }
 .cloud_2_animation{
 	-webkit-animation-name: cloud_center;
-    -webkit-animation-duration: 2s;
+    -webkit-animation-duration: 4s;
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count:1;
-    -webkit-mask-size: 100%;
-
-
+    animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
 }
+
 @keyframes cloud_center{
 	0% { -webkit-mask-size: 0%; }
     100% { -webkit-mask-size: 100%; }
@@ -1150,8 +1242,8 @@ html,body,#dreambox{
 .dot_animation{
 	animation: scale_dot 1s linear infinite;
 	-webkit-animation: scale_dot 1s linear infinite;
-	animation-delay:2s;
-	-webkit-animation-delay:2s;
+	animation-delay:4s;
+	-webkit-animation-delay:4s;
 
 }
 @keyframes scale_dot{
@@ -1176,6 +1268,7 @@ html,body,#dreambox{
 	top:25%;
 	left:44%;
 	display: none;
+	z-index:10;
 	
 	
 }
@@ -1185,9 +1278,11 @@ html,body,#dreambox{
 	top:36%;
 	left:46%;
 	display: none;
+	z-index: 10;
 	
 
 }
+
 .show{
 	animation: show 900ms ease-in-out 1;
 	-webkit-animation: show 900ms ease-in-out 1;
@@ -1220,6 +1315,163 @@ html,body,#dreambox{
 	0%{top:42%;-webkit-transform:rotate(1deg);}
 	100%{top:36%;-webkit-transform:rotate(1deg);}
 }
+#start_ps{
+	width:8%;
+	position: absolute;
+	top: 31%;
+	left: .5%;
+	opacity: 0;	
+}
+
+.start_ps_ani{
+	animation: start_ps 400ms ease-in-out 1;
+	-webkit-animation: start_ps 400ms ease-in-out 1;
+	animation-delay:1600ms;
+	-webkit-animation-delay:1600ms;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
+}
+
+@keyframes start_ps{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+
+}
+@-webkit-keyframes start_ps{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+
+}
+.cloud_forest{
+	width:86%;
+	position:absolute;
+	top:0;
+	left:6%;
+	opacity: 0;
+	-webkit-mask:url('/images/address/mask_4.png') no-repeat center;
+	-webkit-mask-size: 0%;
+}
+
+
+.park_all{
+	width:24%;
+	position: absolute;
+	left:22%;
+	top:12%;
+	line-height: 0;
+}
+
+.park_all a{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 12;
+}
+
+.dot_first{
+	width: 6%;
+	position:relative;
+	opacity: 0;
+	z-index: 10;
+	margin: -2px 0 6px 0;
+	display: inline-block;
+}
+.building{
+	width:100%;
+	opacity: 0;
+	position:relative;
+	z-index: 10;
+	margin: 1% 0 0 0;
+	
+}
+.park{
+	width:100%;
+	opacity: 0;
+	position:relative;
+	z-index:10;
+	margin:0 0 0 0;
+	
+}
+
+.park_name{
+	width:100%;
+	opacity: 0;
+	position: relative;
+	z-index: 10;
+	margin: -2px 0 0 0;
+}
+.cloud_sky{
+	width: 100%;
+	height:220px;
+	position:absolute;
+
+
+}
+.cloud_left{
+	width: 100%;
+	position: absolute;
+	left:0%;
+
+}
+.cloud_right{
+	width: 100%;
+	position: absolute;
+	right: 0%;
+}
+.cloud_left_animation{
+	animation: cloud_scale_left 3s linear 1;
+	-webkit-animation: cloud_scale_left 3s linear 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
+	animation-delay:600ms;
+	－webkit-animation-delay:600ms;
+}
+@keyframes cloud_scale_left{
+	0%{transform: translate(0%) scale(2.5); opacity: 0.8}
+	20%{transform: translate(20%) scale(2.5); opacity: 0.7;}
+	40%{transform: translate(40%) scale(2); opacity: 0.8;}
+	60%{transform: translate(60%) scale(2); opacity: 0.9;}
+	80%{transform: translate(80%) scale(1); opacity: 0.9;}
+	100%{transform: translate(100%) scale(1); opacity: 1;}
+}
+@-webkit-keyframes cloud_scale_left{
+	0%{-webkit-transform: translate(0%) scale(2.5); opacity: 0.8;}
+	20%{-webkit-transform: translate(20%) scale(2.5); opacity: 0.7;}
+	40%{-webkit-transform: translate(40%) scale(2); opacity: 0.8;}
+	60%{-webkit-transform: translate(60%) scale(2); opacity: 0.9;}
+	80%{-webkit-transform: translate(80%) scale(1); opacity: 0.9;}
+	100%{-webkit-transform: translate(100%) scale(1); opacity: 1;}
+}
+.cloud_right_animation{
+	animation: cloud_scale_right 3s linear 1;
+	-webkit-animation: cloud_scale_right 3s linear 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards; 
+	animation-delay:600ms;
+	－webkit-animation-delay:600ms;
+}
+@keyframes cloud_scale_right{
+	0%{transform: translate(0%) scale(2.5); opacity: 0.8;}
+	20%{transform: translate(-20%) scale(2.5); opacity: 0.7;}
+	40%{transform: translate(-40%) scale(2); opacity: 0.8;}
+	60%{transform: translate(-60%) scale(2); opacity: 0.9;}
+	80%{transform: translate(-80%) scale(1); opacity: 0.9;}
+	100%{transform: translate(-100%) scale(1); opacity: 1}
+}
+@-webkit-keyframes cloud_scale_right{
+	0%{-webkit-transform: translate(0%) scale(2.5);opacity: 0.8;}
+	20%{-webkit-transform: translate(-20%) scale(2.5);opacity: 0.7;}
+	40%{-webkit-transform: translate(-40%) scale(2);opacity: 0.8;}
+	60%{-webkit-transform: translate(-60%) scale(2);opacity: 0.9;}
+	80%{-webkit-transform: translate(-80%) scale(1);opacity: 0.9;}
+	100%{-webkit-transform: translate(-100%) scale(1);opacity: 1;}
+}
+
+
+
+
 
 
 @media handheld and (min-height:400px),screen and (max-height:420px) {

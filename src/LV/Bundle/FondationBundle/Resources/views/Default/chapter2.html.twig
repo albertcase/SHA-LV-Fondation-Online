@@ -17,8 +17,69 @@
 				</div>
             </div>
 
+            <div class="swiper-slide">
+            	<div class="mapInfo">
+            		<h2>布洛涅森林公园</h2>
+            		<p>路易威登基金会位于布洛涅森林公园和Jardin d’Acclimatation游乐园之间的边界，这里是数代巴黎人一个多世纪以来在首都的频繁流连之地。该建筑矗立在特为此活动而设立的水景园中，与四周自然环境融为一体，在树木和花园掩映下，光色变幻，镜影摇曳。</p>
+            	</div>
+
+            	<div class="map_con">
+
+					<div class="map_content">
+
+						<div class="map_3">
+							<div class="ps">
+								<img src="/images/address/dot.png" width="100%" class="dot dot_ps" />
+								<img src="/images/address/paris_green.png" width="100%" id="start_ps" >
+								<img src="/images/address/ps_icon.png" width="100%" class="title_ps">
+							</div>
+							<div class="bj">
+								<img src="/images/address/dot.png" width="100%" class="dot dot_bj" />
+								<img src="/images/address/bj_icon.png" width="100%" class="title_bj">
+							</div>
+							<div class="ty">
+								<img src="/images/address/dot.png" width="100%" class="dot dot_ty" />
+								<img src="/images/address/ty_icon.png" width="100%" class="title_ty">
+							</div>
+							<div class="ny">
+								<img src="/images/address/dot.png" width="100%" class="dot dot_ny" />
+								<img src="/images/address/ny_icon.png" width="100%" class="title_ny" >
+							</div>
+
+						</div>
+
+						<div class="map_4">
+
+							<img src="/images/address/cloud_forest.png" height="100%" class="cloud_forest" />
+							<div class="cloud_sky">
+									<img src="/images/address/cloud_sky.png" width="100%" class="cloud_left"/>
+									<img src="/images/address/cloud_sky.png" width="100%" class="cloud_right"/>
+								</div>
+							
+							<div class="park_all">
+								<a href="javascript:mySwiper.slideTo(2, 600, true);"></a>
+								<img src="/images/address/flv.png" width="100%" class="building" />
+								<img src="/images/address/dot.png" width="100%" class="dot dot_first" />
+								<img src="/images/address/park.png" width="100%" class="park" />
+								<img src="/images/address/parkname_en.png" width="100%" class="park_name">
+								
+							</div>	
+
+						</div>
+
+
+					</div>
+
+
+					
+					
+				</div>	
+
+
+            </div>
+
             <div class="swiper-slide swiper-no-swiping">
-            	<a href="javascript:mySwiper.slideTo(2, 600, true);" class="panoramaLink"></a>
+            	<a href="javascript:mySwiper.slideTo(3, 600, true);" class="panoramaLink"></a>
             	<div id="wrapper">
 					<div id="scroller">
 						<div class="focuslv-home">
@@ -80,6 +141,11 @@
 var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
     direction: 'vertical',
+    onTouchEnd: function(swiper){
+	    if(swiper.activeIndex == 0){
+	    	mapAniActive.defaultSet();
+	    }
+	}
     //preventClicks : false
 });
 
@@ -136,6 +202,55 @@ var animationListener_focusdot = function(){
 
 
 // document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+
+/* address2 */
+
+function mapAniActive(){
+    this.mapAnimation = function(){
+    	var animationListener_home_3 = function(){
+
+			$(".title_bj").fadeOut();
+			$(".title_ty").fadeOut();
+			$(".title_ny").fadeOut();
+			$(".map_3").addClass("add3").animate({"opacity":"0"},1500);
+	        
+			$(".map_4").addClass("add4").animate({"opacity":"1"},2700);
+	        $(".cloud_left").addClass("cloud_left_animation");
+	        $(".cloud_right").addClass("cloud_right_animation");
+			$(".cloud_forest").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
+			$(".dot_first").addClass("dot_animation").animate({"opacity":"1"},3500,function(){
+				
+				$(".building").show().animate({"opacity":"1"},1600);
+				$(".park").show().animate({"opacity":"1"},1600,function(){
+					$(".park_name").show().animate({"opacity":"1"});
+				});
+			});
+			
+		}
+		var anim_home_3 = document.getElementById("start_ps");
+		anim_home_3.addEventListener("webkitAnimationEnd", animationListener_home_3, false);
+	},
+	this.defaultSet = function(){
+
+		mapAniActive.mapAnimation();
+		$("#start_ps").addClass("start_ps_ani");
+		$(".title_bj").addClass("title_bj_ani");
+		$(".title_ty").addClass("title_ty_ani");
+		$(".title_ny").addClass("title_ny_ani");
+
+	}
+
+}
+
+
+mapAniActive = new mapAniActive();
+
+
+
+
+
+
 
 
 

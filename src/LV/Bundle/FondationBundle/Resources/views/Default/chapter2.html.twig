@@ -4,47 +4,69 @@
 		<div class="arrUp">
 			<img src="/images/arr-up.png" />
 		</div>
-		<section class="m-page page-active" id="slider">
-	        <div class="page-con">
-	      		<div class="ani_area">
-					<img src="/images/animate/LV_Animation_Chapter2.gif" class="ani">
-				</div>
-	        </div>
-	    </section>
 
-	    <section class="m-page page-next" id="pagecontent">
-		    <div class="page-con">
-		    	<div class="chapter_content">
-		    		<div class="chapter2-content">
 
-		    				<img src="/images/chapter2/c1.png" width="100%" />
 
-		    		</div>
-					
-					
-					<div class="content_footer">
-						<p>
-						<img src="/images/chapter1/footer_tips.png" />
-						</p>
-						<div class="btnArea">
-							
-							<a href="invitations.html" class="creat_btn">
-								<img src="/images/creat_btn.png" width="100%" />
-							</a>
-							<a href="ugc/index.html" class="talk_btn">
-								<img src="/images/talk_btn.png" width="100%" />
-							</a>
-							
-						</div>
+				<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+        	<div class="swiper-slide">
+        		<div class="gif_bg">
+	            	<img data-src="/images/animate/LV_Animation_Chapter2.gif" width="100%" class="swiper-lazy" />
+
+	            	<div class="pageArr">
+						<img data-src="/images/arr-up.png" class="swiper-lazy" />
 					</div>
-					
-					<a href="javascript:;">
-						<img src="/images/chapter2/kv.jpg" width="100%" class="c5" />
-					</a>
+					<div class="swiper-lazy-preloader"></div>
 				</div>
-		    </div>
-	    </section>
+            </div>
+
+
+            <div class="swiper-slide">
+            	<div class="chapter_content  swiper-no-swiping">
+
+            			<div class="chapter2-content">
+			    			<img src="/images/chapter2/c1.png" width="100%" />
+						</div>
+
+						<div class="content_footer">
+							<p>
+							<img src="/images/chapter1/footer_tips.png" />
+							</p>
+							<div class="btnArea">
+								
+								<a href="invitations.html" class="creat_btn">
+									<img src="/images/creat_btn.png" width="100%" />
+								</a>
+								<a href="ugc/index.html" class="talk_btn">
+									<img src="/images/talk_btn.png" width="100%" />
+								</a>
+								
+							</div>
+						</div>
+						
+						<a href="javascript:;">
+							<img src="/images/chapter2/kv.jpg" width="100%" class="c5" />
+						</a>
+				</div>
+            </div>
+
+	    </div>
+	</div>
+
 
 	
 </div>
+
+<script type="text/javascript">
+
+
+var mySwiper = new Swiper('.swiper-container', {
+	lazyLoading : true,
+    direction: 'vertical'
+});
+
+
+</script>
 {% endblock %}

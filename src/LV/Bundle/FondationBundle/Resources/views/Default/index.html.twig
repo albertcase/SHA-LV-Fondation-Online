@@ -1,4 +1,50 @@
 {% extends "LVFondationBundle::layout.html.twig" %}
 {% block dreambox %}
-    <h1>Hello {{ name }}!</h1>
+<div class="chapter">
+	
+	<div class="chapter-c">
+	<div class="chapter-l swiper-button-prev">
+		<span><img src="/images/arr-l.png"></span>
+	</div>
+		<div class="swiper-container">
+		  <div class="swiper-wrapper" id="homeList">
+		    <div class="swiper-slide">
+		    	<img src="/images/chapter-1.jpg">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/images/chapter-2.jpg">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/images/chapter-3.jpg">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/images/chapter-4.jpg">
+		    </div>
+		  </div>
+
+		<!-- 如果需要分页器 -->
+    	<div class="swiper-pagination"></div>
+
+		</div>
+	<div class="chapter-r swiper-button-next">
+		<span><img src="/images/arr-r.png"></span>
+	</div>
+	</div>
+	
+</div>
+
+<div class="dreamTrip">
+	<a href="javascript:;">
+		<img src="/images/dreamTrip.jpg">
+	</a>
+</div>
+<script type="text/javascript">
+var mySwiper = $('.swiper-container').swiper({
+		pagination: '.swiper-pagination',
+		nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        loop: false
+});
+</script>
 {% endblock %}

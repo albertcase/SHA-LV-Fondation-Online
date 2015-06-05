@@ -12,7 +12,7 @@ same_wechat:
 
 lv_fondation:
     resource: "@LVFondationBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /fondation
 
 app:
     resource: "@AppBundle/Controller/"

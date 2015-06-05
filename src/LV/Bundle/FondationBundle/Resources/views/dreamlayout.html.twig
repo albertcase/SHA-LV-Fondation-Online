@@ -1,21 +1,20 @@
 {% extends '::base.html.twig' %}
 {% block title %}LV UGC{% endblock %}
 {% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/chapter.css"
+{% stylesheets filter='cssrewrite' output="css/dream.css"
 	'%kernel.root_dir%/Resources/public/css/reset.css'
-	'bundles/lvfondation/css/swiper.min.css'
 	'%kernel.root_dir%/Resources/public/css/menu.css'
-	'bundles/lvfondation/css/style.css'
+	'bundles/lvfondation/css/swiper.min.css'
+	'bundles/lvfondation/css/style-dream.css'
 %}
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
 {% endstylesheets %}
 {% endblock %}
 {% block head_scripts %}
-{% javascripts output="js/chapter.js"
+{% javascripts output="js/dream.js"
     '%kernel.root_dir%/Resources/public/js/*'
     '@LVFondationBundle/Resources/public/js/swiper.min.js'
-    '@LVFondationBundle/Resources/public/js/iscroll-probe.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-{% endblock %}
+{% endblock %} 

@@ -1,23 +1,91 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 <div class="chapter modelpage">
-		<div class="arrUp">
-			<img src="/images/arr-up.png" />
-		</div>
-		<section class="m-page page-active" id="slider">
-	        <div class="page-con">
-	      		<div class="ani_area">
-					<img src="/images/animate/LV_Animation_Chapter4.gif" class="ani">
-				</div>
-	        </div>
-	    </section>
 
-	    <section class="m-page page-next" id="pagecontent">
-		    <div class="page-con">
-		    	<div class="chapter_content">
+					<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+        	<div class="swiper-slide">
+        		<div class="gif_bg">
+	            	<img data-src="/images/animate/LV_Animation_Chapter4.gif" width="100%" class="swiper-lazy" />
+
+	            	<div class="pageArr">
+						<img data-src="/images/arr-up.png" class="swiper-lazy" />
+					</div>
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+            </div>
+
+
+            <div class="swiper-slide">
+            	<div class="mapInfo">
+            		<h2>路易威登基金会</h2>
+            		<p>已在法国巴黎吸引了无数人前往拜谒的路易威登基金会，近日将在中国北京盛大开展，前往国贸中心路易威登之家即可参观。
+					</p>
+            	</div>
+            	<div class="map_con">
+						<div class="map_1">
+							<div class="ps">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ps swiper-lazy" />
+								<img data-src="/images/address/ps_icon.png" width="100%" class="title_ps swiper-lazy">
+							</div>
+							<div class="bj">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_bj swiper-lazy" />
+								<img data-src="/images/address/bj_icon.png" width="100%" class="title_bj swiper-lazy">
+							</div>
+							<div class="ty">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ty swiper-lazy" />
+								<img data-src="/images/address/ty_icon.png" width="100%" class="title_ty swiper-lazy">
+							</div>
+							<div class="ny">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ny swiper-lazy" />
+								<img data-src="/images/address/ny_icon.png" width="100%" class="title_ny swiper-lazy" id="end">
+							</div>
+							<div class="map_2_ps">
+								<img data-src="/images/address/paris_12.png" width="100%" class="loc_ps swiper-lazy" />
+							</div>
+							<div class="map_2_bj">	
+								<img data-src="/images/address/beijing.png" width="100%" class="loc_bj swiper-lazy" />
+							</div>
+							<div class="cloud">
+								<img data-src="/images/address/cloud.png" width="100%" class="cloud_img swiper-lazy" />
+							</div>
+							<div class="line">
+								<img data-src="/images/address/line.png" width="100%" class="line_img swiper-lazy" />
+							</div>
+							<div class="arrow_rt">
+								<img data-src="/images/address/arrow_rt.png" width="100%" id="arrow" class="arrow swiper-lazy"/>
+							</div>
+
+							<div class="dot_last">
+								<img data-src="/images/address/dot.png" width="100%" class="dot_lt swiper-lazy">
+							</div>
+							<div class="lv_t">
+								<img data-src="/images/address/lv.png" width="100%" class="lv_title swiper-lazy" />
+							</div>
+							<div class="lv_w">
+								<img data-src="/images/address/lv_home.png" width="100%" class="lv_home swiper-lazy" />
+							</div>
+
+							<div class="cloud2">
+								<img data-src="/images/address/green2.png" width="100%" class="cloud_2_img swiper-lazy" />
+							</div>
+						</div>
+
+						
+					</div>
+				<div class="swiper-lazy-preloader"></div>
+            </div>
+
+
+
+
+            <div class="swiper-slide swiper-no-swiping">
+            	<div class="chapter_content">
 
 		    		<div class="chapter4">
-		    			<img src="/images/chapter4/c1.jpg" width="100%" />
+		    			<img data-src="/images/chapter4/c1.jpg" class="swiper-lazy" width="100%" />
 
 		    			<div class="chapter4_text"> 
 		    				<h2>路易威登之家</h2>
@@ -31,27 +99,89 @@
 					
 					<div class="content_footer">
 						<p>
-						<img src="/images/chapter1/footer_tips.png" />
+						<img data-src="/images/chapter1/footer_tips.png" class="swiper-lazy" />
 						</p>
 						<div class="btnArea">
 
 							<a href="invitations.html" class="creat_btn">
-								<img src="/images/creat_btn.png" width="100%" />
+								<img data-src="/images/creat_btn.png" class="swiper-lazy" width="100%" />
 							</a>
 							<a href="ugc/index.html" class="talk_btn">
-								<img src="/images/talk_btn.png" width="100%" />
+								<img data-src="/images/talk_btn.png" class="swiper-lazy" width="100%" />
 							</a>
 							
 						</div>
 					</div>
 					
 					<a href="javascript:;">
-						<img src="/images/chapter4/kv.jpg" width="100%" class="c5" />
+						<img data-src="/images/chapter4/kv.jpg" width="100%" class="swiper-lazy c5" />
 					</a>
 				</div>
-		    </div>
-	    </section>
+            </div>
+
+	    </div>
+	</div>
 
 	
 </div>
+<script type="text/javascript">
+var mySwiper = new Swiper('.swiper-container', {
+	lazyLoading : true,
+    direction: 'vertical',
+    onTouchEnd: function(swiper){
+	    if(swiper.activeIndex == 0){
+	    	defaultSet();
+	    }
+	}
+});
+
+/* address1 */
+function animation1(){
+    var animationListener_home = function(){
+		$(".dot").fadeOut();
+		$(".title_ps").fadeOut();
+		$(".title_bj").fadeOut();
+		$(".title_ty").fadeOut();
+		$(".title_ny").fadeOut();
+		$(".map_1").addClass("add");
+		$(".loc_ps").animate({"opacity":"1"},1000);
+		$(".loc_bj").animate({"opacity":"1"},1000);
+		$(".cloud_img").addClass("pulse").animate({"opacity":"1"},2000);
+		$(".line_img").addClass("line_animation").animate({"opacity":"1"});
+		$(".arrow").addClass("arrow_animation").animate({"opacity":"1"},1000);
+	}
+	var anim_home = document.getElementById("end");
+	anim_home.addEventListener("webkitAnimationEnd", animationListener_home, false);
+
+
+	var animationListener_home_2 = function(){
+		$(".loc_ps").fadeOut();
+		$(".loc_bj").fadeOut();
+		$(".line_img").fadeOut();
+		$(".arrow").fadeOut();
+		$(".cloud_img").fadeOut();
+		$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
+		$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
+		$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},6000,function(){
+			$(".lv_home").fadeIn().addClass("show");
+			$(".lv_title").addClass("show2").fadeIn(3000);
+		});
+	}
+	var anim_home_2 = document.getElementById("arrow");
+	anim_home_2.addEventListener("webkitAnimationEnd", animationListener_home_2, false);
+}
+
+
+
+function defaultSet(){
+	animation1();
+	$(".title_ps").addClass("title_ps_ani");
+	$(".title_bj").addClass("title_bj_ani");
+	$(".title_ty").addClass("title_ty_ani");
+	$(".title_ny").addClass("title_ny_ani");
+}
+
+
+</script>
+
 {% endblock %}

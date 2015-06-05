@@ -29,25 +29,25 @@ class LVApiRequestListener
             $user = $this->container->get('lv.user.service');
 
             if($event->getRequest()->isXmlHttpRequest()) 
-                $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
+                return $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
             if(!$user->userIsLogin())
-                $event->setResponse($this->getResponseCode('001')); //User is not login
+                return $event->setResponse($this->getResponseCode('001')); //User is not login
 
             if($current_route == 'api_fondation_invite' && $code = $this->inviteValidate($request))
-                $event->setResponse($this->getResponseCode($code)); 
+                return $event->setResponse($this->getResponseCode($code)); 
 
             if($current_route == 'api_fondation_userinfo' && $code = $this->userInfoValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
             if($current_route == 'api_fondation_userdream' && $code = $this->userDreamValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
             if($current_route == 'api_fondation_dreamlike' && $code = $this->dreamLikeValidate($request))
-                $event->setResponse($this->getResponseCode($code)); 
+                return $event->setResponse($this->getResponseCode($code)); 
 
             if($current_route == 'api_fondation_dreamupdate' && $code = $this->updateUserDreamValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
     	}
     }
@@ -68,11 +68,11 @@ class LVApiRequestListener
             return '010'; //The name is empty
         if(!preg_match('/^\d{11}$/', $cellphone))
             return '011'; //The cellphone number is wrong
-        $is_cellphone = $this->container->get('doctrine')
-            ->getRepository('LVFondationBundle:IvitationLetter')
-            ->findOneBy(array('cellphone' => $cellphone));
-        if($is_cellphone)
-            return '012'; //The cellphone is already exist
+        // $is_cellphone = $this->container->get('doctrine')
+        //     ->getRepository('LVFondationBundle:IvitationLetter')
+        //     ->findOneBy(array('cellphone' => $cellphone));
+        // if($is_cellphone)
+        //     return '012'; //The cellphone is already exist
         return FALSE;
     }
 

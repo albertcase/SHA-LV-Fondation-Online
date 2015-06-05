@@ -22,22 +22,24 @@ class LVPageRequestListener
 
     	$current_route = $event->getRequest()->get('_route');
         
-    	if($current_route && !preg_match('/^api_fondation_*/', $current_route)) {
+    	if($current_route && !preg_match('/^api_fondation_*/', $current_route) &&!preg_match('/^same_wechat_*/', $current_route)) {
 
             $user = $this->container->get('lv.user.service');
-
             if(!$user->userIsLogin()) {
                 
                 $wechat = $this->container->get('same.wechat');
 
                 $url = $this->router->generate($current_route);
 
-                $isWechatLogin = $wechat->isLoginBase($url);
+                $isWechatLogin = $wechat->isLogin($url);
 
                 if($isWechatLogin instanceof RedirectResponse)
                     $event->setResponse($isWechatLogin);
-
-                $user->userLogin($isWechatLogin);
+                else
+                    $user->userLogin($isWechatLogin);
+                
+                    
+                
 
             }
     	}

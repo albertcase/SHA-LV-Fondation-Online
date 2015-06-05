@@ -491,105 +491,6 @@ html,body,#dreambox{
 
 
 
-/* 样式放在结尾，防止 base64 图片造成拥塞 */
-	@-webkit-keyframes rotation {
-	  10% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-
-	  50%, 60% {
-	    transform: rotate(0deg);
-	    -webkit-transform: rotate(0deg)
-	  }
-
-	  90% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-
-	  100% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-	}
-
-	@keyframes rotation {
-	  10% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-
-	  50%, 60% {
-	    transform: rotate(0deg);
-	    -webkit-transform: rotate(0deg)
-	  }
-
-	  90% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-
-	  100% {
-	    transform: rotate(90deg);
-	    -webkit-transform: rotate(90deg)
-	  }
-	}
-
-	#orientLayer {
-	  display: none;
-	}
-
-	@media screen and (min-aspect-ratio: 13/9) {
-	  #orientLayer {
-	    display: block;
-	  }
-	}
-
-	.mod-orient-layer {
-	  display: none;
-	  position: fixed;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	  right: 0;
-	  bottom: 0;
-	  background: #000;
-	  z-index: 9997
-	}
-
-	.mod-orient-layer__content {
-	  position: absolute;
-	  width: 100%;
-	  top: 45%;
-	  margin-top: -75px;
-	  text-align: center
-	}
-
-	.mod-orient-layer__icon-orient {
-	  background-image: url('/images/heng.png');
-	  display: inline-block;
-	  width: 67px;
-	  height: 109px;
-	  transform: rotate(90deg);
-	  -webkit-transform: rotate(90deg);
-	  -webkit-animation: rotation infinite 1.5s ease-in-out;
-	  animation: rotation infinite 1.5s ease-in-out;
-	  -webkit-background-size: 67px;
-	  background-size: 67px
-	}
-
-	.mod-orient-layer__desc {
-	  margin-top: 20px;
-	  font-size: 15px;
-	  color: #fff
-	}
-
-
-
-
-
 
 /* 框架样式 */
 
@@ -830,15 +731,14 @@ html,body,#dreambox{
 	position: absolute;
 	top: 49%;
 }
+
 .map_1{
 	width:100%;
 	height:220px;
 	position:absolute;
-	margin-top: 10%;
 	background: url('/images/address/map1.png') no-repeat;
 	background-size: 100%;
-	
-
+	top:46%;
 }
 .map_3{
 	width:100%;
@@ -1087,6 +987,7 @@ html,body,#dreambox{
 .cloud_img{
     width:100%;
     position: absolute;
+    left: 0;
     top:-4%;
     opacity: 0;
     -webkit-mask:url('/images/address/cloud7.png') no-repeat 0% center;
@@ -1208,7 +1109,7 @@ html,body,#dreambox{
 .cloud_2_img{
 	width:86%;
 	position: absolute;
-	top: 26%;
+	top: 0;
     left: 5%;
     opacity: 0;
     -webkit-mask:url('/images/address/mask_1.png') no-repeat  center; 
@@ -1263,10 +1164,10 @@ html,body,#dreambox{
 	100% {-webkit-transform: scale(1,1);}
 }
 .lv_home{
-	width:20%;
+	width:36%;
 	position: absolute;
 	top:25%;
-	left:44%;
+	left:35%;
 	display: none;
 	z-index:10;
 	

@@ -29,39 +29,39 @@
 
 						<div class="map_3">
 							<div class="ps">
-								<img src="/images/address/dot.png" width="100%" class="dot dot_ps" />
-								<img src="/images/address/paris_green.png" width="100%" id="start_ps" >
-								<img src="/images/address/ps_icon.png" width="100%" class="title_ps">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ps swiper-lazy" />
+								<img data-src="/images/address/paris_green.png" width="100%" id="start_ps" class="swiper-lazy" >
+								<img data-src="/images/address/ps_icon.png" width="100%" class="title_ps swiper-lazy">
 							</div>
 							<div class="bj">
-								<img src="/images/address/dot.png" width="100%" class="dot dot_bj" />
-								<img src="/images/address/bj_icon.png" width="100%" class="title_bj">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_bj swiper-lazy" />
+								<img data-src="/images/address/bj_icon.png" width="100%" class="title_bj swiper-lazy">
 							</div>
 							<div class="ty">
-								<img src="/images/address/dot.png" width="100%" class="dot dot_ty" />
-								<img src="/images/address/ty_icon.png" width="100%" class="title_ty">
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ty swiper-lazy" />
+								<img data-src="/images/address/ty_icon.png" width="100%" class="title_ty swiper-lazy">
 							</div>
 							<div class="ny">
-								<img src="/images/address/dot.png" width="100%" class="dot dot_ny" />
-								<img src="/images/address/ny_icon.png" width="100%" class="title_ny" >
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ny swiper-lazy" />
+								<img data-src="/images/address/ny_icon.png" width="100%" class="title_ny swiper-lazy" >
 							</div>
 
 						</div>
 
 						<div class="map_4">
 
-							<img src="/images/address/cloud_forest.png" height="100%" class="cloud_forest" />
+							<img data-src="/images/address/cloud_forest.png" height="100%" class="cloud_forest swiper-lazy" />
 							<div class="cloud_sky">
-									<img src="/images/address/cloud_sky.png" width="100%" class="cloud_left"/>
-									<img src="/images/address/cloud_sky.png" width="100%" class="cloud_right"/>
+									<img data-src="/images/address/cloud_sky.png" width="100%" class="cloud_left swiper-lazy"/>
+									<img data-src="/images/address/cloud_sky.png" width="100%" class="cloud_right swiper-lazy"/>
 								</div>
 							
 							<div class="park_all">
 								<a href="javascript:mySwiper.slideTo(2, 600, true);"></a>
-								<img src="/images/address/flv.png" width="100%" class="building" />
-								<img src="/images/address/dot.png" width="100%" class="dot dot_first" />
-								<img src="/images/address/park.png" width="100%" class="park" />
-								<img src="/images/address/parkname_en.png" width="100%" class="park_name">
+								<img data-src="/images/address/flv.png" width="100%" class="building swiper-lazy" />
+								<img data-src="/images/address/dot.png" width="100%" class="dot dot_first swiper-lazy" />
+								<img data-src="/images/address/park.png" width="100%" class="park swiper-lazy" />
+								<img data-src="/images/address/parkname_en.png" width="100%" class="park_name swiper-lazy">
 								
 							</div>	
 
@@ -75,7 +75,7 @@
 					
 				</div>	
 
-
+				<div class="swiper-lazy-preloader"></div>
             </div>
 
             <div class="swiper-slide swiper-no-swiping">
@@ -85,9 +85,9 @@
 						<div class="focuslv-home">
 							
 							<div class="focuslv-cn">
-								<img src="/images/chapter2/focus-cn.jpg" width="100%" />
+								<img data-src="/images/chapter2/focus-cn.jpg" class="swiper-lazy" width="100%" />
 								<div class="focuslv-en">
-									<img src="/images/chapter2/focus-en.png" width="100%" />
+									<img data-src="/images/chapter2/focus-en.png" class="swiper-lazy" width="100%" />
 								</div>
 							</div>
 							<div class="focus-dot"></div>
@@ -97,6 +97,7 @@
 					<p class="scrollsTips st-1">点击进一步了解<br />路易威登基金会</p>
 					<p class="scrollsTips st-2">滑动手指欣赏<br />布洛涅森林公园美景</p>
 				</div>
+				<div class="swiper-lazy-preloader"></div>
             </div>
 
             <div class="swiper-slide swiper-no-swiping">
@@ -126,6 +127,7 @@
 							<img data-src="/images/chapter2/kv.jpg" class="swiper-lazy c5" width="100%" />
 						</a>
 				</div>
+				<div class="swiper-lazy-preloader"></div>
             </div>
 
 	    </div>
@@ -235,6 +237,7 @@ function mapAniActive(){
 
 		mapAniActive.mapAnimation();
 		$("#start_ps").addClass("start_ps_ani");
+		$(".title_ps").addClass("title_ps_ani");
 		$(".title_bj").addClass("title_bj_ani");
 		$(".title_ty").addClass("title_ty_ani");
 		$(".title_ny").addClass("title_ny_ani");

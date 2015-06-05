@@ -15,14 +15,14 @@ class LVPageRequestListener
     {
         $this->router = $router;
         $this->container = $container;
-    }    
+    }
 
     public function onKernelRequest(GetResponseEvent $event)
     {
 
     	$current_route = $event->getRequest()->get('_route');
-        
-    	if($current_route && !preg_match('/^api_fondation_*/', $current_route)) {
+
+    	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
             $user = $this->container->get('lv.user.service');
 
@@ -35,7 +35,7 @@ class LVPageRequestListener
                 $isWechatLogin = $wechat->isLoginBase($url);
 
                 if($isWechatLogin instanceof RedirectResponse)
-                    $event->setResponse($isWechatLogin);
+                   return $event->setResponse($isWechatLogin);
 
                 $user->userLogin($isWechatLogin);
 

@@ -1,1 +1,4 @@
 parameters:
+    access_need_router:
+        - lv_fondation_ugc
+

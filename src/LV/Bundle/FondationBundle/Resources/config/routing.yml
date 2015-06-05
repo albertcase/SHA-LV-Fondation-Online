@@ -1,3 +1,7 @@
+lv_fondation_index:
+    path:     /
+    defaults: { _controller: LVFondationBundle:Page:index }
+
 lv_fondation_ugc:
     path:     /ugc
     defaults: { _controller: LVFondationBundle:Page:ugc }

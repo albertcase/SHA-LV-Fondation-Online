@@ -28,26 +28,26 @@ class LVApiRequestListener
 
             $user = $this->container->get('lv.user.service');
 
-            if($event->getRequest()->isXmlHttpRequest()) 
-                $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
+            if(!$event->getRequest()->isXmlHttpRequest()) 
+                return $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
             if(!$user->userIsLogin())
-                $event->setResponse($this->getResponseCode('001')); //User is not login
+                return $event->setResponse($this->getResponseCode('001')); //User is not login
 
             if($current_route == 'api_fondation_invite' && $code = $this->inviteValidate($request))
-                $event->setResponse($this->getResponseCode($code)); 
+                return $event->setResponse($this->getResponseCode($code)); 
 
             if($current_route == 'api_fondation_userinfo' && $code = $this->userInfoValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
             if($current_route == 'api_fondation_userdream' && $code = $this->userDreamValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
             if($current_route == 'api_fondation_dreamlike' && $code = $this->dreamLikeValidate($request))
-                $event->setResponse($this->getResponseCode($code)); 
+                return $event->setResponse($this->getResponseCode($code)); 
 
             if($current_route == 'api_fondation_dreamupdate' && $code = $this->updateUserDreamValidate($request))
-                $event->setResponse($this->getResponseCode($code));
+                return $event->setResponse($this->getResponseCode($code));
 
     	}
     }

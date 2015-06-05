@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new LV\Bundle\FondationBundle\LVFondationBundle(),
             new Same\Bundle\WechatBundle\SameWechatBundle(),
             new Same\Bundle\SessionBundle\SameSessionBundle(),
+            new Same\Bundle\AdminBundle\SameAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

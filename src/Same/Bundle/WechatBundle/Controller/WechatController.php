@@ -3,10 +3,9 @@
 namespace Same\Bundle\WechatBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Symfony\Component\HttpFoundation\Response;
-
-//use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class WechatController extends Controller
 {
@@ -43,7 +42,7 @@ class WechatController extends Controller
     public function callbackAction()
     {
         $redirecturl = $this->getRequest()->query->get('redirecturl');
-        $code = $this->getRequest()->get('code');
+        $code = $this->getRequest()->query->get('code');
         $wechat = $this->get('same.wechat');
         $result = $wechat->getOauthAccessToken($code);
         if(isset($result['access_token'])){
@@ -53,15 +52,28 @@ class WechatController extends Controller
 
     public function isloginAction()
     {
+        $redirecturl = $this->getRequest()->query->get('redirecturl');
         $wechat = $this->get('same.wechat');
-        return $wechat->isLoginUserInfo();
+        return $wechat->isLogin('islogin');
     }
 
     public function jssdkAction()
     {   
-        $url = $this->getRequest()->get('url');
+        $url = $this->getRequest()->query->get('url');
         $wechat = $this->get('same.wechat');
         return $wechat->getJsTicket($url);
+    }
+
+    public function tempalteAction($openid)
+    {   
+        $wechat = $this->get('same.wechat');
+        return $wechat->sendTemplate($openid);
+    }
+
+    public function subscribedAction($openid)
+    {   
+        $wechat = $this->get('same.wechat');
+        return $wechat->isSubscribed($openid);
     }
 
 }

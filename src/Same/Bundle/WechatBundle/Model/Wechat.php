@@ -158,18 +158,61 @@ class Wechat
 	* @since 1.0 
 	* @return json access_token&openid or RedirectResponse
 	*/ 
-	public function isLogin($redirecturl) {
+	public function isLogin($redirecturl, $scope ='snsapi_base') {
 		if($access_token = $this->_session->get('wechat_user_access_token')){
-			$info = array();
-			$info['access_token'] = $access_token;
-			$info['openid'] = $this->_session->get('wechat_user_openid');
-			$info['scope'] = $this->_session->get('wechat_user_scope');
-			$response = new JsonResponse();
-	        $response->setData($info);
-	        return $response;
+			//$info = array();
+			//$info['access_token'] = $access_token;
+			//$info['openid'] = $this->_session->get('wechat_user_openid');
+			//$info['scope'] = $this->_session->get('wechat_user_scope');
+			//$response = new JsonResponse();
+	        //$response->setData($info);
+	        return $this->_session->get('wechat_user_openid');
 		}
-		return $this->oauthUserInfo($redirecturl);
+		return $this->oauth($redirecturl, $scope);
 		
+	}
+
+	public function sendTemplate($openid){
+		$access_token = $this->getAccessToken();
+	    $template_id =  $this->_container->getParameter('templateid');
+	    $url =  $this->_container->getParameter('templateurl');
+	    $color = $this->_container->getParameter('templatecolor');
+	    $arr = array();
+	    $arr['touser'] = $openid;
+	    $arr['template_id'] = $template_id;
+	    $arr['url'] = $url;
+	    $arr['topcolor'] = $color;
+	    $arr['data']['first']['value'] = $this->_container->getParameter('templatetitle');
+	    $arr['data']['first']['color'] = $color;
+	    $arr['data']['keyword1']['value'] = $this->_container->getParameter('templatehead');
+	    $arr['data']['keyword1']['color'] = $color;
+	    $arr['data']['keyword2']['value'] = date("Y-m-d");
+	    $arr['data']['keyword2']['color'] = $color;
+	    $arr['data']['remark']['value'] = $this->_container->getParameter('templateclick');
+	    $arr['data']['remark']['color'] = $color;
+	    $arr = json_encode($arr);
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" . $access_token);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($curl, CURLOPT_POST, 1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $arr);
+		$result = curl_exec($curl);
+		curl_close($curl);
+		$result = json_decode($result,true);
+		$response = new JsonResponse();
+        $response->setData($result);
+        return $response;
+	}
+
+	public function isSubscribed($openid, $lang = 'zh_CN'){
+		$access_token = $this->getAccessToken();
+		$http_data = array();
+	    $http_data['access_token'] = $access_token;
+	    $http_data['openid'] = $openid;
+	 	$http_data['lang'] = $lang;
+		$result = file_get_contents($this->_container->getParameter('userInfoApiUrl') . http_build_query($http_data));
+		$result = json_decode($result, true);
+		return $result['subscribe'];
 	}
 
 

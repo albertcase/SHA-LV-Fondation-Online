@@ -7,7 +7,7 @@ same_wechat_homepage:
     defaults: { _controller: SameWechatBundle:Wechat:index }
 
 same_wechat_callback:
-    path:     /same/wechat/callback_userinfo
+    path:     /same/wechat/callback
     defaults: { _controller: SameWechatBundle:Wechat:callback}
 
 same_wechat_islogin:
@@ -17,3 +17,11 @@ same_wechat_islogin:
 same_wechat_jssdk:
     path:     /same/wechat/jssdk
     defaults: { _controller: SameWechatBundle:Wechat:jssdk }
+
+same_wechat_tempalte:
+    path:     /same/wechat/tempalte/{openid}
+    defaults: { _controller: SameWechatBundle:Wechat:tempalte }
+
+same_wechat_subscribed:
+    path:     /same/wechat/subscribed/{openid}
+    defaults: { _controller: SameWechatBundle:Wechat:subscribed }

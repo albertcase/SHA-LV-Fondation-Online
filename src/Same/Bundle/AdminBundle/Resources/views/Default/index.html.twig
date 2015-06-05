@@ -1,0 +1,30 @@
+{% extends 'SameAdminBundle::layout.html.twig' %}
+{% block title %}LV OFFLINE{% endblock %}
+
+{% block head_css %}
+{% stylesheets filter='cssrewrite' output="css/same_admin_main.css"
+	'bundles/sameadmin/css/reset.css'
+	'bundles/sameadmin/css/main.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('same_admin_login') }}" method="post">
+<div id="login_form">
+	<div class="login">
+		<p>登录</p>
+	</div>
+	<div class="info">
+		<ul>
+			<li>账号：<input type="text" name="account" class="account" /></li>
+			<li>密码：<input type="password" name="password" class="password" /></li>
+		</ul>
+		<a href="javascript:;">
+			<input type="submit"  value="登&nbsp;&nbsp;录" class="sub_btn"/>	
+		</a>	
+	</div>	
+</div>
+</form>
+{% endblock %}

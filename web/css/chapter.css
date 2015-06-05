@@ -1,0 +1,1498 @@
+@charset "utf-8";
+/* =reset 网页样式重置
+------------------------------------------------------------------------------------------------------------------------------*/
+html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
+body { font-size:0.75em;}
+label { cursor:pointer;}
+a:link, a:visited { text-decoration:none;}
+input:focus { outline: none; }
+input,button,select,textarea{outline:none;/*-webkit-appearance:none;*//*强制去除表单自带的样式*/ }
+textarea{resize:none;/*-webkit-appearance:none;*//*强制去除textarea自带的样式*/ }
+
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; } /*利用阴影来填充掉input自动填充色*/
+
+textarea,input,select { background: none; border:none; margin: 0; padding: 0; }
+
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, menu, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul, var { margin:0; padding:0;}
+
+article, aside, footer, header, hgroup, nav, section, figure, figcaption { display: block;} /*html5设置*/
+
+h1, h2, h3, h4, h5, h6, th, td, table, input, button, select, textarea, sub{ font-size:1em;}
+body, input, button, select, textarea, sub{ font-family:Arial, sans-serif;}
+em, cite, address, optgroup { font-style:normal;}
+kbd, samp, code { font-family:monospace;}
+
+img, input, button, select, textarea { vertical-align:middle;outline:none;}
+ul, ol { list-style:none;}
+img, fieldset { border:0;}
+abbr, acronym { cursor:help; border-bottom:1px dotted black;}
+table {	width:100%; border-spacing:0; border:0;}
+table th, table td { border:0;}
+legend, hr { overflow:hidden; position:absolute; top:0; left:0;}
+legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0;}
+
+/**
+ * = global 统一样式
+ *******************************************************************************************************/
+/* 改变动画的效果方式*/
+* {
+  -webkit-transition-timing-function: ease-in-out;
+     -moz-transition-timing-function: ease-in-out;
+      -ms-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+html {height: 100%;}
+body { position: relative; font-family:"微软雅黑"; width: 100%; height: 100%; margin: 0 auto; }
+body h1,body h2,body h3,body h4,body h5,body h6,body strong,body em {font-weight:normal; } /*微软雅体 将原有的bold属性去掉*/
+
+
+
+/* 链接长按时不触发系统的菜单，也可用于img，在不想让用户长按将图片保存至相册时使用，默认禁止链接和图片 */
+a,img { -webkit-touch-callout: none;}
+
+/* 去除input和输入框的默认样式，并默认赋予30%的黑色背景 */
+input { -webkit-appearance: none; border: none; background:#f4f5f1; border-radius: 0; color:#000; }
+textarea { border: none; background: #f6f7f3; border-radius: 0; border:1px #ededed solid; color:#000; }
+
+
+/* 去除iphone中按下时的高亮效果 */
+/* 无法选择复制内容 */
+* { -webkit-user-select: none; -moz-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-transform:Capitalize;*/ }
+
+/* 阻止旋转屏幕时自动调整字体大小 */
+* { -webkit-text-size-adjust: none;}
+* { font-weight: normal; font-style: normal;}
+*, *:after, *:before { -webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; padding: 0; margin: 0;}
+
+
+
+
+
+.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+	  text-shadow: none;
+  	  border: none;
+  	  background: none;
+}
+/* navLevel */
+#navLevel{
+	width: 100%;
+	height: 100%;
+	background: #171717 url("/images/slogan.png") center 1.2em no-repeat;
+	background-size: 90% auto;
+	position: fixed;
+	z-index: 101;
+	left: 0;
+	top: 0;
+	text-align: center;
+}
+
+.menu{
+	width: 56%;
+	display: inline-block;
+	margin: 4em 0 0 0; 
+}
+
+.menu li{
+	width: 100%;
+	border-bottom: 1px #5e5e5e solid;
+	float: left;
+	display: inline-block;
+}
+
+.menu li a{
+	color: #fff;
+	font-size: 2em;
+	width: 100%;
+	display: inline-block;
+	padding: 0.4em 0 0.4em 0;
+}
+
+.navLevel_footer{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 1.8em;
+}
+
+.close{
+	width: 14%;
+	display: inline-block;
+	font-size: 1.4em;
+	color: #d0d0d0;
+	text-align: center;
+}
+
+.close img{
+	width: 67%;
+	display: inline-block;
+	margin: 9px 0; 
+}
+
+
+
+
+
+/* head */
+.head{
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	z-index: 100;
+	line-height: 0;
+	height: 67px;
+	overflow: hidden;
+}
+
+.nav-bg{
+	width: 82%;
+	position: absolute;
+	right: 5%;
+	top: 20%;
+}
+
+.nav_icon{
+	width: 6%;
+	display: inline-block;
+	text-align: center;
+	position: absolute;
+	left: 4%;
+	top: 18%;
+}
+
+.nav_icon img{
+	width: 82%;
+}
+
+
+.nav-slogan{
+	width: 100%;
+	text-align: center;
+	padding: 0 0 6px 0;
+}
+
+.nav-slogan p{
+	width: 70%;
+	display: inline-block;
+	border-bottom: 1px #5e5e5e solid;
+	padding: 0 0 10px 0;
+}
+
+.nav-slogan img{
+	width: 96%;
+	display: inline-block;
+}
+
+
+.f-hide{
+	display: none;
+}
+
+.page-active {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  z-index: 9;
+}
+
+.page-prev {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.page-next {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0); 
+}
+
+.page-in {
+  -webkit-transition: -webkit-transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -ms-transition: transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+}
+
+.page-out {
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -ms-transition: transform 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+}
+
+
+.swiper-wrapper, .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: none;
+    /* Center slide text vertically */
+    /*display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;*/
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+
+
+.error::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #f00;
+}
+.error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #f00;
+}
+.error::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #f00;
+}
+.error:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #f00;
+}
+
+
+html,body,#dreambox{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	/*background: #f1f1f1;*/
+
+	-ms-overflow-scrolling: hidde; 
+    -moz-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; 
+    -o-overflow-scrolling: touch;  
+
+}
+
+
+#chapter #dreambox{
+	background: none;
+}
+
+#homeList img{
+	width: 100%;
+}
+
+.chapter{
+	width: 100%;
+	/*height: 100%;*/
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+.modelpage{
+	height:100%;
+	overflow: hidden;
+}
+
+.gif_bg{
+	background: #fff;
+	height: 100%;
+	position: relative;
+}
+
+.pageArr{
+    width: 27%;
+    position: absolute;
+    left: 50%;
+    bottom: 1em;
+    margin: 0 0 0 -13.5%; 
+    font-size: 12px;
+    text-align: center;
+    color: #434243;
+}
+
+.pageArr img{
+    width: 27%;
+    display: inline-block;
+}
+
+
+.pageArr { 
+  -webkit-animation: arrAni 1.6s infinite ease-in-out;
+     -moz-animation: arrAni 1.6s infinite ease-in-out;
+          animation: arrAni 1.6s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+@-moz-keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+@keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+
+
+
+.chapter-l,.chapter-r{
+	width: 3%;
+	height: 100%;
+	float: left;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+}
+
+.chapter-l span, .chapter-r span{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 49%;
+}
+
+.chapter-l span img, .chapter-r span img{
+	width: 100%;
+}
+
+
+.chapter-l{
+	background: none;
+	left: 0;
+}
+
+.chapter-r{
+	background: none;
+	right: 0;
+}
+
+
+
+.chapter-c{
+	width: 100%;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+.swiper-container, .swiper-wrapper, .swiper-slide{
+	width: 100%;
+}
+
+.swiper-pagination-bullet{
+	background: #fff;
+	opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+	width: 15px;
+	opacity: 1;
+	border-radius: 6px;
+	-webkit-transition:all .6s ease-out;
+	-moz-transition:all .6s ease-out;
+	transition:all .6s ease-out;
+}
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+	opacity: 1;
+}
+
+.swiper-button-next.swiper-button-disabled span, .swiper-button-prev.swiper-button-disabled span{
+	opacity: 0.5;
+}
+
+.swiper-button-next, .swiper-button-prev{
+	margin: 0;
+}
+
+.dreamTrip, .dreamTrip img{
+	width: 100%;
+}
+
+
+
+
+/* chapter-1 */
+.arrUp{
+	width: 8%;
+	position: fixed;
+	left: 50%;
+	bottom: 2em;
+	margin: 0 0 0 -4%;
+	z-index: 9; 
+	text-align: center;
+}
+
+.arrUp img{
+	width: 100%;
+	display: inline-block;
+}
+
+.ani_area{
+	width: 100%;
+}
+
+.ani_area{
+	background: #fff;
+}
+
+.ani{
+	width: 100%;
+}
+
+.chapter_content{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.contentImg{
+	width: 99%;
+	display: inline-block;
+}
+
+.contentImg .c2{
+	padding: 20px 0;
+	display: inline-block;
+}
+
+.contentImg .c4{
+	padding: 20px 0;
+	display: inline-block;
+}
+
+#chapter{
+	background: url("../../bundles/images/content_bg.jpg") center top no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+.content_footer{
+	width: 100%;
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	background: url("../../bundles/images/chapter1/footer_bg.png") center bottom no-repeat;
+	background-size: 100% auto;
+}
+
+.content_footer p{
+	width: 100%;
+	margin: 15px 0 0 0;
+	display: inline-block; 
+}
+
+.content_footer p img{
+	width: 56%;
+	display: inline-block;
+}
+
+.btnArea{
+	width: 50%;
+	line-height: 0;
+	display: inline-block;
+	padding: 22px 0 34px 0;
+}
+
+.btnArea a{
+	margin: 6px 0; 
+	display: inline-block; 
+}
+
+
+/* chapter2 */
+.chapter2-content{
+	width: 90%;
+	display: inline-block;
+	padding: 1.5em 0 1em 0; 
+}
+
+
+/* chapter3 */
+.glassInstall{
+	width: 100%;
+	height: 100%;
+	background: url("../../bundles/lvfondation/images/chapter3/building.jpg") center bottom no-repeat;
+	background-size: 100% auto;
+	position: relative;
+}
+
+.page-con{
+	width: 100%;
+	height: 100%;
+}
+
+.glassInstall_con{
+	position: relative;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall h2{
+	font-size: 16px;
+	width: 100%;
+	margin: 5em 0 0 0;
+	display: inline-block; 
+	color: #3b3b3c;
+}
+
+.glassBlock{
+	width: 60%;
+	margin: 0.8em 0 0 0; 
+	display: inline-block;
+}
+
+.glassBlock_tips{
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	font-size: 14px;
+	color: #3b3b3c;
+	margin: 0 0 0.8em 0;
+	display: inline-block;
+}
+
+.glassInstall_fin{
+	width: 100%;
+	height: 100%;
+	background: url("../../bundles/lvfondation/images/chapter3/building_fin.jpg") center 56% no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+}
+
+.glassInfo{
+	display: none;
+	margin: 0.4em 0 0 0;
+}
+
+.glassInfo p{
+	padding: 1em 0;
+	width: 100%;
+	display: inline-block;
+	font-size: 12px;
+	color: #686868;
+}
+
+.glassInfo p span{
+	color: #4c4c4c;
+	border-bottom: 1px #4c4c4c solid;
+	margin: 0 0.3em 0 0;
+	font-size: 14px;
+}
+
+
+.btn{
+	width:60%;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	border: 1px #000 solid;
+	color: #040301;
+	font-size: 14px;
+}
+
+.goonSearch{
+	display: none;
+}
+
+.glass_footer{
+	position: absolute;
+	left: 0;
+	bottom: 0.7em;
+	width: 100%;
+	z-index: 2;
+	line-height: 0;
+}
+
+.glassInstall_info{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+	display: none;
+	opacity: 0;
+}
+
+
+/* chapter4 */
+.chapter4{
+	padding: 1.2em 0 0 0;
+	display: inline-block;
+}
+
+.chapter4_text{
+	width: 80%;
+	display: inline-block;
+	margin: 0.5em 0 0 0; 
+}
+
+.chapter4_text h2{
+	font-size: 30px;
+	color: #000;
+	border-bottom: 1px #020202 solid;
+	padding: 0 0 0.5em 0;
+	display: inline-block;
+}
+
+.chapter4_text p{
+	font-size: 12px;
+	color: #000;
+	line-height: 18px;
+	padding: 6px 0 9px 0;
+	width: 100%;
+}
+
+.chapter4_text p.time{
+	padding-top: 25px;
+	opacity: 0.9;
+}
+
+
+
+/* 样式放在结尾，防止 base64 图片造成拥塞 */
+	@-webkit-keyframes rotation {
+	  10% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+
+	  50%, 60% {
+	    transform: rotate(0deg);
+	    -webkit-transform: rotate(0deg)
+	  }
+
+	  90% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+
+	  100% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+	}
+
+	@keyframes rotation {
+	  10% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+
+	  50%, 60% {
+	    transform: rotate(0deg);
+	    -webkit-transform: rotate(0deg)
+	  }
+
+	  90% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+
+	  100% {
+	    transform: rotate(90deg);
+	    -webkit-transform: rotate(90deg)
+	  }
+	}
+
+	#orientLayer {
+	  display: none;
+	}
+
+	@media screen and (min-aspect-ratio: 13/9) {
+	  #orientLayer {
+	    display: block;
+	  }
+	}
+
+	.mod-orient-layer {
+	  display: none;
+	  position: fixed;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  background: #000;
+	  z-index: 9997
+	}
+
+	.mod-orient-layer__content {
+	  position: absolute;
+	  width: 100%;
+	  top: 45%;
+	  margin-top: -75px;
+	  text-align: center
+	}
+
+	.mod-orient-layer__icon-orient {
+	  background-image: url('../../bundles/lvfondation/images/heng.png');
+	  display: inline-block;
+	  width: 67px;
+	  height: 109px;
+	  transform: rotate(90deg);
+	  -webkit-transform: rotate(90deg);
+	  -webkit-animation: rotation infinite 1.5s ease-in-out;
+	  animation: rotation infinite 1.5s ease-in-out;
+	  -webkit-background-size: 67px;
+	  background-size: 67px
+	}
+
+	.mod-orient-layer__desc {
+	  margin-top: 20px;
+	  font-size: 15px;
+	  color: #fff
+	}
+
+
+
+
+
+
+/* 框架样式 */
+
+.m-page {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size:40px;
+  color: #fff;
+  position:absolute;
+  left: 0; 
+  top:0;
+  overflow: auto;
+}
+
+
+
+
+
+/* form */
+#form{
+	background:#ececec;
+
+}
+.header_img{
+	position: relative;
+	display: inline-block;
+	width:92%;
+	margin: 0px 0px 0px 4%;
+	
+}
+.invitation{
+	position: relative;
+	display: inline-block;
+	width:60%;
+	margin: 4% 0px 0px 20%;
+}
+.form{
+	position: relative;
+	display: inline-block;
+	width:74%;
+	margin: 4% 0px 0px 13%;
+}
+.form ul li{
+	background: #dcdcdc;
+	margin: 6px 0;
+	padding: 10px 0px 10px 20px;
+	font-size: 1.2em;
+	color:#767676;
+	width: 100%;
+	float: left;
+	display: inline-block;
+}
+.sub_btn{
+	background: none;
+	position: relative;
+	display: inline-block;
+	width:40%;
+	margin: 6px 0px 10px 30%;
+	border: 1px solid #000;
+	font-size: 1.2em;
+	padding: 6px 0px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}	
+
+.form ul li span{
+	width: 27%;
+	display: inline-block;
+	float: left;
+}
+
+.form ul li input{
+	height:1.2em;
+	margin-left: 10px;
+	background: none;
+	border:none;
+	text-transform: lowercase;
+	color:#767676;
+	line-height: 1.2em;
+	width: 67%;
+	float: right;
+	display: inline-block;
+
+}
+/* share */
+#share{
+	background:#ececec;
+}
+.share_name{
+	position: relative;
+	font-size: 1.2em;
+	text-align: center;
+	margin: 4% auto 0 auto;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+.address{
+	position: relative;
+	display: inline-block;
+	width:70%;
+	margin: 2% 0px 0px 15%;
+
+}
+.share_btn{
+	background: none;
+	position: relative;
+	display: inline-block;
+	width:40%;
+	margin: 4% 0px 0px 30%;
+	border: 1px solid #000;
+	font-size: 1.2em;
+	padding: 6px 0px;
+	font-weight: bold;
+	letter-spacing: .1em;
+}
+/* address */
+.intro{
+	position: relative;
+	display: inline-block;
+	width: 80%;
+	margin: 20% 10% 0% 10%;
+}
+.map_bg{
+	width:100%;
+	height:100%;
+	background: url('../../bundles/lvfondation/images/address/map.png') no-repeat;
+	background-size: 100%;
+	position:absolute;
+	display: inline-block;
+    top:30%;
+    left:0%;
+}
+
+.loc_bj{
+	position: absolute;
+	width:15%;
+	top:42%;
+	right:6%;
+	opacity: 0;
+	z-index:2;
+
+}
+.loc_ps{
+	position: absolute;
+	width:15%;
+	top:24%;
+	left:1%;
+	opacity: 0;
+	z-index: 2;
+}
+.loc_lv{
+	position: absolute;
+	width:24%;
+	top:46.5%;
+	left:43%;
+	opacity: 0;
+
+}
+.mask{
+	width:100%;
+	height:100%;
+	background: url('../../bundles/lvfondation/images/address/green.png') no-repeat;
+	background-size: 100%;
+	position:absolute;
+	display: inline-block;
+    top: 28%;
+    left: -4%;
+    animation: clound 1 2.5s linear;
+    -webkit-animation: clound 1 2.5s linear;
+    -moz-animation: clound 1 2.5s linear;
+    opacity: 0.9;
+
+}
+@keyframes clound{
+	0%{opacity: 0.1;transform: translate(-20px, 0);}
+	50%{opacity: 0.3;transform: translate(-10px, 0);}
+	75%{opacity: 0.6;transform: translate(-2px, 0);}  
+	100%{opacity: 0.8;transform: translate(0, 0);}
+
+}
+@-webkit-keyframes clound{
+	0%{opacity: 0.1;-webkit-transform: translate(-20px, 0);}
+	50%{opacity: 0.3;-webkit-transform: translate(-10px, 0);}
+	75%{opacity: 0.6;-webkit-transform: translate(-2px, 0);}  
+	100%{opacity: 0.8;-webkit-transform: translate(0, 0);}
+}
+@-moz-keyframes clound{
+	0%{opacity: 0.1;-moz-transform: translate(-20px, 0);}
+	50%{opacity: 0.3;-moz-transform: translate(-10px, 0);}
+	75%{opacity: 0.6;-moz-transform: translate(-2px, 0);}  
+	100%{opacity: 0.8;-moz-transform: translate(0, 0);}
+
+}
+.ps_green{
+	width:100%;
+	height:100%;
+	background: url('../../bundles/lvfondation/images/address/green2.png') no-repeat;
+	background-size: 100%;
+	position:absolute;
+	display: inline-block;
+    top: 31%;
+    left: -4%;
+    z-index:100;
+    animation: clound 1 2.5s linear;
+    -webkit-animation: clound 1 2.5s linear;
+    -moz-animation: clound 1 2.5s linear;
+}
+.bg_paris{
+	width:100%;
+	height:100%;
+	background: url('../../bundles/lvfondation/images/address/map2.png') no-repeat;
+	background-size: 100%;
+	position:absolute;
+	display: inline-block;
+    top:30%;
+    left:0%;
+    opacity: .8;
+    z-index:99;
+    
+
+}
+/* address1 */
+.map_1{
+	width:100%;
+	height:220px;
+	position:absolute;
+	margin: 10% 0 0 0;
+	background: url('../../bundles/lvfondation/images/address/map1.png') no-repeat;
+	background-size: 100%;
+	
+
+}
+.add{
+	animation: scale 500ms linear;
+	-webkit-animation: scale 500ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+}
+.add2{
+	background: url('../../bundles/lvfondation/images/address/map3.png') no-repeat;
+	background-size:100%;
+	animation: scale2 500ms linear;
+	-webkit-animation: scale2 500ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+
+}
+@keyframes scale {
+	0% { background-size: 100%;}
+	25% { background-size: 130%; background-position:0.75% 9%;}
+	50% { background-size: 160%; background-position:1.5% 18%;}
+	75% { background-size: 190%; background-position:2.25% 27%;}
+	100% { background-size: 220%; background-position:3% 36%;}
+}
+@-webkit-keyframes scale {
+	0% { background-size: 100%; }
+	25% { background-size: 130%; background-position:0.75% 9%;}
+	50% { background-size: 160%; background-position:1.5% 18%;}
+	75% { background-size: 190%; background-position:2.25% 27%;}
+	100% { background-size: 220%; background-position:3% 36%;}
+}
+@keyframes scale2 {
+	0% { background-size: 0%;background-position:50% 50%; }
+	12.5% { background-size: 12.5%;background-position:50% 50%; }
+	25% { background-size: 25%; background-position:50% 50%;}
+	37.5% { background-size: 37.5%;background-position:50% 50%; }
+	50% { background-size: 50%; background-position:50% 50%;}
+	62.5% { background-size: 62.5%; background-position:50% 50%;}
+	75% { background-size: 75%; background-position:50% 50%;}
+	87.5% { background-size: 87.5%; background-position:50% 50%;}
+	100% { background-size: 100%; background-position:50% 50%;}
+}
+@-webkit-keyframes scale2 {
+	0% { background-size: 0%;background-position:50% 50%; }
+	12.5% { background-size: 12.5%;background-position:50% 50%; }
+	25% { background-size: 25%; background-position:50% 50%;}
+	37.5% { background-size: 37.5%;background-position:50% 50%; }
+	50% { background-size: 50%; background-position:50% 50%;}
+	62.5% { background-size: 62.5%; background-position:50% 50%;}
+	75% { background-size: 75%; background-position:50% 50%;}
+	87.5% { background-size: 87.5%; background-position:50% 50%;}
+	100% { background-size: 100%; background-position:50% 50%;}
+}
+.map_2{
+	width:100%;
+	height:220px;
+	position:absolute;
+	margin: 10% 0 0 0;
+	background: url('../../bundles/lvfondation/images/address/map.png') no-repeat;
+	background-size: 100%;
+    opacity: 0;
+
+}
+
+.dot{
+	width:3%;
+}
+.dot_ps{
+	position: absolute;
+	z-index: 2;
+	margin: 20% 0 0 3.2%;
+}
+.dot_bj{
+	position: absolute;
+	margin: 23% 0 0 38%;
+}
+.dot_ty{
+	position: absolute;
+	margin: 23% 0 0 46%;
+}
+.dot_ny{
+	position: absolute;
+	margin: 22.5% 0 0 92.5% ;
+}
+.title_ps{
+	position: absolute;
+	left: 7%;
+	top: 34%;
+	width:12%;
+	animation: turn-left 1000ms ease-in;
+	-webkit-animation: turn-left 1000ms ease-in;
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+
+}
+@keyframes turn-left{
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
+}
+@-webkit-keyframes turn-left{
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
+
+}  
+.title_bj{
+	position: absolute;
+	left: 34%;
+	top: 28%;
+	width:12%;
+	animation: turn-top 1000ms ease-in;
+	-webkit-animation: turn-top 1000ms ease-in;
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	animation-delay:400ms;
+	-webkit-animation-delay:400ms; 
+}
+@keyframes turn-top{
+	0% {-webkit-transform: perspective(200px) rotateX(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateX(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateX(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateX(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateX(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateX(0deg);}
+}
+@-webkit-keyframes turn-top{
+	0% {-webkit-transform: perspective(200px) rotateX(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateX(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateX(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateX(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateX(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateX(0deg);}
+
+}  
+.title_ty{
+	position: absolute;
+	left: 50%;
+	top: 42%;
+	width:12%;
+	animation: turn-top 1000ms ease-in;
+	-webkit-animation: turn-top 1000ms ease-in;
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	animation-delay:1000ms;
+	-webkit-animation-delay:1000ms; 
+}
+.title_ny{
+	position: absolute;
+	top: 40%;
+	right:7%;
+	width:12%;
+	animation: turn-right 1000ms ease-in;
+	-webkit-animation: turn-right 1000ms ease-in;
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+	animation-delay:1400ms;
+	-webkit-animation-delay:1400ms; 
+}
+@keyframes turn-right{
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
+}
+@-webkit-keyframes turn-right{
+	0% {-webkit-transform: perspective(200px) rotateY(40deg);}
+    50% {-webkit-transform: perspective(200px) rotateY(-45deg);}
+    60% {-webkit-transform: perspective(200px) rotateY(15deg);}
+    80% {-webkit-transform: perspective(200px) rotateY(-15deg);}
+	90% {-webkit-transform: perspective(200px) rotateY(5deg);}
+	100% {-webkit-transform: perspective(200px) rotateY(0deg);}
+
+}
+ 			
+.cloud_img{
+    width:100%;
+    position: absolute;
+    top:-4%;
+    opacity: 0;
+    -webkit-mask:url('../../bundles/lvfondation/images/address/cloud7.png') no-repeat 0% center;
+}
+
+
+.cloud_animation{
+	animation: cloud_float 1s step-start 1;
+	-webkit-animation: cloud_float 1s step-start  1;
+}
+@keyframes cloud_float{
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 19% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	25% {-webkit-mask-image: -webkit-gradient(
+    linear, 4% 8%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	50% {-webkit-mask-image: -webkit-gradient(
+    linear, 15% 20%, 40% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	75% {-webkit-mask-image: -webkit-gradient(
+    linear, 27% 26%, 31% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 30% 34%, 24% 0%, from(#fff), to(rgba(0,0,0,0)));}
+
+}
+@-webkit-keyframes cloud_float{
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 19% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	25% {-webkit-mask-image: -webkit-gradient(
+    linear, 4% 8%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	50% {-webkit-mask-image: -webkit-gradient(
+    linear, 15% 20%, 32% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	75% {-webkit-mask-image: -webkit-gradient(
+    linear, 27% 26%, 31% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 30% 34%, 24% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	
+}
+.pulse{
+    -webkit-animation-name: pulsed;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count:1;
+    /*-webkit-animation-direction:alternate;*/
+    -webkit-mask-size: 150%;
+}
+@-webkit-keyframes pulsed {
+    0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 150%; }
+}
+.line_animation{
+	animation: line_animation 2s linear;
+	-webkit-animation: line_animation 2s linear;
+
+}
+@keyframes line_animation {
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 10% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    25% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 30% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    50% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 50% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    75% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 70% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 100% 0%, from(#fff), to(rgba(0,0,0,0)));}
+}
+@-webkit-keyframes line_animation {
+	0% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 10% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    25% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 30% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    50% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 50% 0%, from(#fff), to(rgba(0,0,0,0)));}
+    75% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 70% 0%, from(#fff), to(rgba(0,0,0,0)));}
+	100% {-webkit-mask-image: -webkit-gradient(
+    linear, 0% 0%, 100% 0%, from(#fff), to(rgba(0,0,0,0)));}
+}
+.line_img{
+	width: 76%;
+	position: absolute;
+	left: 8%;
+	top: 35%;
+	opacity: 0;
+    
+}
+.arrow{
+	width:3%;
+	position: absolute;
+	top: 36%;
+	left: 12%;
+	opacity: 0;
+}
+.arrow_animation{
+	animation: arrow_animation 2.2s linear;
+	-webkit-animation: arrow_animation 2.2s linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes arrow_animation{
+	0% {top:36%; left:12%;transform: rotateX(85deg);}
+    25% {top:34%; left:20%;transform: rotateX(40deg);}
+    37.5% {top:32%; left:30%;transform: rotateX(20deg);}
+    50% {top:33%; left:39%;transform: rotateX(85deg);}
+    62.5% {top:34%;left:46%;transform: rotateX(120deg);}
+    75% {top:36%; left:55%;transform: rotate(20deg);}
+	100% {top:52%; left:82%;transform: rotate(40deg);}
+}
+@-webkit-keyframes arrow_animation{
+	0% {top:36%; left:12%;-webkit-transform: rotateX(85deg);}
+    25% {top:34%; left:20%;-webkit-transform: rotateX(40deg);}
+    37.5% {top:32%; left:30%;-webkit-transform: rotateX(20deg);}
+    50% {top:33%; left:39%;-webkit-transform: rotateX(85deg);}
+    62.5% {top:34%;left:46%;-webkit-transform: rotateX(120deg);}
+    75% {top:36%; left:55%;-webkit-transform: rotate(20deg);}
+	100% {top:52%; left:82%;-webkit-transform: rotate(40deg);}
+}
+
+.cloud_2_img{
+	width:86%;
+	position: absolute;
+	top: -9%;
+    left: 10%;
+    opacity: 0;
+    -webkit-mask:url('../../bundles/lvfondation/images/address/mask_1.png') no-repeat  center; 
+
+}
+.cloud_2_animation{
+	-webkit-animation-name: cloud_center;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count:1;
+    -webkit-mask-size: 100%;
+
+
+}
+@keyframes cloud_center{
+	0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 100%; }
+}
+@-webkit-keyframes cloud_center{
+	0% { -webkit-mask-size: 0%; }
+    100% { -webkit-mask-size: 100%; }
+}
+.dot_lt{
+	width:3%;
+	position: absolute;
+	top:46%;
+    left:52%;
+	opacity: 0;
+	z-index:10;
+}
+.dot_animation{
+	animation: scale_dot 1s linear infinite;
+	-webkit-animation: scale_dot 1s linear infinite;
+	animation-delay:2s;
+	-webkit-animation-delay:2s;
+
+}
+@keyframes scale_dot{
+	0% {transform: scale(1,1);}
+	20% {transform: scale(1.4,1.4);}
+	40% {transform: scale(1.8,1.8);}
+	60% {transform: scale(1.6,1.6);}
+	80% {transform: scale(1.4,1.4);}
+	100% {transform: scale(1,1);}
+}
+@-webkit-keyframes scale_dot{
+	0% {-webkit-transform: scale(1,1);}
+	20% {-webkit-transform: scale(1.4,1.4);}
+	40% {-webkit-transform: scale(1.8,1.8);}
+	60% {-webkit-transform: scale(1.6,1.6);}
+	80% {-webkit-transform: scale(1.4,1.4);}
+	100% {-webkit-transform: scale(1,1);}
+}
+.lv_home{
+	width:20%;
+	position: absolute;
+	top:25%;
+	left:44%;
+	display: none;
+	
+	
+}
+.lv_title{
+	width:16%;
+	position: absolute;
+	top:36%;
+	left:46%;
+	display: none;
+	
+
+}
+.show{
+	animation: show 900ms ease-in-out 1;
+	-webkit-animation: show 900ms ease-in-out 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+}
+@keyframes show {
+	0%{top:34%;}
+	100%{top:25%;}
+
+}
+@-webkit-keyframes show {
+	0%{top:34%;}
+	100%{top:25%;}
+}
+.show2{
+	animation: show2 200ms linear;
+	-webkit-animation: show2 200ms linear;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	
+}
+@keyframes show2 {
+	0%{top:42%;transform:rotate(1deg);}
+	100%{top:36%;transform:rotate(1deg);}
+
+}
+@-webkit-keyframes show2 {
+	0%{top:42%;-webkit-transform:rotate(1deg);}
+	100%{top:36%;-webkit-transform:rotate(1deg);}
+}
+
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
+
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("../../bundles/lvfondation/images/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glassBlock_tips{
+		margin: 0 0 0.6em 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}
+
+
+

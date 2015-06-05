@@ -1,11 +1,6 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 <div class="chapter modelpage">
-		<div class="arrUp">
-			<img src="/images/arr-up.png" />
-		</div>
-
-
 
 				<!-- Swiper -->
     <div class="swiper-container">
@@ -22,32 +17,52 @@
 				</div>
             </div>
 
+            <div class="swiper-slide swiper-no-swiping">
+            	<a href="javascript:mySwiper.slideTo(2, 600, true);" class="panoramaLink"></a>
+            	<div id="wrapper">
+					<div id="scroller">
+						<div class="focuslv-home">
+							
+							<div class="focuslv-cn">
+								<img src="/images/chapter2/focus-cn.jpg" width="100%" />
+								<div class="focuslv-en">
+									<img src="/images/chapter2/focus-en.png" width="100%" />
+								</div>
+							</div>
+							<div class="focus-dot"></div>
+						</div>
+						<img src="/images/chapter2/vso.jpg" height="100%" class="parkImg" />
+					</div>
+					<p class="scrollsTips st-1">点击进一步了解<br />路易威登基金会</p>
+					<p class="scrollsTips st-2">滑动手指欣赏<br />布洛涅森林公园美景</p>
+				</div>
+            </div>
 
-            <div class="swiper-slide">
-            	<div class="chapter_content  swiper-no-swiping">
+            <div class="swiper-slide swiper-no-swiping">
+            	<div class="chapter_content">
 
             			<div class="chapter2-content">
-			    			<img src="/images/chapter2/c1.png" width="100%" />
+			    			<img data-src="/images/chapter2/c1.png" class="swiper-lazy" width="100%" />
 						</div>
 
 						<div class="content_footer">
 							<p>
-							<img src="/images/chapter1/footer_tips.png" />
+							<img data-src="/images/chapter1/footer_tips.png" class="swiper-lazy" />
 							</p>
 							<div class="btnArea">
 								
 								<a href="invitations.html" class="creat_btn">
-									<img src="/images/creat_btn.png" width="100%" />
+									<img data-src="/images/creat_btn.png" class="swiper-lazy" width="100%" />
 								</a>
 								<a href="ugc/index.html" class="talk_btn">
-									<img src="/images/talk_btn.png" width="100%" />
+									<img data-src="/images/talk_btn.png" class="swiper-lazy" width="100%" />
 								</a>
 								
 							</div>
 						</div>
 						
 						<a href="javascript:;">
-							<img src="/images/chapter2/kv.jpg" width="100%" class="c5" />
+							<img data-src="/images/chapter2/kv.jpg" class="swiper-lazy c5" width="100%" />
 						</a>
 				</div>
             </div>
@@ -64,8 +79,64 @@
 
 var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
-    direction: 'vertical'
+    direction: 'vertical',
+    //preventClicks : false
 });
+
+
+var myScroll;
+
+
+$("#scroller").css("width",$(".parkImg").css("width"));
+loaded();
+
+function loaded () {
+	
+	myScroll = new IScroll('#wrapper', { 
+		probeType: 3, 
+		scrollX: true, 
+		scrollY: false, 
+		startX: -parseInt($("#scroller").css("width")) + $(window).width()
+	});
+
+	myScroll.on('scroll', myCustomFn);
+}
+
+function myCustomFn(){
+	if(this.x > -156){
+		$(".st-2").css({"bottom":"-10em"},300);
+		$(".st-1").css({"bottom":"1.6em"},600);
+		
+		$(".focus-dot").addClass("focus-dot-animate");
+		$(".panoramaLink").show();
+	}else{
+		$(".st-2").css({"bottom":"1.6em"});
+		$(".st-1").css({"bottom":"-10em"});
+		
+		$(".focuslv-cn").stop().animate({"top":"40px","opacity":0},600,function(){
+	    	$(".focuslv-en").stop().animate({"opacity":0});
+	    	$(".focus-dot").removeClass("focus-dot-animate");
+	    });
+	    $(".panoramaLink").hide();
+	}
+}
+
+
+$(".focus-dot").bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
+	animationListener_focusdot();
+	return false;
+});
+
+
+var animationListener_focusdot = function(){
+	$(".focuslv-cn").stop().animate({"top":"22px","opacity":1},900,function(){
+    	$(".focuslv-en").stop().animate({"opacity":1});
+    });
+}
+
+
+// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
 
 
 </script>

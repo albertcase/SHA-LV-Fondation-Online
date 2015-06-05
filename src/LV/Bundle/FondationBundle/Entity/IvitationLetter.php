@@ -35,6 +35,13 @@ class IvitationLetter
      * @ORM\Column(name="cellphone", type="string", length=255)
      */
     private $cellphone;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imgurl", type="string", length=255)
+     */
+    private $imgurl;
 
     /**
      * @var string
@@ -120,5 +127,28 @@ class IvitationLetter
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set imgurl
+     *
+     * @param string $imgurl
+     * @return IvitationLetter
+     */
+    public function setImgurl($imgurl)
+    {
+        $this->imgurl = $imgurl;
+
+        return $this;
+    }
+
+    /**
+     * Get imgurl
+     *
+     * @return string 
+     */
+    public function getImgurl()
+    {
+        return $this->imgurl;
     }
 }

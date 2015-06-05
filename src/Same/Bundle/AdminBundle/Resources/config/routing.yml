@@ -1,0 +1,9 @@
+same_admin_login:
+    path:     /same/admin/login
+    defaults: { _controller: SameAdminBundle:Default:login }
+same_admin_file:
+    path:     /same/admin/file
+    defaults: { _controller: SameAdminBundle:Default:file }
+same_admin_homepage:
+    path:     /same/admin/{name}
+    defaults: { _controller: SameAdminBundle:Default:index }

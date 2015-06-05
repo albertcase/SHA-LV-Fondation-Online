@@ -9,31 +9,17 @@
 <meta name="Keywords" content="">
 <meta name="Description" content="">
 <link rel="apple-touch-icon" href="images/icon.png" />
-<title>Louis Vuitton</title>
+<title>{% block title %}Louis Vuitton{% endblock %}</title>
+{% block head_css %}
+{% endblock %}
 <script type="text/javascript" src="js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="css/reset.css" />
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+{% block head_js %}
+{% endblock %}
 </head>
 <body>
-	<div id="login_form">
-		<div class="login">
-			<p>登录</p>
-		</div>
-		<div class="info">
-			<ul>
-				<li>账号：<input type="text" name="account" class="account" /></li>
-				<li>密码：<input type="password" name="password" class="password" /></li>
-			</ul>
-			<a href="javascript:;">
-				<input type="submit"  value="登&nbsp;&nbsp;录" class="sub_btn"/>	
-			</a>	
-		</div>	
-	</div>	
-
-
-
-
-<script type="text/javascript" src="js/main.js"></script>
+{% block content %}
+test
+{% endblock %}
 </body>
 </html>
 

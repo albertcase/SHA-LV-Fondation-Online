@@ -1,3 +1,7 @@
+same_admin:
+    resource: "@SameAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 same_session:
     resource: "@SameSessionBundle/Resources/config/routing.yml"
     prefix:   /

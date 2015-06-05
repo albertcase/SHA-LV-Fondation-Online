@@ -1,7 +1,14 @@
 parameters:
-    appid: wxeb57276615f0d9f1
-    appsecret: 42ac444f36a854b3dc3c66bdc59c98cc
+    appid: wx42d5174eefc29f1f
+    appsecret: 86508d2f6f26001aaec06be97c9c6c14
     oauthApiUrl: https://open.weixin.qq.com/connect/oauth2/authorize?
     tokenApiUrl: https://api.weixin.qq.com/cgi-bin/token?
     ticketApiUrl: https://api.weixin.qq.com/cgi-bin/ticket/getticket?
     accessTokenApiUrl: https://api.weixin.qq.com/sns/oauth2/access_token?
+    userInfoApiUrl: https://api.weixin.qq.com/cgi-bin/user/info?
+    templateid: fP293jFFvUnZgXya_9cxhhN0I4GsLMRscKHVbtMIeiU
+    templateurl: http://www.baidu.com
+    templatecolor: #FF0000
+    templatetitle: 大标题
+    templatehead: 活动名
+    templateclick: 点击文字

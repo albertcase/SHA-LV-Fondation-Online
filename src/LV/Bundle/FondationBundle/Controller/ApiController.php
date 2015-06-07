@@ -7,11 +7,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('LVFondationBundle:Default:index.html.twig', array('name' => $name));
-    }
-
 
     public function jssdkAction()
     {
@@ -35,8 +30,13 @@ class ApiController extends Controller
         $user = $this->container->get('lv.user.service');
 
         if($invitation = $user->createInvitationLetter($data)) {
+            $uri = $this->generateUrl(
+                    'lv_fondation_userdream',
+                    array('id' => '2'),
+                    true
+                );
             $files_base_dir = $this->container->getParameter('files_base_dir');
-            $status = array('status' => 1, 'imgurl' => $files_base_dir . $invitation->getImgurl());
+            $status = array('status' => 1, 'url' => $url);
         }
         $response = new JsonResponse();
         $response->setData($status);

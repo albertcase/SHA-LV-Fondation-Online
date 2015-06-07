@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class DreamLikeRepository extends EntityRepository
 {
+	public function retrieveLikedCount($dream_id) {
+		$query = $this->getEntityManager()
+            ->createQuery(
+            	'SELECT COUNT(dv.id) FROM LVFondationBundle:DreamLike dv
+            	WHERE dv.userdream = :dream_id'
+            	)
+            ->setParameter(':dream_id', $dream_id);
+        $result = $query->getSingleScalarResult();
+        return $result;
+	}	
 }

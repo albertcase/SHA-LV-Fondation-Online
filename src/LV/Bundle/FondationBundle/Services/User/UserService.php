@@ -143,19 +143,55 @@ class UserService
     public function dreamView(UserDream $userdream)
     {
         if($user = $this->userLoad()) {
-            $dreamview = new DreamView();
-            $dreamview->setUser($user);
-            $dreamview->setUserdream($userdream);
-            $dreamview->setCreated(time());
-            $this->save($dreamview);
-            return $dreamview;
+            if($user->getId() != $userdream->getUser()->getId()) {
+                $dreamview = new DreamView();
+                $dreamview->setUser($user);
+                $dreamview->setUserdream($userdream);
+                $dreamview->setCreated(time());
+                $this->save($dreamview);
+                return $dreamview;        
+            }
+
         }
         return FALSE;
     }
 
     public function retrieveDreamInfoByDreamId($dream_id)
     {
+        if($user = $this->userLoad()) {
 
+            $dream = $this->em->getRepository('LVFondationBundle:UserDream')->findOneBy(array('id' => $dream_id));
+
+            $this->dreamView($dream);
+
+            $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+            $nickname = $dream->getNickname();
+            $content = $dream->getContent();
+            $days = ceil((time() - $dream->getCreated()) / (3600 * 24));
+            $views = $this->em->getRepository('LVFondationBundle:DreamView')->retrieveViewCount($dream_id);
+            $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->retrieveLikedCount($dream_id);
+
+            if($dream->getUser()->getId() == $user->getId()){
+                $call = '您';
+                $who = 'myself';
+            } else {
+                $call = '他(她)';
+                $who = 'others';
+            }
+
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'nickname' => $nickname,
+                'content' => $content,
+                'call' => $call,
+                'days' => $days,
+                'views' => $views,
+                'liked' => $liked,
+                'who' => $who,
+                );
+            return $dreaminfo;
+        }
+        return FALSE;
     }
 
     public function findUserByOpenId($openid)

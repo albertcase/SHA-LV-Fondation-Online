@@ -3,11 +3,6 @@
 namespace LV\Bundle\FondationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use LV\Bundle\FondationBundle\Entity\User;
-use LV\Bundle\FondationBundle\Entity\UserInfo;
-use Symfony\Component\HttpFoundation\Response;
-use LV\Bundle\FondationBundle\Event\FilterTestOneEvent;
-use LV\Bundle\FondationBundle\Services\User\TestEvent;
 
 class PageController extends Controller
 {
@@ -24,19 +19,14 @@ class PageController extends Controller
 
     public function dreamAction()
     {
-
-        return $this->render('LVFondationBundle:Default:dream.html.twig', array('dream' => array('a' => 23, 'b' => 'sfd')));
+        return $this->render('LVFondationBundle:Default:dream.html.twig');
     }
 
     public function userDreamAction($id)
     {
         $userservice = $this->container->get('lv.user.service');
-        $user = $userservice->userLoad();    
-        $userdream = $this->getDoctrine()
-            ->getRepository('LVFondationBundle:UserDream')
-            ->findOneBy(array('id' => $id));
-        $userservice->dreamView($userdream);
-        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $userdream, 'user' => $user));
+        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
+        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $dreaminfo));
     }
 
     public function chapterOneAction()

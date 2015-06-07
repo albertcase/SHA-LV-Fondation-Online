@@ -1,5 +1,12 @@
 {% extends 'LVFondationBundle::dreamlayout.html.twig' %}
 {% block title %}LV UGC{% endblock %}
 {% block dreambox %}
-{{ userdream.id }}
+{{ userdream.dreamcount }}
+{{ userdream.nickname }}
+{{ userdream.content }}
+{{ userdream.call }}
+{{ userdream.days }}
+{{ userdream.views }}
+{{ userdream.liked }}
+{{ userdream.who }}
 {% endblock %}

@@ -4,7 +4,7 @@ services:
 #        arguments: [@service_id, "plain_value", %parameter%]
     same.wechat:
        class: Same\Bundle\WechatBundle\Model\Wechat
-       arguments: [@service_container]
+       arguments: [@service_container, @same.memcached]
     same.memcached:
        class: Memcached
        calls:

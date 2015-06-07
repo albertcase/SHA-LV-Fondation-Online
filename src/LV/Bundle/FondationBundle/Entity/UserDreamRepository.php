@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserDreamRepository extends EntityRepository
 {
+	public function retrieveDreamCount() {
+		$query = $this->getEntityManager()
+            ->createQuery(
+            	'SELECT COUNT(ud.id) FROM LVFondationBundle:UserDream ud'
+            	);
+        $result = $query->getSingleScalarResult();
+        return $result;
+	}
 }

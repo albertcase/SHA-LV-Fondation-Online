@@ -6,6 +6,7 @@ use LV\Bundle\FondationBundle\Entity\User;
 use LV\Bundle\FondationBundle\Entity\UserInfo;
 use LV\Bundle\FondationBundle\Entity\UserDream;
 use LV\Bundle\FondationBundle\Entity\DreamLike;
+use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 
 class UserService
 {
@@ -106,6 +107,21 @@ class UserService
             $dream->setUpdated(time());
             $this->save($dream);
             return $dream;
+        }
+        return FALSE;
+    }
+
+    public function createInvitationLetter($data)
+    {
+        if($user = $this->userLoad()) {
+            $invitation = new InvitationLetter();
+            $invitation->setName($data['name']);
+            $invitation->setCellphone($data['cellphone']);
+            $invitation->setImgurl($data['imgurl']);
+            $invitation->setCreated(time());
+            $invitation->setUser($user);
+            $this->save($invitation);
+            return $invitation;
         }
         return FALSE;
     }

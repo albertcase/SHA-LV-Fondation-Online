@@ -57,6 +57,13 @@ class User
     private $dreamlike;
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="InvitationLetter", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $invitationletter;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -197,5 +204,38 @@ class User
     public function getDreamlike()
     {
         return $this->dreamlike;
+    }
+
+    /**
+     * Add invitationletter
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\InvitationLetter $invitationletter
+     * @return User
+     */
+    public function addInvitationletter(\LV\Bundle\FondationBundle\Entity\InvitationLetter $invitationletter)
+    {
+        $this->invitationletter[] = $invitationletter;
+
+        return $this;
+    }
+
+    /**
+     * Remove invitationletter
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\InvitationLetter $invitationletter
+     */
+    public function removeInvitationletter(\LV\Bundle\FondationBundle\Entity\InvitationLetter $invitationletter)
+    {
+        $this->invitationletter->removeElement($invitationletter);
+    }
+
+    /**
+     * Get invitationletter
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInvitationletter()
+    {
+        return $this->invitationletter;
     }
 }

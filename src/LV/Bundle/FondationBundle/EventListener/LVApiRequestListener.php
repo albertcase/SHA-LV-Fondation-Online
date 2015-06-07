@@ -69,7 +69,7 @@ class LVApiRequestListener
         if(!preg_match('/^\d{11}$/', $cellphone))
             return '011'; //The cellphone number is wrong
         // $is_cellphone = $this->container->get('doctrine')
-        //     ->getRepository('LVFondationBundle:IvitationLetter')
+        //     ->getRepository('LVFondationBundle:InvitationLetter')
         //     ->findOneBy(array('cellphone' => $cellphone));
         // if($is_cellphone)
         //     return '012'; //The cellphone is already exist

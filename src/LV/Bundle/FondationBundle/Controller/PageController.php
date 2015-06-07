@@ -28,9 +28,13 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:dream.html.twig', array('name' => 32));
     }
 
-    public function userDreamAction()
+    public function userDreamAction($id)
     {
-        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('name' => 32));
+        $user_dream = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:UserDream')
+            ->findOneBy(array('id' => $id));
+        $user = $this->container->get('lv.user.service')->userLoad();    
+        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $user_dream, 'user' => $user));
     }
 
     public function chapterOneAction()
@@ -58,15 +62,13 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:invitation.html.twig');
     }
 
-    public function invitationShowAction($invitation_id)
+    public function invitationShowAction($id)
     {
         $invitation = $this->getDoctrine()
-            ->getRepository('LVFondationBundle:IvitationLetter')
-            ->findOneBy(array('id' => $invitation_id));
-        if($invitation) {
-            //if()
-        }
-        return $this->render('LVFondationBundle:Default:show_invitation.html.twig');
+            ->getRepository('LVFondationBundle:InvitationLetter')
+            ->findOneBy(array('id' => $id));
+        $user = $this->container->get('lv.user.service')->userLoad();   
+        return $this->render('LVFondationBundle:Default:show_invitation.html.twig', array('invitation' => $invitation, 'user' => $user));
     }
 
 }

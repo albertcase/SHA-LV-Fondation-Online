@@ -6,6 +6,7 @@ use LV\Bundle\FondationBundle\Entity\User;
 use LV\Bundle\FondationBundle\Entity\UserInfo;
 use LV\Bundle\FondationBundle\Entity\UserDream;
 use LV\Bundle\FondationBundle\Entity\DreamLike;
+use LV\Bundle\FondationBundle\Entity\DreamView;
 use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 
 class UserService
@@ -137,6 +138,24 @@ class UserService
             return $dreamlike;
         }
         return FALSE;
+    }
+
+    public function dreamView(UserDream $userdream)
+    {
+        if($user = $this->userLoad()) {
+            $dreamview = new DreamView();
+            $dreamview->setUser($user);
+            $dreamview->setUserdream($userdream);
+            $dreamview->setCreated(time());
+            $this->save($dreamview);
+            return $dreamview;
+        }
+        return FALSE;
+    }
+
+    public function retrieveDreamInfoByDreamId($dream_id)
+    {
+
     }
 
     public function findUserByOpenId($openid)

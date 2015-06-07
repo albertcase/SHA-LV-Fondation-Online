@@ -58,6 +58,13 @@ class User
 
     /**
      *
+     * @ORM\OneToMany(targetEntity="DreamView", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $dreamview;
+
+    /**
+     *
      * @ORM\OneToMany(targetEntity="InvitationLetter", mappedBy="user", cascade={"persist", "remove"})
      * @ORM\OrderBy({"id" = "DESC"})
      */
@@ -237,5 +244,38 @@ class User
     public function getInvitationletter()
     {
         return $this->invitationletter;
+    }
+
+    /**
+     * Add dreamview
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamView $dreamview
+     * @return User
+     */
+    public function addDreamview(\LV\Bundle\FondationBundle\Entity\DreamView $dreamview)
+    {
+        $this->dreamview[] = $dreamview;
+
+        return $this;
+    }
+
+    /**
+     * Remove dreamview
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamView $dreamview
+     */
+    public function removeDreamview(\LV\Bundle\FondationBundle\Entity\DreamView $dreamview)
+    {
+        $this->dreamview->removeElement($dreamview);
+    }
+
+    /**
+     * Get dreamview
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDreamview()
+    {
+        return $this->dreamview;
     }
 }

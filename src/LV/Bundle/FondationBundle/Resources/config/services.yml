@@ -6,12 +6,12 @@
 services:
     lv.page.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVPageRequestListener
-        arguments: [@router, @service_container]
+        arguments: [@router, @service_container, @lv.user.service ,@same.wechat]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
     lv.api.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVApiRequestListener
-        arguments: [@router, @service_container]
+        arguments: [@router, @service_container, @lv.user.service]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
     lv.user.service:

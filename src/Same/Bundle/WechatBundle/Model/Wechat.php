@@ -21,6 +21,8 @@ class Wechat
 	private $_router;
 
 	private $_session;
+
+	private $_memcache;
 	
 	/** 
 	* wechat_construct
@@ -29,12 +31,11 @@ class Wechat
 	* @param mixed $container 
 	* @since 1.0 
 	*/  
-	function __construct($container) {
+	function __construct($container, $memcached) {
 		$this->_container = $container;
 		$this->_router = $this->_container->get('router');
 		$this->_session = $this->_container->get('session');
-		$this->_memcache = $this->_container->get('same.memcached');
-		//echo $this->_container->get('session')->get('aaa');exit;
+		$this->_memcache = $memcached;
 	}
 
 	/** 

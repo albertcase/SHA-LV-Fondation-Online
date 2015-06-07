@@ -63,6 +63,13 @@ class UserDream
     private $dreamlike;
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="DreamView", mappedBy="userdream", cascade={"persist", "remove"})
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $dreamView;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -225,5 +232,38 @@ class UserDream
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add dreamView
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamView $dreamView
+     * @return UserDream
+     */
+    public function addDreamView(\LV\Bundle\FondationBundle\Entity\DreamView $dreamView)
+    {
+        $this->dreamView[] = $dreamView;
+
+        return $this;
+    }
+
+    /**
+     * Remove dreamView
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\DreamView $dreamView
+     */
+    public function removeDreamView(\LV\Bundle\FondationBundle\Entity\DreamView $dreamView)
+    {
+        $this->dreamView->removeElement($dreamView);
+    }
+
+    /**
+     * Get dreamView
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDreamView()
+    {
+        return $this->dreamView;
     }
 }

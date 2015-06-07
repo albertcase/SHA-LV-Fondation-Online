@@ -19,22 +19,24 @@ class PageController extends Controller
 
     public function ugcAction()
     {
-    	//return new Response(json_encode(array(3)), 200);
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
     }
 
     public function dreamAction()
     {
-        return $this->render('LVFondationBundle:Default:dream.html.twig', array('name' => 32));
+
+        return $this->render('LVFondationBundle:Default:dream.html.twig', array('dream' => array('a' => 23, 'b' => 'sfd')));
     }
 
     public function userDreamAction($id)
     {
-        $user_dream = $this->getDoctrine()
+        $userservice = $this->container->get('lv.user.service');
+        $user = $userservice->userLoad();    
+        $userdream = $this->getDoctrine()
             ->getRepository('LVFondationBundle:UserDream')
             ->findOneBy(array('id' => $id));
-        $user = $this->container->get('lv.user.service')->userLoad();    
-        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $user_dream, 'user' => $user));
+        $userservice->dreamView($userdream);
+        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $userdream, 'user' => $user));
     }
 
     public function chapterOneAction()

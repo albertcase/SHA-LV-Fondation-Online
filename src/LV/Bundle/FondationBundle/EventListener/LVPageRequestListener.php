@@ -10,11 +10,15 @@ class LVPageRequestListener
 
     private $router;
     private $container;
+    private $userservice;
+    private $wechatservice;
 
-    public function __construct($router, $container)
+    public function __construct($router, $container, $userservice, $wechatservice)
     {
         $this->router = $router;
         $this->container = $container;
+        $this->userservicve = $userservice;
+        $this->wechatservice = $wechatservice;
     }
 
     public function onKernelRequest(GetResponseEvent $event)
@@ -24,20 +28,16 @@ class LVPageRequestListener
 
     	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
-            $user = $this->container->get('lv.user.service');
+            if(!$this->userservicve->userIsLogin()) {
 
-            if(!$user->userIsLogin()) {
-                
-                $wechat = $this->container->get('same.wechat');
+                $url = $event->getRequest()->getRequestUri();
 
-                $url = $this->router->generate($current_route);
-
-                $isWechatLogin = $wechat->isLoginBase($url);
+                $isWechatLogin = $this->wechatservice->isLogin($url);
 
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);
 
-                $user->userLogin($isWechatLogin);
+                $this->userservicve->userLogin($isWechatLogin);
 
             }
     	}

@@ -11,11 +11,13 @@ class LVApiRequestListener
 
     private $router;
     private $container;
+    private $userservice;
 
-    public function __construct($router, $container)
+    public function __construct($router, $container, $userservice)
     {
         $this->router = $router;
         $this->container = $container;
+        $this->userservice = $userservice;
     }
 
     public function onKernelRequest(GetResponseEvent $event)
@@ -26,12 +28,10 @@ class LVApiRequestListener
         
     	if($current_route && preg_match('/^api_fondation_*/', $current_route)) {
 
-            $user = $this->container->get('lv.user.service');
-
             if($event->getRequest()->isXmlHttpRequest()) 
                 return $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
-            if(!$user->userIsLogin())
+            if(!$this->userservice->userIsLogin())
                 return $event->setResponse($this->getResponseCode('001')); //User is not login
 
             if($current_route == 'api_fondation_invite' && $code = $this->inviteValidate($request))
@@ -78,8 +78,8 @@ class LVApiRequestListener
 
     private function userInfoValidate($request) 
     {
-        $user = $this->container->get('lv.user.service')->userLoad();        
-        if($user->getUserinfo())
+
+        if($this->userservice->getUserinfo())
             return '020'; //The user info is already submitted
 
         $name = $request->request->get('name');
@@ -111,9 +111,8 @@ class LVApiRequestListener
     {
         $nickname = $request->request->get('nickname');
         $content = $request->request->get('content');
-
-        $user = $this->container->get('lv.user.service')->userLoad();        
-        if($user->getUserDream())
+      
+        if($this->userservice->getUserDream())
             return '023'; //The user dream is already exist
         if(!$nickname)
             return '015'; //The nickname is empty
@@ -127,9 +126,8 @@ class LVApiRequestListener
     {
         $nickname = $request->request->get('nickname');
         $content = $request->request->get('content');
-
-        $user = $this->container->get('lv.user.service')->userLoad();        
-        if(!$user->getUserDream())
+     
+        if(!$this->userservice->getUserDream())
             return '024'; //The user dream is not exist
         if(!$nickname)
             return '015'; //The nickname is empty
@@ -142,7 +140,7 @@ class LVApiRequestListener
     private function dreamLikeValidate($request) 
     {
         $dream_id = $request->request->get('dream_id');
-        $user = $this->container->get('lv.user.service')->userLoad(); 
+        $user = $this->userservice->userLoad(); 
         $dreamlike = $this->container->get('doctrine')->getRepository('LVFondationBundle:DreamLike');
         $userdream = $this->container->get('doctrine')->getRepository('LVFondationBundle:UserDream');
         if(!$dream_id)

@@ -22,20 +22,20 @@ class ApiController extends Controller
     {
         $request = $this->getRequest()->request;
         $status = array('status' => 0);
+        $image = $this->container->get('lv.image.service');
         $data = array(
             'name' => $request->get('name'),
             'cellphone' => $request->get('cellphone'),
-            'imgurl' => '/createimg.jpg',
+            'imgurl' => $image->ImageCreateForOnline('Demon Zhang'),
             );
         $user = $this->container->get('lv.user.service');
 
         if($invitation = $user->createInvitationLetter($data)) {
             $url = $this->generateUrl(
-                    'lv_fondation_userdream',
+                    'lv_fondation_showinvitation',
                     array('id' => $invitation->getId()),
                     true
                 );
-            $files_base_dir = $this->container->getParameter('files_base_dir');
             $status = array('status' => 1, 'url' => $url);
         }
         $response = new JsonResponse();

@@ -28,7 +28,7 @@ class LVApiRequestListener
         
     	if($current_route && preg_match('/^api_fondation_*/', $current_route)) {
 
-            if($event->getRequest()->isXmlHttpRequest()) 
+            if(!$event->getRequest()->isXmlHttpRequest()) 
                 return $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
             if(!$this->userservice->userIsLogin())

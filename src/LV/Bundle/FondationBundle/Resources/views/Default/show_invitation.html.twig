@@ -1,16 +1,9 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 	<div class="share">
-		<img src="/images/share/bg.jpg" width="100%" class="header_img"/>
-		<h1 class="share_name">IVY ZHANG</h1>
-		<img src="/images/share/address.png" width="100%" class="address"/>
+		<img src="/files{{ invitation.imgurl }}" width="100%" class="header_img"/>
+		{% if user.id == invitation.user.id %}
 		<input type="submit" value="分享" class="share_btn">
-
+		{% endif %}
 	</div>	
-	{{ invitation.imgurl }}
-	{% if user.id ==  invitation.user.id %}
-		yesssss
-	{% else %}
-		noooooo
-	{% endif %}
 {% endblock %}

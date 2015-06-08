@@ -123,5 +123,13 @@ var mySwiper = new Swiper('.swiper-container', {
     direction: 'vertical'
 });
 
+
+;(function($){
+	$(function(){
+		var imgSrcArr = [];
+		loadingFun(imgSrcArr);
+	})
+})(jQuery);
+
 </script>
 {% endblock %}

@@ -30,9 +30,9 @@ class ApiController extends Controller
         $user = $this->container->get('lv.user.service');
 
         if($invitation = $user->createInvitationLetter($data)) {
-            $uri = $this->generateUrl(
+            $url = $this->generateUrl(
                     'lv_fondation_userdream',
-                    array('id' => '2'),
+                    array('id' => $invitation->getId()),
                     true
                 );
             $files_base_dir = $this->container->getParameter('files_base_dir');

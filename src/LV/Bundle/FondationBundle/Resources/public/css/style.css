@@ -1113,7 +1113,7 @@ html,body,#dreambox{
     left: 5%;
     opacity: 0;
     -webkit-mask:url('/images/address/mask_1.png') no-repeat  center; 
-
+    -webkit-mask-size: 0%;
 }
 .cloud_2_animation{
 	-webkit-animation-name: cloud_center;
@@ -1185,19 +1185,19 @@ html,body,#dreambox{
 }
 
 .show{
-	animation: show 900ms ease-in-out 1;
-	-webkit-animation: show 900ms ease-in-out 1;
+	animation: show 400ms ease-in-out 1;
+	-webkit-animation: show 400ms ease-in-out 1;
 	animation-fill-mode: forwards;
 	-webkit-animation-fill-mode: forwards;
 	
 }
 @keyframes show {
-	0%{top:34%;}
+	0%{top:30%;}
 	100%{top:25%;}
 
 }
 @-webkit-keyframes show {
-	0%{top:34%;}
+	0%{top:30%;}
 	100%{top:25%;}
 }
 .show2{
@@ -1370,6 +1370,27 @@ html,body,#dreambox{
 	100%{-webkit-transform: translate(-100%) scale(1);opacity: 1;}
 }
 
+
+.map2Tips{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0em;
+	line-height: 18px;
+	font-size: 12px;
+	z-index: 9;
+	opacity: 0;
+}
+
+.maplink{
+	width: 34%;
+	height: 30%;
+	background: green;
+	opacity: 0.6;
+	position: absolute;
+	left: 30%;
+	top: 20%;
+}
 
 
 

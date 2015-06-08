@@ -19,6 +19,9 @@
 
 
             <div class="swiper-slide">
+            	<div class="map2Tips">
+            		点击坐标<br />获得路易威登基金会展览门票
+            	</div>
             	<div class="mapInfo">
             		<h2>路易威登基金会</h2>
             		<p>已在法国巴黎吸引了无数人前往拜谒的路易威登基金会，近日将在中国北京盛大开展，前往国贸中心路易威登之家即可参观。
@@ -26,6 +29,7 @@
             	</div>
             	<div class="map_con">
 						<div class="map_1">
+							<a href="javascript:;" class="maplink"></a>
 							<div class="ps">
 								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ps swiper-lazy" />
 								<img data-src="/images/address/ps_icon.png" width="100%" class="title_ps swiper-lazy">
@@ -162,9 +166,10 @@ function animation1(){
 		$(".cloud_img").fadeOut();
 		$(".map_1").removeClass("add").addClass("add2").animate({"opacity":"1"},1000);
 		$(".cloud_2_img").addClass("cloud_2_animation").animate({"opacity":"1"},1000);
-		$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},6000,function(){
+		$(".dot_lt").addClass("dot_animation").animate({"opacity":"1"},3000,function(){
 			$(".lv_home").fadeIn().addClass("show");
-			$(".lv_title").addClass("show2").fadeIn(3000);
+			$(".lv_title").addClass("show2").fadeIn("slow");
+			$(".map2Tips").stop().animate({"bottom":"2em","opacity":1},1000);
 		});
 	}
 	var anim_home_2 = document.getElementById("arrow");

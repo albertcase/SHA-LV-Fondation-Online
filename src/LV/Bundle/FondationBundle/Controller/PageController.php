@@ -18,13 +18,14 @@ class PageController extends Controller
     }
 
     public function dreamAction()
-    {
-        return $this->render('LVFondationBundle:Default:dream.html.twig');
+    {   
+        $userservice = $this->container->get('lv.user.service');
+        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
+        return $this->render('LVFondationBundle:Default:dream.html.twig', array('userdream' => $dreaminfo));
     }
 
     public function userDreamAction($id)
     {
-        $userservice = $this->container->get('lv.user.service');
         $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
         return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $dreaminfo));
     }

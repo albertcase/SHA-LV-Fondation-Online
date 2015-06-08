@@ -35,26 +35,26 @@
             	<div class="dreamParameters">
             		<div class="dreamInfo">
 	            		<div class="dp_text">
-	            			辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展
+	            			{{ userdream.content }}
 	            		</div>
-	            		<div class="dp_name">Michel</div>
+	            		<div class="dp_name">{{ userdream.nickname }}</div>
 
 	            		<div class="dp_curGlass">
-	            			您的旅程是构建<br />路易威登基金会的<br />第 <span>2340</span>块<br /><i>梦想玻璃</i>
+	            			{{ userdream.call }}的旅程是构建<br />路易威登基金会的<br />第 <span>{{ userdream.dreamcount }}</span>块<br /><i>梦想玻璃</i>
 	            		</div>
 
 	            		<div class="dp_info">
 	            			<div class="info-day">
 	            				<span>天数</span>
-	            				<span>42</span>
+	            				<span>{{ userdream.days }}</span>
 	            			</div>
 	            			<div class="info-attention">
 	            				<span>受关注</span>
-	            				<span>320</span>
+	            				<span>{{ userdream.views }}</span>
 	            			</div>
 	            			<div class="info-fav">
 	            				<span>喜欢</span>
-	            				<span>210</span>
+	            				<span>{{ userdream.liked }}</span>
 	            			</div>
 	            		</div>
 

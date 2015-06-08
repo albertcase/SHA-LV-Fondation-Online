@@ -69,20 +69,23 @@
         </div>
     </div>
 <script type="text/javascript">
-document.addEventListener('touchmove' , function (ev){
-		ev.preventDefault();
-		return false;
-} , false)
+;(function($){
+	$(function(){
+
+		document.addEventListener('touchmove' , function (ev){
+				ev.preventDefault();
+				return false;
+		} , false)
 
 
-function GetRandomNum(Min,Max)
-{   
-var Range = Max - Min;   
-var Rand = Math.random();   
-return(Min + Math.round(Rand * Range));   
-}   
-var num = GetRandomNum(1,6);  
-$("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg") 
+		function GetRandomNum(Min,Max)
+		{   
+		var Range = Max - Min;   
+		var Rand = Math.random();   
+		return(Min + Math.round(Rand * Range));   
+		}   
+		var num = GetRandomNum(1,6);  
+		$("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg") 
 
 
 
@@ -91,8 +94,7 @@ $("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg")
 
 /* loading */
 
-;(function($){
-	$(function(){
+
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
 	})

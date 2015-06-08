@@ -341,11 +341,22 @@ html,body,#dreambox{
 	line-height: 18px;
 }
 
+.activeTips_chapter2{
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	line-height: 16px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+
 /* chapter3 */
 .glassInstall{
 	width: 100%;
 	height: 100%;
-	background: url("/images/chapter3/building.jpg") center bottom no-repeat;
+	background: url("/images/chapter3/building.jpg") center top no-repeat;
 	background-size: 100% auto;
 	position: relative;
 }
@@ -364,14 +375,14 @@ html,body,#dreambox{
 .glassInstall h2{
 	font-size: 16px;
 	width: 100%;
-	margin: 5em 0 0 0;
+	margin: 5em 0 1em 0;
 	display: inline-block; 
 	color: #3b3b3c;
 }
 
 .glassBlock{
 	width: 60%;
-	margin: 0.8em 0 0 0; 
+	margin: 1.8em 0 0 0; 
 	display: inline-block;
 }
 
@@ -389,7 +400,7 @@ html,body,#dreambox{
 .glassInstall_fin{
 	width: 100%;
 	height: 100%;
-	background: url("/images/chapter3/building_fin.jpg") center 56% no-repeat;
+	background: url("/images/chapter3/building_fin.jpg") center top no-repeat;
 	background-size: 100% auto;
 	position: absolute;
 	left: 0;
@@ -437,7 +448,7 @@ html,body,#dreambox{
 .glass_footer{
 	position: absolute;
 	left: 0;
-	bottom: 0.7em;
+	bottom: 1em;
 	width: 100%;
 	z-index: 2;
 	line-height: 0;
@@ -469,10 +480,10 @@ html,body,#dreambox{
 }
 
 .chapter4_text h2{
-	font-size: 30px;
+	font-size: 27px;
 	color: #000;
 	border-bottom: 1px #020202 solid;
-	padding: 0 0 0.5em 0;
+	padding: 0.6em 0 0.3em 0;
 	display: inline-block;
 }
 
@@ -1385,11 +1396,13 @@ html,body,#dreambox{
 .maplink{
 	width: 34%;
 	height: 30%;
-	background: green;
+	background: none;
 	opacity: 0.6;
 	position: absolute;
-	left: 30%;
-	top: 20%;
+	left: 37%;
+	top: 24%;
+	z-index: 100;
+	display: none;
 }
 
 
@@ -1545,11 +1558,11 @@ html,body,#dreambox{
 
 
 .panoramaLink{
-	width: 65%;
+	width: 45%;
 	height: 27%;
 	background: none;
 	position: absolute;
-	left: 22%;
+	left: 45%;
 	top: 50%;
 	z-index: 99;
 	display: none;

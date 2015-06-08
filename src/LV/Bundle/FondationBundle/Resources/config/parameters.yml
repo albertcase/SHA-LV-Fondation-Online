@@ -2,4 +2,6 @@ parameters:
     files_base_dir: /files
     access_need_router:
         - lv_fondation_ugc
+        - lv_fondation_showinvitation
+        - lv_fondation_userdream
 

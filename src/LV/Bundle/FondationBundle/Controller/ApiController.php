@@ -4,16 +4,9 @@ namespace LV\Bundle\FondationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use LV\Bundle\FondationBundle\Entity\IvitationLetter;
-use LV\Bundle\FondationBundle\Valid\LVApiValidator;
 
 class ApiController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('LVFondationBundle:Default:index.html.twig', array('name' => $name));
-    }
-
 
     public function jssdkAction()
     {
@@ -28,26 +21,32 @@ class ApiController extends Controller
     public function inviteAction()
     {
         $request = $this->getRequest()->request;
-        $ivitate = new IvitationLetter();
-        $ivitate->setName($request->get('name'));
-        $ivitate->setCellphone($request->get('cellphone'));
-        $ivitate->setImgurl('/createimg.jpg');
-        $ivitate->setCreated(time());
+        $status = array('status' => 0);
+        $data = array(
+            'name' => $request->get('name'),
+            'cellphone' => $request->get('cellphone'),
+            'imgurl' => '/createimg.jpg',
+            );
+        $user = $this->container->get('lv.user.service');
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($ivitate);
-        $em->flush();
-        $files_base_dir = $this->container->getParameter('files_base_dir');
-
+        if($invitation = $user->createInvitationLetter($data)) {
+            $url = $this->generateUrl(
+                    'lv_fondation_userdream',
+                    array('id' => $invitation->getId()),
+                    true
+                );
+            $files_base_dir = $this->container->getParameter('files_base_dir');
+            $status = array('status' => 1, 'url' => $url);
+        }
         $response = new JsonResponse();
-        $response->setData(array('status' => 1, 'imgurl' => $files_base_dir . $ivitate->getImgurl()));
+        $response->setData($status);
         return $response;
     }
 
     public function userInfoAction()
     {
         $request = $this->getRequest()->request;
-        $status = 0;
+        $status = array('status' => 0);
         $data = array(
             'name' => $request->get('name'),
             'email' => $request->get('email'),

@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * IvitationLetter
+ * InvitationLetter
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="LV\Bundle\FondationBundle\Entity\IvitationLetterRepository")
+ * @ORM\Entity(repositoryClass="LV\Bundle\FondationBundle\Entity\InvitationLetterRepository")
  */
-class IvitationLetter
+class InvitationLetter
 {
     /**
      * @var integer
@@ -43,6 +43,7 @@ class IvitationLetter
      */
     private $imgurl;
 
+
     /**
      * @var string
      *
@@ -50,6 +51,12 @@ class IvitationLetter
      */
     private $created;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+    
     /**
      * Get id
      *
@@ -64,7 +71,7 @@ class IvitationLetter
      * Set name
      *
      * @param string $name
-     * @return IvitationLetter
+     * @return InvitationLetter
      */
     public function setName($name)
     {
@@ -87,7 +94,7 @@ class IvitationLetter
      * Set cellphone
      *
      * @param string $cellphone
-     * @return IvitationLetter
+     * @return InvitationLetter
      */
     public function setCellphone($cellphone)
     {
@@ -110,7 +117,7 @@ class IvitationLetter
      * Set created
      *
      * @param string $created
-     * @return IvitationLetter
+     * @return InvitationLetter
      */
     public function setCreated($created)
     {
@@ -133,7 +140,7 @@ class IvitationLetter
      * Set imgurl
      *
      * @param string $imgurl
-     * @return IvitationLetter
+     * @return InvitationLetter
      */
     public function setImgurl($imgurl)
     {
@@ -150,5 +157,28 @@ class IvitationLetter
     public function getImgurl()
     {
         return $this->imgurl;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\User $user
+     * @return InvitationLetter
+     */
+    public function setUser(\LV\Bundle\FondationBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \LV\Bundle\FondationBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

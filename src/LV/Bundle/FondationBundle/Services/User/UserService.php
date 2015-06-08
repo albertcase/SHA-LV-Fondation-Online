@@ -6,6 +6,8 @@ use LV\Bundle\FondationBundle\Entity\User;
 use LV\Bundle\FondationBundle\Entity\UserInfo;
 use LV\Bundle\FondationBundle\Entity\UserDream;
 use LV\Bundle\FondationBundle\Entity\DreamLike;
+use LV\Bundle\FondationBundle\Entity\DreamView;
+use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 
 class UserService
 {
@@ -110,6 +112,21 @@ class UserService
         return FALSE;
     }
 
+    public function createInvitationLetter($data)
+    {
+        if($user = $this->userLoad()) {
+            $invitation = new InvitationLetter();
+            $invitation->setName($data['name']);
+            $invitation->setCellphone($data['cellphone']);
+            $invitation->setImgurl($data['imgurl']);
+            $invitation->setCreated(time());
+            $invitation->setUser($user);
+            $this->save($invitation);
+            return $invitation;
+        }
+        return FALSE;
+    }
+
     public function dreamLike(UserDream $userdream)
     {
         if($user = $this->userLoad()) {
@@ -119,6 +136,60 @@ class UserService
             $dreamlike->setCreated(time());
             $this->save($dreamlike);
             return $dreamlike;
+        }
+        return FALSE;
+    }
+
+    public function dreamView(UserDream $userdream)
+    {
+        if($user = $this->userLoad()) {
+            if($user->getId() != $userdream->getUser()->getId()) {
+                $dreamview = new DreamView();
+                $dreamview->setUser($user);
+                $dreamview->setUserdream($userdream);
+                $dreamview->setCreated(time());
+                $this->save($dreamview);
+                return $dreamview;        
+            }
+
+        }
+        return FALSE;
+    }
+
+    public function retrieveDreamInfoByDreamId($dream_id)
+    {
+        if($user = $this->userLoad()) {
+
+            $dream = $this->em->getRepository('LVFondationBundle:UserDream')->findOneBy(array('id' => $dream_id));
+
+            $this->dreamView($dream);
+
+            $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+            $nickname = $dream->getNickname();
+            $content = $dream->getContent();
+            $days = ceil((time() - $dream->getCreated()) / (3600 * 24));
+            $views = $this->em->getRepository('LVFondationBundle:DreamView')->retrieveViewCount($dream_id);
+            $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->retrieveLikedCount($dream_id);
+
+            if($dream->getUser()->getId() == $user->getId()){
+                $call = '您';
+                $who = 'myself';
+            } else {
+                $call = '他(她)';
+                $who = 'others';
+            }
+
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'nickname' => $nickname,
+                'content' => $content,
+                'call' => $call,
+                'days' => $days,
+                'views' => $views,
+                'liked' => $liked,
+                'who' => $who,
+                );
+            return $dreaminfo;
         }
         return FALSE;
     }

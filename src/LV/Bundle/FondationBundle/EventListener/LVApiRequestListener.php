@@ -112,7 +112,7 @@ class LVApiRequestListener
         $nickname = $request->request->get('nickname');
         $content = $request->request->get('content');
       
-        if($this->userservice->getUserDream())
+        if($this->userservice->userLoad()->getUserDream())
             return '023'; //The user dream is already exist
         if(!$nickname)
             return '015'; //The nickname is empty

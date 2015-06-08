@@ -29,7 +29,7 @@
             	</div>
             	<div class="map_con">
 						<div class="map_1">
-							<a href="javascript:;" class="maplink"></a>
+							<a href="javascript:mySwiper.slideTo(2, 600, true);" class="maplink"></a>
 							<div class="ps">
 								<img data-src="/images/address/dot.png" width="100%" class="dot dot_ps swiper-lazy" />
 								<img data-src="/images/address/ps_icon.png" width="100%" class="title_ps swiper-lazy">
@@ -170,6 +170,7 @@ function animation1(){
 			$(".lv_home").fadeIn().addClass("show");
 			$(".lv_title").addClass("show2").fadeIn("slow");
 			$(".map2Tips").stop().animate({"bottom":"2em","opacity":1},1000);
+			$(".maplink").show();
 		});
 	}
 	var anim_home_2 = document.getElementById("arrow");

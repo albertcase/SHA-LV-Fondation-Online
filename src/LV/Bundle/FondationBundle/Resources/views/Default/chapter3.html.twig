@@ -97,15 +97,19 @@
 <script type="text/javascript">
 
 $(".glassBlock").click(function(){
-	$(this).fadeOut("300");
-	$(".glass_footer").animate({"bottom":0,"opacity":0});
-	$(".glassInstall_fin").animate({"opacity":1},1000,function(){
-		$(".glassInstall_con h2").html("路易威登基金会");
-		$(".glassInfo").fadeIn();
-		$(".glassBlock_tips").html("安装完成");
-		$(".goonSearch").css("display","inline-block");
-		$(".glass_footer").animate({"bottom":"1em","opacity":1});
+	$(this).animate({"opacity":0.3,"margin-top":"6em"},900,function(){
+		$(this).hide();
+
+		$(".glass_footer").animate({"bottom":0,"opacity":0});
+		$(".glassInstall_fin").animate({"opacity":1},1000,function(){
+			$(".glassInstall_con h2").html("路易威登基金会");
+			$(".glassInfo").fadeIn();
+			$(".glassBlock_tips").html("安装完成");
+			$(".goonSearch").css("display","inline-block");
+			$(".glass_footer").animate({"bottom":"1em","opacity":1});
+		});
 	});
+	
 })
 
 $(".goonSearch").click(function(){

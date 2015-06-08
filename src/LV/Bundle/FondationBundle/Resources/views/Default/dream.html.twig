@@ -8,18 +8,18 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
             	<div class="step1_con">
-            		<img src="/images/d-v/dv-1.jpg" class="s-img" width="100%" />
+            		<img src="" sourcesrc="/images/d-v/dv-1.jpg" class="s-img" width="100%" />
             	</div>
             	<div class="pageArr">
 					开始梦想之旅
-					<img src="/images/d-v/pageArr.png" />
+					<img src="" sourcesrc="/images/d-v/pageArr.png" />
 				</div>
             </div>
              <div class="swiper-slide">
-            	<img src="/images/d-v/dream-model-1.jpg" id="dreamModeVal" class="s-img" />
+            	<img src="" sourcesrc="/images/d-v/dream-model-1.jpg" id="dreamModeVal" class="s-img" />
             	<div class="pageArr">
 					开始梦想之旅
-					<img src="/images/d-v/pageArr.png" />
+					<img src="" sourcesrc="/images/d-v/pageArr.png" />
 				</div>
             </div>
             <!--<div class="swiper-slide">
@@ -60,11 +60,11 @@
 
             			<a href="javascript:;" class="btn">分享</a>
             		</div>
-            		<img src="/images/d-v/dv-glass-1.png" width="100%" />
+            		<img src="" sourcesrc="/images/d-v/dv-glass-1.png" width="100%" />
 
             		
             	</div>
-            	<img src="/images/d-v/dv-4.jpg" class="s-img" />
+            	<img src="" sourcesrc="/images/d-v/dv-4.jpg" class="s-img" />
             </div>
         </div>
     </div>
@@ -74,13 +74,6 @@ document.addEventListener('touchmove' , function (ev){
 		return false;
 } , false)
 
-var swiper = new Swiper('.swiper-container', {
-	//lazyLoading : true,
-    direction: 'vertical'
-});
-
-
-
 
 function GetRandomNum(Min,Max)
 {   
@@ -89,7 +82,58 @@ var Rand = Math.random();
 return(Min + Math.round(Rand * Range));   
 }   
 var num = GetRandomNum(1,6);  
-$("#dreamModeVal").attr("src","/images/d-v/dream-model-"+num+".jpg") 
+$("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg") 
+
+
+
+
+
+
+/* loading */
+
+var imgSrcArr = [];
+$("#dreambox img").each(function(){ 
+	imgSrcArr.push($(this).attr("sourcesrc")) 
+})
+
+
+function LoadFn ( arr , fn , fn2){
+		var loader = new PxLoader();
+		for( var i = 0 ; i < arr.length; i ++)
+		{
+			loader.addImage(arr[i]);
+		};
+		
+		loader.addProgressListener(function(e) {
+				var percent = Math.round( e.completedCount / e.totalCount * 100 );
+				if(fn2) fn2(percent)
+		});	
+		
+		
+		loader.addCompletionListener( function(){
+			if(fn) fn();	
+		});
+		loader.start();	
+}
+
+
+
+LoadFn(imgSrcArr , function (){
+	$("#dreambox img").each(function(){ 
+		$(this).attr("src",$(this).attr("sourcesrc"));
+	})
+	$(".loading").hide();
+	$("#dreambox").animate({"opacity" : 1},600,function(){
+		var swiper = new Swiper('.swiper-container', {
+		    direction: 'vertical'
+		});
+
+	});	
+    console.log("加载完成!");
+} , function ( p ){
+	$('.loading_con p').html(p+"%");
+});
+
 
 
 </script>

@@ -1,15 +1,91 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 	<div class="form_con">
-		<img src="/images/form/bg.jpg" width="100%" class="header_img"/>
-		<img src="/images/form/invitation.png" width="100%" class="invitation"/>
+		<img src="" sourcesrc="/images/form/bg.jpg" width="100%" class="header_img"/>
+		<img src="" sourcesrc="/images/form/invitation.png" width="100%" class="invitation"/>
 		<div class="form">
 			<ul>
 				<li><span>姓名</span><input type="text" name="name" value="" class="form_name" placeholder=""></li>
 				<li><span>手机号码</span><input type="tel" name="tel" maxlength="11" value="" class="form_tel" placeholder=""></li>
 			</ul>	
 		</div>
-		<input type="submit" value="提交" class="sub_btn">	
+		<input type="submit" value="提交" onclick="submitInvtationInfo()" class="sub_btn">	
 
 	</div>	
+
+<script type="text/javascript">
+	var telReg = /^1[3|4|5|7|8][0-9]\d{8}$/;
+	function submitInvtationInfo(){
+		var iname = $("input[name=name]");
+		var itel = $("input[name=tel]");
+
+		if(iname.val() == ""){
+			iname.addClass("error").val("").attr("placeholder","姓名不能为空！");
+			return false;
+		}else if (!this.telReg.test(itel.val())){
+			itel.addClass("error").val("").attr("placeholder","手机号码输入有误！");
+			return false;
+		}else{
+			invitePostData(iname.val(),itel.val());
+			alert("提交成功！");
+		}
+	}
+
+	function invitePostData(iname,itel){
+		$.ajax({
+		    type: "POST",
+		    url: "/fondation/api/invite",
+		    data: {"name":iname, "cellphone":itel},
+		    dataType:"json" 
+	    }).done(function(data){
+
+	    })
+	}
+
+
+/* loading */
+
+var imgSrcArr = [];
+$("#dreambox img").each(function(){ 
+	imgSrcArr.push($(this).attr("sourcesrc")) 
+})
+
+
+function LoadFn ( arr , fn , fn2){
+		var loader = new PxLoader();
+		for( var i = 0 ; i < arr.length; i ++)
+		{
+			loader.addImage(arr[i]);
+		};
+		
+		loader.addProgressListener(function(e) {
+				var percent = Math.round( e.completedCount / e.totalCount * 100 );
+				if(fn2) fn2(percent)
+		});	
+		
+		
+		loader.addCompletionListener( function(){
+			if(fn) fn();	
+		});
+		loader.start();	
+}
+
+
+
+LoadFn(imgSrcArr , function (){
+	$("#dreambox img").each(function(){ 
+		$(this).attr("src",$(this).attr("sourcesrc"));
+	})
+	$(".loading").hide();
+	$("#dreambox").animate({"opacity" : 1});	
+    console.log("加载完成!");
+} , function ( p ){
+	$('.loading_con p').html(p+"%");
+});
+
+
+
+	
+</script>
+
 {% endblock %}

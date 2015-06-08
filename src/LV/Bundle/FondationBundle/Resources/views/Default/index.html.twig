@@ -4,21 +4,21 @@
 	
 	<div class="chapter-c">
 	<div class="chapter-l swiper-button-prev">
-		<span><img src="/images/arr-l.png"></span>
+		<span><img src="" sourcesrc="/images/arr-l.png"></span>
 	</div>
 		<div class="swiper-container">
 		  <div class="swiper-wrapper" id="homeList">
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-1.jpg">
+		    	<a href="chapter1"><img src="" sourcesrc="/images/chapter-1.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-2.jpg">
+		    	<a href="chapter2"><img src="" sourcesrc="/images/chapter-2.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-3.jpg">
+		    	<a href="chapter3"><img src="" sourcesrc="/images/chapter-3.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-4.jpg">
+		    	<a href="chapter4"><img src="" sourcesrc="/images/chapter-4.jpg"></a>
 		    </div>
 		  </div>
 
@@ -27,15 +27,15 @@
 
 		</div>
 	<div class="chapter-r swiper-button-next">
-		<span><img src="/images/arr-r.png"></span>
+		<span><img src="" sourcesrc="/images/arr-r.png"></span>
 	</div>
 	</div>
 	
 </div>
 
 <div class="dreamTrip">
-	<a href="javascript:;">
-		<img src="/images/dreamTrip.jpg">
+	<a href="ugc#create">
+		<img src="" sourcesrc="/images/dreamTrip.jpg">
 	</a>
 </div>
 <script type="text/javascript">
@@ -46,5 +46,51 @@ var mySwiper = $('.swiper-container').swiper({
         paginationClickable: true,
         loop: false
 });
+
+
+/* loading */
+
+var imgSrcArr = [];
+$("#dreambox img").each(function(){ 
+	imgSrcArr.push($(this).attr("sourcesrc")) 
+})
+
+
+function LoadFn ( arr , fn , fn2){
+		var loader = new PxLoader();
+		for( var i = 0 ; i < arr.length; i ++)
+		{
+			loader.addImage(arr[i]);
+		};
+		
+		loader.addProgressListener(function(e) {
+				var percent = Math.round( e.completedCount / e.totalCount * 100 );
+				if(fn2) fn2(percent)
+		});	
+		
+		
+		loader.addCompletionListener( function(){
+			if(fn) fn();	
+		});
+		loader.start();	
+}
+
+
+
+LoadFn(imgSrcArr , function (){
+	$("#dreambox img").each(function(){ 
+		$(this).attr("src",$(this).attr("sourcesrc"));
+	})
+	$(".loading").hide();
+	$("#dreambox").animate({"opacity" : 1});	
+    console.log("加载完成!");
+} , function ( p ){
+	$('.loading_con p').html(p+"%");
+});
+
+
+
+
+
 </script>
 {% endblock %}

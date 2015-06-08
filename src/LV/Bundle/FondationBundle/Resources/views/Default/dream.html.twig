@@ -8,18 +8,18 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
             	<div class="step1_con">
-            		<img src="/images/d-v/dv-1.jpg" class="s-img" width="100%" />
+            		<img src="" sourcesrc="/images/d-v/dv-1.jpg" class="s-img" width="100%" />
             	</div>
             	<div class="pageArr">
 					开始梦想之旅
-					<img src="/images/d-v/pageArr.png" />
+					<img src="" sourcesrc="/images/d-v/pageArr.png" />
 				</div>
             </div>
              <div class="swiper-slide">
-            	<img src="/images/d-v/dream-model-1.jpg" id="dreamModeVal" class="s-img" />
+            	<img src="" sourcesrc="/images/d-v/dream-model-1.jpg" id="dreamModeVal" class="s-img" />
             	<div class="pageArr">
 					开始梦想之旅
-					<img src="/images/d-v/pageArr.png" />
+					<img src="" sourcesrc="/images/d-v/pageArr.png" />
 				</div>
             </div>
             <!--<div class="swiper-slide">
@@ -60,37 +60,45 @@
 
             			<a href="javascript:;" class="btn">分享</a>
             		</div>
-            		<img src="/images/d-v/dv-glass-1.png" width="100%" />
+            		<img src="" sourcesrc="/images/d-v/dv-glass-1.png" width="100%" />
 
             		
             	</div>
-            	<img src="/images/d-v/dv-4.jpg" class="s-img" />
+            	<img src="" sourcesrc="/images/d-v/dv-4.jpg" class="s-img" />
             </div>
         </div>
     </div>
 <script type="text/javascript">
-document.addEventListener('touchmove' , function (ev){
-		ev.preventDefault();
-		return false;
-} , false)
+;(function($){
+	$(function(){
 
-var swiper = new Swiper('.swiper-container', {
-	//lazyLoading : true,
-    direction: 'vertical'
-});
+		document.addEventListener('touchmove' , function (ev){
+				ev.preventDefault();
+				return false;
+		} , false)
 
 
+		function GetRandomNum(Min,Max)
+		{   
+		var Range = Max - Min;   
+		var Rand = Math.random();   
+		return(Min + Math.round(Rand * Range));   
+		}   
+		var num = GetRandomNum(1,6);  
+		$("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg") 
 
 
-function GetRandomNum(Min,Max)
-{   
-var Range = Max - Min;   
-var Rand = Math.random();   
-return(Min + Math.round(Rand * Range));   
-}   
-var num = GetRandomNum(1,6);  
-$("#dreamModeVal").attr("src","/images/d-v/dream-model-"+num+".jpg") 
 
+
+
+
+/* loading */
+
+
+		var imgSrcArr = [];
+		loadingFun(imgSrcArr);
+	})
+})(jQuery);
 
 </script>
 {% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'LVFondationBundle::dreamlayout.html.twig' %}
+{% block title %}LV UGC{% endblock %}
+{% block dreambox %}
+	<div class="head">
+		<img src="/images/nav_bg.png" class="nav-bg" />
+		<a href="javascript:;" class="nav_icon">
+			<img src="/images/nav_icon.png" />
+		</a>
+		<img src="/images/menu-bg.png" width="100%" />
+	</div>
+
+
+	<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<div class="step1_con">
+            		<img data-src="/images/d-v/dv-1.jpg" class="swiper-lazy s-img" width="100%" />
+            	</div>
+            	<div class="pageArr">
+					开始梦想之旅
+					<img src="/images/d-v/pageArr.png" />
+				</div>
+				<div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+            	<img data-src="/images/d-v/dv-2.jpg" class="swiper-lazy s-img" />
+            	<div class="pageArr">
+					开始梦想之旅
+					<img src="/images/d-v/pageArr.png" />
+				</div>
+				<div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+            	<img data-src="/images/d-v/dv-3.jpg" class="swiper-lazy s-img" />
+            	<div class="pageArr">
+					开始梦想之旅
+					<img src="/images/d-v/pageArr.png" />
+				</div>
+				<div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+
+            	<div class="dreamParameters">
+            		<div class="dreamInfo">
+	            		<div class="dp_text">
+	            			辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展
+	            		</div>
+	            		<div class="dp_name">Michel</div>
+
+	            		<div class="dp_curGlass">
+	            			您的旅程是构建<br />路易威登基金会的<br />第 <span>2340</span>块<br /><i>梦想玻璃</i>
+	            		</div>
+
+	            		<div class="dp_info">
+	            			<div class="info-day">
+	            				<span>天数</span>
+	            				<span>42</span>
+	            			</div>
+	            			<div class="info-attention">
+	            				<span>受关注</span>
+	            				<span>320</span>
+	            			</div>
+	            			<div class="info-fav">
+	            				<span>喜欢</span>
+	            				<span>210</span>
+	            			</div>
+	            		</div>
+
+            			<a href="javascript:;" class="btn">分享</a>
+            		</div>
+            		<img data-src="/images/d-v/dv-glass-1.png" class="swiper-lazy"/>
+
+            		
+            	</div>
+            	<img data-src="/images/d-v/dv-4.jpg" class="swiper-lazy s-img"/>
+            	<div class="swiper-lazy-preloader"></div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+document.addEventListener('touchmove' , function (ev){
+		ev.preventDefault();
+		return false;
+} , false)
+
+var swiper = new Swiper('.swiper-container', {
+	lazyLoading : true,
+    direction: 'vertical'
+});
+</script>
+{% endblock %}

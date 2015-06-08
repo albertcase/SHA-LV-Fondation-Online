@@ -23,6 +23,16 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
     }
 
+    public function dreamAction()
+    {
+        return $this->render('LVFondationBundle:Default:dream.html.twig', array('name' => 32));
+    }
+
+    public function userDreamAction()
+    {
+        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('name' => 32));
+    }
+
     public function chapterOneAction()
     {
         return $this->render('LVFondationBundle:Default:chapter1.html.twig');
@@ -48,5 +58,15 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:invitation.html.twig');
     }
 
+    public function invitationShowAction($invitation_id)
+    {
+        $invitation = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:IvitationLetter')
+            ->findOneBy(array('id' => $invitation_id));
+        if($invitation) {
+            //if()
+        }
+        return $this->render('LVFondationBundle:Default:show_invitation.html.twig');
+    }
 
 }

@@ -6,6 +6,14 @@ lv_fondation_ugc:
     path:     /ugc
     defaults: { _controller: LVFondationBundle:Page:ugc }
 
+lv_fondation_dream:
+    path:     /dream
+    defaults: { _controller: LVFondationBundle:Page:dream }
+
+lv_fondation_userdream:
+    path:     /dream/{id}
+    defaults: { _controller: LVFondationBundle:Page:userDream }
+
 lv_fondation_chapter1:
     path:     /chapter1
     defaults: { _controller: LVFondationBundle:Page:chapterOne }
@@ -26,12 +34,10 @@ lv_fondation_invitation:
     path:     /invitation
     defaults: { _controller: LVFondationBundle:Page:invitation }
 
-# lv_fondation_userinfo:
-#     path:     /create/userinfo
-#     defaults: { _controller: LVFondationBundle:Page:createUserInfo }
-# lv_fondation_testevent:
-#     path:     /test/event
-#     defaults: { _controller: LVFondationBundle:Page:testEvent }
+lv_fondation_showinvitation:
+    path:     /invitation/show/{id}
+    defaults: { _controller: LVFondationBundle:Page:invitationShow }
+
 api_fondation_jssdk:
     path:     /api/jssdk
     defaults: { _controller: LVFondationBundle:Api:jssdk }

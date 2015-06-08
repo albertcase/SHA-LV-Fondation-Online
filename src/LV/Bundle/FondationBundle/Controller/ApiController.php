@@ -31,14 +31,16 @@ class ApiController extends Controller
         $ivitate = new IvitationLetter();
         $ivitate->setName($request->get('name'));
         $ivitate->setCellphone($request->get('cellphone'));
+        $ivitate->setImgurl('/createimg.jpg');
         $ivitate->setCreated(time());
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($ivitate);
         $em->flush();
+        $files_base_dir = $this->container->getParameter('files_base_dir');
 
         $response = new JsonResponse();
-        $response->setData(array('status' => 1));
+        $response->setData(array('status' => 1, 'imgurl' => $files_base_dir . $ivitate->getImgurl()));
         return $response;
     }
 

@@ -28,7 +28,7 @@ class LVApiRequestListener
 
             $user = $this->container->get('lv.user.service');
 
-            if(!$event->getRequest()->isXmlHttpRequest()) 
+            if($event->getRequest()->isXmlHttpRequest()) 
                 return $event->setResponse($this->getResponseCode('002')); //The request is not XmlHttpRequest
             
             if(!$user->userIsLogin())
@@ -68,11 +68,11 @@ class LVApiRequestListener
             return '010'; //The name is empty
         if(!preg_match('/^\d{11}$/', $cellphone))
             return '011'; //The cellphone number is wrong
-        $is_cellphone = $this->container->get('doctrine')
-            ->getRepository('LVFondationBundle:IvitationLetter')
-            ->findOneBy(array('cellphone' => $cellphone));
-        if($is_cellphone)
-            return '012'; //The cellphone is already exist
+        // $is_cellphone = $this->container->get('doctrine')
+        //     ->getRepository('LVFondationBundle:IvitationLetter')
+        //     ->findOneBy(array('cellphone' => $cellphone));
+        // if($is_cellphone)
+        //     return '012'; //The cellphone is already exist
         return FALSE;
     }
 

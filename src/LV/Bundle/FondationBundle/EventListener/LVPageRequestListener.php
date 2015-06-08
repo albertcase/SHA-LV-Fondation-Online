@@ -32,7 +32,7 @@ class LVPageRequestListener
 
                 $url = $this->router->generate($current_route);
 
-                $isWechatLogin = $wechat->isLoginBase($url);
+                $isWechatLogin = $wechat->isLogin($url);
 
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);

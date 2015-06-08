@@ -1,4 +1,5 @@
 parameters:
+    files_base_dir: /files
     access_need_router:
         - lv_fondation_ugc
 

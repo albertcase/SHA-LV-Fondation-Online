@@ -1,0 +1,221 @@
+
+html, body, #dreambox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background: #f1f1f1; */
+  -ms-overflow-scrolling: hidde;
+  -moz-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+}
+
+.swiper-container, .swiper-wrapper, .swiper-slide{
+    width: 100%;
+}
+
+
+.step1_con{
+    width: 90%;
+    display: inline-block;
+    margin: 2.6em 0 0 0; 
+}
+
+.s-img{
+    width: 100%;
+}
+
+
+.dreamInfo{
+    width: 90%;
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 80%;
+}
+
+.dreamParameters .swiper-lazy{
+    width: 100%;
+    display: inline-block;
+}
+
+.dreamParameters{
+    width: 260px;
+    display: inline-block;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    top: 16%;
+    margin: 0 0 0 -35%;
+}
+
+.dp_text{
+    width: 60%;
+    display: inline-block;
+    height: 30%;
+    font-size: 14px;
+    color: #001238;
+}
+
+.dp_name{
+    width: 60%;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    color: #001238;
+    margin: 2.2em 0 0 0; 
+}
+
+.dp_curGlass{
+    font-size: 14px;
+    margin: 1.2em 0 0 0; 
+    line-height: 22px;
+}
+
+.dp_curGlass span{
+    font-size: 25px;
+    color: #000;
+    padding: 0 0.2em;
+    display: inline-block;
+}
+
+.dp_curGlass i{
+    border-bottom: 1px #000 solid;
+    padding: 0 0 0.9em 0;
+}
+
+.dp_info{
+    width: 100%;
+    display: inline-block;
+    margin: 1.2em 0 0.2em 0; 
+}
+
+.info-day,.info-attention,.info-fav{
+    width: 32%;
+    display: inline-block;
+    float: left;
+}
+
+.info-day span,.info-attention span,.info-fav span{
+    width: 100%;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.btn{
+    width:60%;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border: 1px #000 solid;
+    color: #040301;
+    margin: 0 0 1em 0;
+    font-size: 16px;
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pageArr{
+    width: 27%;
+    position: absolute;
+    left: 50%;
+    bottom: 0.6em;
+    margin: 0 0 0 -13.5%; 
+    font-size: 12px;
+    text-align: center;
+    color: #434243;
+}
+
+.pageArr img{
+    width: 20%;
+    display: inline-block;
+}
+
+
+.pageArr { 
+  -webkit-animation: arrAni 1.6s infinite ease-in-out;
+     -moz-animation: arrAni 1.6s infinite ease-in-out;
+          animation: arrAni 1.6s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+@-moz-keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+@keyframes arrAni {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,6px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-6px);}
+}
+
+
+
+
+
+
+
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+    .step1_con img{
+        width: 80%;
+    }
+
+
+    .dreamParameters{
+        width: 227px;
+        margin: 0 0 0 -32%;
+    }
+
+
+    .dp_curGlass{
+        margin: 0.2em 0 0.2em 0;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .dp_curGlass i{
+        padding: 0 0 0.6em 0;
+    }
+
+    .dp_curGlass span{
+        font-size: 20px;
+    }
+
+    .dp_info{
+        margin: 0.6em 0 0.2em 0; 
+    }
+
+    .s-img{
+        width: auto;
+        height: 100%;
+    }
+
+}
+
+
+
+
+

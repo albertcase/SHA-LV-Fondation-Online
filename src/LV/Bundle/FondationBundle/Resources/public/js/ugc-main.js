@@ -79,7 +79,6 @@ var _doing = {
 
 			},
 			userInfoFun : function(fname,femail,ftel,faddress){
-				console.log(fname+":"+femail+":"+ftel+":"+faddress)
 				$.ajax({
 				    type: "POST",
 				    url: "/fondation/api/userinfo",
@@ -91,6 +90,35 @@ var _doing = {
 			    	if(data.status == 1){
 			    		alert("提交成功！");
 			    	}
+			    })
+			},
+			submitCreateFun : function(nickname,content){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/userdream",
+				    data: {
+				    	"nickname":nickname, "content":content
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
+			    	if(data.status == 1){
+			    		window.location.href="result";
+			    	}
+			    })
+			},
+			dreamlike : function(dream_id){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/dreamlike",
+				    data: {
+				    	"dream_id":dream_id
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	// if(data.status == 1){
+			    	// 	window.location.href="result";
+			    	// }
 			    })
 			}
 			

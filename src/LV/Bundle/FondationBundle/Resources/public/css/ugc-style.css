@@ -484,16 +484,25 @@ html,body,#dreambox{
 	display: inline-block;
 	text-align: center;
 	font-size: 14px;
+	position: relative;
 }
 
 .supportIcon img,.shareIcon img{
 	width: 80%;
 	display: inline-block;
-	margin:0 0 7px 0;
+	margin:0 0 22px 0;
 }
 
 .supportIcon{
 	border-bottom: 1px #2d2c2d solid;
+}
+
+.supportIcon i,.shareIcon i{
+	width: 150%;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -75%;
+	top: 3.2em;
 }
 
 

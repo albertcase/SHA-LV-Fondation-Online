@@ -13,10 +13,10 @@
                 return false;
             }
             
-            $.get("../login.php",{"account": account,"password":password},function(result){
+            $.get("/same/admin/login",{"account": account,"password":password},function(result){
                 var resultVal = JSON.parse(result);
                 if(resultVal.Member[0].success==1){
-                    window.location.href="../file.php";
+                    window.location.href="/same/admin/file";
                 }else{
                     alert("账号或密码有误，请重新填写！");
                     $(".account").val("");

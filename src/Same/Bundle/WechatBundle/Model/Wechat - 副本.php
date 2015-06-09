@@ -70,16 +70,18 @@ class Wechat
 	* @return string $access_token
 	*/ 
 	private function getAccessToken() {
-		$time = $this->_memcache->get('wechat_server_time');
-		if(strtotime($time) - time() <= 0){
-			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
-			$result = json_decode($result, true);
-			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
-			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
-			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
+
+
+		$http_data = array();
+		$http_data['grant_type'] = 'client_credential';
+		$http_data['appid'] = $this->_container->getParameter('appid');
+		$http_data['secret'] = $this->_container->getParameter('appsecret');
+		$rs = file_get_contents($this->_container->getParameter('tokenApiUrl') . http_build_query($http_data));
+		$rs = json_decode($rs,true);
+		if(isset($rs['access_token'])){
+			return $rs['access_token'];
 		}
-		return $this->_memcache->get('wechat_server_access_token');
-		
+		return $rs['errcode'];
 	}
 
 	/** 
@@ -92,15 +94,20 @@ class Wechat
 	public function getJsTicket($url) {
 		$appid = $this->_container->getParameter('appid');
 		$time = $this->_memcache->get('wechat_server_time');
-		if(strtotime($time) - time() <= 7200){
-			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
-			$result = json_decode($result, true);
-			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
-			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
-			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
+		$ticket = $this->_memcache->get('wechat_server_ticket');
+		if(time() - $time >= 3600){
+			$access_token = $this->getAccessToken();
+			$http_data = array();
+			$http_data['access_token'] = $access_token;
+			$http_data['type'] = 'jsapi';
+			$ticketfile = file_get_contents($this->_container->getParameter('ticketApiUrl') . http_build_query($http_data));
+			$ticketfile = json_decode($ticketfile, true);
+			$ticket = $ticketfile['ticket'];
+			$time = time();
+			$this->_memcache->set('wechat_server_time', $time);
+			$this->_memcache->set('wechat_server_ticket', $ticket);
 			
 		}
-		$ticket = $this->_memcache->get('wechat_server_ticket');
 		$str = '1234567890abcdefghijklmnopqrstuvwxyz';
 		$noncestr = '';
 		for($i=0;$i<8;$i++){
@@ -110,14 +117,16 @@ class Wechat
 		$ticket_data = array();
 		$ticket_data['jsapi_ticket'] = $ticket;
 		$ticket_data['noncestr'] = $noncestr;
-		$ticket_data['timestamp'] = time();
+		$ticket_data['timestamp'] = $time;
 		$ticket_data['url'] = $url;
-		//$sign = sha1(http_build_query($ticket_data));
-		$sign = sha1("jsapi_ticket=".$ticket."&noncestr=".$noncestr."&timestamp=".$ticket_data['timestamp']."&url=".urldecode($url));
-		$ticket_data['sign'] = $sign;
-		$ticket_data['appid'] = $appid;
+		$sign = sha1(http_build_query($ticket_data));
 		$response = new JsonResponse();
-        $response->setData($ticket_data);
+		$data = array();
+		$data['appid'] = $appid;
+		$data['time'] = $time;
+		$data['noncestr'] = $noncestr;
+		$data['sign'] = $sign;
+        $response->setData($data);
         return $response;
 	}
 
@@ -204,7 +213,6 @@ class Wechat
 	    $http_data['openid'] = $openid;
 	 	$http_data['lang'] = $lang;
 		$result = file_get_contents($this->_container->getParameter('userInfoApiUrl') . http_build_query($http_data));
-		var_dump($result);exit;
 		$result = json_decode($result, true);
 		return $result['subscribe'];
 	}

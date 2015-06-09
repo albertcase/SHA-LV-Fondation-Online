@@ -22,6 +22,9 @@
 {% endjavascripts %}
 {% endblock %}   
 {% block dreambox %}
+
+<div id="wechatTips"></div>
+
 <!-- index page -->
 <div class="page" id="index" data-page="index">
 
@@ -107,7 +110,7 @@
 			</div>
 
 			<div class="dreamMode">
-				<div id="selectedContent"> <!-- 选中信息 --> </div>		
+				<div id="selectedContent" data-id="678"> <!-- 选中信息 --> </div>		
 			</div>
 			
 
@@ -132,10 +135,10 @@
 
 				<div class="create-num">你是构建路易威登基金会的<br />第<span></span>块玻璃</div>
 				<div class="create-context">
-					<textarea name="" cols="" rows="" placeholder="请输入创作内容"></textarea>
+					<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容"></textarea>
 				</div>
 				<div class="create-name">
-					<input type="text" placeholder="请输入您的姓名">
+					<input type="text" class="creatTextName" placeholder="请输入您的姓名">
 				</div>
 
 
@@ -226,6 +229,53 @@
 
 ;(function($){
 	$(function(){
+
+
+		/* 提交创建内容 */
+		$(".finshBtn").click(function(){
+			if($(this).hasClass("isdoing"))return false;
+			
+			var creatTextCon = $(".creatTextCon").val(),
+				creatTextName = $(".creatTextName").val();
+				if(creatTextCon == ""){
+					$(".creatTextCon").addClass("error").attr("placeholder","内容不能为空！");
+					return false;
+				}
+
+				if(creatTextName == ""){
+					$(".creatTextName").addClass("error").attr("placeholder","姓名不能为空！");
+					return false;
+				}else{
+					$(this).addClass("isdoing").val("正在加载...");
+					_doing.submitCreateFun(creatTextName,creatTextCon);
+				}
+
+		})
+
+		/* 点击支持当前梦想 */
+		$(".supportIcon").click(function(){
+			if($(this).hasClass("hover"))return false;
+
+			var dream_id = $("#selectedContent").attr("data-id");
+			$(this).addClass("hover");
+			$(".supportIcon i").html("已支持");
+			_doing.dreamlike(dream_id);
+		})
+
+
+		/* 分享当前梦想 */
+		$(".shareIcon").click(function(){
+			$("#wechatTips").fadeIn();
+		})
+
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
+
+
+
 		var imgSrcArr = ["/images/ugc/glass-1.jpg","/images/ugc/glass-2.jpg","/images/ugc/glass-3.jpg","/images/ugc/glass-4.jpg","/images/ugc/glass-5.jpg","/images/ugc/glass-6.jpg"];
 		loadingFun(imgSrcArr);
 	})

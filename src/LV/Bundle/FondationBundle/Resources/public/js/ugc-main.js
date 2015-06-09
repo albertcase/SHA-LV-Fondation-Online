@@ -1,10 +1,5 @@
-var _doing;
 
-
-;(function($){
-	$(function(){
-
-		_doing = {
+var _doing = {
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
 			basedata : ["1","2","3","4","5","6"],
@@ -60,8 +55,8 @@ var _doing;
 			},
 			formData : function(){    //检测表单函数
 				var fname = $("input[name='fname']"),
-				    femail = $("input[name='femail']"); 
-				    ftel = $("input[name='ftel']"); 
+				    femail = $("input[name='femail']"),
+				    ftel = $("input[name='ftel']"),
 				    faddress = $("input[name='faddress']"); 
 				//console.log(!this.emailReg.test(femail.val()));
 
@@ -78,15 +73,33 @@ var _doing;
 					faddress.addClass("error").val("").attr("placeholder","地址不能为空！");
 					return false;
 				}else{
-					alert("提交成功！");
+					_doing.userInfoFun(fname.val(),femail.val(),ftel.val(),faddress.val());
 				}
 
 
+			},
+			userInfoFun : function(fname,femail,ftel,faddress){
+				console.log(fname+":"+femail+":"+ftel+":"+faddress)
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/userinfo",
+				    data: {
+				    	"name":fname, "email":femail, "cellphone":ftel, "address":faddress
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	if(data.status == 1){
+			    		alert("提交成功！");
+			    	}
+			    })
 			}
 			
 		}
 
 
+
+;(function($){
+	$(function(){
 
 		_doing.dreamListData();
 		_doing.getGlassData();
@@ -96,8 +109,7 @@ var _doing;
 			_doing.getCreateData();
 		}else if(GetQueryString()=="form"||GetQueryString()=="attention"){
 			_doing.faActive();
-		}
-		
+		}	
 
 	})
 })(jQuery);

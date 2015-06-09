@@ -1,9 +1,20 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 	<div class="share">
-		<img src="/files{{ invitation.imgurl }}" width="100%" class="header_img"/>
+		<img src="" sourcesrc="/files{{ invitation.imgurl }}" width="100%" class="header_img"/>
 		{% if user.id == invitation.user.id %}
 		<input type="submit" value="分享" class="share_btn">
 		{% endif %}
 	</div>	
+
+	<script type="text/javascript">
+	;(function($){
+		$(function(){
+			var imgSrcArr = [];
+			loadingFun(imgSrcArr);
+		})
+	})(jQuery);
+
+	</script>
+
 {% endblock %}

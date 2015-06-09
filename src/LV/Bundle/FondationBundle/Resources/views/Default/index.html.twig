@@ -39,20 +39,32 @@
 	</a>
 </div>
 <script type="text/javascript">
-var mySwiper = $('.swiper-container').swiper({
-		pagination: '.swiper-pagination',
-		nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        loop: false
-});
+
 
 
 
 ;(function($){
 	$(function(){
+
+		function GetQueryString(){
+		    var r = unescape(location.hash);
+		    r=r.replace("#","");
+		    if(r!=null)return r; return null;
+		}
+
+		var mySwiper = $('.swiper-container').swiper({
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        paginationClickable: true,
+	        loop: false,
+	        initialSlide : parseInt(GetQueryString()-1)
+		});
+
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
+
+
 	})
 })(jQuery);
 

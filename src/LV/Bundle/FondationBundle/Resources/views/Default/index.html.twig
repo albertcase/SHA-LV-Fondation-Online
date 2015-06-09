@@ -4,21 +4,21 @@
 	
 	<div class="chapter-c">
 	<div class="chapter-l swiper-button-prev">
-		<span><img src="/images/arr-l.png"></span>
+		<span><img src="" sourcesrc="/images/arr-l.png"></span>
 	</div>
 		<div class="swiper-container">
 		  <div class="swiper-wrapper" id="homeList">
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-1.jpg">
+		    	<a href="chapter1"><img src="" sourcesrc="/images/chapter-1.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-2.jpg">
+		    	<a href="chapter2"><img src="" sourcesrc="/images/chapter-2.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-3.jpg">
+		    	<a href="chapter3"><img src="" sourcesrc="/images/chapter-3.jpg"></a>
 		    </div>
 		    <div class="swiper-slide">
-		    	<img src="/images/chapter-4.jpg">
+		    	<a href="chapter4"><img src="" sourcesrc="/images/chapter-4.jpg"></a>
 		    </div>
 		  </div>
 
@@ -27,24 +27,47 @@
 
 		</div>
 	<div class="chapter-r swiper-button-next">
-		<span><img src="/images/arr-r.png"></span>
+		<span><img src="" sourcesrc="/images/arr-r.png"></span>
 	</div>
 	</div>
 	
 </div>
 
 <div class="dreamTrip">
-	<a href="javascript:;">
-		<img src="/images/dreamTrip.jpg">
+	<a href="ugc#create">
+		<img src="" sourcesrc="/images/dreamTrip.jpg">
 	</a>
 </div>
 <script type="text/javascript">
-var mySwiper = $('.swiper-container').swiper({
-		pagination: '.swiper-pagination',
-		nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        loop: false
-});
+
+
+
+
+;(function($){
+	$(function(){
+
+		function GetQueryString(){
+		    var r = unescape(location.hash);
+		    r=r.replace("#","");
+		    if(r!=null)return r; return null;
+		}
+
+		var mySwiper = $('.swiper-container').swiper({
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        paginationClickable: true,
+	        loop: false,
+	        initialSlide : parseInt(GetQueryString()-1)
+		});
+
+		var imgSrcArr = [];
+		loadingFun(imgSrcArr);
+
+
+	})
+})(jQuery);
+
+
 </script>
 {% endblock %}

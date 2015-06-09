@@ -31,6 +31,13 @@ class User
     /**
      * @var string
      *
+     * @ORM\Column(name="role", type="string", length=255)
+     */
+    private $role;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="created", type="string", length=255)
      */
     private $created;
@@ -277,5 +284,28 @@ class User
     public function getDreamview()
     {
         return $this->dreamview;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string 
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

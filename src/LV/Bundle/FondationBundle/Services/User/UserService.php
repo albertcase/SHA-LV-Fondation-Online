@@ -60,8 +60,11 @@ class UserService
 
     public function userRegister($openid)
     {
+        $current_route = $this->requestStack->getCurrentRequest()->get('_route');
+        $role = $current_route == 'lv_fondation_showinvitation' ? 'onlinefake' : 'online';
         $user = new User();
         $user->setOpenid($openid);
+        $user->setRole($role);
         $user->setCreated(time());
         $this->save($user);
         return $user;

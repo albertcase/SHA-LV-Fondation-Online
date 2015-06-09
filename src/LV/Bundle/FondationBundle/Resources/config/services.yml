@@ -19,7 +19,7 @@ services:
         arguments: [@doctrine.orm.entity_manager, @request_stack]
     lv.image.service:
         class: LV\Bundle\FondationBundle\Services\Image\ImageService
-        arguments: [@doctrine.orm.entity_manager, @request_stack]
+        arguments: [@service_container]
     lv.page.test_listener_one:
         class: LV\Bundle\FondationBundle\EventListener\TestOneListener
         tags:

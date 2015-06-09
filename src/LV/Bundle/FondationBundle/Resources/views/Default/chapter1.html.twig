@@ -9,54 +9,52 @@
 
         	<div class="swiper-slide">
         		<div class="gif_bg">
-	            	<img data-src="/images/animate/LV_Animation_Chapter1bis.gif" width="100%" class="swiper-lazy" />
+	            	<img src="" sourcesrc="/images/animate/LV_Animation_Chapter1bis.gif" width="100%" />
 
 	            	<div class="pageArr">
-						<img data-src="/images/arr-up.png" class="swiper-lazy" />
+						<img src="" sourcesrc="/images/arr-up.png" />
 					</div>
-					<div class="swiper-lazy-preloader"></div>
 				</div>
             </div>
 
 
             <div class="swiper-slide">
             	<div class="chapter_content swiper-no-swiping" id="scrollArea">
-						<img data-src="/images/chapter1/c1.jpg" width="100%" class="swiper-lazy" />
+						<img src="" sourcesrc="/images/chapter1/c1.jpg" width="100%" />
 
 						<div class="contentImg">
 							<p class="c2">
-								<img data-src="/images/chapter1/c2.png" width="94%" class="swiper-lazy" />
+								<img src="" sourcesrc="/images/chapter1/c2.png" width="94%" />
 							</p>
 							<p class="c3">
-								<img data-src="/images/chapter1/c3.png" width="94%" class="swiper-lazy" />
+								<img src="" sourcesrc="/images/chapter1/c3.png" width="94%" />
 							</p>
 							<p class="c4">
-								<img data-src="/images/chapter1/c4.png" width="94%" class="swiper-lazy" />
+								<img src="" sourcesrc="/images/chapter1/c4.png" width="94%" />
 							</p>
 							
 						</div>
 						
 						<div class="content_footer">
 							<p>
-							<img data-src="/images/chapter1/footer_tips.png" class="swiper-lazy" />
+							<img src="" sourcesrc="/images/chapter1/footer_tips.png" />
 							</p>
 							<div class="btnArea">
 
 								<a href="invitations.html" class="creat_btn">
-									<img data-src="/images/creat_btn.png" width="100%" class="swiper-lazy" />
+									<img src="" sourcesrc="/images/creat_btn.png" width="100%" />
 								</a>
 								<a href="ugc/index.html" class="talk_btn">
-									<img data-src="/images/talk_btn.png" width="100%" class="swiper-lazy" />
+									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
 								
 							</div>
 						</div>
 						
 						<a href="javascript:;">
-							<img data-src="/images/chapter1/kv.jpg" width="100%" class="c5 swiper-lazy" />
+							<img src="" sourcesrc="/images/chapter1/kv.jpg" width="100%" class="c5" />
 						</a>
 				</div>
-				<div class="swiper-lazy-preloader"></div>
             </div>
 
         </div>
@@ -67,12 +65,19 @@
 </div>
 <script type="text/javascript">
 
+;(function($){
+	$(function(){
 
-var mySwiper = new Swiper('.swiper-container', {
-	lazyLoading : true,
-    direction: 'vertical'
-});
+		var mySwiper = new Swiper('.swiper-container', {
+			lazyLoading : true,
+		    direction: 'vertical'
+		});
 
+		/* loading */
+		var imgSrcArr = [];
+		loadingFun(imgSrcArr);
+	})
+})(jQuery);
 
 </script>
 {% endblock %}

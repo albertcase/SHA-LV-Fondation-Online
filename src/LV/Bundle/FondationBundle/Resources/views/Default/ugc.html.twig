@@ -22,6 +22,9 @@
 {% endjavascripts %}
 {% endblock %}   
 {% block dreambox %}
+
+<div id="wechatTips"></div>
+
 <!-- index page -->
 <div class="page" id="index" data-page="index">
 
@@ -42,18 +45,18 @@
     					<h2>65<sup>%</sup></h2>
     					<p>基金会已完成</p>
     				</div>
-    				<img src="/images/ugc/m.png" width="100%" />
-    				<div class="d-tips"><img src="/images/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
+    				<img src="" sourcesrc="/images/ugc/m.png" width="100%" />
+    				<div class="d-tips"><img src="" sourcesrc="/images/ugc/enlarge_arr.png" />点击放大路易威登基金会模型</div>
     			</dd>
     		</dl>
     	</div>
 
     	<!-- Add Navigation -->
 		<div class="swiper-button-prev listPrev">
-				<img src="/images/ugc/list_arr_l.png" width="100%" />
+				<img src="" sourcesrc="/images/ugc/list_arr_l.png" width="100%" />
 		</div>
 		<div class="swiper-button-next listNext">
-				<img src="/images/ugc/list_arr_r.png" width="100%" />
+				<img src="" sourcesrc="/images/ugc/list_arr_r.png" width="100%" />
 		</div>
 
 	</div>
@@ -66,7 +69,7 @@
 
 	<div class="demo-test">
 		<div class="choseGlass">
-			<div class="glassTips"><img src="/images/ugc/green-dot.png" width="100%" />点击玻璃，了解大家的梦想之旅</div>
+			<div class="glassTips"><img src="" sourcesrc="/images/ugc/green-dot.png" width="100%" />点击玻璃，了解大家的梦想之旅</div>
 			<div class="swiper-container glass-swiper">
 			  	<div class="swiper-wrapper" id="glassListCon">
 				    
@@ -77,10 +80,10 @@
 
 		<!-- Add Navigation -->
 		<div class="swiper-button-prev glassArr-prev">
-				<img src="/images/ugc/arr-l.png" />
+				<img src="" sourcesrc="/images/ugc/arr-l.png" />
 		</div>
 		<div class="swiper-button-next glassArr-next">
-				<img src="/images/ugc/arr-r.png" />
+				<img src="" sourcesrc="/images/ugc/arr-r.png" />
 		</div>
 	</div>
 
@@ -93,21 +96,21 @@
 
 	<div class="demo-test">
 		<div class="selected_con">
-		<img src="/images/ugc/glass-bg-1.jpg" width="100%" id="cur-glass" />
+		<img src="" sourcesrc="/images/ugc/glass-bg-1.jpg" width="100%" id="cur-glass" />
 
 			<div class="hotArea">
 				<div class="supportIcon">
-					<img src="/images/ugc/like.png" width="100%" />
+					<img src="" sourcesrc="/images/ugc/like.png" width="100%" />
 					<i>支持</i>
 				</div>	
 				<div class="shareIcon">
-					<img src="/images/ugc/shareIcon.png" width="100%" />
+					<img src="" sourcesrc="/images/ugc/shareIcon.png" width="100%" />
 					<i>分享</i>
 				</div>	
 			</div>
 
 			<div class="dreamMode">
-				<div id="selectedContent"> <!-- 选中信息 --> </div>		
+				<div id="selectedContent" data-id="678"> <!-- 选中信息 --> </div>		
 			</div>
 			
 
@@ -123,7 +126,7 @@
 
 	<div class="demo-test">
 		<a href="javascript:pagechange.moveClick('index');" class="backBtn">
-			<img src="/images/ugc/reback_arr.png" />
+			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
 			返回
 		</a>
 
@@ -132,15 +135,15 @@
 
 				<div class="create-num">你是构建路易威登基金会的<br />第<span></span>块玻璃</div>
 				<div class="create-context">
-					<textarea name="" cols="" rows="" placeholder="请输入创作内容"></textarea>
+					<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容"></textarea>
 				</div>
 				<div class="create-name">
-					<input type="text" placeholder="请输入您的姓名">
+					<input type="text" class="creatTextName" placeholder="请输入您的姓名">
 				</div>
 
 
 			</div>
-			<img src="/images/ugc/c_g_1.png" width="100%"/>
+			<img src="" sourcesrc="/images/ugc/c_g_1.png" width="100%"/>
 		</div>
 
 
@@ -153,13 +156,13 @@
 <div class="page" id="form" data-page="form">
 
 	<div class="demo-test">
-		<a href="javascript:;" class="backBtn">
-			<img src="/images/ugc/reback_arr.png" />
+		<a href="javascript:pagechange.moveClick('index');" class="backBtn">
+			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
 			返回
 		</a>
 
 		<div class="formCon">
-			<img src="/images/ugc/formTips.png" width="78%" />
+			<img src="" sourcesrc="/images/ugc/formTips.png" width="78%" />
 			<ul class="formlist">
 				<li>
 					<span>姓名</span> <input type="text" name="fname">
@@ -183,7 +186,7 @@
 			</a>
 
 			<a href="javascript:pagechange.moveClick('attention');" class="attention_btn">
-				<img src="/images/ugc/attention_btn.png" />
+				<img src="" sourcesrc="/images/ugc/attention_btn.png" />
 			</a>
 		</div>
 	</div>
@@ -196,13 +199,13 @@
 
 	<div class="demo-test">
 		<a href="javascript:pagechange.moveClick('form');" class="backBtn">
-			<img src="/images/ugc/reback_arr.png" />
+			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
 			返回
 		</a>
 
 		<div class="attention_con">
-			<img src="/images/ugc/attention_tips.png" />
-			<img src="/images/ugc/wechat.png" />
+			<img src="" sourcesrc="/images/ugc/attention_tips.png" />
+			<img src="" sourcesrc="/images/ugc/wechat.png" />
 		</div>
 	</div>
 
@@ -211,13 +214,77 @@
     <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
     <a href="javascript:;" class="btn finshBtn">完成</a>
     <a href="javascript:;">
-        <img src="/images/ugc/story.jpg" width="100%" />
+        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
     </a>
 </div>
 {# {% image output="images/apple-touch-icon.png"
 	'@LVFondationBundle/Resources/public/images/apple-touch-icon.png' 
 %}
-    <img src="{{ asset_url }}" alt="Symfony!" />
+    <img src="" sourcesrc="{{ asset_url }}" alt="Symfony!" />
 {% endimage %}     #}
+
+
+
+<script type="text/javascript">
+
+;(function($){
+	$(function(){
+
+
+		/* 提交创建内容 */
+		$(".finshBtn").click(function(){
+			if($(this).hasClass("isdoing"))return false;
+			
+			var creatTextCon = $(".creatTextCon").val(),
+				creatTextName = $(".creatTextName").val();
+				if(creatTextCon == ""){
+					$(".creatTextCon").addClass("error").attr("placeholder","内容不能为空！");
+					return false;
+				}
+
+				if(creatTextName == ""){
+					$(".creatTextName").addClass("error").attr("placeholder","姓名不能为空！");
+					return false;
+				}else{
+					$(this).addClass("isdoing").val("正在加载...");
+					_doing.submitCreateFun(creatTextName,creatTextCon);
+				}
+
+		})
+
+		/* 点击支持当前梦想 */
+		$(".supportIcon").click(function(){
+			if($(this).hasClass("hover"))return false;
+
+			var dream_id = $("#selectedContent").attr("data-id");
+			$(this).addClass("hover");
+			$(".supportIcon i").html("已支持");
+			_doing.dreamlike(dream_id);
+		})
+
+
+		/* 分享当前梦想 */
+		$(".shareIcon").click(function(){
+			$("#wechatTips").fadeIn();
+		})
+
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
+
+
+
+		var imgSrcArr = ["/images/ugc/glass-1.jpg","/images/ugc/glass-2.jpg","/images/ugc/glass-3.jpg","/images/ugc/glass-4.jpg","/images/ugc/glass-5.jpg","/images/ugc/glass-6.jpg"];
+		loadingFun(imgSrcArr);
+	})
+})(jQuery);
+
+
+</script>
+
+
+
     
 {% endblock %}

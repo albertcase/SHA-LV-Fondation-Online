@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta content="yes"name="apple-mobile-web-app-capable"/>
+ 	<meta content="black"name="apple-mobile-web-app-status-bar-style"/>
+	<meta name="format-detection"content="telphone=no"/>
+	<title>路易威登</title>
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css" />
+    <style type="text/css">
+    html,body{
+      width: 100%;
+      overflow: auto;
+      position: relative;
+    }
+
+    .mapcon img#hit{
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: auto;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<img src="/images/share.jpg" class="shareimg" />
+<div id="heng"></div>
+<section class="map">
+
+        <div class="guide" id="content">
+          <ul class="floor">
+            <li>
+                <span class="curfloor hover">B1</span><span class="textStaus-2"><em>1</em>向西沿走廊<br/>前行130米</span><span class="textStaus-2">到达路易威登之家<br/>及基金会展览</span>
+            </li>
+          <ul>
+        </div>  
+        <div class="mapcon">
+          <img src="/images/map/map3.png" id="hit" />
+          <div class="floor_guide">
+               <img src="/images/map/b1.png" />
+          </div>
+        </div>
+
+        <a href="javascript:history.go(-1);" class="prevBtn">上一页</a>
+
+    </section>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+;(function($){
+    $(window).load(function(){  
+      $("#content").mCustomScrollbar({
+          axis:"x",
+          advanced:{autoExpandHorizontalScroll:true},
+      }); 
+    });
+})(jQuery);
+</script>
+<script type="text/javascript">
+function orientationChange() {
+    switch(window.orientation) {
+    　　case 0:
+            document.getElementById('heng').style.display="none";
+            break;
+    　　case -90:
+            document.getElementById('heng').style.display="block";
+            break;
+    　　case 90:
+            document.getElementById('heng').style.display="block";
+            break;
+    　　case 180:
+        　　document.getElementById('heng').style.display="none";
+        　　break;
+    };
+
+};
+
+
+addEventListener('load', function(){
+    orientationChange();
+    window.onorientationchange = orientationChange;
+});
+
+</script>
+
+<script src="js/hammer.js"></script>
+<script src="js/drag.js"></script>
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b751a13184b796ac249b8a020fc0baf6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

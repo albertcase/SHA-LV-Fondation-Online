@@ -22,14 +22,7 @@
 					<img src="" sourcesrc="/images/d-v/pageArr.png" />
 				</div>
             </div>
-            <!--<div class="swiper-slide">
-            	<img data-src="/images/d-v/dv-3.jpg" class="swiper-lazy s-img" />
-            	<div class="pageArr">
-					开始梦想之旅
-					<img src="/images/d-v/pageArr.png" />
-				</div>
-				<div class="swiper-lazy-preloader"></div>
-            </div> -->
+    
             <div class="swiper-slide">
 
             	<div class="dreamParameters">
@@ -69,8 +62,11 @@
         </div>
     </div>
 <script type="text/javascript">
+
+
 ;(function($){
 	$(function(){
+
 
 		shareData = {
 		    title: '路易威登基金会▪梦想启航',
@@ -92,13 +88,12 @@
 		var num = GetRandomNum(1,6);  
 		$("#dreamModeVal").attr("sourcesrc","/images/d-v/dream-model-"+num+".jpg") 
 
+		var swiper = new Swiper('.swiper-container', {
+			lazyLoading : true,
+		    direction: 'vertical'
+		});
 
-
-
-
-
-/* loading */
-
+        /* loading */
 
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);

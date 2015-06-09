@@ -65,6 +65,11 @@
 </div>
 <script type="text/javascript">
 
+var mySwiper = new Swiper('.swiper-container', {
+	lazyLoading : true,
+    direction: 'vertical'
+});
+
 ;(function($){
 	$(function(){
 
@@ -72,11 +77,6 @@
 		    title: '第一章：路易威登基金会▪起航',
 		    desc: '艺术与建筑的碰撞，一个美梦成真的故事'
 		};
-
-		var mySwiper = new Swiper('.swiper-container', {
-			lazyLoading : true,
-		    direction: 'vertical'
-		});
 
 		/* loading */
 		var imgSrcArr = [];

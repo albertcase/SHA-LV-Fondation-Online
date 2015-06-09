@@ -127,16 +127,7 @@
 	
 </div>
 <script type="text/javascript">
-
-;(function($){
-	$(function(){
-
-		shareData = {
-		    title: '第四章：路易威登基金会▪创梦当代',
-		    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能'
-		};
-
-		var mySwiper = new Swiper('.swiper-container', {
+var mySwiper = new Swiper('.swiper-container', {
 			lazyLoading : true,
 		    direction: 'vertical',
 		    onTouchEnd: function(swiper){
@@ -194,6 +185,14 @@
 			$(".title_ny").addClass("title_ny_ani");
 		}
 
+
+;(function($){
+	$(function(){
+
+		shareData = {
+		    title: '第四章：路易威登基金会▪创梦当代',
+		    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能'
+		};
 
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);

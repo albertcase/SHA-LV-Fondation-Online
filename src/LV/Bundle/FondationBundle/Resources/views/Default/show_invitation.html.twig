@@ -1,6 +1,11 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
+	<div id="wechatTips"></div>
 	<div class="share">
+
+		<div class="handTips"><span>长按保存<br />
+邀请函</span></div>
+
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" width="100%" class="header_img"/>
 		{% if user.id == invitation.user.id %}
 		<input type="submit" value="分享" class="share_btn">
@@ -10,6 +15,17 @@
 	<script type="text/javascript">
 	;(function($){
 		$(function(){
+
+			$(".share_btn").click(function(){
+				$("#wechatTips").fadeIn();
+			})
+
+			document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+				ev.preventDefault();
+				$("#wechatTips").fadeOut();
+				return false;
+			} , false)
+
 			var imgSrcArr = [];
 			loadingFun(imgSrcArr);
 		})

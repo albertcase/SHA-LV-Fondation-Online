@@ -70,14 +70,14 @@
 								<a href="invitations.html" class="creat_btn">
 									<img src="" sourcesrc="/images/creat_btn.png" width="100%" />
 								</a>
-								<a href="ugc/index.html" class="talk_btn">
+								<a href="ugc" class="talk_btn">
 									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
 								
 							</div>
 						</div>
 						
-						<a href="javascript:;">
+						<a href="chapter4">
 							<img src="" sourcesrc="/images/chapter3/kv.jpg" width="100%" class="c5" />
 						</a>
 		    		</div>
@@ -94,38 +94,43 @@
 	
 </div>
 <script type="text/javascript">
+
+$(".glassBlock").click(function(){
+	$(this).animate({"opacity":0.1,"margin-top":"9em"},600,function(){
+		$(this).hide();
+
+		$(".glass_footer").animate({"bottom":0,"opacity":0});
+		$(".glassInstall_fin").animate({"opacity":1},1000,function(){
+			$(".glassInstall_con h2").html("路易威登基金会");
+			$(".glassInfo").fadeIn();
+			$(".glassBlock_tips").html("安装完成");
+			$(".goonSearch").css("display","inline-block");
+			$(".glass_footer").animate({"bottom":"1em","opacity":1});
+		});
+	});
+	
+})
+
+$(".goonSearch").click(function(){
+	$(".glassInstall").fadeOut();
+	$(".glassInstall_info").show().animate({"opacity":1},3000);
+})
+
+
+var mySwiper = new Swiper('.swiper-container', {
+	lazyLoading : true,
+    direction: 'vertical'
+});
+
+
 ;(function($){
 	$(function(){
 
-		$(".glassBlock").click(function(){
-			$(this).animate({"opacity":0.1,"margin-top":"9em"},600,function(){
-				$(this).hide();
-
-				$(".glass_footer").animate({"bottom":0,"opacity":0});
-				$(".glassInstall_fin").animate({"opacity":1},1000,function(){
-					$(".glassInstall_con h2").html("路易威登基金会");
-					$(".glassInfo").fadeIn();
-					$(".glassBlock_tips").html("安装完成");
-					$(".goonSearch").css("display","inline-block");
-					$(".glass_footer").animate({"bottom":"1em","opacity":1});
-				});
-			});
-			
-		})
-
-		$(".goonSearch").click(function(){
-			$(".glassInstall").fadeOut();
-			$(".glassInstall_info").show().animate({"opacity":1},3000);
-		})
-
-
-		var mySwiper = new Swiper('.swiper-container', {
-			lazyLoading : true,
-		    direction: 'vertical'
-		});
-
-
-
+		shareData = {
+		    title: '第三章：路易威登基金会▪立梦建筑',
+		    desc: '大师弗兰克·盖里的创世之作，法国里程碑式建筑新坐标'
+		};
+		
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
 	})

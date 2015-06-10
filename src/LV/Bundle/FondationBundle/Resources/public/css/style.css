@@ -596,8 +596,77 @@ html,body,#dreambox{
 
 }
 /* share */
-#share{
+.handTips{
+	width: 20%;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -10%;
+	top: 36%; 
+	height: 96px;
+	z-index: 6;
+	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;
+	text-align: center;
+}
+
+.handTips { 
+  -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
+     -moz-animation: handTips_ani 1.5s infinite ease-in-out;
+          animation: handTips_ani 1.5s infinite ease-in-out;
+}
+
+
+@-webkit-keyframes handTips_ani {
+  0%,30% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;}
+  60% {
+  	background: url("/images/hand-2.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+  100% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+}
+@-moz-keyframes handTips_ani {
+  0%,30% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;}
+  60% {
+  	background: url("/images/hand-2.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+  100% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+}
+@keyframes handTips_ani {
+  0%,30% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;}
+  60% {
+  	background: url("/images/hand-2.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+  100% {
+  	background: url("/images/hand-1.png") center top no-repeat;
+	background-size: 50% auto;
+  }
+}
+
+.handTips span{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	line-height: 16px;
+}
+
+.share{
 	background:#ececec;
+	position: relative;
 }
 .share_name{
 	position: relative;
@@ -616,15 +685,17 @@ html,body,#dreambox{
 }
 .share_btn{
 	background: none;
-	position: relative;
-	display: inline-block;
 	width:40%;
-	margin: 4% 0px 0px 30%;
 	border: 1px solid #000;
 	font-size: 1.2em;
 	padding: 6px 0px;
 	font-weight: bold;
 	letter-spacing: .1em;
+	position: absolute;
+	left: 50%;
+	bottom: 1em;
+	margin: 0 0 0 -20%;
+	z-index: 10;
 }
 /* address */
 .intro{

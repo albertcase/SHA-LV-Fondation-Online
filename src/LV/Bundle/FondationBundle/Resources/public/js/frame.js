@@ -96,28 +96,19 @@ function GetQueryString_q(name){
                     $("#dreambox").css({"height":$(window).height()});
                     $(".creatBtn").css("display","none");
                     $(".finshBtn").css("display","inline-block");
+                    
                 }else{
                     $(".finshBtn").css("display","none");
                     $(".creatBtn").css("display","inline-block");
                 }
 
-            }
-            // ,
-            // this.pageStatus = function(curhash){
-            //     return $.map(pageStatus,function(key,val){
-            //             if(key.indexOf(curhash)>=0){
-            //                 return val;
-            //             }
-            //     }).join("");
-            // },
-            // this.pageRefresh = function(){
-            //     var curpageIndex = this.GetQueryString(); 
 
-            //     var curshow = $(".page-active").data("page");
-            //     if(curpageIndex){
-            //         pagechange.moveClick(curshow,curpageIndex);
-            //     }
-            // }
+                if(curclick=="create"||curclick=="form"||curclick=="attention"){
+                    $(".head").css({"height":"56px"});
+                }
+
+            }
+
             
 
         }

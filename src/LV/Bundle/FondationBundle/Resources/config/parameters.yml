@@ -4,4 +4,5 @@ parameters:
         - lv_fondation_ugc
         - lv_fondation_showinvitation
         - lv_fondation_userdream
+        - lv_fondation_dream
 

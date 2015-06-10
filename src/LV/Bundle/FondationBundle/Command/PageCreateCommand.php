@@ -24,7 +24,7 @@ class PageCreateCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('page:create')
+            ->setName('fondation:create:page')
             ->setDescription('Create Static Page')
             ->addArgument('who', InputArgument::OPTIONAL, 'Who to greet.', 'World')
             ->setHelp(<<<EOF

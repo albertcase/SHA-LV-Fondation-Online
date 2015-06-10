@@ -79,7 +79,7 @@ class LVApiRequestListener
     private function userInfoValidate($request) 
     {
 
-        if($this->userservice->getUserinfo())
+        if($this->userservice->userLoad()->getUserinfo())
             return '020'; //The user info is already submitted
 
         $name = $request->request->get('name');
@@ -127,7 +127,7 @@ class LVApiRequestListener
         $nickname = $request->request->get('nickname');
         $content = $request->request->get('content');
      
-        if(!$this->userservice->getUserDream())
+        if(!$this->userservice->userLoad()->getUserDream())
             return '024'; //The user dream is not exist
         if(!$nickname)
             return '015'; //The nickname is empty

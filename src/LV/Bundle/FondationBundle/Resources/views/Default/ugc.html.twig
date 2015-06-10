@@ -39,7 +39,7 @@
     			<dd>
     				<a href="javascript:pagechange.moveClick('chose');"></a>
     				<div class="completionRatio">
-    					<h2>65<sup>%</sup></h2>
+    					<h2>{{ percentage }}<sup>%</sup></h2>
     					<p>基金会已完成</p>
     				</div>
     				<img src="" sourcesrc="/images/ugc/m.png" width="100%" />
@@ -221,20 +221,26 @@
 {% endimage %}     #}
 
 
-
 <script type="text/javascript">
 
 ;(function($){
 	$(function(){
+
 		var imgSrcArr = ["/images/ugc/glass-1.jpg","/images/ugc/glass-2.jpg","/images/ugc/glass-3.jpg","/images/ugc/glass-4.jpg","/images/ugc/glass-5.jpg","/images/ugc/glass-6.jpg"];
 		loadingFun(imgSrcArr);
 	})
+
 })(jQuery);
 
 
 </script>
 
-
+<div class="default_dreams_home" style="display:none">
+{{default_dreams_home|json_encode()}}
+</div>
+<div class ="default_dreams_in" style="display:none">
+{{default_dreams_in|json_encode()}}
+</div>
 
     
 {% endblock %}

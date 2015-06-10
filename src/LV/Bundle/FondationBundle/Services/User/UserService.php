@@ -93,6 +93,7 @@ class UserService
             $dream->setUser($user);
             $dream->setNickname($data['nickname']);
             $dream->setContent($data['content']);
+            $dream->setStatus('0');
             $dream->setCreated(time());
             $dream->setUpdated(time());
             $this->save($dream);
@@ -108,6 +109,7 @@ class UserService
             $dream->setUser($user);
             $dream->setNickname($data['nickname']);
             $dream->setContent($data['content']);
+            $dream->setStatus('0');
             $dream->setUpdated(time());
             $this->save($dream);
             return $dream;
@@ -195,6 +197,24 @@ class UserService
             return $dreaminfo;
         }
         return FALSE;
+    }
+
+    public function createFakeUserDream($nickname, $content)
+    {
+        $user = new User();
+        $user->setOpenid($nickname);
+        $user->setRole('onlinefake');
+        $user->setCreated(time());
+        $this->save($user);
+
+        $dream = new UserDream();
+        $dream->setUser($user);
+        $dream->setNickname($nickname);
+        $dream->setContent($content);
+        $dream->setStatus('1');
+        $dream->setCreated(time());
+        $dream->setUpdated(time());
+        $this->save($dream);
     }
 
     public function findUserByOpenId($openid)

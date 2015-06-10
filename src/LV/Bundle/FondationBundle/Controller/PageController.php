@@ -14,7 +14,30 @@ class PageController extends Controller
 
     public function ugcAction()
     {
-        return $this->render('LVFondationBundle:Default:ugc.html.twig', array('name' => 32));
+        $user = $this->container->get('lv.user.service')->userLoad();
+
+        // $start_day = strtotime('2015-06-20 00:00:01');
+        // $end_day = strtotime('2015-07-28 23:59:59');
+        date_default_timezone_set('PRC'); 
+        $start_day = strtotime('2015-06-02 00:00:01');
+        $end_day = strtotime('2015-06-17 18:30:23');
+        $now = strtotime(date("Y-m-d H:i:s"));
+        $percentage = ceil((($now - $start_day) / ($end_day - $start_day)) * 100);
+        if($percentage >= 100)
+            $percentage = 100;
+
+        $default_dreams_home = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:UserDream')
+            ->retrieveDefaultDreams($user, 15);
+        $default_dreams_in = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:UserDream')
+            ->retrieveDefaultDreams($user, 16);
+
+        return $this->render('LVFondationBundle:Default:ugc.html.twig', array(
+            'default_dreams_home' => $default_dreams_home, 
+            'default_dreams_in' => $default_dreams_in, 
+            'percentage' => $percentage,
+            ));
     }
 
     public function dreamAction()

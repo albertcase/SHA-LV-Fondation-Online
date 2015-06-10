@@ -20,4 +20,35 @@ class UserDreamRepository extends EntityRepository
         $result = $query->getSingleScalarResult();
         return $result;
 	}
+
+	public function retrieveDefaultDreams($user, $limit) {
+
+		$em = $this->getEntityManager();
+
+		$query = $em
+            ->createQuery(
+            	'SELECT ud FROM LVFondationBundle:UserDream ud
+            	WHERE ud.status = :status 
+            	ORDER BY ud.created DESC'
+            	)
+            ->setParameter(':status', 1)
+            ->setMaxResults($limit);
+        $results = $query->getResult();
+        
+        $data = array();
+        $i = 0;
+        foreach($results as $result) {
+        	$dream_id = $result->getId();
+        	$data[$i]['dream_num'] = $dream_id;
+        	$data[$i]['dream_id'] = $dream_id;
+        	$data[$i]['content'] = $result->getContent();
+        	$data[$i]['nickname'] = $result->getNickname();
+        	$like = $em->getRepository('LVFondationBundle:DreamLike')->findOneBy(array('user' => $user->getId(), 'userdream' => $dream_id));
+        	$data[$i]['isliked'] = $like ? 1 : 0;
+        	$i++;
+        }
+        return $data;
+        return json_encode($data);
+	}
 }
+

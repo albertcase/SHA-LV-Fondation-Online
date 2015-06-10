@@ -38,6 +38,13 @@ class UserDream
     /**
      * @var string
      *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="created", type="string", length=255)
      */
     private $created;
@@ -265,5 +272,28 @@ class UserDream
     public function getDreamView()
     {
         return $this->dreamView;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return UserDream
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

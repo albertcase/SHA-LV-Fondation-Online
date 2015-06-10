@@ -33,13 +33,19 @@ class LVPageRequestListener
                 $url = $event->getRequest()->getRequestUri();
 
                 $isWechatLogin = $this->wechatservice->isLogin($url);
-
+                //$isWechatLogin = md5('dfsfsdfd232342343666x');
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);
 
                 $this->userservicve->userLogin($isWechatLogin);
 
             }
+
+            if($current_route == 'lv_fondation_dream' && !$this->userservicve->userLoad()->getUserdream()) {
+                $url = $this->router->generate('lv_fondation_ugc');
+                return $event->setResponse(new RedirectResponse($url));
+            }
+            
     	}
     }
 

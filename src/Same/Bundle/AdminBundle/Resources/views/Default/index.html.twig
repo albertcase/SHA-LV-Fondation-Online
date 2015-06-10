@@ -10,8 +10,16 @@
 {% endstylesheets %}
 {% endblock %}
 
+{% block head_js %}
+{% javascripts output="js/same_admin_index.js"
+	'@SameAdminBundle/Resources/public/js/jquery.js'
+    '@SameAdminBundle/Resources/public/js/main.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %} 
+
 {% block content %}
-<form action="{{ path('same_admin_login') }}" method="post">
 <div id="login_form">
 	<div class="login">
 		<p>登录</p>
@@ -26,5 +34,4 @@
 		</a>	
 	</div>	
 </div>
-</form>
 {% endblock %}

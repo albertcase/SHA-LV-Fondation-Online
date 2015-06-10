@@ -1,3 +1,6 @@
+same_admin_look:
+    path:     /look
+    defaults: { _controller: SameAdminBundle:Default:look }
 same_admin_index:
     path:     /same/admin/index
     defaults: { _controller: SameAdminBundle:Default:index }
@@ -10,3 +13,10 @@ same_admin_file:
 same_admin_upload:
     path:     /same/admin/upload
     defaults: { _controller: SameAdminBundle:Default:upload }
+same_admin_submit:
+    path:     /same/admin/submit
+    defaults: { _controller: SameAdminBundle:Default:submit }
+same_admin_homepage:
+    path:     /same/admin/{name}
+    defaults: { _controller: SameAdminBundle:Default:index }
+

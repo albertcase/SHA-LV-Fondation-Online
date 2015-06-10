@@ -73,7 +73,7 @@ class WechatController extends Controller
     public function subscribedAction($openid)
     {   
         $wechat = $this->get('same.wechat');
-        return $wechat->isSubscribed($openid);
+        return new Response($wechat->isSubscribed($openid));
     }
 
 

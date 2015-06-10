@@ -28,7 +28,7 @@ var _doing = {
 						nextButton: '.glassArr-prev',
 				        prevButton: '.glassArr-next',
 				        paginationClickable: true,
-				        loop: false,
+				        loop: true,
 				        onSlideChangeEnd: function(swiper){
 					      	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+parseInt(swiper.activeIndex+1)+".jpg")
 					    }

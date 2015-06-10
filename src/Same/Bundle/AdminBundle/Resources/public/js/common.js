@@ -82,7 +82,7 @@ function submitForm(){
 		return false;
 	}
 	$.ajax({
-		url:"/same/admin/submit",
+		url:BASEURL+"/same/admin/submit",
 		type:"post",
 		data:{"code":code,"files":$("#aaa").val()},
 		dataType:"json",
@@ -90,7 +90,7 @@ function submitForm(){
 			$("#SubmitButton").removeAttr('disabled');
 			if(data.code==1){
 				alert('上传成功')
-				window.location.href="/same/admin/file"
+				window.location.href=BASEURL+"/same/admin/file"
 			}else{
 				alert(data.msg)
 			}

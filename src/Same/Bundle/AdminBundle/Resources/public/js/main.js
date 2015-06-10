@@ -13,17 +13,17 @@
                 return false;
             }
             
-            $.get("/same/admin/login",{"account": account,"password":password},function(result){
-                var resultVal = JSON.parse(result);
-                if(resultVal.Member[0].success==1){
-                    window.location.href="/same/admin/file";
-                }else{
-                    alert("账号或密码有误，请重新填写！");
-                    $(".account").val("");
-                    $(".password").val("");
-                }
-                
-            })
+            $.get(BASEURL+"/same/admin/login",{"account": account,"password":password},function(result){
+                    if(result.code==1){
+                        window.location.href=BASEURL+"/same/admin/file";
+                    }else{
+                        alert("账号或密码有误，请重新填写！");
+                        $(".account").val("");
+                        $(".password").val("");
+                    }
+                    
+                },'json'
+            )
         }
 
 

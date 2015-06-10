@@ -1,0 +1,16 @@
+Same\Bundle\AdminBundle\Entity\Photo:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: '100'
+        photo:
+            type: text
+    lifecycleCallbacks: {  }

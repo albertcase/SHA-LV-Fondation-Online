@@ -10,6 +10,9 @@ same_admin_login:
 same_admin_file:
     path:     /same/admin/file
     defaults: { _controller: SameAdminBundle:Default:file }
+same_admin_list:
+    path:     /same/admin/list
+    defaults: { _controller: SameAdminBundle:Default:list }
 same_admin_upload:
     path:     /same/admin/upload
     defaults: { _controller: SameAdminBundle:Default:upload }

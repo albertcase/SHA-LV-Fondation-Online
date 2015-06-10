@@ -48,10 +48,14 @@ class PageController extends Controller
     }
 
     public function userDreamAction($id)
-    {
+    {   
         $userservice = $this->container->get('lv.user.service');
         $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
-        return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $dreaminfo));
+
+        if($dreaminfo['who'] == 'others')
+            return $this->render('LVFondationBundle:Default:user_dream_myself.html.twig', array('userdream' => $dreaminfo));
+        else
+            return $this->render('LVFondationBundle:Default:user_dream_others.html.twig', array('userdream' => $dreaminfo));
     }
 
     public function chapterOneAction()

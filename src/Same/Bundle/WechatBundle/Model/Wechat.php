@@ -204,7 +204,6 @@ class Wechat
 	    $http_data['openid'] = $openid;
 	 	$http_data['lang'] = $lang;
 		$result = file_get_contents($this->_container->getParameter('userInfoApiUrl') . http_build_query($http_data));
-		var_dump($result);exit;
 		$result = json_decode($result, true);
 		return $result['subscribe'];
 	}

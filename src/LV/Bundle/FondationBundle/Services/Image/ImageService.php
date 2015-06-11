@@ -34,14 +34,16 @@ class ImageService
 
         $bg = ImageCreateFromPng("images/imagesevice/createImg.png");
         imagecopyresized($authimg,$bg,0,0,0,0,$width,$height,$width,$height); 
-        
-        $fontfile ="images/imagesevice/heiti.ttf";
+
+        $fontfile ="images/imagesevice/AdobeFanHeitiStd-Bold.otf";
+        putenv('GDFONTPATH=' . realpath($fontfile));
         $font_color = ImageColorAllocate($authimg,0,0,0);
-        ImageTTFText($authimg, 25, 0, 250, 780, $font_color, $fontfile, $name);
-        //header("Content-type: image/PNG");
-        $fileName = '/online/' . time() . rand(100,999) . '.jpg';
+        ImageTTFText($authimg, 25, 0, 430, 430, $font_color, $fontfile, date("Y年m月d日"));
+        ImageTTFText($authimg, 25, 0, ceil(($width-15*strlen($name))/2), 730, $font_color, $fontfile, $name);
+        //imagestring($authimg, 5, 430, 430, date("Y年m月d日"), $font_color);
+        //imagestring($authimg, 5, 230, 730, $name, $font_color);
+        $fileName = '/online/' . time() . rand(100,999) . '.png';
         $hechengImg = $this->_filedir . $fileName;
-        
         ImagePNG($authimg,$hechengImg);
         return $fileName;
     }

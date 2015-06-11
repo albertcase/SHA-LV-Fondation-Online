@@ -1,31 +1,23 @@
 ;(function($){
     $(function(){
 
-        function usrLoginFun(account,password){
-            var account=$(".account").val();
-            var password=$(".password").val();
-            if(account==""){
-                alert("请输入您的帐号！");
-                return false;
-            }
-            if(password==""){
-                alert("请输入您的密码！");           
-                return false;
-            }
-            
-            $.get(BASEURL+"/same/admin/login",{"account": account,"password":password},function(result){
-                    if(result.code==1){
-                        window.location.href=BASEURL+"/same/admin/"+result.msg;
-                    }else{
-                        alert("账号或密码有误，请重新填写！");
-                        $(".account").val("");
-                        $(".password").val("");
-                    }
-                    
-                },'json'
-            )
+        function dataList(page){
+            $.get(BASEURL+"/same/admin/list",{"page": page},function(result){
+                    var htm = '';
+                    for(var i = 0; i < result.length; i++){
+                        htm += '<tr  role="row">';
+                        htm += '<td align="center">'+result[i].id+'</td>';
+                        htm += '<td align="center">'+result[i].nickname+'</td>';
+                        htm += '<td align="center">'+result[i].content+'</td>';
+                        htm += '<td align="center">'+result[i].created+'</td>';
+                        htm += '<td align="center">'+result[i].status+'</td>';
+                        htm += '</tr>';
+                    }   
+                    $('#table').val(htm);           
+                }
+            ),'json'
         }
-
+        dataList(1)
 
         $(".sub_btn").on("click",function(){
             var account=$(".account").val();

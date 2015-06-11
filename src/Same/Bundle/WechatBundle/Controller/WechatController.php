@@ -80,7 +80,7 @@ class WechatController extends Controller
     public function testAction()
     {   
         $image = $this->container->get('lv.image.service');
-        return new Response($image->ImageCreateForOnline('Demon Zhang'));
+        return new Response($image->ImageCreateForOnline('Spring Zhou'));
         return new Response($image->ImageCreateForOffline('images/imagesevice/test.jpg'));
     }
 

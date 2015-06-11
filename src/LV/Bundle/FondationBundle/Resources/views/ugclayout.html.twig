@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block title %}LV UGC{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/main.css"
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+	'%kernel.root_dir%/Resources/public/css/menu.css'
+	'bundles/lvfondation/css/swiper.min.css'
+	'bundles/lvfondation/css/ugc-style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/main.js"
+    '%kernel.root_dir%/Resources/public/js/*'
+    '@LVFondationBundle/Resources/public/js/data.js'
+    '@LVFondationBundle/Resources/public/js/swiper.min.js'
+    '@LVFondationBundle/Resources/public/js/frame.js'
+    '@LVFondationBundle/Resources/public/js/ugc-main.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}  

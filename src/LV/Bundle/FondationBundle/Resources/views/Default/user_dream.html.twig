@@ -1,11 +1,11 @@
-{% extends 'LVFondationBundle::dreamlayout.html.twig' %}
-{% block title %}LV UGC{% endblock %}
+{% extends "LVFondationBundle::ugclayout.html.twig" %}
 {% block dreambox %}
 {% if userdream.ismyself %}
 	{{ userdream.dreamcount }}
 	{{ userdream.dream_id }}
 	{{ userdream.nickname }}
 	{{ userdream.content }}
+	{{ userdream.hasuserinfo }}
 {% else %}
 	{{ userdream.dreamcount }}
 	{{ userdream.dream_id }}
@@ -13,5 +13,11 @@
 	{{ userdream.content }}
 	{{ userdream.isliked }}
 {% endif %}
+
+
+
+
+
+
 {% endblock %}
 

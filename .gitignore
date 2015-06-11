@@ -1,6 +1,9 @@
 .DS_Store
 .vagrant
 /web/bundles/
+/web/css/
+/web/js/
+/web/files/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
@@ -9,7 +12,6 @@
 !app/logs/.gitkeep
 /app/phpunit.xml
 /build/
-/vendor/
 /bin/
 /composer.phar
-/web/files/
+

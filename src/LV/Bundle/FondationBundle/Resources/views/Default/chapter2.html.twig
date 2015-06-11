@@ -1,6 +1,12 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 <div class="chapter modelpage">
+
+<a href="javascript:mySwiper.slideTo(0, 600, true);" class="backBtn">
+	<img src="/images/ugc/reback_arr.png" />
+	返回
+</a>
+
 <p class="scrollsTips st-1">点击进一步了解<br />路易威登基金会</p>
 <p class="scrollsTips st-2">滑动手指欣赏<br />布洛涅森林公园美景</p>
 				<!-- Swiper -->
@@ -97,7 +103,14 @@
 
 		var mySwiper = new Swiper('.swiper-container', {
 			lazyLoading : true,
-		    direction: 'vertical'
+		    direction: 'vertical',
+		    onSlideChangeEnd: function(swiper){
+		      	if(swiper.activeIndex != 0){
+		      		$(".backBtn").show()
+		      	}else{
+		      		$(".backBtn").hide();
+		      	}
+		    }
 		    //preventClicks : false
 		});
 

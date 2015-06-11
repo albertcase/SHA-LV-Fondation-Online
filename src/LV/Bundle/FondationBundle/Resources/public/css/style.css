@@ -1568,7 +1568,22 @@ html,body,#dreambox{
 
 
 
+.backBtn{
+	width: 20%;
+	position: fixed;
+	left: 6%;
+	top: 5em;
+	font-size: 14px;
+	color: #363533;
+	z-index: 100;
+	display: none;
+}
 
+.backBtn img{
+	width: 6%;
+	vertical-align: middle;
+	display: inline-block;
+}
 
 
 

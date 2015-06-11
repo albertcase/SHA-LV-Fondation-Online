@@ -657,7 +657,7 @@ html,body,#dreambox{
 	text-align: center;
 }
 
-.handTips { 
+/*.handTips { 
   -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
      -moz-animation: handTips_ani 1.5s infinite ease-in-out;
           animation: handTips_ani 1.5s infinite ease-in-out;
@@ -702,7 +702,7 @@ html,body,#dreambox{
   	background: url("/images/hand-1.png") center top no-repeat;
 	background-size: 50% auto;
   }
-}
+}*/
 
 .handTips span{
 	width: 100%;

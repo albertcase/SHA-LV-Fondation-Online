@@ -72,12 +72,9 @@ var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
     direction: 'vertical',
     onSlideChangeEnd: function(swiper){
-      	if(swiper.activeIndex != 1){
+      	if(swiper.activeIndex != 0){
       		$(".backBtn").show()
-      	}
-    },
-    onSlideChangeStart: function(swiper){
-        if(swiper.activeIndex != 1){
+      	}else{
       		$(".backBtn").hide();
       	}
     }

@@ -21,6 +21,16 @@ class LVPageRequestListener
         $this->wechatservice = $wechatservice;
     }
 
+    /** 
+    * listener
+    *
+    * listener before visite lv_page
+    *
+    * @access public
+    * @param mixed event 
+    * @since 1.0 
+    * @return Response
+    */
     public function onKernelRequest(GetResponseEvent $event)
     {
 
@@ -41,7 +51,7 @@ class LVPageRequestListener
 
             }
 
-            if($current_route == 'lv_fondation_dream' && !$this->userservicve->userLoad()->getUserdream()) {
+            if($current_route == 'lv_fondation_journey' && !$this->userservicve->userLoad()->getUserdream()) {
                 $url = $this->router->generate('lv_fondation_ugc');
                 return $event->setResponse(new RedirectResponse($url));
             }

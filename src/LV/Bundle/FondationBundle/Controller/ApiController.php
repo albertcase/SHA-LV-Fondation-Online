@@ -18,6 +18,17 @@ class ApiController extends Controller
         return $response;
     }
     
+    /** 
+    * fondation_invite
+    *
+    * Create a invitation
+    *
+    * @access public
+    * @param mixed name 
+    * @param mixed cellphone
+    * @since 1.0 
+    * @return json  inviteImage
+    */ 
     public function inviteAction()
     {
         $request = $this->getRequest()->request;
@@ -26,7 +37,7 @@ class ApiController extends Controller
         $data = array(
             'name' => $request->get('name'),
             'cellphone' => $request->get('cellphone'),
-            'imgurl' => $image->ImageCreateForOnline('Demon Zhang'),
+            'imgurl' => $image->ImageCreateForOnline($request->get('name')),
             );
         $user = $this->container->get('lv.user.service');
 
@@ -43,6 +54,15 @@ class ApiController extends Controller
         return $response;
     }
 
+    /** 
+    * fondation_userinfo
+    *
+    * Get userinfo
+    *
+    * @access public
+    * @since 1.0 
+    * @return json 
+    */ 
     public function userInfoAction()
     {
         $request = $this->getRequest()->request;
@@ -51,7 +71,6 @@ class ApiController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'cellphone' => $request->get('cellphone'),
-            'address' => $request->get('address'),
             );
         $user = $this->container->get('lv.user.service');
 
@@ -63,6 +82,17 @@ class ApiController extends Controller
         return $response;
     }
 
+    /** 
+    * fondation_userdream
+    *
+    * Create a userdream
+    *
+    * @access public
+    * @param mixed nickname 
+    * @param mixed content
+    * @since 1.0 
+    * @return json 
+    */ 
     public function userDreamAction()
     {
         $request = $this->getRequest()->request;
@@ -81,6 +111,17 @@ class ApiController extends Controller
         return $response;
     }
 
+    /** 
+    * fondation_userdream
+    *
+    * Update a userdream
+    *
+    * @access public
+    * @param mixed nickname 
+    * @param mixed content
+    * @since 1.0 
+    * @return json 
+    */ 
     public function userDreamUpdateAction()
     {
         $request = $this->getRequest()->request;
@@ -99,6 +140,16 @@ class ApiController extends Controller
         return $response;
     }
 
+    /** 
+    * fondation_userdream_ballot
+    *
+    * Ballot a userdream by id
+    *
+    * @access public
+    * @param mixed dream_id 
+    * @since 1.0 
+    * @return json 
+    */ 
     public function dreamLikeAction()
     {
         $request = $this->getRequest()->request;

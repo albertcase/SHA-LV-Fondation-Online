@@ -12,6 +12,15 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:index.html.twig');
     }
 
+    /** 
+    * fondation_ugc
+    *
+    * Page for ugc
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
     public function ugcAction()
     {
         $user = $this->container->get('lv.user.service')->userLoad();
@@ -40,45 +49,133 @@ class PageController extends Controller
             ));
     }
 
-    public function dreamAction()
+    /** 
+    * fondation_dream
+    *
+    * Page for dream
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
+    public function journeyAction()
     {   
         $userservice = $this->container->get('lv.user.service');
-        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
-        return $this->render('LVFondationBundle:Default:dream.html.twig', array('userdream' => $dreaminfo));
+        $dreaminfo = $userservice->retrieveJourneyDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
+        return $this->render('LVFondationBundle:Default:journey.html.twig', array('userdream' => $dreaminfo));
     }
 
+    /** 
+    * journeyUserDreamAction
+    *
+    * Page for journeyuserdream
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
+    public function journeyUserDreamAction($id)
+    {   
+        $userservice = $this->container->get('lv.user.service');
+        $dreaminfo = $userservice->retrieveJourneyDreamInfoByDreamId($id);
+        return $this->render('LVFondationBundle:Default:journey_user_dream.html.twig', array('userdream' => $dreaminfo));
+    }
+
+    /** 
+    * fondation_userdream
+    *
+    * Page for userdream
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
     public function userDreamAction($id)
-    {
+    {   
         $userservice = $this->container->get('lv.user.service');
         $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
         return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $dreaminfo));
     }
 
+    /** 
+    * fondation_chapterone
+    *
+    * Page for chapterone
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
     public function chapterOneAction()
     {
         return $this->render('LVFondationBundle:Default:chapter1.html.twig');
     }
 
+    /** 
+    * fondation_chaptertwo
+    *
+    * Page for chaptertwo
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
     public function chapterTwoAction()
     {
         return $this->render('LVFondationBundle:Default:chapter2.html.twig');
     }
 
+    /** 
+    * fondation_chapterthree
+    *
+    * Page for chapterthree
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
     public function chapterThreeAction()
     {
         return $this->render('LVFondationBundle:Default:chapter3.html.twig');
     }
 
+    /** 
+    * fondation_chapterfour
+    *
+    * Page for chaptefour
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
     public function chapterFourAction()
     {
         return $this->render('LVFondationBundle:Default:chapter4.html.twig');
     }
 
+    /** 
+    * fondation_invitation
+    *
+    * Page for invitation
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
     public function invitationAction()
     {
         return $this->render('LVFondationBundle:Default:invitation.html.twig');
     }
 
+    /** 
+    * fondation_invitationshow
+    *
+    * Page for invitationshow
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
     public function invitationShowAction($id)
     {
         $invitation = $this->getDoctrine()

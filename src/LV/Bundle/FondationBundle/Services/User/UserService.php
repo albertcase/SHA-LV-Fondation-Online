@@ -22,6 +22,15 @@ class UserService
         $this->requestStack = $requestStack;
     }
 
+    /** 
+    * islogin
+    *
+    * check user islogin
+    *
+    * @access public
+    * @since 1.0 
+    * @return bool or uid
+    */
     public function userIsLogin()
     {
         $session = $this->requestStack->getCurrentRequest()->getSession();
@@ -34,6 +43,15 @@ class UserService
         
     }
 
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
     public function userLoad()
     {
         if($login = $this->userIsLogin()) {
@@ -44,6 +62,16 @@ class UserService
         return NULL;
     }
 
+    /** 
+    * userLogin
+    *
+    * change user login status
+    *
+    * @access public
+    * @param mixed weixin_openid 
+    * @since 1.0 
+    * @return $user
+    */
     public function userLogin($openid)
     {
         $user = $this->findUserByOpenId($openid);
@@ -58,6 +86,16 @@ class UserService
         // $response->send();
     }
 
+    /** 
+    * userRegister
+    *
+    * create a user
+    *
+    * @access public
+    * @param mixed weixin_openid 
+    * @since 1.0 
+    * @return $user
+    */
     public function userRegister($openid)
     {
         $current_route = $this->requestStack->getCurrentRequest()->get('_route');
@@ -70,6 +108,16 @@ class UserService
         return $user;
     }
 
+    /** 
+    * createUserInfo
+    *
+    * update user's info
+    *
+    * @access public
+    * @param mixed object [name,email,cellphone,address] 
+    * @since 1.0 
+    * @return $user
+    */
     public function createUserInfo($data)
     {
         if($user = $this->userLoad()) {
@@ -78,7 +126,7 @@ class UserService
             $userinfo->setName($data['name']);
             $userinfo->setEmail($data['email']);
             $userinfo->setCellphone($data['cellphone']);
-            $userinfo->setAddress($data['address']);
+            $userinfo->setAddress('xxx');
             $userinfo->setCreated(time());
             $this->save($userinfo);
             return $user;
@@ -86,6 +134,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * createUserDream
+    *
+    * create user's dream
+    *
+    * @access public
+    * @param mixed object [nickname,content] 
+    * @since 1.0 
+    * @return $dream
+    */
     public function createUserDream($data) 
     {
         if($user = $this->userLoad()) {
@@ -102,6 +160,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * updateUserDream
+    *
+    * update user's dream
+    *
+    * @access public
+    * @param mixed object [nickname,content] 
+    * @since 1.0 
+    * @return $dream
+    */
     public function updateUserDream($data) 
     {
         if($user = $this->userLoad()) {
@@ -117,6 +185,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * createInvitationLetter
+    *
+    * create user's invitation
+    *
+    * @access public
+    * @param mixed object [name,cellphone,imgurl] 
+    * @since 1.0 
+    * @return $invitation
+    */
     public function createInvitationLetter($data)
     {
         if($user = $this->userLoad()) {
@@ -132,6 +210,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * dreamLike
+    *
+    * ballot user's dream
+    *
+    * @access public
+    * @param mixed userdream
+    * @since 1.0 
+    * @return $dreamlike
+    */
     public function dreamLike(UserDream $userdream)
     {
         if($user = $this->userLoad()) {
@@ -145,6 +233,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * dreamView
+    *
+    * user's dream
+    *
+    * @access public
+    * @param mixed userdream
+    * @since 1.0 
+    * @return $dreamview
+    */
     public function dreamView(UserDream $userdream)
     {
         if($user = $this->userLoad()) {
@@ -161,7 +259,56 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * dreamView
+    *
+    * user's dream
+    *
+    * @access public
+    * @param mixed userdream
+    * @since 1.0 
+    * @return $dreamview
+    */
     public function retrieveDreamInfoByDreamId($dream_id)
+    {
+        $user = $this->userLoad();
+
+        $dream = $this->em->getRepository('LVFondationBundle:UserDream')->findOneBy(array('id' => $dream_id));
+
+        $this->dreamView($dream);
+
+        $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+        $dream_id = $dream->getId();
+        $nickname = $dream->getNickname();
+        $content = $dream->getContent();
+
+        if($dream->getUser()->getId() == $user->getId()){
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
+                'nickname' => $nickname,
+                'content' => $content,
+                'ismyself' => 1,
+            );
+        } else {
+
+            $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->findOneBy(array('user' => $user->getId(), 'userdream' => $dream->getId()));
+            $isliked = $liked ? 1 : 0;
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
+                'nickname' => $nickname,
+                'content' => $content,
+                'isliked' => $isliked,
+                'ismyself' => 0,
+            );            
+        }
+
+        return $dreaminfo;
+
+    }
+
+    public function retrieveJourneyDreamInfoByDreamId($dream_id)
     {
         if($user = $this->userLoad()) {
 
@@ -199,6 +346,16 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * createFakeUserDream
+    *
+    * create user's dream fake
+    *
+    * @access public
+    * @param mixed nickname
+    * @param mixed content
+    * @since 1.0 
+    */
     public function createFakeUserDream($nickname, $content)
     {
         $user = new User();
@@ -217,6 +374,14 @@ class UserService
         $this->save($dream);
     }
 
+    /** 
+    * findUserByOpenId
+    *
+    * @access public
+    * @param mixed openid
+    * @since 1.0 
+    * @return $user
+    */
     public function findUserByOpenId($openid)
     {
         $user = $this->em->getRepository(self::ENTITY_NAME)->findOneBy(array('openid' => $openid));

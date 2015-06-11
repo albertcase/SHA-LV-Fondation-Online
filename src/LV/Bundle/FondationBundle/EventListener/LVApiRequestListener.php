@@ -20,6 +20,16 @@ class LVApiRequestListener
         $this->userservice = $userservice;
     }
 
+    /** 
+    * listener
+    *
+    * listener before visite lv_api
+    *
+    * @access public
+    * @param mixed event 
+    * @since 1.0 
+    * @return Response
+    */ 
     public function onKernelRequest(GetResponseEvent $event)
     {
 
@@ -52,6 +62,14 @@ class LVApiRequestListener
     	}
     }
 
+    /** 
+    * getcode
+    *
+    * @access private
+    * @param mixed code 
+    * @since 1.0 
+    * @return Response
+    */ 
     private function getResponseCode($code) 
     {
         $response = new JsonResponse();
@@ -60,6 +78,14 @@ class LVApiRequestListener
         return $response;   
     }
     
+    /** 
+    * inviteValidate
+    *
+    * @access private
+    * @param mixed request 
+    * @since 1.0 
+    * @return bool or code
+    */
     private function inviteValidate($request) 
     {
         $name = $request->request->get('name');
@@ -76,6 +102,14 @@ class LVApiRequestListener
         return FALSE;
     }
 
+    /** 
+    * userInfoValidate
+    *
+    * @access private
+    * @param mixed request 
+    * @since 1.0 
+    * @return bool or code
+    */
     private function userInfoValidate($request) 
     {
 
@@ -93,8 +127,8 @@ class LVApiRequestListener
             return '013'; //The email is wrong
         if(!preg_match('/^\d{11}$/', $cellphone))
             return '011'; //The cellphone number is wrong
-        if(!$address)
-            return '014'; //The address is empty
+        // if(!$address)
+        //     return '014'; //The address is empty
 
         $userinfo = $this->container->get('doctrine')->getRepository('LVFondationBundle:UserInfo');
 
@@ -107,6 +141,14 @@ class LVApiRequestListener
         return FALSE;
     }
 
+    /** 
+    * userDreamValidate
+    *
+    * @access private
+    * @param mixed request 
+    * @since 1.0 
+    * @return bool or code
+    */
     private function userDreamValidate($request) 
     {
         $nickname = $request->request->get('nickname');
@@ -122,6 +164,14 @@ class LVApiRequestListener
         return FALSE;
     }
 
+    /** 
+    * updateUserDreamValidate
+    *
+    * @access private
+    * @param mixed request 
+    * @since 1.0 
+    * @return bool or code
+    */
     private function updateUserDreamValidate($request) 
     {
         $nickname = $request->request->get('nickname');
@@ -137,6 +187,14 @@ class LVApiRequestListener
         return FALSE;
     }
 
+    /** 
+    * dreamLikeValidate
+    *
+    * @access private
+    * @param mixed request 
+    * @since 1.0 
+    * @return bool or code
+    */
     private function dreamLikeValidate($request) 
     {
         $dream_id = $request->request->get('dream_id');

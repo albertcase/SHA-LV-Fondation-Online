@@ -281,7 +281,8 @@ class UserService
         $dream_id = $dream->getId();
         $nickname = $dream->getNickname();
         $content = $dream->getContent();
-
+        $hasuserinfo = $user->getUserinfo() ? 1 : 0;
+        
         if($dream->getUser()->getId() == $user->getId()){
             $dreaminfo = array(
                 'dreamcount' => $dreamcount,
@@ -289,6 +290,7 @@ class UserService
                 'nickname' => $nickname,
                 'content' => $content,
                 'ismyself' => 1,
+                'hasuserinfo' => $hasuserinfo,
             );
         } else {
 

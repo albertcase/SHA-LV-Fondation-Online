@@ -155,8 +155,9 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		console.log(data)
-			    		//window.location.href="/fondation";
+			    		window.location.href = data.url+"#share";
+			    	}else{
+			    		alert("创建失败!");
 			    	}
 			    })
 			},
@@ -177,7 +178,7 @@ var _doing = {
 			submitModifyCreateFun : function(nickname,content){
 				$.ajax({
 				    type: "POST",
-				    url: "/fondation/api/userdream",
+				    url: "/fondation/api/dreamupdate",
 				    data: {
 				    	"nickname":nickname, "content":content
 				    },
@@ -185,7 +186,7 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		window.location.href="result";
+			    		pagechange.moveClick('view');
 			    	}
 			    })
 			}

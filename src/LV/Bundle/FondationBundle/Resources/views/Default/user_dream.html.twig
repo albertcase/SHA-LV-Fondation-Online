@@ -5,7 +5,7 @@
 {% if userdream.ismyself %}
 
 	<!-- share page -->
-	<div class="page" id="share" data-page="share">
+	<div class="page" id="share" data-page="share" data-hasinfo={{ userdream.hasuserinfo }}>
 
 		<div class="demo-test">
 			<a href="javascript:pagechange.moveClick('index');" class="backBtn">
@@ -102,7 +102,7 @@
 			</div>
 
 			<div class="dream_footer">
-			    <a href="javascript:;" class="btn shareBtn">再次提交</a>
+			    <a href="javascript:;" class="btn finshBtn">再次提交</a>
 			    <a href="javascript:;">
 			        <img src="/images/ugc/story.jpg" width="100%" />
 			    </a>
@@ -236,7 +236,7 @@
 						return false;
 					}else{
 						$(this).addClass("isdoing").val("正在加载...");
-						_doing.submitCreateFun(creatTextName,creatTextCon);
+						_doing.submitModifyCreateFun(creatTextName,creatTextCon);
 					}
 
 			})

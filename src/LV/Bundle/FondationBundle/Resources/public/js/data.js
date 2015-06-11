@@ -1,5 +1,9 @@
 var glassList = [
         {
+            "id": "0",
+            "pic_thumbnail": "/images/ugc/glass-0.jpg"
+        },
+        {
             "id": "1",
             "pic_thumbnail": "/images/ugc/glass-1.jpg"
         },
@@ -18,9 +22,5 @@ var glassList = [
         {
             "id": "5",
             "pic_thumbnail": "/images/ugc/glass-5.jpg"
-        },
-        {
-            "id": "6",
-            "pic_thumbnail": "/images/ugc/glass-6.jpg"
         }
 ]

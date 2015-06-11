@@ -174,7 +174,6 @@ class UserService
     {
         if($user = $this->userLoad()) {
             $dream = $user->getUserdream();
-            $dream->setUser($user);
             $dream->setNickname($data['nickname']);
             $dream->setContent($data['content']);
             $dream->setStatus('0');
@@ -335,6 +334,7 @@ class UserService
 
             $dreaminfo = array(
                 'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
                 'nickname' => $nickname,
                 'content' => $content,
                 'call' => $call,

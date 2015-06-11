@@ -525,7 +525,7 @@ html,body,#dreambox{
 }
 
 .chapterimg-4 img{
-	margin: 10px 0;
+	margin: 15px 0;
 	display: inline-block;
 }
 
@@ -539,7 +539,7 @@ html,body,#dreambox{
 
 .viewmore{
 	width: 76%;
-	height: 3%;
+	height: 5%;
 	background: none;
 	position: absolute;
 	right: 0;
@@ -1568,7 +1568,22 @@ html,body,#dreambox{
 
 
 
+.backBtn{
+	width: 20%;
+	position: fixed;
+	left: 6%;
+	top: 5em;
+	font-size: 14px;
+	color: #363533;
+	z-index: 100;
+	display: none;
+}
 
+.backBtn img{
+	width: 6%;
+	vertical-align: middle;
+	display: inline-block;
+}
 
 
 

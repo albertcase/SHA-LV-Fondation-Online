@@ -39,7 +39,11 @@
 		</div>
 
 		<div class="dream_footer">
-		    <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% if userdream %}
+		    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
 		    <a href="javascript:;">
 		        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
 		    </a>
@@ -152,108 +156,7 @@
 </div>
 
 
-<!-- form page -->
-<div class="page" id="form" data-page="form">
 
-	<div class="demo-test">
-		<a href="javascript:pagechange.moveClick('index');" class="backBtn">
-			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
-			返回
-		</a>
-
-		<div class="formCon">
-			<img src="" sourcesrc="/images/ugc/formTips.png" width="78%" />
-			<ul class="formlist">
-				<li>
-					<span>姓名</span> <input type="text" name="fname">
-				</li>
-
-				<li>
-					<span>电子邮箱</span> <input type="text" name="femail">
-				</li>
-
-				<li>
-					<span>手机号码</span> <input type="tel" maxlength="11" name="ftel">
-				</li>
-
-				<!-- <li>
-					<span>邮寄地址</span> <input type="text" name="faddress">
-				</li> -->
-			</ul>
-
-			<a href="javascript:;" class="btn formSubmit_btn">
-				提交
-			</a>
-
-			<a href="javascript:pagechange.moveClick('attention');" class="attention_btn">
-				<img src="" sourcesrc="/images/ugc/attention_btn.png" />
-			</a>
-		</div>
-
-
-		<div class="dream_footer">
-		    <a href="javascript:;">
-		        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
-		    </a>
-		</div>
-
-	</div>
-
-</div>
-
-
-<!-- attention page -->
-<div class="page" id="attention" data-page="attention">
-
-	<div class="demo-test">
-		<a href="javascript:pagechange.moveClick('form');" class="backBtn">
-			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
-			返回
-		</a>
-
-		<div class="attention_con">
-			<img src="" sourcesrc="/images/ugc/attention_tips.png" />
-			<img src="" sourcesrc="/images/ugc/wechat.png" />
-		</div>
-		<div class="dream_footer">
-		    <a href="javascript:;">
-		        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
-		    </a>
-		</div>
-	</div>
-
-</div>
-
-
-<!-- poster page -->
-<div class="page" id="poster" data-page="poster">
-
-	<div class="demo-test">
-		<a href="javascript:pagechange.moveClick('form');" class="backBtn">
-			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
-			返回
-		</a>
-
-		<div class="poster_con">
-			<img src="" sourcesrc="/images/ugc/posterText.png" width="70%" />
-			<a href="javascript:_doing.formData();" class="btn goShopInfo_btn">
-				前去路易威登官网查看店铺信息
-			</a>
-
-			<a href="javascript:pagechange.moveClick('attention');" class="attention_btn">
-				<img src="" sourcesrc="/images/ugc/attention_btn.png" />
-			</a>
-		</div>
-
-		<div class="dream_footer">
-		    <a href="javascript:;">
-		        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
-		    </a>
-		</div>
-
-	</div>
-
-</div>
 
 <!-- <div class="dream_footer">
     <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
@@ -270,6 +173,15 @@
 ;(function($){
 	$(function(){
 
+		_doing.dreamListData();
+		_doing.getGlassData();
+		// _doing.getSelectedData();
+
+		if(GetQueryString()=="create"){
+			_doing.getCreateData();
+		}
+
+		
 		shareData = {
 		    title: '路易威登基金会▪梦想启航',
 		    desc: '我的梦想已经扬帆！和你的一样吗？'

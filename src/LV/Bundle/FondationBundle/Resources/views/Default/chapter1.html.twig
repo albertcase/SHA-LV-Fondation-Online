@@ -2,6 +2,10 @@
 {% block dreambox %}
 
 <div class="chapter modelpage">
+<a href="javascript:mySwiper.slideTo(0, 600, true);" class="backBtn">
+	<img src="/images/ugc/reback_arr.png" />
+	返回
+</a>
 
 		<!-- Swiper -->
     <div class="swiper-container">
@@ -19,7 +23,9 @@
 
 
             <div class="swiper-slide">
+
             	<div class="chapter_content swiper-no-swiping" id="scrollArea">
+
 						<img src="" sourcesrc="/images/chapter1/c1.jpg" width="100%" />
 
 						<div class="contentImg">
@@ -41,7 +47,7 @@
 							</p>
 							<div class="btnArea">
 
-								<a href="ugc" class="talk_btn">
+								<a href="/fondation/ugc" class="talk_btn">
 									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
 								
@@ -64,7 +70,17 @@
 
 var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
-    direction: 'vertical'
+    direction: 'vertical',
+    onSlideChangeEnd: function(swiper){
+      	if(swiper.activeIndex != 1){
+      		$(".backBtn").show()
+      	}
+    },
+    onSlideChangeStart: function(swiper){
+        if(swiper.activeIndex != 1){
+      		$(".backBtn").hide();
+      	}
+    }
 });
 
 ;(function($){

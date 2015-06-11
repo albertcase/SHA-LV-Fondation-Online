@@ -93,17 +93,10 @@ var _doing = {
 					$("#wechatTips").fadeIn();
 				})
 
-				document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-					ev.preventDefault();
-					$("#wechatTips").fadeOut();
-					return false;
-				} , false)
-
+	
 
 			},
 			getCreateData : function(){   //跳转到创建页面
-				$(".creatBtn").css("display","none");
-                $(".finshBtn").css("display","inline-block");
 				pagechange.moveClick('create');
 				$(".create-num span").html("2340<sup>th</sup>");
 			},
@@ -162,7 +155,9 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		window.location.href="result";
+			    		window.location.href = data.url+"#share";
+			    	}else{
+			    		alert("创建失败!");
 			    	}
 			    })
 			},
@@ -175,9 +170,24 @@ var _doing = {
 				    },
 				    dataType:"json" 
 			    }).done(function(data){
-			    	// if(data.status == 1){
-			    	// 	window.location.href="result";
-			    	// }
+			    	
+			    })
+			},
+			submitModifyCreateFun : function(nickname,content){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/dreamupdate",
+				    data: {
+				    	"nickname":nickname, "content":content
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
+			    	if(data.status == 1){
+			    		pagechange.moveClick('share');
+			    		$("#share .creatTextCon").val(content);
+			    		$("#share .creatTextName").val(nickname);
+			    	}
 			    })
 			}
 			
@@ -185,17 +195,16 @@ var _doing = {
 
 
 
+
+
 ;(function($){
 	$(function(){
 
-		_doing.dreamListData();
-		_doing.getGlassData();
-		// _doing.getSelectedData();
-
-		if(GetQueryString()=="create"){
-			_doing.getCreateData();
-		}
-
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
 
 		$(".formSubmit_btn").click(function(){
 			if($(this).hasClass("isdoing_form"))return false;

@@ -1,6 +1,10 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
 {% block dreambox %}
 <div class="chapter modelpage">
+<a href="javascript:mySwiper.slideTo(0, 600, true);" class="backBtn">
+	<img src="/images/ugc/reback_arr.png" />
+	返回
+</a>
 
 					<!-- Swiper -->
     <div class="swiper-container">
@@ -64,7 +68,7 @@
 							</p>
 							<div class="btnArea">
 								
-								<a href="ugc" class="talk_btn">
+								<a href="/fondation/ugc" class="talk_btn">
 									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
 								
@@ -115,7 +119,14 @@ $(".goonSearch").click(function(){
 
 var mySwiper = new Swiper('.swiper-container', {
 	lazyLoading : true,
-    direction: 'vertical'
+    direction: 'vertical',
+	onSlideChangeEnd: function(swiper){
+      	if(swiper.activeIndex != 0){
+      		$(".backBtn").show()
+      	}else{
+      		$(".backBtn").hide();
+      	}
+    }
 });
 
 

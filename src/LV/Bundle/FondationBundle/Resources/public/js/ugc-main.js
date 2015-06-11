@@ -185,6 +185,8 @@ var _doing = {
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
 			    		pagechange.moveClick('share');
+			    		$("#share .creatTextCon").val(content);
+			    		$("#share .creatTextName").val(nickname);
 			    	}
 			    })
 			}

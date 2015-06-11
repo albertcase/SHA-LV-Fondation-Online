@@ -525,7 +525,7 @@ html,body,#dreambox{
 }
 
 .chapterimg-4 img{
-	margin: 10px 0;
+	margin: 15px 0;
 	display: inline-block;
 }
 
@@ -539,7 +539,7 @@ html,body,#dreambox{
 
 .viewmore{
 	width: 76%;
-	height: 3%;
+	height: 5%;
 	background: none;
 	position: absolute;
 	right: 0;

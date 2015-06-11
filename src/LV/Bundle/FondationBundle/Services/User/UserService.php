@@ -282,7 +282,7 @@ class UserService
         $nickname = $dream->getNickname();
         $content = $dream->getContent();
         $hasuserinfo = $user->getUserinfo() ? 1 : 0;
-        
+
         if($dream->getUser()->getId() == $user->getId()){
             $dreaminfo = array(
                 'dreamcount' => $dreamcount,
@@ -360,20 +360,23 @@ class UserService
     */
     public function createFakeUserDream($nickname, $content)
     {
-        $user = new User();
-        $user->setOpenid($nickname);
-        $user->setRole('onlinefake');
-        $user->setCreated(time());
-        $this->save($user);
+        $dream = $this->em->getRepository('LVFondationBundle:UserDream')->findOneBy(array('nickname' => $nickname, 'content' => $content));
+        if(!$dream) {
+            $user = new User();
+            $user->setOpenid($nickname);
+            $user->setRole('onlinefake');
+            $user->setCreated(time());
+            $this->save($user);
 
-        $dream = new UserDream();
-        $dream->setUser($user);
-        $dream->setNickname($nickname);
-        $dream->setContent($content);
-        $dream->setStatus('1');
-        $dream->setCreated(time());
-        $dream->setUpdated(time());
-        $this->save($dream);
+            $dream = new UserDream();
+            $dream->setUser($user);
+            $dream->setNickname($nickname);
+            $dream->setContent($content);
+            $dream->setStatus('1');
+            $dream->setCreated(time());
+            $dream->setUpdated(time());
+            $this->save($dream);
+        }
     }
 
     /** 

@@ -1,6 +1,4 @@
 parameters:
-    appid: wx42d5174eefc29f1f
-    appsecret: 86508d2f6f26001aaec06be97c9c6c14
     oauthApiUrl: https://open.weixin.qq.com/connect/oauth2/authorize?
     tokenApiUrl: https://api.weixin.qq.com/cgi-bin/token?
     ticketApiUrl: https://api.weixin.qq.com/cgi-bin/ticket/getticket?

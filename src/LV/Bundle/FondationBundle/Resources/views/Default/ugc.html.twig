@@ -39,7 +39,11 @@
 		</div>
 
 		<div class="dream_footer">
-		    <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% if userdream %}
+		    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
 		    <a href="javascript:;">
 		        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
 		    </a>

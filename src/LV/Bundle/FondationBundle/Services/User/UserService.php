@@ -126,7 +126,7 @@ class UserService
             $userinfo->setName($data['name']);
             $userinfo->setEmail($data['email']);
             $userinfo->setCellphone($data['cellphone']);
-            $userinfo->setAddress($data['address']);
+            $userinfo->setAddress('xxx');
             $userinfo->setCreated(time());
             $this->save($userinfo);
             return $user;

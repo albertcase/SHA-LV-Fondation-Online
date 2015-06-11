@@ -71,7 +71,6 @@ class ApiController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'cellphone' => $request->get('cellphone'),
-            'address' => $request->get('address'),
             );
         $user = $this->container->get('lv.user.service');
 

@@ -127,8 +127,8 @@ class LVApiRequestListener
             return '013'; //The email is wrong
         if(!preg_match('/^\d{11}$/', $cellphone))
             return '011'; //The cellphone number is wrong
-        if(!$address)
-            return '014'; //The address is empty
+        // if(!$address)
+        //     return '014'; //The address is empty
 
         $userinfo = $this->container->get('doctrine')->getRepository('LVFondationBundle:UserInfo');
 

@@ -6,11 +6,11 @@ lv_fondation_ugc:
     path:     /ugc
     defaults: { _controller: LVFondationBundle:Page:ugc }
 
-lv_fondation_dream:
+lv_fondation_journey:
     path:     /journey
     defaults: { _controller: LVFondationBundle:Page:journey }
 
-lv_fondation_dream:
+lv_fondation_journeyuserdream:
     path:     /journey/dream/{id}
     defaults: { _controller: LVFondationBundle:Page:journeyUserDream }
 

@@ -228,7 +228,7 @@ class UserService
 
     }
 
-    public function retrieveUgc2DreamInfoByDreamId($dream_id)
+    public function retrieveJourneyDreamInfoByDreamId($dream_id)
     {
         if($user = $this->userLoad()) {
 

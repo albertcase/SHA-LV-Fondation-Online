@@ -43,14 +43,14 @@ class PageController extends Controller
     public function journeyAction()
     {   
         $userservice = $this->container->get('lv.user.service');
-        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
+        $dreaminfo = $userservice->retrieveJourneyDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
         return $this->render('LVFondationBundle:Default:journey.html.twig', array('userdream' => $dreaminfo));
     }
 
     public function journeyUserDreamAction($id)
     {   
         $userservice = $this->container->get('lv.user.service');
-        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
+        $dreaminfo = $userservice->retrieveJourneyDreamInfoByDreamId($id);
         return $this->render('LVFondationBundle:Default:journey_user_dream.html.twig', array('userdream' => $dreaminfo));
     }
 

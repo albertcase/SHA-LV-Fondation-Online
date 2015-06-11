@@ -22,7 +22,7 @@ function GetQueryString_q(name){
         //   return false;
         // } , false)
 
-        var pageArr = ["index","chose","selected","create","form","attention","poster"];
+        var pageArr = ["index","chose","selected","create","form","attention","share","poster","edit","view","friendEnter"];
         var $page = $('.page');
 
         function pageSlideOver(){

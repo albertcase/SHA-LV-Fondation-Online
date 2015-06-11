@@ -93,12 +93,7 @@ var _doing = {
 					$("#wechatTips").fadeIn();
 				})
 
-				document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-					ev.preventDefault();
-					$("#wechatTips").fadeOut();
-					return false;
-				} , false)
-
+	
 
 			},
 			getCreateData : function(){   //跳转到创建页面
@@ -185,17 +180,16 @@ var _doing = {
 
 
 
+
+
 ;(function($){
 	$(function(){
 
-		_doing.dreamListData();
-		_doing.getGlassData();
-		// _doing.getSelectedData();
-
-		if(GetQueryString()=="create"){
-			_doing.getCreateData();
-		}
-
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
 
 		$(".formSubmit_btn").click(function(){
 			if($(this).hasClass("isdoing_form"))return false;

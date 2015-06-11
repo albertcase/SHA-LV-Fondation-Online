@@ -39,6 +39,11 @@ class DefaultController extends Controller
         return $this->render('SameAdminBundle:Default:file.html.twig');
     }
 
+    public function tableAction()
+    {
+        return $this->render('SameAdminBundle:Default:table.html.twig');
+    }
+
     public function listAction()
     {
         echo 1;die;

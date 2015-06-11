@@ -1,17 +1,13 @@
-var _doing;
 
-
-;(function($){
-	$(function(){
-
-		_doing = {
+var _doing = {
+			dreamSelectedData : eval( '(' + $('.default_dreams_in').html() + ')' ),
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
-			basedata : ["1","2","3","4","5","6"],
 			dreamListData : function(){     //index
+				var dreamIndexData = eval( '(' + $('.default_dreams_home').html() + ')' );
 				$("#dreamListCon").html(
-					$.map(this.basedata,function(k){
-						return '<div class="swiper-slide"><div class="listmodel m-1"><div class="d_content"><p class="d-to">234'+k+'<sup>th</sup></p><p class="d-text">辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展</p><p class="d-from">Michel</p></div><img src="/images/ugc/listmodel.png" width="100%" /></div></div> '
+					$.map(dreamIndexData,function(k,key){
+						return '<div class="swiper-slide"><div class="listmodel m-1" data-id="'+k.dream_id+'"><div class="d_content"><p class="d-to">'+k.dream_num+'<sup>th</sup></p><p class="d-text">'+k.content+'</p><p class="d-from">'+k.nickname+'</p></div><img src="/images/ugc/list-model-'+key%4+'.png" width="100%" /></div></div> '
 					}).join("")
 				);
 
@@ -19,7 +15,7 @@ var _doing;
 					nextButton: '.listPrev',
 			        prevButton: '.listNext',
 			        paginationClickable: true,
-			        loop: false
+			        loop: true
 				});
 			},
 			getGlassData : function(){  //chose
@@ -33,7 +29,7 @@ var _doing;
 						nextButton: '.glassArr-prev',
 				        prevButton: '.glassArr-next',
 				        paginationClickable: true,
-				        loop: false,
+				        loop: true,
 				        onSlideChangeEnd: function(swiper){
 					      	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+parseInt(swiper.activeIndex+1)+".jpg")
 					    }
@@ -60,8 +56,8 @@ var _doing;
 			},
 			formData : function(){    //检测表单函数
 				var fname = $("input[name='fname']"),
-				    femail = $("input[name='femail']"); 
-				    ftel = $("input[name='ftel']"); 
+				    femail = $("input[name='femail']"),
+				    ftel = $("input[name='ftel']"),
 				    faddress = $("input[name='faddress']"); 
 				//console.log(!this.emailReg.test(femail.val()));
 
@@ -78,15 +74,61 @@ var _doing;
 					faddress.addClass("error").val("").attr("placeholder","地址不能为空！");
 					return false;
 				}else{
-					alert("提交成功！");
+					_doing.userInfoFun(fname.val(),femail.val(),ftel.val(),faddress.val());
 				}
 
 
+			},
+			userInfoFun : function(fname,femail,ftel,faddress){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/userinfo",
+				    data: {
+				    	"name":fname, "email":femail, "cellphone":ftel, "address":faddress
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	if(data.status == 1){
+			    		alert("提交成功！");
+			    	}
+			    })
+			},
+			submitCreateFun : function(nickname,content){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/userdream",
+				    data: {
+				    	"nickname":nickname, "content":content
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
+			    	if(data.status == 1){
+			    		window.location.href="result";
+			    	}
+			    })
+			},
+			dreamlike : function(dream_id){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/dreamlike",
+				    data: {
+				    	"dream_id":dream_id
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	// if(data.status == 1){
+			    	// 	window.location.href="result";
+			    	// }
+			    })
 			}
 			
 		}
 
 
+
+;(function($){
+	$(function(){
 
 		_doing.dreamListData();
 		_doing.getGlassData();
@@ -96,8 +138,7 @@ var _doing;
 			_doing.getCreateData();
 		}else if(GetQueryString()=="form"||GetQueryString()=="attention"){
 			_doing.faActive();
-		}
-		
+		}	
 
 	})
 })(jQuery);

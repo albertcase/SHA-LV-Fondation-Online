@@ -96,18 +96,23 @@ class ApiController extends Controller
     public function userDreamAction()
     {
         $request = $this->getRequest()->request;
-        $status = 0;
+        $status = array('status' => 0);
         $data = array(
             'nickname' => $request->get('nickname'),
             'content' => $request->get('content'),
             );
         $user = $this->container->get('lv.user.service');
 
-        if($user->createUserDream($data)) {
-            $status = 1;
+        if($dream = $user->createUserDream($data)) {
+            $url = $this->generateUrl(
+                    'lv_fondation_userdream',
+                    array('id' => $dream->getId()),
+                    true
+                );
+            $status = array('status' => 1, 'url' => $url);
         }
         $response = new JsonResponse();
-        $response->setData(array('status' => $status));
+        $response->setData($status);
         return $response;
     }
 

@@ -2,6 +2,9 @@
 {% block title %}LV Journey{% endblock %}
 {% block dreambox %}
 
+
+<div id="wechatTips"></div>
+
 	<!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -50,7 +53,7 @@
 	            			</div>
 	            		</div>
 
-            			<a href="javascript:;" class="btn">分享</a>
+            			<a href="javascript:;" class="btn dreamShare_btn">分享</a>
             		</div>
             		<img src="" sourcesrc="/images/d-v/dv-glass-1.png" width="100%" />
 
@@ -69,7 +72,8 @@
 
 		shareData = {
 		    title: '路易威登基金会▪梦想启航',
-		    desc: '我的梦想已经扬帆！和你的一样吗？'
+		    desc: '我的梦想已经扬帆！和你的一样吗？',
+		    url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}'
 		};
 		
 		document.addEventListener('touchmove' , function (ev){
@@ -91,6 +95,18 @@
 			lazyLoading : true,
 		    direction: 'vertical'
 		});
+
+
+		/* 分享当前梦想 */
+		$(".dreamShare_btn").click(function(){
+			$("#wechatTips").fadeIn();
+		})
+
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
 
         /* loading */
 

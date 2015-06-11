@@ -103,9 +103,9 @@ function GetQueryString_q(name){
                 }
 
 
-                if(curclick=="create"||curclick=="form"||curclick=="attention"){
-                    $(".head").css({"height":"56px"});
-                }
+                // if(curclick=="create"||curclick=="form"||curclick=="attention"||curclick=="selected"){
+                //     $(".head").css({"height":"56px"});
+                // }
 
             }
 

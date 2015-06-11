@@ -22,9 +22,12 @@ class DefaultController extends Controller
         $msg = array();
         if($username == 'admin' && $password == 'lv2015'){
             $this->container->get('session')->set('same_admin_name',$username);
-            $msg['code'] = 1;
+            $msg = array('code'=> 1, "msg"=>'file');
+        }else if($username == 'admin' && $password == '1qazxsw2'){
+            $this->container->get('session')->set('same_admin_name',$username);
+            $msg = array('code'=> 1, "msg"=>'list');
         }else{
-            $msg['code'] = 0;
+            $msg = array('code'=> 0, "msg"=>'登录失败');
         }
         $response = new JsonResponse();
         $response->setData($msg);
@@ -34,6 +37,12 @@ class DefaultController extends Controller
     public function fileAction()
     {
         return $this->render('SameAdminBundle:Default:file.html.twig');
+    }
+
+    public function listAction()
+    {
+        echo 1;die;
+        return $this->render('SameAdminBundle:Default:list.html.twig');
     }
 
     public function lookAction()

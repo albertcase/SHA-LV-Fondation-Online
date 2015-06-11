@@ -220,6 +220,28 @@
 	;(function($){
 		$(function(){
 
+			/* 提交创建内容 */
+			$(".finshBtn").click(function(){
+				if($(this).hasClass("isdoing"))return false;
+				
+				var creatTextCon = $(".creatTextCon").val(),
+					creatTextName = $(".creatTextName").val();
+					if(creatTextCon == ""){
+						$(".creatTextCon").addClass("error").attr("placeholder","内容不能为空！");
+						return false;
+					}
+
+					if(creatTextName == ""){
+						$(".creatTextName").addClass("error").attr("placeholder","姓名不能为空！");
+						return false;
+					}else{
+						$(this).addClass("isdoing").val("正在加载...");
+						_doing.submitCreateFun(creatTextName,creatTextCon);
+					}
+
+			})
+
+
 			/* 分享当前梦想 */
 			$(".shareBtn").click(function(){
 				$("#wechatTips").fadeIn();
@@ -242,12 +264,6 @@
 
 
 {% else %}
-	<!-- {{ userdream.dreamcount }}
-	{{ userdream.dream_id }}
-	{{ userdream.nickname }}
-	{{ userdream.content }}
-	{{ userdream.isliked }} -->
-
 
 <!-- friendEnter page -->
 <a href="javascript:pagechange.moveClick('chose');" class="backBtn">
@@ -262,10 +278,20 @@
 
 			<div id="selectedContent">
 				<div class="hotArea">
-					<div class="supportIcon">
-						<img src="/images/ugc/like.png" width="100%" />
-						<i>支持</i>
-					</div>
+					{% if userdream.isliked == 1 %}
+						<div class="supportIcon hover">
+							<img src="/images/ugc/likehover.png" width="100%" />
+							<i>已支持</i>
+						</div>
+					{% else %}
+						<div class="supportIcon">
+							<img src="/images/ugc/like.png" width="100%" />
+							<i>支持</i>
+						</div>
+					{% endif %}
+					
+
+					
 					<div class="shareIcon">
 						<img src="/images/ugc/shareIcon.png" width="100%" />
 						<i>分享</i>

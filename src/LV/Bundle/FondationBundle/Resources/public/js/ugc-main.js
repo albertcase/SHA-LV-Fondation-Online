@@ -97,8 +97,6 @@ var _doing = {
 
 			},
 			getCreateData : function(){   //跳转到创建页面
-				$(".creatBtn").css("display","none");
-                $(".finshBtn").css("display","inline-block");
 				pagechange.moveClick('create');
 				$(".create-num span").html("2340<sup>th</sup>");
 			},
@@ -157,7 +155,8 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		window.location.href="result";
+			    		console.log(data)
+			    		//window.location.href="/fondation";
 			    	}
 			    })
 			},
@@ -173,6 +172,21 @@ var _doing = {
 			    	// if(data.status == 1){
 			    	// 	window.location.href="result";
 			    	// }
+			    })
+			},
+			submitModifyCreateFun : function(nickname,content){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/userdream",
+				    data: {
+				    	"nickname":nickname, "content":content
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
+			    	if(data.status == 1){
+			    		window.location.href="result";
+			    	}
 			    })
 			}
 			

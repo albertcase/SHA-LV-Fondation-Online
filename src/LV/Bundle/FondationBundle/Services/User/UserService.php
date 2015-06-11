@@ -317,7 +317,7 @@ class UserService
 
             $this->dreamView($dream);
 
-            $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+            $dreamcount = $dream->getId();
             $nickname = $dream->getNickname();
             $content = $dream->getContent();
             $days = ceil((time() - $dream->getCreated()) / (3600 * 24));

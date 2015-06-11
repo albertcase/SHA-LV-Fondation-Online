@@ -334,6 +334,7 @@ class UserService
 
             $dreaminfo = array(
                 'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
                 'nickname' => $nickname,
                 'content' => $content,
                 'call' => $call,

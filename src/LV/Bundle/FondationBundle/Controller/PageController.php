@@ -58,11 +58,27 @@ class PageController extends Controller
     * @since 1.0 
     * @return view
     */ 
-    public function dreamAction()
+    public function journeyAction()
     {   
         $userservice = $this->container->get('lv.user.service');
         $dreaminfo = $userservice->retrieveDreamInfoByDreamId($userservice->userLoad()->getUserdream()->getId());
-        return $this->render('LVFondationBundle:Default:dream.html.twig', array('userdream' => $dreaminfo));
+        return $this->render('LVFondationBundle:Default:journey.html.twig', array('userdream' => $dreaminfo));
+    }
+
+    /** 
+    * journeyUserDreamAction
+    *
+    * Page for journeyuserdream
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */ 
+    public function journeyUserDreamAction($id)
+    {   
+        $userservice = $this->container->get('lv.user.service');
+        $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
+        return $this->render('LVFondationBundle:Default:journey_user_dream.html.twig', array('userdream' => $dreaminfo));
     }
 
     /** 
@@ -75,7 +91,7 @@ class PageController extends Controller
     * @return view
     */ 
     public function userDreamAction($id)
-    {
+    {   
         $userservice = $this->container->get('lv.user.service');
         $dreaminfo = $userservice->retrieveDreamInfoByDreamId($id);
         return $this->render('LVFondationBundle:Default:user_dream.html.twig', array('userdream' => $dreaminfo));

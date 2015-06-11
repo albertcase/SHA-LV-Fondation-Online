@@ -37,7 +37,7 @@ class ApiController extends Controller
         $data = array(
             'name' => $request->get('name'),
             'cellphone' => $request->get('cellphone'),
-            'imgurl' => $image->ImageCreateForOnline('Demon Zhang'),
+            'imgurl' => $image->ImageCreateForOnline($request->get('name')),
             );
         $user = $this->container->get('lv.user.service');
 

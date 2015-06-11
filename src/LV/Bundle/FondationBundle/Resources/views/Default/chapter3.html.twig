@@ -26,20 +26,12 @@
 		    				<div class="glassBlock_tips">
 			    				点击玻璃面板<br />完成建筑的最后一步
 			    			</div>
-		    				
+
 			    			<div class="glassBlock">
 			    				<img src="" sourcesrc="/images/chapter3/glass.png" width="100%" />
 			    			</div>
 			    			<div class="glassInfo">
-			    				<p>包含</p>
-			    				<p>
-			    					<span>13500</span>平方米的玻璃面积
-			    				</p>
-			    				<p><span>12</span>片玻璃帆区域</p>
-			    				<p><span>19000</span>片杜克塔勒</p>
-			    				<p><span>3584</span>块玻璃板</p>
-			    				<p><span>3580</span>平方米的展览空间</p>
-			    				<p><span>11</span>个展示厅</p>
+			    				<img src="" sourcesrc="/images/chapter3/bulidInfo.png" width="67%" />
 			    			</div>
 		    			</div>
 		    			
@@ -58,8 +50,11 @@
 							<p class="c2">
 								<img src="" sourcesrc="/images/chapter3/c2.png" width="100%" />
 							</p>
-							<p class="c3">
+							<p class="c2">
 								<img src="" sourcesrc="/images/chapter3/c3.png" width="100%" />
+							</p>
+							<p class="c3">
+								<img src="" sourcesrc="/images/chapter3/c4.png" width="100%" />
 							</p>						
 						</div>
 						
@@ -69,9 +64,6 @@
 							</p>
 							<div class="btnArea">
 								
-								<a href="invitations.html" class="creat_btn">
-									<img src="" sourcesrc="/images/creat_btn.png" width="100%" />
-								</a>
 								<a href="ugc" class="talk_btn">
 									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
@@ -101,13 +93,15 @@ $(".glassBlock").click(function(){
 	$(this).animate({"opacity":0.1,"margin-top":"9em"},600,function(){
 		$(this).hide();
 
-		$(".glass_footer").animate({"bottom":0,"opacity":0});
+		$(".glass_footer").animate({"bottom":0,"opacity":0},600,function(){
+			$(".glassBlock_tips").hide();
+		});
 		$(".glassInstall_fin").animate({"opacity":1},1000,function(){
 			$(".glassInstall_con h2").html("路易威登基金会");
 			$(".glassInfo").fadeIn();
 			$(".glassBlock_tips").html("安装完成");
 			$(".goonSearch").css("display","inline-block");
-			$(".glass_footer").animate({"bottom":"1em","opacity":1});
+			$(".glass_footer").animate({"bottom":"1.6em","opacity":1});
 		});
 	});
 	

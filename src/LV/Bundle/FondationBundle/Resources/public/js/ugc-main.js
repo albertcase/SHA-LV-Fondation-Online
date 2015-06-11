@@ -1,12 +1,13 @@
 
 var _doing = {
+			dreamSelectedData : eval( '(' + $('.default_dreams_in').html() + ')' ),
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
-			basedata : ["1","2","3","4","5","6"],
 			dreamListData : function(){     //index
+				var dreamIndexData = eval( '(' + $('.default_dreams_home').html() + ')' );
 				$("#dreamListCon").html(
-					$.map(this.basedata,function(k){
-						return '<div class="swiper-slide"><div class="listmodel m-1"><div class="d_content"><p class="d-to">234'+k+'<sup>th</sup></p><p class="d-text">辛苦努力创作的作品终于被大家认可。下一步要在美术馆里开个人展</p><p class="d-from">Michel</p></div><img src="/images/ugc/listmodel.png" width="100%" /></div></div> '
+					$.map(dreamIndexData,function(k,key){
+						return '<div class="swiper-slide"><div class="listmodel m-1" data-id="'+k.dream_id+'"><div class="d_content"><p class="d-to">'+k.dream_num+'<sup>th</sup></p><p class="d-text">'+k.content+'</p><p class="d-from">'+k.nickname+'</p></div><img src="/images/ugc/list-model-'+key%4+'.png" width="100%" /></div></div> '
 					}).join("")
 				);
 
@@ -14,7 +15,7 @@ var _doing = {
 					nextButton: '.listPrev',
 			        prevButton: '.listNext',
 			        paginationClickable: true,
-			        loop: false
+			        loop: true
 				});
 			},
 			getGlassData : function(){  //chose

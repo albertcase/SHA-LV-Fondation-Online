@@ -94,18 +94,8 @@ function GetQueryString_q(name){
 
                 if(curclick=="create"||curclick=="form"){
                     $("#dreambox").css({"height":$(window).height()});
-                    // $(".creatBtn").css("display","none");
-                    // $(".finshBtn").css("display","inline-block");
                     
-                }else{
-                    // $(".finshBtn").css("display","none");
-                    // $(".creatBtn").css("display","inline-block");
                 }
-
-
-                // if(curclick=="create"||curclick=="form"||curclick=="attention"||curclick=="selected"){
-                //     $(".head").css({"height":"56px"});
-                // }
 
             }
 

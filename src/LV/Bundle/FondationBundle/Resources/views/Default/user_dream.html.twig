@@ -32,7 +32,7 @@
 			<div class="dream_footer">
 				<p class="dfTips">立即分享至朋友圈<br />获取北京路易威登基金会精美海报</p>
 			    <a href="javascript:;" class="btn shareBtn">分享</a>
-			    <a href="javascript:;">
+			    <a href="/fondation">
 			        <img src="/images/ugc/story.jpg" width="100%" />
 			    </a>
 			</div>
@@ -68,7 +68,7 @@
 
 			<div class="dream_footer">
 			    <a href="javascript:pagechange.moveClick('edit');" class="btn">编辑我的梦想之旅</a>
-			    <a href="javascript:;">
+			    <a href="/fondation">
 			        <img src="/images/ugc/story.jpg" width="100%" />
 			    </a>
 			</div>
@@ -103,7 +103,7 @@
 
 			<div class="dream_footer">
 			    <a href="javascript:;" class="btn finshBtn">再次提交</a>
-			    <a href="javascript:;">
+			    <a href="/fondation">
 			        <img src="/images/ugc/story.jpg" width="100%" />
 			    </a>
 			</div>
@@ -152,7 +152,7 @@
 
 
 				<div class="dream_footer">
-				    <a href="javascript:;">
+				    <a href="/fondation">
 				        <img src="/images/ugc/story.jpg" width="100%" />
 				    </a>
 				</div>
@@ -176,7 +176,7 @@
 					<img src="/images/ugc/wechat.png" />
 				</div>
 				<div class="dream_footer">
-				    <a href="javascript:;">
+				    <a href="/fondation">
 				        <img src="/images/ugc/story.jpg" width="100%" />
 				    </a>
 				</div>
@@ -206,7 +206,7 @@
 				</div>
 
 				<div class="dream_footer">
-				    <a href="javascript:;">
+				    <a href="/fondation">
 				        <img src="/images/ugc/story.jpg" width="100%" />
 				    </a>
 				</div>
@@ -224,8 +224,8 @@
 			$(".finshBtn").click(function(){
 				if($(this).hasClass("isdoing"))return false;
 				
-				var creatTextCon = $(".creatTextCon").val(),
-					creatTextName = $(".creatTextName").val();
+				var creatTextCon = $("#edit .creatTextCon").val(),
+					creatTextName = $("#edit .creatTextName").val();
 					if(creatTextCon == ""){
 						$(".creatTextCon").addClass("error").attr("placeholder","内容不能为空！");
 						return false;

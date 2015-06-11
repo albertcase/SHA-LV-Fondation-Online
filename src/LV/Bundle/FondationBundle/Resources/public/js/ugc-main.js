@@ -170,9 +170,7 @@ var _doing = {
 				    },
 				    dataType:"json" 
 			    }).done(function(data){
-			    	// if(data.status == 1){
-			    	// 	window.location.href="result";
-			    	// }
+			    	
 			    })
 			},
 			submitModifyCreateFun : function(nickname,content){
@@ -186,7 +184,7 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		pagechange.moveClick('view');
+			    		pagechange.moveClick('share');
 			    	}
 			    })
 			}

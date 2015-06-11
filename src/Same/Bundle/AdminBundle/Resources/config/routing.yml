@@ -1,3 +1,6 @@
+same_admin_table:
+    path:     /same/admin/table
+    defaults: { _controller: SameAdminBundle:Default:table }
 same_admin_look:
     path:     /look
     defaults: { _controller: SameAdminBundle:Default:look }

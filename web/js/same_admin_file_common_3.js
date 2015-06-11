@@ -16,7 +16,7 @@ $("#AddMoreFileBox").click(function () {
 		event.returnValue = false;
 		if(i < MaxFileInputs)
 		{
-			$('<span><input type="file" id="fileInputBox" size="20" name="file[]" class="addedInput" value=""/><a href="#" class="removeclass small2"><img src="../images/close_icon.gif" border="0" /></a></span>').appendTo(FileInputsHolder);
+			$('<span><input type="file" id="fileInputBox" size="20" name="file[]" class="addedInput" value=""/><a href="#" class="removeclass small2"><img src="/images/close_icon.gif" border="0" /></a></span>').appendTo(FileInputsHolder);
 			i++;
 		}
 		return false;
@@ -82,7 +82,7 @@ function submitForm(){
 		return false;
 	}
 	$.ajax({
-		url:"",
+		url:BASEURL+"/same/admin/submit",
 		type:"post",
 		data:{"code":code,"files":$("#aaa").val()},
 		dataType:"json",
@@ -90,7 +90,7 @@ function submitForm(){
 			$("#SubmitButton").removeAttr('disabled');
 			if(data.code==1){
 				alert('上传成功')
-				window.location.href="./file.php"
+				window.location.href=BASEURL+"/same/admin/file"
 			}else{
 				alert(data.msg)
 			}

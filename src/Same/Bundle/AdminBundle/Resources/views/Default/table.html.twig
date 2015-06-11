@@ -1,0 +1,55 @@
+{% extends 'SameAdminBundle::layout.html.twig' %}
+{% block title %}LV OFFLINE{% endblock %}
+
+{% block head_css %}
+{% stylesheets filter='cssrewrite' output="css/same_admin_table.css"
+  'bundles/sameadmin/css/jquery.dataTables.css'
+  'bundles/sameadmin/css/shCore.css'
+  'bundles/sameadmin/css/demo.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block head_js %}
+{% javascripts output="js/same_admin_table.js"
+  '@SameAdminBundle/Resources/public/js/jquery.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %} 
+
+{% block content %}
+<div class="container">
+  <section>
+    
+   
+      <table id="example" class="display dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="PHOTO: activate to sort column descending" style="width: 100px;">ID</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="DOWNLOAD: activate to sort column ascending" style="width: 100px;">Name</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="NAME: activate to sort column ascending" style="width: 100px;">Mobile</th>
+          <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="FUNCTION: activate to sort column ascending" style="width: 100px;">Address</th>
+          
+        </tr>
+      </thead>
+
+      <tbody>
+                  
+      
+        <tr  role="row" >
+          <td align="center">1</td>
+          <td align="center">2</td>
+          <td align="center">3</td>
+          <td align="center">4</td>
+
+        </tr>
+        
+
+     </tbody>
+    </table>
+     
+  </section>
+</div>
+{% endblock %}

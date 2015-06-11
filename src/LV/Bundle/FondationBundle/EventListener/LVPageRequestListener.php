@@ -21,6 +21,16 @@ class LVPageRequestListener
         $this->wechatservice = $wechatservice;
     }
 
+    /** 
+    * listener
+    *
+    * listener before visite lv_page
+    *
+    * @access public
+    * @param mixed event 
+    * @since 1.0 
+    * @return Response
+    */
     public function onKernelRequest(GetResponseEvent $event)
     {
 

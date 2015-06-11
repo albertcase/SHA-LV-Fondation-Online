@@ -15,7 +15,17 @@ class ImageService
         $this->_filedir = $this->_container->getParameter('files_base_dir');
         //echo $this->_container->get('session')->get('aaa');exit;
     }
- 
+
+    /** 
+    * ImageCreateForOnline
+    *
+    * create a picture for online
+    *
+    * @access public
+    * @param mixed $name
+    * @since 1.0 
+    * @return $filename
+    */
     public function ImageCreateForOnline($name)
     {
         list($width,$height)=getimagesize("images/imagesevice/createImg.png");
@@ -36,6 +46,16 @@ class ImageService
         return $fileName;
     }
 
+     /** 
+    * ImageCreateForOffline
+    *
+    * create a picture for offline
+    *
+    * @access public
+    * @param mixed $img
+    * @since 1.0 
+    * @return $filename
+    */
     public function ImageCreateForOffline($img)
     {
         list($width,$height)=getimagesize($img);

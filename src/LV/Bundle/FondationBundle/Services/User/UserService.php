@@ -161,7 +161,74 @@ class UserService
         return FALSE;
     }
 
+    public function retrieveMyDreamInfo()
+    {
+        if($user = $this->userLoad()) {
+
+            $dream = $user->getUserdream();
+            $this->dreamView($dream);
+
+            $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+            $nickname = $dream->getNickname();
+            $content = $dream->getContent();
+            $days = ceil((time() - $dream->getCreated()) / (3600 * 24));
+            $views = $this->em->getRepository('LVFondationBundle:DreamView')->retrieveViewCount($dream->getId());
+            $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->retrieveLikedCount($dream->getId());
+
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'nickname' => $nickname,
+                'content' => $content,
+                'call' => $call,
+                'days' => $days,
+                'views' => $views,
+                'liked' => $liked,
+                );
+            return $dreaminfo;
+        }
+        return FALSE;
+    }
+
     public function retrieveDreamInfoByDreamId($dream_id)
+    {
+        $user = $this->userLoad();
+
+        $dream = $this->em->getRepository('LVFondationBundle:UserDream')->findOneBy(array('id' => $dream_id));
+
+        $this->dreamView($dream);
+
+        $dreamcount = $this->em->getRepository('LVFondationBundle:UserDream')->retrieveDreamCount();
+        $dream_id = $dream->getId();
+        $nickname = $dream->getNickname();
+        $content = $dream->getContent();
+
+        if($dream->getUser()->getId() == $user->getId()){
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
+                'nickname' => $nickname,
+                'content' => $content,
+                'ismyself' => 1,
+            );
+        } else {
+
+            $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->findOneBy(array('user' => $user->getId(), 'userdream' => $dream->getId()));
+            $isliked = $liked ? 1 : 0;
+            $dreaminfo = array(
+                'dreamcount' => $dreamcount,
+                'dream_id' => $dream_id,
+                'nickname' => $nickname,
+                'content' => $content,
+                'isliked' => $isliked,
+                'ismyself' => 0,
+            );            
+        }
+
+        return $dreaminfo;
+
+    }
+
+    public function retrieveUgc2DreamInfoByDreamId($dream_id)
     {
         if($user = $this->userLoad()) {
 

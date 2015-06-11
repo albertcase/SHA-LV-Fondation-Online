@@ -5,4 +5,5 @@ parameters:
         - lv_fondation_showinvitation
         - lv_fondation_userdream
         - lv_fondation_dream
+        - lv_fondation_journey
 

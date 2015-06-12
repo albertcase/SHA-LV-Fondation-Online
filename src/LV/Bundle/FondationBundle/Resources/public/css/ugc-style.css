@@ -185,6 +185,7 @@ html,body,#dreambox{
 	display: inline-block; 
 	position: relative;
 	z-index: 2;
+	padding: 10% 0 0 0;
 }
 
 .dreamlist dd a{
@@ -271,14 +272,14 @@ html,body,#dreambox{
 	width: 30%;
 	font-size: 12px;
 	position: absolute;
-	top: 0.1em;
-	right: 0.5em;
+	top: 0;
+	right: 0;
 	text-align: left;
 }
 
 .completionRatio h2{
 	width: 100%;
-	font-size: 36px;
+	font-size: 38px;
 	display: inline-block;
 }
 
@@ -288,6 +289,7 @@ html,body,#dreambox{
 
 .completionRatio p{
 	width: 100%;
+	padding:0 0 6px 0;
 }
 
 .modelView{
@@ -733,12 +735,29 @@ html,body,#dreambox{
 
 
 
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+   .dreamlist dd{
+   	    padding: 10% 0 0 0;
+   }
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    .dreamlist dd{
+   	    padding: 10% 0 0 0;
+    }
+}
+
+
+
 @media handheld and (min-height:400px),screen and (max-height:420px) {
 	.listmodel{
 		width: 80%;
 	}
 	.dreamlist dd{
-		width: 90%;
+		width: 70%;
 		/*margin:-8em 0 0 0;*/
 	}
 	.dreamlist dt{

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Same\Bundle\AdminBundle\Entity\Photo;
+use LV\Bundle\FondationBundle\Entity\UserDream;
 
 class DefaultController extends Controller
 {
@@ -44,10 +45,26 @@ class DefaultController extends Controller
         return $this->render('SameAdminBundle:Default:table.html.twig');
     }
 
+    public function dbtocsvAction()
+    {
+        return $this->render('SameAdminBundle:Default:upload.html.twig');
+    }
+
     public function listAction()
     {
-        echo 1;die;
-        return $this->render('SameAdminBundle:Default:list.html.twig');
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
+        $rs = $repository->findAll();
+        $response = new JsonResponse();
+        $response->setData($rs);
+        return $response;
+    }
+
+    public function clearAction()
+    {
+        session_unset();
+        session_destroy();
+        print '清除成功';
+        exit;
     }
 
     public function lookAction()

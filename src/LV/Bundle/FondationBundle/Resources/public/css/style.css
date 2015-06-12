@@ -350,6 +350,49 @@ html,body,#dreambox{
 	z-index: 2;
 }
 
+.point{
+	width: 20%;
+	height: 40%;
+	background: url("/images/chapter2/points.png") no-repeat;
+	background-size: 100% auto;
+	display: inline-block;
+	position: absolute;
+	top: 40%;
+}
+
+
+.point { 
+    -webkit-animation: pointAni 2s infinite ease-in-out;
+    -moz-animation: pointAni 2s infinite ease-in-out;
+    animation: pointAni 2s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes pointAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-moz-keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
+
+
+
 .activeTips_chapter2{
 	width: 100%;
 	font-size: 12px;
@@ -657,7 +700,7 @@ html,body,#dreambox{
 	text-align: center;
 }
 
-.handTips { 
+/*.handTips { 
   -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
      -moz-animation: handTips_ani 1.5s infinite ease-in-out;
           animation: handTips_ani 1.5s infinite ease-in-out;
@@ -702,7 +745,7 @@ html,body,#dreambox{
   	background: url("/images/hand-1.png") center top no-repeat;
 	background-size: 50% auto;
   }
-}
+}*/
 
 .handTips span{
 	width: 100%;
@@ -1528,43 +1571,7 @@ html,body,#dreambox{
 
 
 
-@media handheld and (min-height:400px),screen and (max-height:420px) {
-	.menu li a{
-		padding: 0.2em 0 0.4em 0;
-	}
 
-	.glassInstall{
-		background-position: center 90%; 
-	}
-
-	.glassInstall_fin{
-		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
-		background-size: 100% auto;
-	}
-
-	.glassInstall h2{
-		margin:3em 0 0 0;
-	}
-
-	.arrUp {
-	  width: 6%;
-	  margin: 0 0 0 -3%;
-	  bottom: 1em;
-	}
-
-	.glassBlock {
-	  margin: 0.6em 0 0 0;
-	}
-
-	.glass_footer{
-		bottom: 0.5em;
-	}
-
-	.glassInfo p{
-		padding: 0.9em 0;
-	}
-
-}
 
 
 
@@ -1584,15 +1591,6 @@ html,body,#dreambox{
 	vertical-align: middle;
 	display: inline-block;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1736,3 +1734,63 @@ html,body,#dreambox{
 	opacity: 0.6;
 }
 
+
+
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+   .point{
+		top: 72%;
+	}
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    .point{
+		top: 56%;
+	}
+}
+
+
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
+
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}

@@ -1,7 +1,7 @@
 
 
 var _doing = {
-			curChoseGlassDreamNum : 0,
+			curChoseGlassDreamNum : 1,
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
 			dreamListData : function(){     //index
@@ -31,16 +31,16 @@ var _doing = {
 				        prevButton: '.glassArr-next',
 				        paginationClickable: true,
 				        loop: true,
-				        onSlideChangeEnd: function(swiper){
-				        	if(swiper.swipeDirection == "prev"){
+				        onTouchEnd: function(swiper){
+					    	if(swiper.swipeDirection == "next"){
 				        		_doing.curChoseGlassDreamNum--;
-				        		if(_doing.curChoseGlassDreamNum<0){
+				        		if(_doing.curChoseGlassDreamNum<1){
 				        			_doing.curChoseGlassDreamNum = dreamSelectedData.length;
 				        		}
-				        	}else if(swiper.swipeDirection == "next"){
+				        	}else if(swiper.swipeDirection == "prev"){
 				        		_doing.curChoseGlassDreamNum++;
-				        		if(_doing.curChoseGlassDreamNum>13){
-				        			_doing.curChoseGlassDreamNum = 0;
+				        		if(_doing.curChoseGlassDreamNum>=dreamSelectedData.length){
+				        			_doing.curChoseGlassDreamNum = 1;
 				        		}
 				        	}
 					    }
@@ -59,7 +59,7 @@ var _doing = {
 			getSelectedData : function(dreamSelectedData,curChoseGlass){    //selected
 				
 				var choseGlassnum = _doing.curChoseGlassDreamNum;
-	
+				
 				var selectedDataInfo = $.map(dreamSelectedData,function(v,k){
 						var islikeVal = "",islikecon = "支持";
 						if(k==choseGlassnum){

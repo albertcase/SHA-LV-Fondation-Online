@@ -213,7 +213,7 @@ body{
    top:0;
    left:1%;  
 }
-#login_form{
+#login_form,#upload_form{
 	width: 250px;
 	height:250px;
 	border: 3px solid #0abad1;
@@ -251,7 +251,19 @@ body{
 	line-height: 1.2em;
 	text-transform: lowercase;
 }
-.sub_btn{
+.file_con{
+	color: #0abad1;
+	background: none;
+	border-bottom: 1px dashed #0abad1; 
+	line-height: 1.2em;
+	text-transform: lowercase;
+
+}
+input[type="file"] {
+	background: rgba(0,0,0,0);
+	width: 174px;
+}
+.sub_btn,.up_btn{
 	background: none;
 	width: 100px;
 	height: 30px;

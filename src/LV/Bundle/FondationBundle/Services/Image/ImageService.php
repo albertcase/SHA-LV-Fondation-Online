@@ -30,18 +30,28 @@ class ImageService
     {
         list($width,$height)=getimagesize("images/imagesevice/createImg.png");
         $authimg = imagecreate($width,$height);
-        $bg_color = ImageColorAllocate($authimg,0,0,0);
+        $bg_color = ImageColorAllocate($authimg,68,68,68);
 
         $bg = ImageCreateFromPng("images/imagesevice/createImg.png");
         imagecopyresized($authimg,$bg,0,0,0,0,$width,$height,$width,$height); 
-        
-        $fontfile ="images/imagesevice/heiti.ttf";
-        $font_color = ImageColorAllocate($authimg,0,0,0);
-        ImageTTFText($authimg, 25, 0, 250, 780, $font_color, $fontfile, $name);
-        //header("Content-type: image/PNG");
-        $fileName = '/online/' . time() . rand(100,999) . '.jpg';
+
+        $fontfile ="images/imagesevice/AdobeFanHeitiStd-Bold.otf";
+        putenv('GDFONTPATH=' . realpath($fontfile));
+
+        $font_color = ImageColorAllocate($authimg,0,0,0); 
+        $box = imagettfbbox(25, 0, $fontfile, $name);
+        $fontwidth = $box[4]-$box[0];
+        ImageTTFText($authimg, 25, 0, ceil(($width-$fontwidth)/2), 740, $font_color, $fontfile, $name);
+
+        $font_color = ImageColorAllocate($authimg,68,68,68);
+        $dateTime = date("Y年m月d日");
+        $boxtime = imagettfbbox(15, 0, $fontfile, $dateTime);
+        $datewidth = $boxtime[4]-$boxtime[0];
+        ImageTTFText($authimg, 15, 0, ceil(($width-$datewidth)/2), 1080, $font_color, $fontfile, $dateTime);
+        //imagestring($authimg, 5, 430, 430, date("Y年m月d日"), $font_color);
+        //imagestring($authimg, 5, 230, 730, $name, $font_color);
+        $fileName = '/online/' . time() . rand(100,999) . '.png';
         $hechengImg = $this->_filedir . $fileName;
-        
         ImagePNG($authimg,$hechengImg);
         return $fileName;
     }

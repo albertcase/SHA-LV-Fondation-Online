@@ -1,0 +1,39 @@
+{% extends 'SameAdminBundle::layout.html.twig' %}
+{% block title %}LV OFFLINE{% endblock %}
+
+{% block head_css %}
+{% stylesheets filter='cssrewrite' output="css/same_admin_upload.css"
+	'bundles/sameadmin/css/reset.css'
+	'bundles/sameadmin/css/main.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block head_js %}
+{% javascripts output="js/same_admin_upload.js"
+	'@SameAdminBundle/Resources/public/js/jquery.js'
+    '@SameAdminBundle/Resources/public/js/main.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %} 
+
+{% block content %}
+	<div id="upload_form">
+		<div class="login">
+			<p>上传文件</p>
+		</div>
+		<div class="info">
+			<ul>
+				<li>文件：
+					<input type="file"  name="file[]" class="file_con"/>
+				</li>
+			</ul>
+			<a href="javascript:;">
+				<input type="submit"  value="上&nbsp;&nbsp;传" class="up_btn"/>	
+			</a>	
+		</div>	
+	</div>	
+{% endblock %} 
+

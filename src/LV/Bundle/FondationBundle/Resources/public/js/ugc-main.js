@@ -27,8 +27,8 @@ var _doing = {
 				}).join(""));
 
 				var glassSwiper = $('.glass-swiper').swiper({
-						nextButton: '.glassArr-prev',
-				        prevButton: '.glassArr-next',
+						nextButton: '.glassArr-next',
+				        prevButton: '.glassArr-prev',
 				        paginationClickable: true,
 				        loop: true,
 				        onTouchEnd: function(swiper){

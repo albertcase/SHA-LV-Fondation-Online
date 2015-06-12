@@ -219,10 +219,13 @@ html,body,#dreambox{
 	margin: 0;
 }
 
-.dreamTrip, .dreamTrip img{
+.dreamTrip{
 	width: 100%;
 }
 
+.dreamTrip img{
+	width: 106%;
+}
 
 
 
@@ -426,7 +429,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: relative;
 }
 
@@ -470,7 +473,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building_fin.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: absolute;
 	left: 0;
 	top: 0;

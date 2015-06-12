@@ -47,7 +47,7 @@ class ImageService
         $dateTime = date("Y年m月d日");
         $boxtime = imagettfbbox(15, 0, $fontfile, $dateTime);
         $datewidth = $boxtime[4]-$boxtime[0];
-        ImageTTFText($authimg, 15, 0, ceil(($width-$datewidth)/2), 1090, $font_color, $fontfile, $dateTime);
+        ImageTTFText($authimg, 15, 0, ceil(($width-$datewidth)/2), 1175, $font_color, $fontfile, $dateTime);
         //imagestring($authimg, 5, 430, 430, date("Y年m月d日"), $font_color);
         //imagestring($authimg, 5, 230, 730, $name, $font_color);
 

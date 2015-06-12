@@ -1,5 +1,5 @@
 {% extends 'LVFondationBundle::journeylayout.html.twig' %}
-{% block title %}LV Journey{% endblock %}
+{% block title %}筑梦之旅{% endblock %}
 {% block dreambox %}
 
 
@@ -60,6 +60,7 @@
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
 		    	url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}'
 			};
+			editShare();
 
 			/* 分享当前梦想 */
 			$(".dreamShare_btn").click(function(){

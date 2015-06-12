@@ -1,4 +1,5 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
+{% block title %}起航{% endblock %}
 {% block dreambox %}
 
 <div class="chapter modelpage">
@@ -84,10 +85,11 @@ var mySwiper = new Swiper('.swiper-container', {
 	$(function(){
 
 		shareData = {
-		    title: '第一章：路易威登基金会▪起航',
+		    title: '路易威登基金会▪起航',
 		    desc: '艺术与建筑的碰撞，一个美梦成真的故事',
 		    url: window.location.host + '/fondation/#1'
 		};
+		editShare();
 
 		/* loading */
 		var imgSrcArr = [];

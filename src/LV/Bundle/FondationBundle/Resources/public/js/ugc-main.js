@@ -1,7 +1,7 @@
 
 
 var _doing = {
-			curChoseGlassDreamNum : 1,
+			curChoseGlassDreamNum : 0,
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
 			dreamListData : function(){     //index
@@ -32,15 +32,15 @@ var _doing = {
 				        paginationClickable: true,
 				        loop: true,
 				        onTouchEnd: function(swiper){
-					    	if(swiper.swipeDirection == "next"){
+					    	if(swiper.swipeDirection == "prev"){
 				        		_doing.curChoseGlassDreamNum--;
-				        		if(_doing.curChoseGlassDreamNum<1){
-				        			_doing.curChoseGlassDreamNum = dreamSelectedData.length;
+				        		if(_doing.curChoseGlassDreamNum < 0){
+				        			_doing.curChoseGlassDreamNum = dreamSelectedData.length-1;
 				        		}
-				        	}else if(swiper.swipeDirection == "prev"){
+				        	}else if(swiper.swipeDirection == "next"){
 				        		_doing.curChoseGlassDreamNum++;
-				        		if(_doing.curChoseGlassDreamNum>=dreamSelectedData.length){
-				        			_doing.curChoseGlassDreamNum = 1;
+				        		if(_doing.curChoseGlassDreamNum > dreamSelectedData.length){
+				        			_doing.curChoseGlassDreamNum = 0;
 				        		}
 				        	}
 					    }

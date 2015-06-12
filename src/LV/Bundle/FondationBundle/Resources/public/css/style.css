@@ -341,13 +341,24 @@ html,body,#dreambox{
 	position: relative;
 }
 
-.coordinate_link{
+.coordinate_link,.coordinate_link_chpater4{
 	width: 30%;
 	height: 56px;
 	position: absolute;
 	left: 0;
 	top: 5em;
 	z-index: 2;
+}
+
+.coordinate_link{
+	left: -0.2em;
+ 	top: 4.8em;
+}
+
+.coordinate_link_chpater4{
+	left: auto;
+	right: 6.2em;
+	top: 7.6em;
 }
 
 .point{
@@ -629,7 +640,7 @@ html,body,#dreambox{
 	position: relative;
 	display: inline-block;
 	width:96%;
-	margin: 0 0 1.2em 2%;
+	margin: 0 0 3.6em 2%;
 	
 }
 .invitation{
@@ -687,12 +698,45 @@ html,body,#dreambox{
 
 }
 /* share */
-.handTips{
-	width: 20%;
+.hand_dot{
+	width: 22px;
+	height: 22px;
+	background: url("/images/form/hand_dot.png") center top no-repeat;
+	background-size: 100% auto;
 	position: absolute;
 	left: 50%;
-	margin: 0 0 0 -10%;
-	top: 20%; 
+	top: 0;
+	margin: 0 0 0 -14px;
+}
+
+.hands_active{
+	width: 32px;
+	height: 90px;
+	background: url("/images/form/hand.png") center top no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 50%;
+	top: 14px;
+	margin: 0 0 0 -12px;
+}
+
+.c_dot{
+	width: 9px;
+	height: 9px;
+	border-radius: 13px;
+	background: #008dae;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -4.5px 0 0 -4.5px; 
+}
+
+.handTips{
+	width: 60px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -30px;
+	top: 18%; 
 	height: 96px;
 	z-index: 6;
 	background: url("/images/hand-1.png") center top no-repeat;
@@ -701,59 +745,68 @@ html,body,#dreambox{
 }
 
 
-.handTips { 
-  -webkit-animation: shine 1.5s infinite ease-in-out;
-     -moz-animation: shine 1.5s infinite ease-in-out;
-          animation: shine 1.5s infinite ease-in-out;
+.c_dot { 
+  -webkit-animation: dot_anidot_ani 2s infinite linear;
+     -moz-animation: dot_ani 2s infinite linear;
+          animation: dot_ani 2s infinite linear;
 }
 
 
-/*.handTips { 
-  -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
-     -moz-animation: handTips_ani 1.5s infinite ease-in-out;
-          animation: handTips_ani 1.5s infinite ease-in-out;
+.hands_active { 
+  -webkit-animation: handTips_ani 1.5s infinite linear;
+     -moz-animation: handTips_ani 1.5s infinite linear;
+          animation: handTips_ani 1.5s infinite linear;
 }
-
 
 @-webkit-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @-moz-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-}*/
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
+}
+
+
+
+@-webkit-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@-moz-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+
+
+
+
 
 .handTips span{
 	width: 100%;
@@ -785,9 +838,8 @@ html,body,#dreambox{
 
 }
 .share_btn{
-	background: none;
 	width:40%;
-	border: 1px solid #000;
+	border: 1px solid #010101;
 	font-size: 1.2em;
 	padding: 6px 0px;
 	font-weight: bold;
@@ -797,7 +849,8 @@ html,body,#dreambox{
 	bottom: 1em;
 	margin: 0 0 0 -20%;
 	z-index: 10;
-	background: #fff;
+	background: #ececec;
+	color: #040301;
 }
 /* address */
 .intro{
@@ -1755,12 +1808,22 @@ html,body,#dreambox{
    .point{
 		top: 72%;
 	}
+
+	.coordinate_link_chpater4{
+		right: 8em;
+  		top: 8.5em;
+	}
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
     .point{
 		top: 56%;
+	}
+
+	.coordinate_link_chpater4{
+		right: 7.2em;
+  		top: 8.2em;
 	}
 }
 

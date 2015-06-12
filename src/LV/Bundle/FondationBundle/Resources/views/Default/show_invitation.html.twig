@@ -1,9 +1,16 @@
 {% extends 'LVFondationBundle::layout.html.twig' %} 
+{% block title %}创梦当代{% endblock %}
 {% block dreambox %}
 	<div id="wechatTips"></div>
 	<div class="share">
 
-		<div class="handTips"><span>长按保存<br />
+		<div class="handTips" id="handTips">
+			<div class="hand_dot">
+				<div class="c_dot"></div>
+				<div class="hands_active"></div>
+			</div>
+
+			<span>长按保存<br />
 邀请函</span></div>
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" width="100%" class="header_img"/>
@@ -16,6 +23,7 @@
 	;(function($){
 		$(function(){
 
+			$("body").css({"background":"#ececec"});
 			shareData = {
 			    title: '第四章：路易威登基金会▪创梦当代',
 			    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能',
@@ -23,6 +31,7 @@
 			    	window.location.href="/fondation/ugc";
 			    }
 			};
+			editShare();
 
 			$(".share_btn").click(function(){
 				$("#wechatTips").fadeIn();
@@ -33,6 +42,16 @@
 				$("#wechatTips").fadeOut();
 				return false;
 			} , false)
+
+			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
+				ev.preventDefault();
+				$(".handTips").hide();
+				setTimeout(function(){
+					$(".handTips").fadeIn();
+				},5000);
+				return false;
+			} , false)
+
 
 			var imgSrcArr = [];
 			loadingFun(imgSrcArr);

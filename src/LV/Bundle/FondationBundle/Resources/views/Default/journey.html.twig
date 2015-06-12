@@ -1,5 +1,5 @@
 {% extends 'LVFondationBundle::journeylayout.html.twig' %}
-{% block title %}LV Journey{% endblock %}
+{% block title %}筑梦之旅{% endblock %}
 {% block dreambox %}
 
 
@@ -78,6 +78,7 @@
 		    	window.location.href = $(".dreamParameters").attr("data-url");
 		    }
 		};
+		editShare();
 		
 		document.addEventListener('touchmove' , function (ev){
 				ev.preventDefault();

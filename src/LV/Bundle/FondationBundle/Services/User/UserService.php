@@ -317,7 +317,7 @@ class UserService
 
             $this->dreamView($dream);
 
-            $dreamcount = $dream->getId();
+            // $dreamcount = $dream->getId();
             $nickname = $dream->getNickname();
             $content = $dream->getContent();
             $days = ceil((time() - $dream->getCreated()) / (3600 * 24));
@@ -333,7 +333,7 @@ class UserService
             }
 
             $dreaminfo = array(
-                'dreamcount' => $dreamcount,
+                'dreamcount' => $dream_id,
                 'dream_id' => $dream_id,
                 'nickname' => $nickname,
                 'content' => $content,

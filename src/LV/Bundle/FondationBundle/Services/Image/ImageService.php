@@ -35,7 +35,7 @@ class ImageService
         $bg = ImageCreateFromPng("images/imagesevice/createImg.png");
         imagecopyresized($authimg,$bg,0,0,0,0,$width,$height,$width,$height); 
 
-        $fontfile ="images/imagesevice/helvetica.ttf";
+        $fontfile ="images/imagesevice/AdobeFanHeitiStd-Bold.otf";
         putenv('GDFONTPATH=' . realpath($fontfile));
 
         $font_color = ImageColorAllocate($authimg,0,0,0); 

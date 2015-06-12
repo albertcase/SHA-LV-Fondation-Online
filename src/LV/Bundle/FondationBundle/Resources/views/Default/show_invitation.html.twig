@@ -15,7 +15,10 @@
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" height="100%" class="header_img"/>
 		{% if user.id == invitation.user.id %}
-		<input type="submit" value="分享" class="share_btn">
+		<div class="invitation_footer">
+			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
+			<input type="submit" value="分享" class="share_btn">
+		</div>
 		{% endif %}
 	</div>	
 

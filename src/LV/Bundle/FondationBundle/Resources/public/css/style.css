@@ -831,6 +831,8 @@ html,body,#dreambox{
 .share{
 	background:#ececec;
 	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .share_name{
 	position: relative;
@@ -862,6 +864,15 @@ html,body,#dreambox{
 	background: #ececec;
 	color: #040301;
 }
+
+.invitation_footer{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+
 /* address */
 .intro{
 	position: relative;

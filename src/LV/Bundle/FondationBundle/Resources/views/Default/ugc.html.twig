@@ -76,7 +76,11 @@
 		</div>
 
 		<div class="dream_footer">
-		    <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% if userdream %}
+		    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
 		    <a href="/fondation">
 		        <img src="/images/ugc/story.jpg" width="100%" />
 		    </a>
@@ -109,7 +113,11 @@
 		</div>	
 		
 		<div class="dream_footer">
-		    <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+		    {% if userdream %}
+		    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
 		    <a href="/fondation">
 		        <img src="/images/ugc/story.jpg" width="100%" />
 		    </a>
@@ -132,7 +140,7 @@
 		<div class="create_con">
 			<div class="create-content">
 
-				<div class="create-num">你是构建路易威登基金会的<br />第<span></span>块玻璃</div>
+				<div class="create-num">路易威登基金会<br />现已构建 <span></span> 块玻璃</div>
 				<div class="create-context">
 					<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容"></textarea>
 				</div>
@@ -154,17 +162,6 @@
 	</div>
 
 </div>
-
-
-
-
-<!-- <div class="dream_footer">
-    <a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
-    <a href="javascript:;" class="btn finshBtn">完成</a>
-    <a href="javascript:;">
-        <img src="" sourcesrc="/images/ugc/story.jpg" width="100%" />
-    </a>
-</div> -->
 
 
 
@@ -194,12 +191,12 @@
 			var creatTextCon = $(".creatTextCon").val(),
 				creatTextName = $(".creatTextName").val();
 				if(creatTextCon == ""){
-					$(".creatTextCon").addClass("error").attr("placeholder","内容不能为空！");
+					$(".creatTextCon").addClass("error").attr("placeholder","请输入内容");
 					return false;
 				}
 
 				if(creatTextName == ""){
-					$(".creatTextName").addClass("error").attr("placeholder","姓名不能为空！");
+					$(".creatTextName").addClass("error").attr("placeholder","请输入姓名");
 					return false;
 				}else{
 					$(this).addClass("isdoing").val("正在加载...");

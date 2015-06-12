@@ -98,7 +98,6 @@ var _doing = {
 			},
 			getCreateData : function(){   //跳转到创建页面
 				pagechange.moveClick('create');
-				$(".create-num span").html("2340<sup>th</sup>");
 			},
 			formData : function(){    //检测表单函数
 				var fname = $("input[name='fname']"),
@@ -156,6 +155,8 @@ var _doing = {
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
 			    		window.location.href = data.url+"#share";
+			    	}else if(data.status == 023){
+			    		alert("您已提交过梦想");
 			    	}else{
 			    		alert("创建失败!");
 			    	}

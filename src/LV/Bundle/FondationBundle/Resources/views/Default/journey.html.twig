@@ -27,7 +27,7 @@
     
             <div class="swiper-slide">
 
-            	<div class="dreamParameters">
+            	<div class="dreamParameters" data-url={{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}>
             		<div class="dreamInfo">
 	            		<div class="dp_text">
 	            			{{ userdream.content }}
@@ -73,7 +73,10 @@
 		shareData = {
 		    title: '路易威登基金会▪梦想启航',
 		    desc: '我的梦想已经扬帆！和你的一样吗？',
-		    url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}'
+		    url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}',
+		    returnFun: function(){
+		    	window.location.href = $(".dreamParameters").attr("data-url");
+		    }
 		};
 		
 		document.addEventListener('touchmove' , function (ev){

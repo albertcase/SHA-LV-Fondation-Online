@@ -1,8 +1,11 @@
 var shareData = {
     title: '第一章：路易威登基金会▪起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    link: window.location.host,
-    imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+    link: window.location.host + "/fondation",
+    imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    returnFun: function(){
+        //alert(6);
+    }
 };
 
 
@@ -88,6 +91,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
                 } 
             }
             
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
@@ -112,6 +116,8 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
                     pagechange.moveClick('form');
                 } 
             }
+
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 

@@ -154,10 +154,15 @@ html,body,#dreambox{
 }
 
 .chapter-l span, .chapter-r span{
-    width: 100%;
+    width: 50%;
     position: absolute;
     left: 0;
     top: 49%;
+}
+
+.chapter-r span{
+	left: auto;
+	right: 0;
 }
 
 .chapter-l span img, .chapter-r span img{

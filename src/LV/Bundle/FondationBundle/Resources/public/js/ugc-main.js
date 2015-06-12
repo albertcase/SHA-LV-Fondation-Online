@@ -13,8 +13,8 @@ var _doing = {
 				);
 
 				var dreamSwiper = $('.dream-swiper').swiper({
-					nextButton: '.listPrev',
-			        prevButton: '.listNext',
+					nextButton: '.listNext',
+			        prevButton: '.listPrev',
 			        paginationClickable: true,
 			        loop: true
 				});

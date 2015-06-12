@@ -57,6 +57,11 @@
 <div class="page" id="chose" data-page="chose">
 
 	<div class="demo-test">
+		<a href="javascript:pagechange.moveClick('index');" class="backBtn">
+			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
+			返回
+		</a>
+
 		<div class="choseGlass">
 			<div class="glassTips"><img src="" sourcesrc="/images/ugc/green-dot.png" width="100%" />点击玻璃，了解大家的梦想之旅</div>
 			<div class="swiper-container glass-swiper">
@@ -142,7 +147,7 @@
 
 				<div class="create-num">路易威登基金会<br />现已构建 <span>{{ dreamcount }}</span> 块玻璃</div>
 				<div class="create-context">
-					<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容"></textarea>
+					<textarea name="" class="creatTextCon" maxlength="30" cols="" rows="" placeholder="请输入创作内容(30字)"></textarea>
 				</div>
 				<div class="create-name">
 					<input type="text" class="creatTextName" placeholder="请输入您的姓名">

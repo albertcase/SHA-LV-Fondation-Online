@@ -35,7 +35,7 @@ class PageController extends Controller
 
         if($percentage <= 20)
             $imagename = '20';
-        if($percentage > 20 && $percentage <= 50 )
+        if($percentage > 20 && $percentage <= 50)
             $imagename = '50';
         if($percentage > 50 && $percentage <= 80)
             $imagename = '80';
@@ -59,9 +59,7 @@ class PageController extends Controller
                     array('id' => $dream->getId()),
                     true
                 );
-        } 
-
-
+        }
 
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array(
             'default_dreams_home' => $default_dreams_home, 

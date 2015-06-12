@@ -40,11 +40,11 @@ class LVPageRequestListener
 
             if(!$this->userservicve->userIsLogin()) {
 
-                // $url = $event->getRequest()->getRequestUri();
+                $url = $event->getRequest()->getRequestUri();
 
-                // $isWechatLogin = $this->wechatservice->isLogin($url);
+                $isWechatLogin = $this->wechatservice->isLogin($url);
                 
-                $isWechatLogin = md5(microtime(true));
+                // $isWechatLogin = md5(microtime(true));
                 
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);

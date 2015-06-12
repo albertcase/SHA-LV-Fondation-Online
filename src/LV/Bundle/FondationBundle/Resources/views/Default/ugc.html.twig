@@ -24,7 +24,7 @@
     					<p>梦想已完成</p>
     					<h2>{{ percentage }}<sup>%</sup></h2>
     				</div>
-    				<img src="" sourcesrc="/images/ugc/bulid-1.png" width="100%" />
+    				<img src="" sourcesrc="/images/ugc/bulid-{{ percentage }}.png" width="100%" />
     				<div class="d-tips"><img src="" sourcesrc="/images/ugc/enlarge_arr.png" width="80%" /></div>
     			</dd>
     		</dl>
@@ -140,7 +140,7 @@
 		<div class="create_con">
 			<div class="create-content">
 
-				<div class="create-num">路易威登基金会<br />现已构建 <span></span> 块玻璃</div>
+				<div class="create-num">路易威登基金会<br />现已构建 <span>{{ dreamcount }}</span> 块玻璃</div>
 				<div class="create-context">
 					<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容"></textarea>
 				</div>

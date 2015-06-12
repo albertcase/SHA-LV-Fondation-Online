@@ -52,15 +52,22 @@
 		    if(r!=null)return r; return null;
 		}
 
+		var defaultSlide = 0;
+		if(!GetQueryString()){
+			defaultSlide = 0;
+		}else{
+			defaultSlide = parseInt(GetQueryString()-1);
+		}
+		
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',
 			nextButton: '.swiper-button-next',
 	        prevButton: '.swiper-button-prev',
 	        paginationClickable: true,
 	        loop: true,
-	        initialSlide : parseInt(GetQueryString()-1),
-	        onSlideChangeEnd: function(swiper){
-	        	history.pushState("/", null, "#"+parseInt(swiper.activeIndex+1));
+	        initialSlide : defaultSlide,
+	        onTouchEnd: function(swiper){
+	        	history.pushState("/", null, "#"+parseInt(swiper.activeIndex));
 
 	        	switch(swiper.activeIndex){
 				case 0:

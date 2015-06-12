@@ -4,7 +4,6 @@
 /web/css/
 /web/js/
 /web/files/
-/app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*

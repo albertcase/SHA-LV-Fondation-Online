@@ -33,6 +33,15 @@ class PageController extends Controller
         if($percentage >= 100)
             $percentage = 100;
 
+        if($percentage <= 20)
+            $imagename = '20';
+        if($percentage <= 50)
+            $imagename = '50';
+        if($percentage <= 80)
+            $imagename = '80';
+        if($percentage <= 100)
+            $imagename = '100';
+
         $default_dreams_home = $this->getDoctrine()
             ->getRepository('LVFondationBundle:UserDream')
             ->retrieveDefaultDreams($user, 15);
@@ -60,6 +69,7 @@ class PageController extends Controller
             'percentage' => $percentage,
             'userdream' => $userdream,
             'dreamcount' => $dreamcount,
+            'imagename' => $imagename,
             ));
     }
 

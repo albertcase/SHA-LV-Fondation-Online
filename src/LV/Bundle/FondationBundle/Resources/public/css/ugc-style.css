@@ -7,30 +7,30 @@
 
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #999;
+    color:    #ccc;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #999;
+    color:    #ccc;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #999;
+    color:    #ccc;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #999;
+    color:    #ccc;
 }
 
 
 .error::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #f00;
+    color:    #999;
 }
 .error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #f00;
+    color:    #999;
 }
 .error::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #f00;
+    color:    #999;
 }
 .error:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #f00;
+    color:    #999;
 }
 
 html,body,#dreambox{
@@ -185,7 +185,7 @@ html,body,#dreambox{
 	display: inline-block; 
 	position: relative;
 	z-index: 2;
-	padding: 10% 0 0 0;
+	padding: 1% 0 0 0;
 }
 
 .dreamlist dd a{
@@ -289,7 +289,7 @@ html,body,#dreambox{
 
 .completionRatio p{
 	width: 100%;
-	padding:0 0 6px 0;
+	padding:0 0 1px 0;
 }
 
 .modelView{

@@ -8,16 +8,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ApiController extends Controller
 {
 
-    public function jssdkAction()
-    {
-        $http_data = array();
-        $http_data['url'] = $this->getRequest()->request->get('url');
-        $result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage?" . http_build_query($http_data));
-        $response = new JsonResponse();
-        $response->setData(json_decode($result));
-        return $response;
-    }
-    
     /** 
     * fondation_invite
     *

@@ -26,8 +26,8 @@ class PageController extends Controller
         $user = $this->container->get('lv.user.service')->userLoad();
 
         date_default_timezone_set('PRC'); 
-        $start_date = strtotime($this->container->getParameter('start_date'));
-        $end_date = strtotime($this->container->getParameter('end_date'));
+        $start_date = $this->container->getParameter('start_date');
+        $end_date = $this->container->getParameter('end_date');
         $now = strtotime(date("Y-m-d H:i:s"));
         $percentage = ceil((($now - $start_date) / ($end_date - $start_date)) * 100);
         if($percentage >= 100)
@@ -39,6 +39,9 @@ class PageController extends Controller
         $default_dreams_in = $this->getDoctrine()
             ->getRepository('LVFondationBundle:UserDream')
             ->retrieveDefaultDreams($user, 16);
+        $dreamcount = $this->getDoctrine()
+            ->getRepository('LVFondationBundle:UserDream')
+            ->retrieveDreamCount();
 
         $userdream = 0;
         if($dream = $user->getUserdream()) {
@@ -49,11 +52,14 @@ class PageController extends Controller
                 );
         } 
 
+
+
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array(
             'default_dreams_home' => $default_dreams_home, 
             'default_dreams_in' => $default_dreams_in, 
             'percentage' => $percentage,
             'userdream' => $userdream,
+            'dreamcount' => $dreamcount,
             ));
     }
 

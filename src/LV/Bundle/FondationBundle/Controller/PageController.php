@@ -35,11 +35,11 @@ class PageController extends Controller
 
         if($percentage <= 20)
             $imagename = '20';
-        if($percentage <= 50)
+        if($percentage > 20 && $percentage <= 50 )
             $imagename = '50';
-        if($percentage <= 80)
+        if($percentage > 50 && $percentage <= 80)
             $imagename = '80';
-        if($percentage <= 100)
+        if($percentage > 80 && $percentage <= 100)
             $imagename = '100';
 
         $default_dreams_home = $this->getDoctrine()

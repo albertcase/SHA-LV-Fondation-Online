@@ -226,6 +226,7 @@ html,body,#dreambox{
 
 .dreamTrip{
 	width: 100%;
+	overflow: hidden;
 }
 
 .dreamTrip img{
@@ -414,6 +415,20 @@ html,body,#dreambox{
   100% {opacity: 0;}
 }
 
+
+.chapter_hand{
+	width: 36%;
+	position: absolute;
+	left: 46%;
+	top: 76%;
+}
+
+.hand_rTips{
+	width: 30%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
 
 
 
@@ -767,7 +782,7 @@ html,body,#dreambox{
 }
 
 
-.hands_active { 
+.hands_active,.chapter_hand { 
   -webkit-animation: handTips_ani 1.5s infinite linear;
      -moz-animation: handTips_ani 1.5s infinite linear;
           animation: handTips_ani 1.5s infinite linear;

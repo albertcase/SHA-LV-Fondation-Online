@@ -71,7 +71,8 @@ class Wechat
 	*/ 
 	private function getAccessToken() {
 		$time = $this->_memcache->get('wechat_server_time');
-		if(strtotime($time) - time() <= 0){
+		$access_token = $this->_memcache->get('wechat_server_access_token');
+		if((strtotime($time) - time() <= 0) || !$access_token){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
 			$result = json_decode($result, true);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
@@ -92,7 +93,8 @@ class Wechat
 	public function getJsTicket($url) {
 		$appid = $this->_container->getParameter('appid');
 		$time = $this->_memcache->get('wechat_server_time');
-		if(strtotime($time) - time() <= 7200){
+		$ticket = $this->_memcache->get('wechat_server_ticket');
+		if((strtotime($time) - time() <= 7200) || !$ticket){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
 			$result = json_decode($result, true);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);

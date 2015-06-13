@@ -182,9 +182,10 @@ class Wechat
 		$result = curl_exec($curl);
 		curl_close($curl);
 		$result = json_decode($result,true);
-		$response = new JsonResponse();
-        $response->setData($result);
-        return $response;
+		if($result['errcode']==0){
+			return 1;
+		}
+		return 0;
 	}
 
 	public function isSubscribed($openid, $lang = 'zh_CN'){

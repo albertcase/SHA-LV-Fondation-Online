@@ -41,22 +41,33 @@ class DefaultController extends Controller
     }
 
     public function tableAction()
+    {   
+        $page = $this->getRequest()->query->get('page');
+        $row  = $this->getRequest()->query->get('row') ? $this->getRequest()->query->get('row') : 10;
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
+        $list = $repository->findBy(array(), null, $row, ($page-1)*$row);
+        return $this->render('SameAdminBundle:Default:table.html.twig', array('list' => $list));
+    }
+
+    public function reviewAction()
     {
-        return $this->render('SameAdminBundle:Default:table.html.twig');
+        $id = $this->getRequest()->query->get('id');
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
+        $userDream = $repository->findOneById($id);
+        $status = $userDream->getStatus();
+        $newStatus = abs($status - 1);
+        $em = $this->getDoctrine()->getManager();
+        $userDream->setStatus($newStatus);
+        $em->flush();
+        $returnMsg = array('code'=>1, 'msg'=>$newStatus);
+        $response = new JsonResponse();
+        $response->setData($returnMsg);
+        return $response;
     }
 
     public function dbtocsvAction()
     {
         return $this->render('SameAdminBundle:Default:upload.html.twig');
-    }
-
-    public function listAction()
-    {
-        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
-        $rs = $repository->findAll();
-        $response = new JsonResponse();
-        $response->setData($rs);
-        return $response;
     }
 
     public function clearAction()

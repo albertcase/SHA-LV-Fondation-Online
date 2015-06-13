@@ -557,15 +557,18 @@ var loadingFun = function(imgSrcArr){
 var shareData = {
     title: '第一章：路易威登基金会▪起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    link: window.location.host,
-    imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+    link: window.location.host + "/fondation",
+    imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    returnFun: function(){
+        //alert(6);
+    }
 };
 
 
 
 function wechatFun(){
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/same/wechat/jssdk",
         data: {
             "url": window.location.href
@@ -636,8 +639,15 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数
+            if(GetQueryString()!=null && GetQueryString()=="share"){
+                if($("#share").attr("data-hasinfo")==1){
+                    pagechange.moveClick('view')
+                }else{
+                    pagechange.moveClick('form');
+                } 
+            }
             
-            
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
@@ -654,11 +664,21 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
+
+            if(GetQueryString()!=null && GetQueryString()=="share"){
+                if($("#share").attr("data-hasinfo")==1){
+                    pagechange.moveClick('view')
+                }else{
+                    pagechange.moveClick('form');
+                } 
+            }
+
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
             // 用户取消分享后执行的回调函数
-           // alert("分享失败")
+            // alert("分享失败")
         }
     });
       
@@ -682,7 +702,59 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
 
 
+function editShare(){   ///demon
+     wx.onMenuShareTimeline({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
 
+               if(GetQueryString()!=null && GetQueryString()=="share"){
+                    if($("#share").attr("data-hasinfo")==1){
+                        pagechange.moveClick('view')
+                    }else{
+                        pagechange.moveClick('form');
+                    } 
+                }
+
+                shareData.returnFun();
+                
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+                // alert("分享失败")
+            }
+        });
+        
+        
+        wx.onMenuShareAppMessage({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            desc: shareData.desc,
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+
+                if(GetQueryString()!=null && GetQueryString()=="share"){
+                    if($("#share").attr("data-hasinfo")==1){
+                        pagechange.moveClick('view')
+                    }else{
+                        pagechange.moveClick('form');
+                    } 
+                }
+
+                shareData.returnFun();
+
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+               // alert("分享失败")
+            }
+        });
+}
 
 
 
@@ -767,7 +839,7 @@ function GetQueryString_q(name){
         //   return false;
         // } , false)
 
-        var pageArr = ["index","chose","selected","create","form","attention","poster"];
+        var pageArr = ["index","chose","selected","create","form","attention","share","poster","edit","view","friendEnter"];
         var $page = $('.page');
 
         function pageSlideOver(){
@@ -839,18 +911,8 @@ function GetQueryString_q(name){
 
                 if(curclick=="create"||curclick=="form"){
                     $("#dreambox").css({"height":$(window).height()});
-                    // $(".creatBtn").css("display","none");
-                    // $(".finshBtn").css("display","inline-block");
                     
-                }else{
-                    // $(".finshBtn").css("display","none");
-                    // $(".creatBtn").css("display","inline-block");
                 }
-
-
-                // if(curclick=="create"||curclick=="form"||curclick=="attention"||curclick=="selected"){
-                //     $(".head").css({"height":"56px"});
-                // }
 
             }
 
@@ -901,8 +963,8 @@ var _doing = {
 				);
 
 				var dreamSwiper = $('.dream-swiper').swiper({
-					nextButton: '.listPrev',
-			        prevButton: '.listNext',
+					nextButton: '.listNext',
+			        prevButton: '.listPrev',
 			        paginationClickable: true,
 			        loop: true
 				});
@@ -915,19 +977,19 @@ var _doing = {
 				}).join(""));
 
 				var glassSwiper = $('.glass-swiper').swiper({
-						nextButton: '.glassArr-prev',
-				        prevButton: '.glassArr-next',
+						nextButton: '.glassArr-next',
+				        prevButton: '.glassArr-prev',
 				        paginationClickable: true,
 				        loop: true,
-				        onSlideChangeEnd: function(swiper){
-				        	if(swiper.swipeDirection == "prev"){
+				        onTouchEnd: function(swiper){
+					    	if(swiper.swipeDirection == "prev"){
 				        		_doing.curChoseGlassDreamNum--;
-				        		if(_doing.curChoseGlassDreamNum<0){
-				        			_doing.curChoseGlassDreamNum = dreamSelectedData.length;
+				        		if(_doing.curChoseGlassDreamNum < 0){
+				        			_doing.curChoseGlassDreamNum = dreamSelectedData.length-1;
 				        		}
 				        	}else if(swiper.swipeDirection == "next"){
 				        		_doing.curChoseGlassDreamNum++;
-				        		if(_doing.curChoseGlassDreamNum>13){
+				        		if(_doing.curChoseGlassDreamNum > dreamSelectedData.length){
 				        			_doing.curChoseGlassDreamNum = 0;
 				        		}
 				        	}
@@ -947,7 +1009,7 @@ var _doing = {
 			getSelectedData : function(dreamSelectedData,curChoseGlass){    //selected
 				
 				var choseGlassnum = _doing.curChoseGlassDreamNum;
-	
+				
 				var selectedDataInfo = $.map(dreamSelectedData,function(v,k){
 						var islikeVal = "",islikecon = "支持";
 						if(k==choseGlassnum){
@@ -981,19 +1043,11 @@ var _doing = {
 					$("#wechatTips").fadeIn();
 				})
 
-				document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-					ev.preventDefault();
-					$("#wechatTips").fadeOut();
-					return false;
-				} , false)
-
+	
 
 			},
 			getCreateData : function(){   //跳转到创建页面
-				$(".creatBtn").css("display","none");
-                $(".finshBtn").css("display","inline-block");
 				pagechange.moveClick('create');
-				$(".create-num span").html("2340<sup>th</sup>");
 			},
 			formData : function(){    //检测表单函数
 				var fname = $("input[name='fname']"),
@@ -1050,7 +1104,11 @@ var _doing = {
 			    }).done(function(data){
 			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    	if(data.status == 1){
-			    		window.location.href="result";
+			    		window.location.href = data.url+"#share";
+			    	}else if(data.status == 023){
+			    		alert("您已提交过梦想");
+			    	}else{
+			    		alert("创建失败!");
 			    	}
 			    })
 			},
@@ -1063,9 +1121,24 @@ var _doing = {
 				    },
 				    dataType:"json" 
 			    }).done(function(data){
-			    	// if(data.status == 1){
-			    	// 	window.location.href="result";
-			    	// }
+			    	
+			    })
+			},
+			submitModifyCreateFun : function(nickname,content){
+				$.ajax({
+				    type: "POST",
+				    url: "/fondation/api/dreamupdate",
+				    data: {
+				    	"nickname":nickname, "content":content
+				    },
+				    dataType:"json" 
+			    }).done(function(data){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
+			    	if(data.status == 1){
+			    		pagechange.moveClick('share');
+			    		$("#share .creatTextCon").val(content);
+			    		$("#share .creatTextName").val(nickname);
+			    	}
 			    })
 			}
 			
@@ -1073,17 +1146,16 @@ var _doing = {
 
 
 
+
+
 ;(function($){
 	$(function(){
 
-		_doing.dreamListData();
-		_doing.getGlassData();
-		// _doing.getSelectedData();
-
-		if(GetQueryString()=="create"){
-			_doing.getCreateData();
-		}
-
+		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+			ev.preventDefault();
+			$("#wechatTips").fadeOut();
+			return false;
+		} , false)
 
 		$(".formSubmit_btn").click(function(){
 			if($(this).hasClass("isdoing_form"))return false;

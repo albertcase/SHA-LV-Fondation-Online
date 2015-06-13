@@ -1,42 +1,16 @@
-;(function($){
-    $(function(){
-
-        function dataList(page){
-            $.get(BASEURL+"/same/admin/list",{"page": page},function(result){
-                    var htm = '';
-                    for(var i = 0; i < result.length; i++){
-                        htm += '<tr  role="row">';
-                        htm += '<td align="center">'+result[i].id+'</td>';
-                        htm += '<td align="center">'+result[i].nickname+'</td>';
-                        htm += '<td align="center">'+result[i].content+'</td>';
-                        htm += '<td align="center">'+result[i].created+'</td>';
-                        htm += '<td align="center">'+result[i].status+'</td>';
-                        htm += '</tr>';
-                    }   
-                    $('#table').val(htm);           
-                }
-            ),'json'
-        }
-        dataList(1)
-
-        $(".sub_btn").on("click",function(){
-            var account=$(".account").val();
-            var password=$(".password").val();
-            usrLoginFun(account,password);
-
-
-        });
-        $(".upload_btn").on("click",function(){
-            var code=$("#code").val();
-            if(code==""){
-                alert("请输入您的编号！");
-                return false;
+function review(id){
+    $.ajax({
+        url:BASEURL+"/same/admin/review",
+        type:"get",
+        data:{"id":id},
+        dataType:"json",
+        success:function(data){
+            if(data.msg==1){
+                $("#review_"+id).attr("class","statusOn");
+            }else{
+                $("#review_"+id).attr("class","statusOff");
             }
-
-        });
-        
-  
+        }
     })
-})(jQuery)
-
+}
 

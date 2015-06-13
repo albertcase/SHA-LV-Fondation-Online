@@ -2,7 +2,7 @@
 /* =reset 网页样式重置
 ------------------------------------------------------------------------------------------------------------------------------*/
 html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
-body { font-size:0.75em;}
+body { font-size:0.75em; font-family: "微软雅黑"; }
 label { cursor:pointer;}
 a:link, a:visited { text-decoration:none;}
 input:focus { outline: none; }
@@ -158,9 +158,9 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 }
 
 .close{
-	width: 14%;
+	width: 12%;
 	display: inline-block;
-	font-size: 1.4em;
+	font-size: 1.2em;
 	color: #d0d0d0;
 	text-align: center;
 }
@@ -191,7 +191,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 	width: 82%;
 	position: absolute;
 	right: 5%;
-	top: 20%;
+	top: 25%;
 }
 
 .nav_icon{
@@ -200,7 +200,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 	text-align: center;
 	position: absolute;
 	left: 4%;
-	top: 18%;
+	top: 22%;
 }
 
 .nav_icon img{

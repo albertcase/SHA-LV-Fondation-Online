@@ -1,3 +1,6 @@
+same_admin_review:
+    path:     /same/admin/review
+    defaults: { _controller: SameAdminBundle:Default:review }
 same_admin_dbtocsv:
     path:     /same/admin/dbtocsv
     defaults: { _controller: SameAdminBundle:Default:dbtocsv }

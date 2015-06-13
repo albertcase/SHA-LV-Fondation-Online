@@ -26,7 +26,7 @@ function wechatFun(){
 }
 
 
-
+alert(6)
 function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
   wx.config({

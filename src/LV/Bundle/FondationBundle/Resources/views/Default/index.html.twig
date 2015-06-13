@@ -97,6 +97,7 @@
 			defaultSlide = 0;
 		}else{
 			defaultSlide = parseInt(GetQueryString());
+			shareInfo(defaultSlide);
 		}
 
 		
@@ -131,8 +132,8 @@
 		    }
 		});
 
-		shareInfo(defaultSlide);
 		
+
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
 

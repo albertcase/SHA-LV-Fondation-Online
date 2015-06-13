@@ -126,16 +126,16 @@
 	        		
 	        	}
 	        	history.pushState("/", null, "#"+parseInt(defaultSlide));
-	        	//console.log(defaultSlide);
-	        	shareInfo(swiper.activeIndex);
-		        //console.log(swiper.activeIndex)
+
+	        	shareInfo(defaultSlide);
 		    }
 		});
 
+		shareInfo(defaultSlide);
+		
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
 
-		shareInfo(defaultSlide);
 
 
 	})

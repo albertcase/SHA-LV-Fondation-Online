@@ -49,13 +49,14 @@
 
 		function shareInfo(curIndex){
 			switch(curIndex){
-			case 0:
-			    shareData = {
-			        title: '路易威登基金会▪起航',
-			        desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-			        url: window.location.host + '/fondation/#0',
+			case 4:
+				shareData = {
+				    title: '路易威登基金会▪创梦当代',
+				    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能',
+				    url: window.location.host + '/fondation/#3',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
+			    
 			  break;
 			case 1:
 			    shareData = {
@@ -75,9 +76,9 @@
 			  break;
 			default:
 			    shareData = {
-				    title: '路易威登基金会▪创梦当代',
-				    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能',
-				    url: window.location.host + '/fondation/#3',
+			        title: '路易威登基金会▪起航',
+			        desc: '艺术与建筑的碰撞，一个美梦成真的故事',
+			        url: window.location.host + '/fondation/#0',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
 			}
@@ -99,7 +100,7 @@
 		}
 
 		
-		console.log(defaultSlide)
+		//console.log(defaultSlide)
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',
 			nextButton: '.swiper-button-next',

@@ -95,15 +95,17 @@ class Wechat
 		$time = $this->_memcache->get('wechat_server_time');
 		$ticket = $this->_memcache->get('wechat_server_ticket');
 		if((!$ticket) || (strtotime($time) - time() <= 7200)){
-			echo 1;die;
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
 			$result = json_decode($result, true);
+			var_dump($result);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
 			
 		}
 		$ticket = $this->_memcache->get('wechat_server_ticket');
+		echo  $tictet;
+		exit;
 		$str = '1234567890abcdefghijklmnopqrstuvwxyz';
 		$noncestr = '';
 		for($i=0;$i<8;$i++){

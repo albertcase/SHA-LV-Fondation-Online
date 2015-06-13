@@ -137,14 +137,6 @@ function editShare(){   ///demon
             success: function () {
                 // 用户确认分享后执行的回调函数
 
-               if(GetQueryString()!=null && GetQueryString()=="share"){
-                    if($("#share").attr("data-hasinfo")==1){
-                        pagechange.moveClick('view')
-                    }else{
-                        pagechange.moveClick('form');
-                    } 
-                }
-
                 shareData.returnFun();
                 
                 //alert('分享成功');
@@ -163,14 +155,6 @@ function editShare(){   ///demon
             desc: shareData.desc,
             success: function () { 
                 // 用户确认分享后执行的回调函数
-
-                if(GetQueryString()!=null && GetQueryString()=="share"){
-                    if($("#share").attr("data-hasinfo")==1){
-                        pagechange.moveClick('view')
-                    }else{
-                        pagechange.moveClick('form');
-                    } 
-                }
 
                 shareData.returnFun();
 

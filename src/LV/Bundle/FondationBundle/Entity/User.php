@@ -352,7 +352,7 @@ class User
      * @param \LV\Bundle\FondationBundle\Entity\UserPhotocCode $userphotocode
      * @return User
      */
-    public function setUserphotocode(\LV\Bundle\FondationBundle\Entity\UserPhotocCode $userphotocode = null)
+    public function setUserphotocode(\LV\Bundle\FondationBundle\Entity\UserPhotoCode $userphotocode = null)
     {
         $this->userphotocode = $userphotocode;
 

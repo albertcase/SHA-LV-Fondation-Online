@@ -1215,3 +1215,11 @@ div.column_half {
 	}
 }
 
+.statusOn{
+	color: #0000FF;
+}
+.statusOff{
+	color: #FF0000;
+}
+
+

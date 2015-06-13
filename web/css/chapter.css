@@ -2,7 +2,7 @@
 /* =reset 网页样式重置
 ------------------------------------------------------------------------------------------------------------------------------*/
 html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
-body { font-size:0.75em;}
+body { font-size:0.75em; font-family: "微软雅黑"; }
 label { cursor:pointer;}
 a:link, a:visited { text-decoration:none;}
 input:focus { outline: none; }
@@ -173,9 +173,9 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 }
 
 .close{
-	width: 14%;
+	width: 12%;
 	display: inline-block;
-	font-size: 1.4em;
+	font-size: 1.2em;
 	color: #d0d0d0;
 	text-align: center;
 }
@@ -206,7 +206,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 	width: 82%;
 	position: absolute;
 	right: 5%;
-	top: 20%;
+	top: 25%;
 }
 
 .nav_icon{
@@ -215,7 +215,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 	text-align: center;
 	position: absolute;
 	left: 4%;
-	top: 18%;
+	top: 22%;
 }
 
 .nav_icon img{
@@ -447,6 +447,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	position: relative;
+	overflow-x: hidden;
 	/*background: #f1f1f1;*/
 
 	-ms-overflow-scrolling: hidde; 
@@ -553,7 +554,7 @@ html,body,#dreambox{
 
 
 .chapter-l,.chapter-r{
-	width: 3%;
+	width: 6%;
 	height: 100%;
 	float: left;
 	display: inline-block;
@@ -563,10 +564,15 @@ html,body,#dreambox{
 }
 
 .chapter-l span, .chapter-r span{
-    width: 100%;
+    width: 50%;
     position: absolute;
     left: 0;
     top: 49%;
+}
+
+.chapter-r span{
+	left: auto;
+	right: 0;
 }
 
 .chapter-l span img, .chapter-r span img{
@@ -623,10 +629,13 @@ html,body,#dreambox{
 	margin: 0;
 }
 
-.dreamTrip, .dreamTrip img{
+.dreamTrip{
 	width: 100%;
 }
 
+.dreamTrip img{
+	width: 106%;
+}
 
 
 
@@ -662,7 +671,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	padding: 12% 0 0 0;
+	/*padding: 12% 0 0 0;*/
 }
 
 .contentImg{
@@ -731,7 +740,7 @@ html,body,#dreambox{
 	width: 100%;
 	position: relative;
 	text-align: center;
-	margin: 10% 0 6% 0;
+	margin: 16% 0 6% 0;
 }
 
 .mapInfo h2{
@@ -750,7 +759,7 @@ html,body,#dreambox{
 	position: relative;
 }
 
-.coordinate_link{
+.coordinate_link,.coordinate_link_chpater4{
 	width: 30%;
 	height: 56px;
 	position: absolute;
@@ -758,6 +767,60 @@ html,body,#dreambox{
 	top: 5em;
 	z-index: 2;
 }
+
+.coordinate_link{
+	left: -0.2em;
+ 	top: 4.8em;
+}
+
+.coordinate_link_chpater4{
+	left: auto;
+	right: 6.2em;
+	top: 7.6em;
+}
+
+.point{
+	width: 20%;
+	height: 40%;
+	background: url("/images/chapter2/points.png") no-repeat;
+	background-size: 100% auto;
+	display: inline-block;
+	position: absolute;
+	top: 40%;
+}
+
+
+.point { 
+    -webkit-animation: pointAni 2s infinite ease-in-out;
+    -moz-animation: pointAni 2s infinite ease-in-out;
+    animation: pointAni 2s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes pointAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-moz-keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
+
+
 
 .activeTips_chapter2{
 	width: 100%;
@@ -776,7 +839,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: relative;
 }
 
@@ -820,7 +883,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building_fin.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -893,6 +956,7 @@ html,body,#dreambox{
 
 /* chapter4 */
 .chapter4{
+	width: 100%;
 	padding: 0 0 0 0;
 	display: inline-block;
 }
@@ -934,7 +998,7 @@ html,body,#dreambox{
 }
 
 .chapterimg-4 img{
-	margin: 10px 0;
+	margin: 15px 0;
 	display: inline-block;
 }
 
@@ -948,7 +1012,7 @@ html,body,#dreambox{
 
 .viewmore{
 	width: 76%;
-	height: 3%;
+	height: 5%;
 	background: none;
 	position: absolute;
 	right: 0;
@@ -994,8 +1058,8 @@ html,body,#dreambox{
 .header_img{
 	position: relative;
 	display: inline-block;
-	width:92%;
-	margin: 4em 0px 1.2em 4%;
+	width:96%;
+	margin: 0 0 0 2%;
 	
 }
 .invitation{
@@ -1053,12 +1117,45 @@ html,body,#dreambox{
 
 }
 /* share */
-.handTips{
-	width: 20%;
+.hand_dot{
+	width: 22px;
+	height: 22px;
+	background: url("/images/form/hand_dot.png") center top no-repeat;
+	background-size: 100% auto;
 	position: absolute;
 	left: 50%;
-	margin: 0 0 0 -10%;
-	top: 36%; 
+	top: 0;
+	margin: 0 0 0 -14px;
+}
+
+.hands_active{
+	width: 32px;
+	height: 90px;
+	background: url("/images/form/hand.png") center top no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 50%;
+	top: 14px;
+	margin: 0 0 0 -12px;
+}
+
+.c_dot{
+	width: 9px;
+	height: 9px;
+	border-radius: 13px;
+	background: #008dae;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -4.5px 0 0 -4.5px; 
+}
+
+.handTips{
+	width: 60px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -30px;
+	top: 18%; 
 	height: 96px;
 	z-index: 6;
 	background: url("/images/hand-1.png") center top no-repeat;
@@ -1066,64 +1163,85 @@ html,body,#dreambox{
 	text-align: center;
 }
 
-.handTips { 
-  -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
-     -moz-animation: handTips_ani 1.5s infinite ease-in-out;
-          animation: handTips_ani 1.5s infinite ease-in-out;
+
+.c_dot { 
+  -webkit-animation: dot_anidot_ani 2s infinite linear;
+     -moz-animation: dot_ani 2s infinite linear;
+          animation: dot_ani 2s infinite linear;
 }
 
+
+.hands_active { 
+  -webkit-animation: handTips_ani 1.5s infinite linear;
+     -moz-animation: handTips_ani 1.5s infinite linear;
+          animation: handTips_ani 1.5s infinite linear;
+}
 
 @-webkit-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @-moz-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
+
+
+
+@-webkit-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@-moz-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+
+
+
+
 
 .handTips span{
 	width: 100%;
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	line-height: 16px;
+	line-height: 14px;
+	color: #fff;
+	font-size: 12px;
 }
 
 .share{
 	background:#ececec;
 	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .share_name{
 	position: relative;
@@ -1141,9 +1259,8 @@ html,body,#dreambox{
 
 }
 .share_btn{
-	background: none;
 	width:40%;
-	border: 1px solid #000;
+	border: 1px solid #010101;
 	font-size: 1.2em;
 	padding: 6px 0px;
 	font-weight: bold;
@@ -1153,7 +1270,18 @@ html,body,#dreambox{
 	bottom: 1em;
 	margin: 0 0 0 -20%;
 	z-index: 10;
+	background: #ececec;
+	color: #040301;
 }
+
+.invitation_footer{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+
 /* address */
 .intro{
 	position: relative;
@@ -1937,56 +2065,26 @@ html,body,#dreambox{
 
 
 
-@media handheld and (min-height:400px),screen and (max-height:420px) {
-	.menu li a{
-		padding: 0.2em 0 0.4em 0;
-	}
 
-	.glassInstall{
-		background-position: center 90%; 
-	}
 
-	.glassInstall_fin{
-		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
-		background-size: 100% auto;
-	}
 
-	.glassInstall h2{
-		margin:3em 0 0 0;
-	}
 
-	.arrUp {
-	  width: 6%;
-	  margin: 0 0 0 -3%;
-	  bottom: 1em;
-	}
-
-	.glassBlock {
-	  margin: 0.6em 0 0 0;
-	}
-
-	.glass_footer{
-		bottom: 0.5em;
-	}
-
-	.glassInfo p{
-		padding: 0.9em 0;
-	}
-
+.backBtn{
+	width: 20%;
+	position: fixed;
+	left: 6%;
+	top: 5em;
+	font-size: 14px;
+	color: #363533;
+	z-index: 100;
+	display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.backBtn img{
+	width: 6%;
+	vertical-align: middle;
+	display: inline-block;
+}
 
 
 
@@ -2088,7 +2186,7 @@ html,body,#dreambox{
 	background: none;
 	position: absolute;
 	left: 16%;
-	top: 50%;
+	top: 45%;
 	z-index: 99;
 	display: none;
 }
@@ -2130,3 +2228,73 @@ html,body,#dreambox{
 	opacity: 0.6;
 }
 
+
+
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+   .point{
+		top: 72%;
+	}
+
+	.coordinate_link_chpater4{
+		right: 8em;
+  		top: 8.5em;
+	}
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    .point{
+		top: 56%;
+	}
+
+	.coordinate_link_chpater4{
+		right: 7.2em;
+  		top: 8.2em;
+	}
+}
+
+
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
+
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}

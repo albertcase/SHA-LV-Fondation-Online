@@ -66,8 +66,20 @@ class WechatController extends Controller
 
     public function tempalteAction($openid)
     {   
+        $data = array();
+        $data['first']['value'] = '第一行字';
+        $data['first']['color'] = '#000000';
+        $data['keyword1']['value'] = '第二行字';
+        $data['keyword1']['color'] = '#000000';
+        $data['keyword2']['value'] = date("Y-m-d");
+        $data['keyword2']['color'] = '#000000';
+        $data['remark']['value'] = '第三行字';
+        $data['remark']['color'] = '#000000';
         $wechat = $this->get('same.wechat');
-        return $wechat->sendTemplate($openid);
+        $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
+        $url = 'http://www.lvcampaign.com';
+        $topcolor = '#000000';
+        return $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
     }
 
     public function subscribedAction($openid)
@@ -80,7 +92,7 @@ class WechatController extends Controller
     public function testAction()
     {   
         $image = $this->container->get('lv.image.service');
-        return new Response($image->ImageCreateForOnline('周春天'));
+        return new Response($image->ImageCreateForOnline('大三大四的'));
         return new Response($image->ImageCreateForOffline('images/imagesevice/test.jpg'));
     }
 

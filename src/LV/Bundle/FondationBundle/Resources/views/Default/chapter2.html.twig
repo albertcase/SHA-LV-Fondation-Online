@@ -30,10 +30,13 @@
 	            		<h2>布洛涅森林公园</h2>
 	            		<p><img src="" sourcesrc="/images/chapter4/chapter4-text.png" width="100%" /></p>
 	            		<p>
-	            			<a href="javascript:mySwiper.slideTo(2, 600, true);" class="coordinate_link">
-	            				<span class="point"></span>
+	            			
+	            			<span class="coordinate_link">
+	            				<em class="point"></em>
+	            			</span>
+	            			<a href="javascript:mySwiper.slideTo(2, 600, true);" class="chapterlink2">
+	            				<img src="" sourcesrc="/images/chapter2/chapter2-map.png" width="100%" />
 	            			</a>
-	            			<img src="" sourcesrc="/images/chapter2/chapter2-map.png" width="100%" />
 	            			<span>
 	            				点击坐标<br />探访布洛涅森林公园
 	            			</span>
@@ -122,7 +125,7 @@
 		var myScroll;
 
 
-		$(".coordinate_link").click(function(){
+		$(".chapterlink2").click(function(){
 			$('.scrollsTips').show();
 			loaded();
 		})

@@ -104,7 +104,7 @@ class Wechat
 			
 		}
 		$ticket = $this->_memcache->get('wechat_server_ticket');
-		echo  $tictet;
+		echo  $ticket;
 		exit;
 		$str = '1234567890abcdefghijklmnopqrstuvwxyz';
 		$noncestr = '';

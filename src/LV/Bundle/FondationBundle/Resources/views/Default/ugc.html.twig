@@ -184,6 +184,8 @@
 		}
 
 		
+
+		
 		/* 提交创建内容 */
 		$(".finshBtn").click(function(){
 			if($(this).hasClass("isdoing"))return false;
@@ -215,9 +217,7 @@
 		    link: window.location.host + window.location.pathname,
 			imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 		};
-
-		wechatFun();
-	    //editShare();
+	    editShare();
 	})
 
 })(jQuery);

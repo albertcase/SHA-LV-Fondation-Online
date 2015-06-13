@@ -114,6 +114,21 @@ html,body,#dreambox{
 	display: inline-block;
 }
 
+.bulidPercent{
+	width: 100%;
+	position: relative;
+}
+
+.ugcIndexCon{
+	margin: 5em 0 0 0;
+	display: inline-block;
+	width: 80%;
+}
+
+.bulidPercent{
+	margin: 2em 0;
+	display: inline-block; 
+}
 
 
 .bg-index{

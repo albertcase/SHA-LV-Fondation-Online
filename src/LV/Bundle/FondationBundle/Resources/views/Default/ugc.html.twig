@@ -10,25 +10,27 @@
 	<div class="demo-test">
 
 		<div class="ugcIndexCon">
-			<img src="/images/ugc/story.jpg" width="100%" />
+			<img src="" sourcesrc="/images/ugc/ugc_index_slogan.png" width="90%" />
 
-				<div class="bulidStep">
-					<a href="javascript:pagechange.moveClick('chose');"></a>
-    				<div class="completionRatio">
-    					<p>梦想已完成</p>
-    					<h2>{{ percentage }}<sup>%</sup></h2>
-    				</div>
-    				<img src="" sourcesrc="/images/ugc/bulid-{{ imagename }}.png" width="90%" />
-    				<div class="d-tips"><img src="" sourcesrc="/images/ugc/enlarge_arr.png" width="80%" /></div>
+			<div class="bulidPercent">
+				<div class="completionRatio">
+					<p>梦想已完成</p>
+					<h2>{{ percentage }}<sup>%</sup></h2>
 				</div>
+				<img src="" sourcesrc="/images/ugc/bulid-{{ imagename }}.png" width="90%" />
+			</div>
 
-			<img src="/images/ugc/story.jpg" width="100%" />
+			<img src="" sourcesrc="/images/ugc/ugc_index_text.png" width="100%" />
 		</div>
 
 		<div class="dream_footer">
 			<div class="ugcBtnArea">
-				<a href="javascript:_doing.getCreateData();" class="btn creatBtn">分享我的梦想</a>
-				<a href="javascript:_doing.getCreateData();" class="btn creatBtn">看看别人的梦想</a>
+				{% if userdream %}
+			    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
+			    {% else %}
+			    	<a href="javascript:pagechange.moveClick('create');" class="btn creatBtn">分享我的梦想</a>
+				{% endif %}
+				<a href="javascript:pagechange.moveClick('chose');" class="btn">看看别人的梦想</a>
 			</div>
 		    
 		    <a href="/fondation">

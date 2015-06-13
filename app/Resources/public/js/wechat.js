@@ -12,6 +12,7 @@ var shareData = {
 
 function wechatFun(){
     var wechatUrl = window.location.href.substr(0,window.location.href.indexOf('#'));
+    alert(wechatUrl);
     $.ajax({
         type: "GET",
         url: "/same/wechat/jssdk",

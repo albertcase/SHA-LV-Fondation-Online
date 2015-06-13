@@ -78,6 +78,20 @@ class User
     private $invitationletter;
 
     /**
+     *
+     * @ORM\OneToOne(targetEntity="TemplateMessage", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $templatemessage;
+
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="UserPhotoCode", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $userphotocode;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -307,5 +321,51 @@ class User
     public function getRole()
     {
         return $this->role;
+    }
+
+    /**
+     * Set templatemessage
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\TemplateMessage $templatemessage
+     * @return User
+     */
+    public function setTemplatemessage(\LV\Bundle\FondationBundle\Entity\TemplateMessage $templatemessage = null)
+    {
+        $this->templatemessage = $templatemessage;
+
+        return $this;
+    }
+
+    /**
+     * Get templatemessage
+     *
+     * @return \LV\Bundle\FondationBundle\Entity\TemplateMessage 
+     */
+    public function getTemplatemessage()
+    {
+        return $this->templatemessage;
+    }
+
+    /**
+     * Set userphotocode
+     *
+     * @param \LV\Bundle\FondationBundle\Entity\UserPhotocCode $userphotocode
+     * @return User
+     */
+    public function setUserphotocode(\LV\Bundle\FondationBundle\Entity\UserPhotocCode $userphotocode = null)
+    {
+        $this->userphotocode = $userphotocode;
+
+        return $this;
+    }
+
+    /**
+     * Get userphotocode
+     *
+     * @return \LV\Bundle\FondationBundle\Entity\UserPhotocCode 
+     */
+    public function getUserphotocode()
+    {
+        return $this->userphotocode;
     }
 }

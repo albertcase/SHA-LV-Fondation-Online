@@ -217,6 +217,9 @@ class PageController extends Controller
     */
     public function guideTourAction()
     {
+        $userservice = $this->container->get('lv.user.service');
+        $wechat = $this->container->get('same.wechat');
+        $userservice->setTemplateMessageStatus($wechat);
         return $this->render('LVFondationBundle:Default:guidetour.html.twig');
     }
 

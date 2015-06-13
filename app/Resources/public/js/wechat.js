@@ -16,7 +16,7 @@ function wechatFun(){
         type: "GET",
         url: "/same/wechat/jssdk",
         data: {
-            "url": window.location.href
+            "url": "http://"+window.location.host + window.location.pathname
         },
         dataType:"json"
     }).done(function(data){

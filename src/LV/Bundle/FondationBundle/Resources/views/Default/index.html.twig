@@ -49,11 +49,11 @@
 
 		function shareInfo(curIndex){
 			switch(curIndex){
-			case 4:
+			case 0:
 			    shareData = {
 			        title: '路易威登基金会▪起航',
 			        desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-			        url: window.location.host + '/fondation/#1',
+			        url: window.location.host + '/fondation/#0',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
 			  break;
@@ -61,7 +61,7 @@
 			    shareData = {
 				    title: '路易威登基金会▪梦想之旅',
 				    desc: '巴黎布洛涅森林公园中，不可思议的创世建筑',
-				    url: window.location.host + '/fondation/#2',
+				    url: window.location.host + '/fondation/#1',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
 			  break;
@@ -69,7 +69,7 @@
 			    shareData = {
 				    title: '路易威登基金会▪立梦建筑',
 				    desc: '大师弗兰克·盖里的创世之作，法国里程碑式建筑新坐标',
-				    url: window.location.host + '/fondation/#3',
+				    url: window.location.host + '/fondation/#2',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
 			  break;
@@ -77,7 +77,7 @@
 			    shareData = {
 				    title: '路易威登基金会▪创梦当代',
 				    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能',
-				    url: window.location.host + '/fondation/#4',
+				    url: window.location.host + '/fondation/#3',
 			        imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			    };
 			}
@@ -95,11 +95,11 @@
 		if(!GetQueryString()){
 			defaultSlide = 0;
 		}else{
-			defaultSlide = parseInt(GetQueryString()-1);
+			defaultSlide = parseInt(GetQueryString());
 		}
 
 		
-		
+		console.log(defaultSlide)
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',
 			nextButton: '.swiper-button-next',
@@ -108,8 +108,24 @@
 	        loop: true,
 	        initialSlide : defaultSlide,
 	        onTouchEnd: function(swiper){
-	        	history.pushState("/", null, "#"+parseInt(swiper.activeIndex));
+	        	
+	        	if(swiper.swipeDirection == "next"){
 
+	        		defaultSlide++;
+	        		if(defaultSlide>3){
+	        			defaultSlide = 0;
+	        		}
+	        	}else{
+
+	        		defaultSlide--;
+
+	        		if(defaultSlide < 0){
+	        			defaultSlide = 3
+	        		}
+	        		
+	        	}
+	        	history.pushState("/", null, "#"+parseInt(defaultSlide));
+	        	//console.log(defaultSlide);
 	        	shareInfo(swiper.activeIndex);
 		        //console.log(swiper.activeIndex)
 		    }

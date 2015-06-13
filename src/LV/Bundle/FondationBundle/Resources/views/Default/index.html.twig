@@ -98,7 +98,7 @@
 			defaultSlide = parseInt(GetQueryString()-1);
 		}
 
-		shareInfo(defaultSlide);
+		
 		
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',
@@ -117,6 +117,8 @@
 
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
+
+		shareInfo(defaultSlide);
 
 
 	})

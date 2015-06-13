@@ -25,7 +25,6 @@ var loadingFun = function(imgSrcArr){
 		}
 
 
-
 		LoadFn(imgSrcArr , function (){
 			$("#dreambox img").each(function(){ 
 				$(this).attr("src",$(this).attr("sourcesrc"));

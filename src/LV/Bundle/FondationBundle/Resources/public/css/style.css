@@ -143,6 +143,10 @@ html,body,#dreambox{
 }
 
 
+.swiper-container-horizontal>.swiper-pagination{
+	bottom: 25px;
+}
+
 
 .chapter-l,.chapter-r{
 	width: 6%;

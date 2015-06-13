@@ -109,7 +109,10 @@ html,body,#dreambox{
 
 
 
-
+.ugcIndexCon{
+	width: 80%;
+	display: inline-block;
+}
 
 
 
@@ -225,6 +228,7 @@ html,body,#dreambox{
 	left: 0;
 	bottom: 0;
 	z-index: 9;
+	text-align: center;
 }
 
 .btn{
@@ -236,6 +240,24 @@ html,body,#dreambox{
 	border: 1px #000 solid;
 	color: #040301;
 	margin: 0 0 1em 0;
+}
+
+.ugcBtnArea{
+	width: 80%;
+	display: inline-block;
+}
+
+.ugcBtnArea .btn{
+	width:48%;
+	display: inline-block;
+}
+
+.ugcBtnArea .btn:nth-child(1){
+	float: left;
+}
+
+.ugcBtnArea .btn:nth-child(2){
+	float: right;
 }
 
 .d_content{

@@ -2,7 +2,7 @@
 {% block title %}创梦当代{% endblock %}
 {% block dreambox %}
 <div class="chapter modelpage">
-<a href="javascript:mySwiper.slideTo(0, 600, true);" class="backBtn">
+<a href="javascript:$('#gitImg').attr('src','/images/animate/LV_Animation_Chapter4.gif');mySwiper.slideTo(0, 600, true);" class="backBtn">
 	<img src="/images/ugc/reback_arr.png" />
 	返回
 </a>
@@ -12,7 +12,7 @@
 
         	<div class="swiper-slide">
         		<div class="gif_bg">
-	            	<img src="" sourcesrc="/images/animate/LV_Animation_Chapter4.gif" width="100%" />
+	            	<img src="" sourcesrc="/images/animate/LV_Animation_Chapter4.gif" id="gitImg" width="100%" />
 
 	            	<div class="pageArr">
 						<img src="" sourcesrc="/images/arr-up.png" />
@@ -30,9 +30,9 @@
 						</p>
 
 						<p>
-	            			<a href="javascript:mySwiper.slideTo(2, 600, true);" class="coordinate_link_chpater4">
+	            			<!-- <a href="javascript:mySwiper.slideTo(2, 600, true);" class="coordinate_link_chpater4">
 	            				<span class="point"></span>
-	            			</a>
+	            			</a> -->
 	            			<img src="" sourcesrc="/images/chapter4/map.png" width="100%" />
 	            		</p>
 	            	</div>
@@ -102,7 +102,8 @@
 		shareData = {
 		    title: '路易威登基金会▪创梦当代',
 		    desc: '巴黎到北京，探访路易威登基金会建筑展览，领略建筑艺术的无限可能',
-		    url: window.location.host + '/fondation/#4'
+		    url: window.location.host + '/fondation/#4',
+			imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 		};
 		editShare();
 

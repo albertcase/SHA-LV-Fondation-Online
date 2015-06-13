@@ -58,7 +58,8 @@
 			shareData = {
 			    title: '路易威登基金会▪梦想启航',
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
-		    	url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}'
+		    	url: '{{ path('lv_fondation_showinvitation', {'id': userdream.dream_id}) }}',
+				imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 			};
 			editShare();
 

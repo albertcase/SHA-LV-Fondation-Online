@@ -1,5 +1,5 @@
 var shareData = {
-    title: '第一章：路易威登基金会▪起航',
+    title: '路易威登基金会▪起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
     link: window.location.host + "/fondation",
     imgUrl: 'http://' + window.location.host + '/images/share.jpg',
@@ -12,19 +12,18 @@ var shareData = {
 
 function wechatFun(){
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/same/wechat/jssdk",
         data: {
-            "url": window.location.href
+            "url": "http://"+window.location.host + window.location.pathname
         },
         dataType:"json"
     }).done(function(data){
-            wechatShare(data.appId,data.time,data.noncestr,data.sign);
+            wechatShare(data.appid,data.timestamp,data.noncestr,data.sign);
     }).fail(function() {
         console.log("请求接口失败！");
     });
 }
-
 
 
 function wechatShare(appid,timestamp_val,noncestr,signature_val){
@@ -82,15 +81,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         link: shareData.link, // 分享链接
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
-            // 用户确认分享后执行的回调函数
-            if(GetQueryString()!=null && GetQueryString()=="share"){
-                if($("#share").attr("data-hasinfo")==1){
-                    pagechange.moveClick('view')
-                }else{
-                    pagechange.moveClick('form');
-                } 
-            }
-            
+            // 用户确认分享后执行的回调函数            
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -108,15 +99,6 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
-
-            if(GetQueryString()!=null && GetQueryString()=="share"){
-                if($("#share").attr("data-hasinfo")==1){
-                    pagechange.moveClick('view')
-                }else{
-                    pagechange.moveClick('form');
-                } 
-            }
-
             shareData.returnFun();
             //alert('分享成功');
         },

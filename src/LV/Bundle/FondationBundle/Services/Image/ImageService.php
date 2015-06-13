@@ -41,16 +41,17 @@ class ImageService
         $font_color = ImageColorAllocate($authimg,0,0,0); 
         $box = imagettfbbox(25, 0, $fontfile, $name);
         $fontwidth = $box[4]-$box[0];
-        ImageTTFText($authimg, 25, 0, ceil(($width-$fontwidth)/2), 740, $font_color, $fontfile, $name);
+        ImageTTFText($authimg, 25, 0, ceil(($width-$fontwidth)/2), 830, $font_color, $fontfile, $name);
 
         $font_color = ImageColorAllocate($authimg,68,68,68);
         $dateTime = date("Y年m月d日");
         $boxtime = imagettfbbox(15, 0, $fontfile, $dateTime);
         $datewidth = $boxtime[4]-$boxtime[0];
-        ImageTTFText($authimg, 15, 0, ceil(($width-$datewidth)/2), 1080, $font_color, $fontfile, $dateTime);
+        ImageTTFText($authimg, 15, 0, ceil(($width-$datewidth)/2), 1175, $font_color, $fontfile, $dateTime);
         //imagestring($authimg, 5, 430, 430, date("Y年m月d日"), $font_color);
         //imagestring($authimg, 5, 230, 730, $name, $font_color);
-        $fileName = '/online/' . time() . rand(100,999) . '.png';
+
+        $fileName = '/Online/' . time() . rand(100,999) . '.png';
         $hechengImg = $this->_filedir . $fileName;
         ImagePNG($authimg,$hechengImg);
         return $fileName;
@@ -75,7 +76,7 @@ class ImageService
         imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
         imagecopyresized($bg,$img1,13,50,0,0,641,959,$width,$height); 
         //header("content-type: image/jpeg");
-        $fileName = '/offline/' . time() . rand(100,999) . '.jpg';
+        $fileName = '/Offline/' . time() . rand(100,999) . '.jpg';
         $hechengImg = $this->_filedir . $fileName;
         ImageJpeg($bg,$hechengImg);
         return $fileName;

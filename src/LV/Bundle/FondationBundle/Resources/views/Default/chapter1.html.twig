@@ -3,10 +3,6 @@
 {% block dreambox %}
 
 <div class="chapter modelpage">
-<a href="javascript:mySwiper.slideTo(0, 600, true);" class="backBtn">
-	<img src="/images/ugc/reback_arr.png" />
-	返回
-</a>
 
 		<!-- Swiper -->
     <div class="swiper-container">
@@ -14,7 +10,7 @@
 
         	<div class="swiper-slide">
         		<div class="gif_bg">
-	            	<img src="" sourcesrc="/images/animate/LV_Animation_Chapter1bis.gif" width="100%" />
+	            	<img src="" sourcesrc="/images/animate/LV_Animation_Chapter1bis.gif" id="gitImg" width="100%" />
 
 	            	<div class="pageArr">
 						<img src="" sourcesrc="/images/arr-up.png" />
@@ -26,6 +22,10 @@
             <div class="swiper-slide">
 
             	<div class="chapter_content swiper-no-swiping" id="scrollArea">
+            			<a href="/fondation" class="backBtn">
+							<img src="/images/ugc/reback_arr.png" />
+							返回
+						</a>
 
 						<img src="" sourcesrc="/images/chapter1/c1.jpg" width="100%" />
 
@@ -87,7 +87,8 @@ var mySwiper = new Swiper('.swiper-container', {
 		shareData = {
 		    title: '路易威登基金会▪起航',
 		    desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-		    url: window.location.host + '/fondation/#1'
+		    url: window.location.host + '/fondation/#1',
+			imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 		};
 		editShare();
 

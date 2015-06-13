@@ -13,8 +13,8 @@ var _doing = {
 				);
 
 				var dreamSwiper = $('.dream-swiper').swiper({
-					nextButton: '.listPrev',
-			        prevButton: '.listNext',
+					nextButton: '.listNext',
+			        prevButton: '.listPrev',
 			        paginationClickable: true,
 			        loop: true
 				});
@@ -27,8 +27,8 @@ var _doing = {
 				}).join(""));
 
 				var glassSwiper = $('.glass-swiper').swiper({
-						nextButton: '.glassArr-prev',
-				        prevButton: '.glassArr-next',
+						nextButton: '.glassArr-next',
+				        prevButton: '.glassArr-prev',
 				        paginationClickable: true,
 				        loop: true,
 				        onTouchEnd: function(swiper){

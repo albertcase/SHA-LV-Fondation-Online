@@ -99,8 +99,7 @@ class Wechat
 			$result = json_decode($result, true);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
-			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
-			
+			$this->_memcache->set('wechat_server_access_token', $result['access_token']);	
 		}
 		$ticket = $this->_memcache->get('wechat_server_ticket');
 		$str = '1234567890abcdefghijklmnopqrstuvwxyz';

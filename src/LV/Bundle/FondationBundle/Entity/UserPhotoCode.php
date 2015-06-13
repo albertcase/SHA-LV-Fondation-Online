@@ -172,7 +172,7 @@ class UserPhotoCode
      * @param \LV\Bundle\FondationBundle\Entity\Photo $photo
      * @return UserPhotoCode
      */
-    public function addPhoto(\LV\Bundle\FondationBundle\Entity\Photo $photo)
+    public function addPhoto(\LV\Bundle\FondationBundle\Entity\Photos $photo)
     {
         $this->photo[] = $photo;
 
@@ -184,7 +184,7 @@ class UserPhotoCode
      *
      * @param \LV\Bundle\FondationBundle\Entity\Photo $photo
      */
-    public function removePhoto(\LV\Bundle\FondationBundle\Entity\Photo $photo)
+    public function removePhoto(\LV\Bundle\FondationBundle\Entity\Photos $photo)
     {
         $this->photo->removeElement($photo);
     }

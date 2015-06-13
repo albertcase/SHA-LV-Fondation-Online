@@ -3,13 +3,9 @@
 {% block dreambox %}
 <div class="chapter modelpage">
 
-<a href="javascript:$('#gitImg').attr('src','/images/animate/LV_Animation_Chapter2.gif');mySwiper.slideTo(0, 600, true);" class="backBtn">
-	<img src="/images/ugc/reback_arr.png" />
-	返回
-</a>
 
 <p class="scrollsTips st-1">点击进一步了解<br />路易威登基金会</p>
-<p class="scrollsTips st-2">滑动手指欣赏<br />布洛涅森林公园美景</p>
+<p class="scrollsTips st-2">向右滑动手指欣赏<br />布洛涅森林公园美景</p>
 				<!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -51,9 +47,17 @@
 
             <div class="swiper-slide swiper-no-swiping">
             	
-            	
+            	<div class="hand_rTips">
+					    <em class="hand_line">
+        					<img src="" sourcesrc="/images/hand_line.png" width="100%" />
+        				</em>
+        				<em class="chapter_hand">
+        					<img src="" sourcesrc="/images/chapter_hand.png" width="100%" />
+        				</em>
+        		</div>
             	<div id="wrapper">
 					<div id="scroller">
+
 						<div class="focuslv-home">
 							
 							<div class="focuslv-cn">
@@ -61,19 +65,16 @@
 								<div class="focuslv-en">
 									<img src="" sourcesrc="/images/chapter2/focus-en.png" width="100%" />
 								</div>
+
+								<div class="chapter_hand">
+	            					<img src="" sourcesrc="/images/chapter_hand.png" width="100%" />
+	            				</div>
 							</div>
 							<div class="focus-dot"></div>
 						</div>
 						<a href="javascript:;" class="panoramaLink"></a>
 						<img src="/images/chapter2/vso.jpg" height="100%" class="parkImg" />
-						<div class="hand_rTips">
-							    <em class="hand_line">
-	            					<img src="" sourcesrc="/images/hand_line.png" width="100%" />
-	            				</em>
-	            				<em class="chapter_hand">
-	            					<img src="" sourcesrc="/images/chapter_hand.png" width="100%" />
-	            				</em>
-	            		</div>
+						
 					</div>
 					
 				</div>
@@ -82,7 +83,10 @@
 
             <div class="swiper-slide swiper-no-swiping">
             	<div class="chapter_content">
-
+            			<a href="/fondation#2" class="backBtn">
+							<img src="/images/ugc/reback_arr.png" />
+							返回
+						</a>
             			<div class="chapter2-content">
 			    			<img src="" sourcesrc="/images/chapter2/c1.png" width="100%" />
 			    			<div class="c2_more">
@@ -161,11 +165,13 @@
 				$(".scrollsTips.st-1").css({"bottom":"1.6em"});
 				
 				$(".focus-dot").addClass("focus-dot-animate");
+				$(".hand_rTips").hide();
 				$(".panoramaLink").show();
 			}else{
 				$(".scrollsTips.st-2").css({"bottom":"1.6em"});
 				$(".scrollsTips.st-1").css({"bottom":"-10em"});
 			    $(".panoramaLink").hide();
+			    $(".hand_rTips").show();
 			}
 		}
 
@@ -176,7 +182,7 @@
 
 
 		var animationListener_focusdot = function(){
-			$(".focuslv-cn").stop().animate({"top":"22px","opacity":1},900,function(){
+			$(".focuslv-cn").stop().animate({"top":"-56px","opacity":1},900,function(){
 		    	$(".focuslv-en").stop().animate({"opacity":1});
 		    });
 		}

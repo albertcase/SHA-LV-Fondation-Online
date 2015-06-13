@@ -11,11 +11,12 @@ var shareData = {
 
 
 function wechatFun(){
+    var wechatUrl = window.location.href.substr(0,window.location.href.indexOf('#'));
     $.ajax({
         type: "GET",
         url: "/same/wechat/jssdk",
         data: {
-            "url": "http://"+window.location.host + window.location.pathname
+            "url": wechatUrl
         },
         dataType:"json"
     }).done(function(data){

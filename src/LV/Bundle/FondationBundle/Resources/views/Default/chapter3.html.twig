@@ -2,12 +2,9 @@
 {% block title %}立梦建筑{% endblock %}
 {% block dreambox %}
 <div class="chapter modelpage">
-<a href="javascript:$('#gitImg').attr('src','/images/animate/LV_Animation_Chapter3.gif');mySwiper.slideTo(0, 600, true);" class="backBtn">
-	<img src="/images/ugc/reback_arr.png" />
-	返回
-</a>
 
-					<!-- Swiper -->
+
+	<!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
 
@@ -21,12 +18,14 @@
 				</div>
             </div>
 
-            <div class="swiper-slide swiper-no-swiping">
+            <div class="swiper-slide  swiper-no-swiping" id="glassStep2">
             	<!-- <div class="chapter_content"> -->
-
 		    		<div class="glassInstall">
-
+		    				<div class="chapter_hand">
+	            				<img src="" sourcesrc="/images/chapter_hand.png" width="100%" />
+	            			</div>
 		    			<div class="glassInstall_con">
+		    				
 		    				<!-- <h2>一起完成路易威登基金会吧</h2> -->
 		    				<div class="glassBlock_tips">
 			    				点击玻璃面板<br />完成建筑的最后一步
@@ -40,16 +39,28 @@
 			    			</div>
 		    			</div>
 		    			
-		    			<div class="glass_footer">
-			    		   		
-				    			<a href="javascript:;" class="btn goonSearch">继续探索</a>
-			    		</div>
 
-		    			<div class="glassInstall_fin"></div>
+		    			<div class="glassInstall_fin">
+
+		    				<div class="pageArr">
+								<img src="" sourcesrc="/images/arr-up.png" />
+							</div>
+							
+		    			</div>
 
 		    		</div>
 
-		    		<div class="glassInstall_info">
+				<!-- </div> -->
+            </div>
+
+
+            <div class="swiper-slide swiper-no-swiping">
+            	<div class="glassInstall_info">
+		    			<a href="javascript:defaultGlass();mySwiper.slideTo(1, 600, true);" class="backBtn">
+								<img src="/images/ugc/reback_arr.png" />
+								返回
+						</a>
+		    			
 		    			<img src="" sourcesrc="/images/chapter3/c1.jpg" width="100%" />
 						<div class="contentImg">
 							<p class="c2">
@@ -79,10 +90,9 @@
 						<a href="chapter4">
 							<img src="" sourcesrc="/images/chapter3/kv.jpg" width="100%" class="c5" />
 						</a>
-		    		</div>
-					
-				<!-- </div> -->
+		    	</div>
             </div>
+
 
 
 
@@ -95,27 +105,28 @@
 <script type="text/javascript">
 
 $(".glassBlock").click(function(){
+	$("#glassStep2").removeClass("swiper-no-swiping");
+	$(".chapter_hand").hide();
 	$(this).animate({"opacity":0.1,"margin-top":"9em"},600,function(){
 		$(this).hide();
 
-		$(".glass_footer").animate({"bottom":0,"opacity":0},600,function(){
-			$(".glassBlock_tips").hide();
-		});
+		$(".glassBlock_tips").fadeOut();
 		$(".glassInstall_fin").animate({"opacity":1},1000,function(){
-			$(".glassInstall_con h2").html("路易威登基金会");
 			$(".glassInfo").fadeIn();
-			$(".glassBlock_tips").html("安装完成");
-			$(".goonSearch").css("display","inline-block");
-			$(".glass_footer").animate({"bottom":"1.6em","opacity":1});
 		});
 	});
 	
 })
 
-$(".goonSearch").click(function(){
-	$(".glassInstall").fadeOut();
-	$(".glassInstall_info").show().animate({"opacity":1},3000);
-})
+
+function defaultGlass(){
+	$(".glassInfo").hide();
+	$(".chapter_hand").show();
+	$(".glassInstall_fin").removeAttr("style");
+	$(".glassBlock_tips").show();
+	$(".glassBlock").removeAttr("style");
+	$("#glassStep2").addClass("swiper-no-swiping");
+}
 
 
 var mySwiper = new Swiper('.swiper-container', {

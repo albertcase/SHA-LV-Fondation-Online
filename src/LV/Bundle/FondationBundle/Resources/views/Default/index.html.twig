@@ -95,10 +95,12 @@
 		var defaultSlide = 0;
 		if(!GetQueryString()){
 			defaultSlide = 0;
-			shareInfo(defaultSlide);
+			//shareInfo(defaultSlide);
 		}else{
 			defaultSlide = parseInt(GetQueryString());
 		}
+
+
 
 		
 		alert(defaultSlide)
@@ -137,6 +139,8 @@
 		var imgSrcArr = [];
 		loadingFun(imgSrcArr);
 
+		history.pushState("/", null, "#"+parseInt(defaultSlide));
+		shareInfo(defaultSlide);
 
 
 	})

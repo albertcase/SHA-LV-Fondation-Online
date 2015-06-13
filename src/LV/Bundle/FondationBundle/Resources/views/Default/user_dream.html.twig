@@ -251,7 +251,15 @@
 			shareData = {
 			    title: '路易威登基金会▪梦想启航',
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
-				imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+			    link: window.location.host + window.location.pathname,
+				imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+				returnFun: function(){
+			        if($("#share").attr("data-hasinfo")==1){
+	                    pagechange.moveClick('view')
+	                }else{
+	                    pagechange.moveClick('form');
+	                } 
+			    }
 			};
 			editShare();
 
@@ -340,8 +348,13 @@
 
 		shareData = {
 		    title: '路易威登基金会▪梦想启航',
-		    desc: '我的梦想已经扬帆！和你的一样吗？'
+		    desc: '我的梦想已经扬帆！和你的一样吗？',
+		    link: window.location.host + "/fondation",
+			imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+			returnFun: function(){
+		    }
 		};
+		editShare();
 
 		$(".loading").remove();
 	})

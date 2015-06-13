@@ -82,15 +82,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         link: shareData.link, // 分享链接
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
-            // 用户确认分享后执行的回调函数
-            if(GetQueryString()!=null && GetQueryString()=="share"){
-                if($("#share").attr("data-hasinfo")==1){
-                    pagechange.moveClick('view')
-                }else{
-                    pagechange.moveClick('form');
-                } 
-            }
-            
+            // 用户确认分享后执行的回调函数            
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -108,15 +100,6 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
-
-            if(GetQueryString()!=null && GetQueryString()=="share"){
-                if($("#share").attr("data-hasinfo")==1){
-                    pagechange.moveClick('view')
-                }else{
-                    pagechange.moveClick('form');
-                } 
-            }
-
             shareData.returnFun();
             //alert('分享成功');
         },

@@ -557,15 +557,18 @@ var loadingFun = function(imgSrcArr){
 var shareData = {
     title: '第一章：路易威登基金会▪起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    link: window.location.host,
-    imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+    link: window.location.host + "/fondation",
+    imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    returnFun: function(){
+        //alert(6);
+    }
 };
 
 
 
 function wechatFun(){
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/same/wechat/jssdk",
         data: {
             "url": window.location.href
@@ -636,8 +639,15 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数
+            if(GetQueryString()!=null && GetQueryString()=="share"){
+                if($("#share").attr("data-hasinfo")==1){
+                    pagechange.moveClick('view')
+                }else{
+                    pagechange.moveClick('form');
+                } 
+            }
             
-            
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
@@ -654,11 +664,21 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
+
+            if(GetQueryString()!=null && GetQueryString()=="share"){
+                if($("#share").attr("data-hasinfo")==1){
+                    pagechange.moveClick('view')
+                }else{
+                    pagechange.moveClick('form');
+                } 
+            }
+
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
             // 用户取消分享后执行的回调函数
-           // alert("分享失败")
+            // alert("分享失败")
         }
     });
       
@@ -682,7 +702,59 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
 
 
+function editShare(){   ///demon
+     wx.onMenuShareTimeline({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
 
+               if(GetQueryString()!=null && GetQueryString()=="share"){
+                    if($("#share").attr("data-hasinfo")==1){
+                        pagechange.moveClick('view')
+                    }else{
+                        pagechange.moveClick('form');
+                    } 
+                }
+
+                shareData.returnFun();
+                
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+                // alert("分享失败")
+            }
+        });
+        
+        
+        wx.onMenuShareAppMessage({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            desc: shareData.desc,
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+
+                if(GetQueryString()!=null && GetQueryString()=="share"){
+                    if($("#share").attr("data-hasinfo")==1){
+                        pagechange.moveClick('view')
+                    }else{
+                        pagechange.moveClick('form');
+                    } 
+                }
+
+                shareData.returnFun();
+
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+               // alert("分享失败")
+            }
+        });
+}
 
 
 

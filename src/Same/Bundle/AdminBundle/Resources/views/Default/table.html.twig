@@ -37,13 +37,20 @@
       </thead>
 
       <tbody id="table">
-        <tr  role="row" >
-          <td align="center">1</td>
-          <td align="center">2</td>
-          <td align="center">3</td>
-          <td align="center">4</td>
-          <td align="center">5</td>
-        </tr> 
+        {% for row in list %}
+          <tr>
+          <td align="center">{{row.id}}</td>
+          <td align="center">{{row.nickname}}</td>
+          <td align="center">{{row.content}}</td>
+          <td align="center">{{row.created|date('Y-m-d H:i:s')}}</td>
+          <td align="center">
+          <select onchange="review({{row.id}})" id="review_{{row.id}}" class="{{row.status?'statusOn':'statusOff'}}">
+            <option value="0" style="color:#FF0000" {{row.status==0?'selected=selected':''}}>未审核</option>
+            <option value="1" style="color:#0000FF" {{row.status==1?'selected=selected':''}}>已审核</option>
+          </select>
+          </td>
+          </tr>
+        {% endfor %}
      </tbody>
     </table>
      

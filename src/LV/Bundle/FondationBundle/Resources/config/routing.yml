@@ -71,3 +71,11 @@ api_fondation_dreamupdate:
     path:     /api/dreamupdate
     defaults: { _controller: LVFondationBundle:Api:userDreamUpdate }
     methods: [POST]
+
+lv_fondation_wechat_entrance:
+    path:     /wechat/entrance
+    defaults: { _controller: LVFondationBundle:Page:wechatEntrance }
+
+lv_fondation_ibeacon_entrance:
+    path:     /ibeacon/entrance
+    defaults: { _controller: LVFondationBundle:Page:ibeaconEntrance }

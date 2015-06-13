@@ -8,6 +8,7 @@ use LV\Bundle\FondationBundle\Entity\UserDream;
 use LV\Bundle\FondationBundle\Entity\DreamLike;
 use LV\Bundle\FondationBundle\Entity\DreamView;
 use LV\Bundle\FondationBundle\Entity\InvitationLetter;
+use LV\Bundle\FondationBundle\Entity\TemplateMessage;
 
 class UserService
 {
@@ -99,7 +100,7 @@ class UserService
     public function userRegister($openid)
     {
         $current_route = $this->requestStack->getCurrentRequest()->get('_route');
-        $role = $current_route == 'lv_fondation_showinvitation' ? 'onlinefake' : 'online';
+        $role = $current_route == 'llv_fondation_ibeacon_entrance' ? 'offline' : 'online';
         $user = new User();
         $user->setOpenid($openid);
         $user->setRole($role);
@@ -377,6 +378,50 @@ class UserService
             $dream->setUpdated(time());
             $this->save($dream);
         }
+    }
+
+    /** 
+    * setTemplateMessageStatus
+    *
+    * set the template message status
+    *
+    * @access public
+    * @param array
+    * @since 1.0 
+    * @return $dream
+    */
+    public function setTemplateMessageStatus($wechat) 
+    {
+        if($user = $this->userLoad()) {
+            if(!$user->getTemplatemessage()) {
+                $data = array();
+                $data['first']['value'] = '第一行字';
+                $data['first']['color'] = '#000000';
+                $data['keyword1']['value'] = '第二行字';
+                $data['keyword1']['color'] = '#000000';
+                $data['keyword2']['value'] = date("Y-m-d");
+                $data['keyword2']['color'] = '#000000';
+                $data['remark']['value'] = '第三行字';
+                $data['remark']['color'] = '#000000';
+                $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
+                $url = '';
+                $topcolor = '#000000';
+                $openid = $user->getOpenid();
+                $issend = $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
+
+                if($issend) {
+                    $message = new TemplateMessage();
+                    $message->setUser($user);
+                    $message->setStatus('1');
+                    $message->setCreated(time());
+                    $this->save($message);
+                    return $message;
+                }
+              
+            }
+
+        }
+        return FALSE;
     }
 
     /** 

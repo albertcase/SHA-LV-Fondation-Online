@@ -6,4 +6,6 @@ parameters:
         - lv_fondation_userdream
         - lv_fondation_dream
         - lv_fondation_journey
+        - lv_fondation_ibeacon_entrance
+        - lv_fondation_wechat_entrance
 

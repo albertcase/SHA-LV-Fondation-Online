@@ -207,4 +207,52 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:show_invitation.html.twig', array('invitation' => $invitation, 'user' => $user));
     }
 
+    /** 
+    *
+    * Page for Guide Tour
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function guideTourAction()
+    {
+        return $this->render('LVFondationBundle:Default:guidetour.html.twig');
+    }
+
+    /** 
+    *
+    * Page for wechat entrance
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function wechatEntranceAction()
+    {
+        $userservice = $this->container->get('lv.user.service');
+        if($userservice->userLoad()->getRole() == 'offline') 
+            return $this->forward('LVFondationBundle:Page:guideTour');
+        else
+            return $this->redirect($this->generateUrl('lv_fondation_index'));
+    }
+
+    /** 
+    *
+    * Page for ibeacon entrance
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function ibeaconEntranceAction()
+    {
+        $wechat = $this->container->get('same.wechat');
+        $userservice = $this->container->get('lv.user.service');
+        $issubscribed = $wechat->isSubscribed($userservice->userLoad()->getOpenid());
+        if($issubscribed)
+            return $this->forward('LVFondationBundle:Page:guideTour');
+        return $this->render('LVFondationBundle:Default:qrcodepage.html.twig');
+    }
+
 }

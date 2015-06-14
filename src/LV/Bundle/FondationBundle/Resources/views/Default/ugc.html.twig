@@ -10,7 +10,7 @@
 	<div class="demo-test">
 
 		<div class="ugcIndexCon">
-			<img src="" sourcesrc="/images/ugc/ugc_index_slogan.png" width="90%" />
+			<img src="" sourcesrc="/images/ugc/ugc_index_slogan.png" width="86%" />
 
 			<div class="bulidPercent">
 				<div class="completionRatio">
@@ -137,6 +137,13 @@
 <div class="page" id="selected" data-page="selected">
 
 	<div class="demo-test">
+		<!-- Add Navigation -->
+		<div class="swiper-button-prev selectedArr-prev">
+				<img src="" sourcesrc="/images/ugc/arr-l.png" />
+		</div>
+		<div class="swiper-button-next selectedArr-next">
+				<img src="" sourcesrc="/images/ugc/arr-r.png" />
+		</div>
 		<a href="javascript:pagechange.moveClick('chose');" class="backBtn">
 			<img src="" sourcesrc="/images/ugc/reback_arr.png" />
 			返回
@@ -148,6 +155,12 @@
 			
 
 			<div id="selectedContent">
+
+				<div class="swiper-container selectedWrapper">
+				  <div class="swiper-wrapper">
+				  	<!-- selected 内容区块代码 -->
+				  </div>
+				</div>
 
 			</div>	
 			
@@ -212,7 +225,7 @@
 ;(function($){
 	$(function(){
 
-		_doing.dreamListData();
+		//_doing.dreamListData();
 		_doing.getGlassData();
 		// _doing.getSelectedData();
 

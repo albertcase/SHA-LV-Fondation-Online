@@ -11,7 +11,13 @@ var shareData = {
 
 
 function wechatFun(){
-    var wechatUrl = window.location.href.substr(0,window.location.href.indexOf('#'));
+    var wechatUrl;
+    if(window.location.href.indexOf('#') < 0){
+        wechatUrl = window.location.href;
+    }else{
+        wechatUrl = window.location.href.substr(0,window.location.href.indexOf('#'));
+    }
+    
     $.ajax({
         type: "GET",
         url: "/same/wechat/jssdk",

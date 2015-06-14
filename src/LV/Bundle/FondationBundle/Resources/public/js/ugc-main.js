@@ -4,24 +4,25 @@ var _doing = {
 			curChoseGlassDreamNum : 0,
 			emailReg : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			telReg : /^1[3|4|5|7|8][0-9]\d{8}$/,
-			dreamListData : function(){     //index
-				var dreamIndexData = eval( '(' + $('.default_dreams_home').html() + ')' );
-				$("#dreamListCon").html(
-					$.map(dreamIndexData,function(k,key){
-						return '<div class="swiper-slide"><div class="listmodel m-1" data-id="'+k.dream_id+'"><div class="d_content"><p class="d-to">'+k.dream_num+'<sup>th</sup></p><p class="d-text">'+k.content+'</p><p class="d-from">'+k.nickname+'</p></div><img src="/images/ugc/list-model-'+key%5+'.png" width="100%" /></div></div> '
-					}).join("")
-				);
+			// dreamListData : function(){     //index
+			// 	var dreamIndexData = eval( '(' + $('.default_dreams_home').html() + ')' );
+			// 	$("#dreamListCon").html(
+			// 		$.map(dreamIndexData,function(k,key){
+			// 			return '<div class="swiper-slide"><div class="listmodel m-1" data-id="'+k.dream_id+'"><div class="d_content"><p class="d-to">'+k.dream_num+'<sup>th</sup></p><p class="d-text">'+k.content+'</p><p class="d-from">'+k.nickname+'</p></div><img src="/images/ugc/list-model-'+key%5+'.png" width="100%" /></div></div> '
+			// 		}).join("")
+			// 	);
 
-				var dreamSwiper = $('.dream-swiper').swiper({
-					nextButton: '.listNext',
-			        prevButton: '.listPrev',
-			        paginationClickable: true,
-			        loop: true
-				});
-			},
+			// 	var dreamSwiper = $('.dream-swiper').swiper({
+			// 		nextButton: '.listNext',
+			//         prevButton: '.listPrev',
+			//         paginationClickable: true,
+			//         loop: true
+			// 	});
+			// },
 			getGlassData : function(){  //chose
 				
 				var dreamSelectedData = eval( '(' + $('.default_dreams_in').html() + ')' );
+
 				$("#glassListCon").html($.map(glassList,function(v,k){
 					return '<div class="swiper-slide"><div class="gl g-'+k+'""><a href="javascript:;" data-num="'+k+'"><img src="/images/ugc/g-'+k+'.png" width="100%" /></a></div><img src="'+v.pic_thumbnail+'" width="100%" /></div>'
 				}).join(""));
@@ -43,17 +44,21 @@ var _doing = {
 				        			_doing.curChoseGlassDreamNum = 0;
 				        		}
 				        	}
+
+				        	//console.log(_doing.curChoseGlassDreamNum);
 					    }
 				});
 
 				$(".gl a").click(function(){
-					//console.log(curChoseGlassDreamNum)
+
 					pagechange.moveClick('selected');
 					var curChoseGlass = $(this).attr("data-num");
 
 					$("#cur-glass").attr("src","/images/ugc/glass-bg-"+curChoseGlass+".jpg");
 					_doing.getSelectedData(dreamSelectedData,curChoseGlass);
 				})
+
+				_doing.getSelectedData(dreamSelectedData,0);
 				
 			},
 			getSelectedData : function(dreamSelectedData,curChoseGlass){    //selected
@@ -62,28 +67,52 @@ var _doing = {
 				
 				var selectedDataInfo = $.map(dreamSelectedData,function(v,k){
 						var islikeVal = "",islikecon = "支持";
-						if(k==choseGlassnum){
-							if(v.isliked == 1){
-								islikeVal = "hover";
-								islikecon = "已支持";
-							}
-							 
-							return '<div class="hotArea"><div class="supportIcon '+islikeVal+'"><img src="/images/ugc/like'+islikeVal+'.png" width="100%" /><i>'+islikecon+'</i></div><div class="shareIcon"><img src="/images/ugc/shareIcon.png" width="100%" /><i>分享</i></div></div><div class="dreamMode"><div class="selectedModel_con" data-dream-id="'+v.dream_id+'"><div class="selectedNum">'+v.dream_num+'<sup>th</sup></div><div class="selectedCon">'+v.content+'</div><div class="selectedName">'+v.nickname+'</div></div><img src="/images/ugc/list-model-'+choseGlassnum%5+'.png" width="100%" /></div>'
+						
+						if(v.isliked == 1){
+							islikeVal = "hover";
+							islikecon = "已支持";
 						}
+						 
+						return '<div class="swiper-slide"><div class="hotArea"><div class="supportIcon '+islikeVal+'"><img src="/images/ugc/like'+islikeVal+'.png" width="100%" /><i>'+islikecon+'</i></div><div class="shareIcon"><img src="/images/ugc/shareIcon.png" width="100%" /><i>分享</i></div></div><div class="dreamMode"><div class="selectedModel_con" data-dream-id="'+v.dream_id+'"><div class="selectedNum">'+v.dream_num+'</div><div class="selectedCon">'+v.content+'</div><div class="selectedName">'+v.nickname+'</div></div><img src="/images/ugc/list-model-'+k%5+'.png" width="100%" /></div></div>'
+					
 
 				})
 
-				$("#selectedContent").html(selectedDataInfo);
+				$("#selectedContent .swiper-wrapper").html(selectedDataInfo);
+				var mySwiper = new Swiper('.selectedWrapper', {
+					nextButton: '.selectedArr-next',
+			        prevButton: '.selectedArr-prev',
+			        paginationClickable: true,
+			        loop: true,
+					initialSlide : _doing.curChoseGlassDreamNum,
+					onTouchEnd: function(swiper){
+				    	if(swiper.swipeDirection == "prev"){
+			        		_doing.curChoseGlassDreamNum--;
+			        		if(_doing.curChoseGlassDreamNum < 0){
+			        			_doing.curChoseGlassDreamNum = dreamSelectedData.length-1;
+			        		}
+			        	}else if(swiper.swipeDirection == "next"){
+			        		_doing.curChoseGlassDreamNum++;
+			        		if(_doing.curChoseGlassDreamNum > dreamSelectedData.length){
+			        			_doing.curChoseGlassDreamNum = 0;
+			        		}
+			        	}
+
+			        	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
+			        	//console.log(_doing.curChoseGlassDreamNum);
+				    }
+
+				})
 
 
 				/* 点击支持当前梦想 */
 				$(".supportIcon").click(function(){
 					if($(this).hasClass("hover"))return false;
 
-					var dream_id = $(".selectedModel_con").attr("data-dream-id");
+					var dream_id = $(".swiper-slide-active .selectedModel_con").attr("data-dream-id");
 					$(this).addClass("hover");
-					$(".supportIcon i").html("已支持");
-					$(".supportIcon img").attr("src","/images/ugc/likehover.png")
+					$(this).find("i").html("已支持");
+					$(this).find("img").attr("src","/images/ugc/likehover.png")
 					_doing.dreamlike(dream_id);
 				})
 
@@ -212,6 +241,8 @@ var _doing = {
 
 			_doing.formData();
 		})
+
+
 	})
 })(jQuery);
 

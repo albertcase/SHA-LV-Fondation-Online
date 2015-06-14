@@ -59,6 +59,12 @@ html,body,#dreambox{
   -webkit-transform: scale(1.02,1.02);
 }
 
+
+.page#index{
+	background: url("/images/ugc/ugc-index-bg.jpg") center top no-repeat;
+	background-size: 100% 100%;
+}
+
 /* --------- frame --------- */
 .page-active {
   -webkit-transform: translate3d(0, 0, 0);
@@ -163,19 +169,19 @@ html,body,#dreambox{
     margin-top: -160px;
 }
 
-.swiper-button-prev.glassArr-prev{
+.swiper-button-prev.glassArr-prev,.swiper-button-prev.selectedArr-prev{
 	width: 16%;
 	top: 50%;
 	margin: -20px 0 0 0;
 }
 
-.swiper-button-next.glassArr-next{
+.swiper-button-next.glassArr-next,.swiper-button-next.selectedArr-next{
 	width: 16%;
 	top: 50%;
 	margin: -20px 0 0 0;
 }
 
-.swiper-button-prev.glassArr-prev img,.swiper-button-next.glassArr-next img{
+.swiper-button-prev.glassArr-prev img,.swiper-button-next.glassArr-next img,.swiper-button-prev.selectedArr-prev img,.swiper-button-next.selectedArr-next img{
 	width: 20%;
 }
 
@@ -489,12 +495,16 @@ html,body,#dreambox{
 /* selected */
 #selectedContent{
 	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
 }
 
 .dreamMode{
 	position: absolute;
 	left: 7%;
-	top: 6.6em;
+	top: 3.6em;
 	width: 240px;
 }
 
@@ -518,8 +528,8 @@ html,body,#dreambox{
 .hotArea{
 	width: 9%;
 	position: absolute;
-	right: 2.2em;
-	top: 4em;
+	right: 1.6em;
+	top: 4.5em;
 	color: #2e3c5b;
 }
 

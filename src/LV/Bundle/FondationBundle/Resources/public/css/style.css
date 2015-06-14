@@ -824,6 +824,15 @@ html,body,#dreambox{
 }
 
 
+.chapterlink2{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9;
+}
+
 .hands_active,.chapter_hand { 
   -webkit-animation: handTips_ani 1.5s infinite linear;
      -moz-animation: handTips_ani 1.5s infinite linear;
@@ -840,12 +849,15 @@ html,body,#dreambox{
   -webkit-animation: handrTips_ani 2s infinite linear;
      -moz-animation: handrTips_ani 2s infinite linear;
           animation: handrTips_ani 2s infinite linear;
+          margin: -24px 0 0 0;
 }
 
 .hand_rTips .chapter_hand img:nth-child(1) { 
   -webkit-animation: hani 2s infinite linear;
      -moz-animation: hani 2s infinite linear;
           animation: hani 2s infinite linear;
+          width: 160%;
+          margin: 0 0 0 -6px;
 }
 
 

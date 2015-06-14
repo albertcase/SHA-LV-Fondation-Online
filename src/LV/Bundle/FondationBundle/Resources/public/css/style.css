@@ -7,30 +7,30 @@
 
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #999;
+    color:    #ccc;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #999;
+    color:    #ccc;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #999;
+    color:    #ccc;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #999;
+    color:    #ccc;
 }
 
 
 .error::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #f00;
+    color:    #999;
 }
 .error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #f00;
+    color:    #999;
 }
 .error::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #f00;
+    color:    #999;
 }
 .error:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #f00;
+    color:    #999;
 }
 
 
@@ -425,6 +425,7 @@ html,body,#dreambox{
 
 .hand_rTips{
 	width: 27%;
+	height: 80px;
 	position: fixed;
 	left: 50%;
 	bottom: 18%;
@@ -434,10 +435,10 @@ html,body,#dreambox{
 }
 
 .handlinea{
-	width: 80%;
+	width: 200%;
 	display: inline-block;
 	position: absolute;
-	left: 0;
+	left: -50%;
 	top: 0;
 }
 
@@ -826,7 +827,13 @@ html,body,#dreambox{
           animation: handTips_ani 1.5s infinite linear;
 }
 
-.hand_rTips .chapter_hand { 
+.hand_rTips .chapter_hand{
+	-webkit-animation: none;
+     -moz-animation: none;
+          animation: none;
+}
+
+.hand_rTips .chapter_hand img.handaa { 
   -webkit-animation: handrTips_ani 2s infinite linear;
      -moz-animation: handrTips_ani 2s infinite linear;
           animation: handrTips_ani 2s infinite linear;

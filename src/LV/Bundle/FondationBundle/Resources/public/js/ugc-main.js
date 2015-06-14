@@ -97,10 +97,12 @@ var _doing = {
 			        			_doing.curChoseGlassDreamNum = 0;
 			        		}
 			        	}
-
-			        	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
 			        	//console.log(_doing.curChoseGlassDreamNum);
-				    }
+				    },
+				    onSlideChangeEnd: function(swiper){
+					    $("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
+					}
+
 
 				})
 

@@ -10,7 +10,7 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide">
 
-			<div class="dreamParameters" data-url={{ path('lv_fondation_journeyuserdream', {'id': userdream.dream_id}) }}>
+			<div class="dreamParameters" data-url={{ url('lv_fondation_journeyuserdream', {'id': userdream.dream_id}) }}>
 					<div class="dreamInfo">
 			    		<div class="dp_text">
 			    			{{ userdream.content }}
@@ -52,33 +52,32 @@
 </div>
 
 <script type="text/javascript">
-var shareUrl = $(".dreamParameters").attr("data-url");
-shareData = {
-    title: '路易威登基金会·梦想启航',
-    desc: '我的梦想已经扬帆！和你的一样吗？',
-	url: shareUrl,
-	imgUrl: 'http://' + window.location.host + '/images/share.jpg'
-};
-editShare();
+	;(function($){
+		$(function(){
 
-;(function($){
-	$(function(){
+			shareData = {
+			    title: '路易威登基金会·梦想启航',
+			    desc: '我的梦想已经扬帆！和你的一样吗？',
+		    	url: $(".dreamParameters").attr("data-url"),
+				imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+			};
+			editShare();
 
-		/* 分享当前梦想 */
-		$(".dreamShare_btn").click(function(){
-			$("#wechatTips").fadeIn();
+			/* 分享当前梦想 */
+			$(".dreamShare_btn").click(function(){
+				$("#wechatTips").fadeIn();
+			})
+
+			document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+				ev.preventDefault();
+				$("#wechatTips").fadeOut();
+				return false;
+			} , false)
+
+			var imgSrcArr = [];
+			loadingFun(imgSrcArr);
 		})
-
-		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-			ev.preventDefault();
-			$("#wechatTips").fadeOut();
-			return false;
-		} , false)
-
-		var imgSrcArr = [];
-		loadingFun(imgSrcArr);
-	})
-})(jQuery);
+	})(jQuery);
 </script>
 
 

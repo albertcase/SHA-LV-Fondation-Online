@@ -10,14 +10,14 @@
 				<div class="hands_active"></div>
 			</div>
 
-			<span>长按保存<br />
+			<span>长按保存{{userdream.who}}<br />
 邀请函</span></div>
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" height="100%" class="header_img"/>
 		{% if user.id == invitation.user.id %}
 		<div class="invitation_footer">
 			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
-			{{userdream.who}}
+			
 			{% if userdream.who == 'myself' %}
 			<input type="submit" value="分享" class="share_btn">
 			{% else %}	

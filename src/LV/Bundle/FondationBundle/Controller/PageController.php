@@ -204,7 +204,7 @@ class PageController extends Controller
             ->getRepository('LVFondationBundle:InvitationLetter')
             ->findOneBy(array('id' => $id));
         $user = $this->container->get('lv.user.service')->userLoad();   
-        if($dream->getUser()->getId() == $user->getId()){
+        if($invitation->getUser()->getId() == $user->getId()){
             $who = 'myself';
         } else {
             $who = 'others';

@@ -836,7 +836,7 @@ html,body,#dreambox{
           animation: none;
 }
 
-.hand_rTips .chapter_hand img.handaa { 
+.hand_rTips .chapter_hand img { 
   -webkit-animation: handrTips_ani 2s infinite linear;
      -moz-animation: handrTips_ani 2s infinite linear;
           animation: handrTips_ani 2s infinite linear;

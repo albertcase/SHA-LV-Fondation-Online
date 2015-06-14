@@ -17,6 +17,7 @@
 		{% if user.id == invitation.user.id %}
 		<div class="invitation_footer">
 			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
+			{{userdream.who}}
 			{% if userdream.who == 'myself' %}
 			<input type="submit" value="分享" class="share_btn">
 			{% else %}	

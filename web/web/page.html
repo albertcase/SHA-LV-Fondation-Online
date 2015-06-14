@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>FONDATION UGC</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<!--禁用手机号码链接(for iPhone)-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+	<!--自适应设备宽度-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--控制全屏时顶部状态栏的外，默认白色-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/iscroll-probe.js"></script>
+
+    <style type="text/css">
+
+    	* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		body {
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  -o-user-select: none;
+		  font-size: 65%;
+		  font-size: "微软雅黑" , Microsoft Yahei;
+		}
+
+		.page {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  opacity: 0;
+		}
+
+    	/* --------- frame --------- */
+		.page-active {
+		  -webkit-transform: translate3d(0, 0, 0);
+		  transform: translate3d(0, 0, 0);
+		  opacity: 1;
+		  z-index: 9;
+		}
+
+		.demo-test {
+		  width: 100%;
+		  height: 100%;
+		  text-align: center;
+		  -webkit-box-pack: center;
+		  -ms-flex-pack: center;
+		  -webkit-justify-content: center;
+		  justify-content: center;
+		  -webkit-box-align: center;
+		  -ms-flex-align: center;
+		  -webkit-align-items: center;
+		  align-items: center;
+		  font-size: 40px;
+		  color: #fff;
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  background: none;
+		  color: #f09;
+		  line-height: 200px;
+		}
+
+		.page-in {
+		  -webkit-transition: -webkit-transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+		  -ms-transition: transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+		  transition: transform 600ms cubic-bezier(0.42, 0, 0.58, 1);
+
+		  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+		}
+
+		.page-out {
+		  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+		  -ms-transition: transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+		  transition: transform 500ms cubic-bezier(0.42, 0, 0.58, 1);
+		  -webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out;
+		}
+
+
+
+		.menu{
+			width: 100%;
+			background: #f1f1f1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 999;
+		}
+
+		.menu a{
+			width: 25%;
+			height: 20px;
+			float: left;
+			display: inline-block;
+			text-align: center;
+		}
+
+		#wrapper {
+			position: relative;
+			z-index: 1;
+			height: 100%;
+			width: 100%;
+			background: #ccc;
+			overflow: hidden;
+			-ms-touch-action: none;
+		}
+
+		#scroller {
+			position: absolute;
+			z-index: 1;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			width: 780px;
+			height: 100%;
+			-webkit-transform: translateZ(0);
+			-moz-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			-o-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-o-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+
+
+		.scrollsTips{
+			width: 100%;
+			position: fixed;
+			left: 0;
+			bottom: 1.6em;
+			text-align: center;
+			font-size: 12px;
+			color: #fff;
+			line-height: 16px;
+			z-index: 3;
+		}
+
+		.st-1{
+			bottom: -10em;
+		}
+
+		.focuslv-home{
+			width: 16px;
+			height: 23px;
+			position: absolute;
+			left: 25%;
+			margin: 0 0 0 -8px;
+			bottom: 35%;
+		}
+		.focus-dot{
+			width: 100%;
+			height: 100%;
+			background: url("imgs/address/dot.png") no-repeat;
+			background-size: 100% auto;
+			opacity: 0;
+		}
+
+		.focuslv-cn{
+			width: 120px;
+			position: absolute;
+			left: 50%;
+			top:40px;
+			margin: 0 0 0 -60px; 
+			line-height: 0;
+			opacity: 0;
+		}
+
+		.focuslv-en{
+			width: 160px;
+			position: absolute;
+			left: 50%;
+			top:30px;
+			margin: 0 0 0 -80px; 
+			line-height: 0;
+			opacity: 0;
+		}
+
+
+		.focuslv-home a{
+			width: 200px;
+			height: 150px;
+			background: none;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -75px 0 0 -100px;
+			z-index: 2;
+		}
+
+
+		.focus-dot-animate{
+			animation: scale_dot 0.3s ease;
+			-webkit-animation: scale_dot 0.3s ease;
+			transform-origin:50% 50%;
+			-webkit-transform-origin: 50% 50%;
+			animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+		}
+		@keyframes scale_dot{
+			0% {transform: scale(1,1); opacity: 0;}
+			50% {transform: scale(2,2); opacity: 1;}
+			100% {transform: scale(1,1); opacity: 1;}
+		}
+		@-webkit-keyframes scale_dot{
+			0% {-webkit-transform: scale(1,1); opacity: 0;}
+			50% {-webkit-transform: scale(2,2); opacity: 1;}
+			100% {-webkit-transform: scale(1,1); opacity: 1;}
+		}
+    </style>
+</head>
+<body>
+<!-- <div class="menu">
+		<a href="javascript:;" data-page="a">a</a>
+		<a href="javascript:;" data-page="b">b</a>
+		<a href="javascript:;" data-page="c">c</a>
+		<a href="javascript:;" data-page="d">d</a>
+</div> -->
+
+<div id="wrapper">
+	<div id="scroller">
+		<div class="focuslv-home">
+			<a href="javascript:alert(6);"></a>
+			<div class="focuslv-cn">
+				<img src="imgs/chapter2/focus-cn.jpg" width="100%" />
+				<div class="focuslv-en">
+					<img src="imgs/chapter2/focus-en.png" width="100%" />
+				</div>
+			</div>
+			<div class="focus-dot"></div>
+		</div>
+		<img src="imgs/chapter2/vso.jpg" height="100%" class="parkImg" />
+	</div>
+	<p class="scrollsTips st-1">点击进一步了解<br />路易威登基金会</p>
+	<p class="scrollsTips st-2">滑动手指欣赏<br />布洛涅森林公园美景</p>
+</div>
+
+
+
+
+<!-- <script type="text/javascript" src="js/frame.js"></script> -->
+<script type="text/javascript">
+var myScroll;
+
+$(".parkImg").load(function(){
+	$("#scroller").css("width",$(".parkImg").css("width"));
+	loaded()
+   // 单张图片加载完成后触发
+})
+
+
+function loaded () {
+	
+	myScroll = new IScroll('#wrapper', { 
+		probeType: 3, 
+		scrollX: true, 
+		scrollY: false, 
+		startX: -parseInt($("#scroller").css("width")) + $(window).width()
+	});
+
+	myScroll.on('scroll', myCustomFn);
+}
+
+function myCustomFn(){
+	if(this.x > -156){
+		$(".st-2").css({"bottom":"-10em"},300);
+		$(".st-1").css({"bottom":"1.6em"},600);
+		
+		$(".focus-dot").addClass("focus-dot-animate");
+	}else{
+		$(".st-2").css({"bottom":"1.6em"});
+		$(".st-1").css({"bottom":"-10em"});
+		
+		$(".focuslv-cn").stop().animate({"top":"40px","opacity":0},900,function(){
+	    	$(".focuslv-en").stop().animate({"opacity":0});
+	    	$(".focus-dot").removeClass("focus-dot-animate");
+	    });
+	}
+}
+
+
+$(".focus-dot").bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
+	animationListener_focusdot();
+	return false;
+});
+
+
+var animationListener_focusdot = function(){
+	$(".focuslv-cn").stop().animate({"top":"22px","opacity":1},900,function(){
+    	$(".focuslv-en").stop().animate({"opacity":1});
+    });
+}
+
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+// (function($){
+//     $(window).load(function(){
+//         $('#Scrolls').mCustomScrollbar({
+//         	horizontalScroll: true,
+// 	    	callbacks:{
+// 	    		scroll: function(){
+// 	    			console.log(1)
+// 	    		},
+// 			    onTotalScroll:function(){
+// 			    	$(this).animate({"opacity":1});
+// 			    },
+// 			    onScroll:function(){
+// 		            myCustomFn(this);
+// 		        }
+// 			}
+//         })
+
+//         $('#Scrolls').mCustomScrollbar("scrollTo","right"); 
+
+
+//         function myCustomFn(el){
+// 		    if(el.mcs.left > -156){
+// 		    	$(".st-2").stop().animate({"bottom":"-10em"},600);
+// 		    	$(".st-1").stop().animate({"bottom":"1.6em"},800);
+
+// 		    	$(".focus-dot").addClass("focus-dot-animate");
+// 		    }else{
+// 		    	$(".st-2").stop().animate({"bottom":"1.6em"},600);
+// 		    	$(".st-1").stop().animate({"bottom":"-10em"},800);
+
+
+// 		    	$(".focuslv-cn").stop().animate({"top":"40px","opacity":0},900,function(){
+// 			    	$(".focuslv-en").stop().animate({"opacity":0});
+// 			    	$(".focus-dot").removeClass("focus-dot-animate");
+// 			    });
+// 		    }
+// 		}
+
+
+
+// 		$(".focus-dot").bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
+// 			animationListener_focusdot();
+// 			return false;
+// 		});
+
+
+// 		var animationListener_focusdot = function(){
+// 			$(".focuslv-cn").stop().animate({"top":"22px","opacity":1},900,function(){
+// 		    	$(".focuslv-en").stop().animate({"opacity":1});
+// 		    });
+// 		}
+
+
+//     });
+// })(jQuery);
+
+</script>
+
+</body>
+</html>

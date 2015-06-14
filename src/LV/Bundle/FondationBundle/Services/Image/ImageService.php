@@ -51,8 +51,8 @@ class ImageService
         //imagestring($authimg, 5, 430, 430, date("Y年m月d日"), $font_color);
         //imagestring($authimg, 5, 230, 730, $name, $font_color);
         $fs = new Filesystem();
-        if(!$fs->exists($this->_filedir . 'Online'))
-           $fs->mkdir($this->_filedir . 'Online', 0700);
+        if(!$fs->exists($this->_filedir . '/Online'))
+           $fs->mkdir($this->_filedir . '/Online', 0700);
         $fileName = '/Online/' . time() . rand(100,999) . '.png';
         $hechengImg = $this->_filedir . $fileName;
         ImagePNG($authimg,$hechengImg);
@@ -78,8 +78,8 @@ class ImageService
         imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
         imagecopyresized($bg,$img1,13,50,0,0,641,959,$width,$height); 
         //header("content-type: image/jpeg");
-        if(!$fs->exists($this->_filedir . 'Offline'))
-           $fs->mkdir($this->_filedir . 'Offline', 0700);
+        if(!$fs->exists($this->_filedir . '/Offline'))
+           $fs->mkdir($this->_filedir . '/Offline', 0700);
         $fileName = '/Offline/' . time() . rand(100,999) . '.jpg';
         $hechengImg = $this->_filedir . $fileName;
         ImageJpeg($bg,$hechengImg);

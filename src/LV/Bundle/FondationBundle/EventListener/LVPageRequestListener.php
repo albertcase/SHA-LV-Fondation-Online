@@ -44,7 +44,7 @@ class LVPageRequestListener
 
                 $isWechatLogin = $this->wechatservice->isLogin($url);
                 
-                $isWechatLogin = md5(microtime(true));
+                // $isWechatLogin = md5(microtime(true));
                 
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);

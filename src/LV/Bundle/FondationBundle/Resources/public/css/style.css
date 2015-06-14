@@ -432,14 +432,17 @@ html,body,#dreambox{
 	margin: 0 0 0 -15%;
 	z-index: 10;
 	text-align: center;
+	line-height: 0;
 }
 
 .handlinea{
-	width: 60%;
+	width: 100%;
+	margin: 0;
 	display: inline-block;
 	position: absolute;
 	left: 0;
 	top: 0;
+	z-index: 999;
 }
 
 .hand_rTips .chapter_hand{

@@ -24,13 +24,6 @@ class UserPhotoCode
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
-     */
-    private $status;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="code", type="string", length=255)
      */
     private $code;
@@ -61,7 +54,7 @@ class UserPhotoCode
      */
     public function __construct()
     {
-        $this->photo = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -72,29 +65,6 @@ class UserPhotoCode
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     * @return UserPhotoCode
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string 
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
@@ -167,36 +137,26 @@ class UserPhotoCode
     }
 
     /**
-     * Add photo
+     * Add photos
      *
-     * @param \LV\Bundle\FondationBundle\Entity\Photo $photo
+     * @param \LV\Bundle\FondationBundle\Entity\Photos $photos
      * @return UserPhotoCode
      */
-    public function addPhoto(\LV\Bundle\FondationBundle\Entity\Photos $photo)
+    public function addPhoto(\LV\Bundle\FondationBundle\Entity\Photos $photos)
     {
-        $this->photo[] = $photo;
+        $this->photos[] = $photos;
 
         return $this;
     }
 
     /**
-     * Remove photo
+     * Remove photos
      *
-     * @param \LV\Bundle\FondationBundle\Entity\Photo $photo
+     * @param \LV\Bundle\FondationBundle\Entity\Photos $photos
      */
-    public function removePhoto(\LV\Bundle\FondationBundle\Entity\Photos $photo)
+    public function removePhoto(\LV\Bundle\FondationBundle\Entity\Photos $photos)
     {
-        $this->photo->removeElement($photo);
-    }
-
-    /**
-     * Get photo
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
+        $this->photos->removeElement($photos);
     }
 
     /**

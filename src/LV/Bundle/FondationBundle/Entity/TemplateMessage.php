@@ -22,11 +22,11 @@ class TemplateMessage
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="issend_photo", type="integer")
      */
-    private $status;
+    private $issend_photo;
 
     /**
      * @var string
@@ -120,5 +120,28 @@ class TemplateMessage
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set issend_photo
+     *
+     * @param integer $issendPhoto
+     * @return TemplateMessage
+     */
+    public function setIssendPhoto($issendPhoto)
+    {
+        $this->issend_photo = $issendPhoto;
+
+        return $this;
+    }
+
+    /**
+     * Get issend_photo
+     *
+     * @return integer 
+     */
+    public function getIssendPhoto()
+    {
+        return $this->issend_photo;
     }
 }

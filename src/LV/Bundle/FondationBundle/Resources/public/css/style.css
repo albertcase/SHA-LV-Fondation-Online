@@ -1746,8 +1746,8 @@ html,body,#dreambox{
 .backBtn{
 	width: 20%;
 	position: absolute;
-	left: 6%;
-	top: 5em;
+	left: 4%;
+	top: 3em;
 	font-size: 14px;
 	color: #363533;
 	z-index: 100;
@@ -1760,6 +1760,9 @@ html,body,#dreambox{
 	display: inline-block;
 }
 
+.backBtn.white{
+	color: #fff;
+}
 
 
 

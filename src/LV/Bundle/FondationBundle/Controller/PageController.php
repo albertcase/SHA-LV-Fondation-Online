@@ -42,9 +42,9 @@ class PageController extends Controller
         if($percentage > 80 && $percentage <= 100)
             $imagename = '100';
 
-        $default_dreams_home = $this->getDoctrine()
-            ->getRepository('LVFondationBundle:UserDream')
-            ->retrieveDefaultDreams($user, 15);
+        // $default_dreams_home = $this->getDoctrine()
+        //     ->getRepository('LVFondationBundle:UserDream')
+        //     ->retrieveDefaultDreams($user, 15);
         $default_dreams_in = $this->getDoctrine()
             ->getRepository('LVFondationBundle:UserDream')
             ->retrieveDefaultDreams($user, 16);
@@ -62,7 +62,7 @@ class PageController extends Controller
         }
 
         return $this->render('LVFondationBundle:Default:ugc.html.twig', array(
-            'default_dreams_home' => $default_dreams_home, 
+            // 'default_dreams_home' => $default_dreams_home, 
             'default_dreams_in' => $default_dreams_in, 
             'percentage' => $percentage,
             'userdream' => $userdream,

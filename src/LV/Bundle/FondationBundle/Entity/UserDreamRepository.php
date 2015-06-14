@@ -29,7 +29,7 @@ class UserDreamRepository extends EntityRepository
             ->createQuery(
             	'SELECT ud FROM LVFondationBundle:UserDream ud
             	WHERE ud.status = :status 
-            	ORDER BY ud.created DESC'
+            	ORDER BY ud.id DESC'
             	)
             ->setParameter(':status', 1)
             ->setMaxResults($limit);
@@ -48,7 +48,6 @@ class UserDreamRepository extends EntityRepository
         	$i++;
         }
         return $data;
-        return json_encode($data);
 	}
 }
 

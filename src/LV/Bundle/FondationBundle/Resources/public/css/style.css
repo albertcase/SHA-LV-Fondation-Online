@@ -635,7 +635,7 @@ html,body,#dreambox{
 }
 
 .chapterimg-4 img:nth-child(1){
-	margin-top: 25px;
+	margin-top: 65px;
 }
 
 .chaptermap4{
@@ -1744,10 +1744,10 @@ html,body,#dreambox{
 
 
 .backBtn{
-	width: 20%;
+	width: 15%;
 	position: absolute;
-	left: 4%;
-	top: 3em;
+	left: 3%;
+	top: 4em;
 	font-size: 14px;
 	color: #363533;
 	z-index: 100;
@@ -1866,12 +1866,12 @@ html,body,#dreambox{
 
 
 .panoramaLink{
-	width: 18%;
+	width: 28%;
 	height: 27%;
 	background: none;
 	position: absolute;
-	left: 16%;
-	top: 45%;
+	left: 7%;
+	top: 40%;
 	z-index: 99;
 	display: none;
 }

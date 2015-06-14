@@ -42,8 +42,6 @@
 <script type="text/javascript">
 
 
-
-
 ;(function($){
 	$(function(){
 
@@ -86,6 +84,7 @@
 			editShare();
 		}
 
+		
 		function GetQueryString(){
 		    var r = unescape(location.hash);
 		    r=r.replace("#","");
@@ -97,19 +96,16 @@
 			defaultSlide = 0;
 			//shareInfo(defaultSlide);
 		}else{
-			defaultSlide = parseInt(GetQueryString());
+			defaultSlide = GetQueryString();
 		}
-
-
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',
 			nextButton: '.swiper-button-next',
 	        prevButton: '.swiper-button-prev',
 	        paginationClickable: true,
 	        loop: true,
-	        initialSlide : defaultSlide,
+	        initialSlide : parseInt(defaultSlide),
 	        onTouchEnd: function(swiper){
-	        	
 	        	if(swiper.swipeDirection == "next"){
 
 	        		defaultSlide++;

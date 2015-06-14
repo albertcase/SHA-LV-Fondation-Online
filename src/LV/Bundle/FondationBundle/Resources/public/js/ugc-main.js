@@ -73,7 +73,7 @@ var _doing = {
 							islikecon = "已支持";
 						}
 						 
-						return '<div class="swiper-slide"><div class="hotArea"><div class="supportIcon '+islikeVal+'"><img src="/images/ugc/like'+islikeVal+'.png" width="100%" /><i>'+islikecon+'</i></div><div class="shareIcon"><img src="/images/ugc/shareIcon.png" width="100%" /><i>分享</i></div></div><div class="dreamMode"><div class="selectedModel_con" data-dream-id="'+v.dream_id+'"><div class="selectedNum">'+v.dream_num+'</div><div class="selectedCon">'+v.content+'</div><div class="selectedName">'+v.nickname+'</div></div><img src="/images/ugc/list-model-'+k%5+'.png" width="100%" /></div></div>'
+						return '<div class="swiper-slide"><div class="hotArea"><div class="supportIcon '+islikeVal+'" data-dream-id="'+v.dream_id+'"><img src="/images/ugc/like'+islikeVal+'.png" width="100%" /><i>'+islikecon+'</i></div><div class="shareIcon"><img src="/images/ugc/shareIcon.png" width="100%" /><i>分享</i></div></div><div class="dreamMode"><div class="selectedModel_con"><div class="selectedNum">'+v.dream_num+'</div><div class="selectedCon">'+v.content+'</div><div class="selectedName">'+v.nickname+'</div></div><img src="/images/ugc/list-model-'+k%5+'.png" width="100%" /></div></div>'
 					
 
 				})
@@ -109,7 +109,7 @@ var _doing = {
 				$(".supportIcon").click(function(){
 					if($(this).hasClass("hover"))return false;
 
-					var dream_id = $(".swiper-slide-active .selectedModel_con").attr("data-dream-id");
+					var dream_id = $(this).attr("data-dream-id");
 					$(this).addClass("hover");
 					$(this).find("i").html("已支持");
 					$(this).find("img").attr("src","/images/ugc/likehover.png")

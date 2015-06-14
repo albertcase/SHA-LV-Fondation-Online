@@ -55,15 +55,15 @@
 
 $(function(){
 
-	var shareUrl = $(".dreamParameters").attr("data-url");
+	//var shareUrl = $(".dreamParameters").attr("data-url");
 	shareData = {
 	    title: '路易威登基金会·梦想启航',
 	    desc: '我的梦想已经扬帆！和你的一样吗？',
 	    descTimeline: '路易威登基金会·我的梦想已经扬帆！和你的一样吗？',
-    	url: shareUrl,
+    	url: '{{ url('lv_fondation_journeyuserdream', {'id': userdream.dream_id}) }}',
 		imgUrl: 'http://' + window.location.host + '/images/share.jpg'
 	};
-
+	alert('{{ url('lv_fondation_journeyuserdream', {'id': userdream.dream_id}) }}');
 	editShare();
 
 	/* 分享当前梦想 */

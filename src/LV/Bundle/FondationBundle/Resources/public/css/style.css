@@ -436,6 +436,9 @@ html,body,#dreambox{
 .hand_line{
 	width: 80%;
 	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .hand_rTips .chapter_hand{

@@ -435,10 +435,10 @@ html,body,#dreambox{
 }
 
 .handlinea{
-	width: 200%;
+	width: 60%;
 	display: inline-block;
 	position: absolute;
-	left: -50%;
+	left: 0;
 	top: 0;
 }
 

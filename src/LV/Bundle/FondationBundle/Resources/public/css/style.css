@@ -836,11 +836,18 @@ html,body,#dreambox{
           animation: none;
 }
 
-.hand_rTips .chapter_hand img { 
+.hand_rTips .chapter_hand img:nth-child(2) { 
   -webkit-animation: handrTips_ani 2s infinite linear;
      -moz-animation: handrTips_ani 2s infinite linear;
           animation: handrTips_ani 2s infinite linear;
 }
+
+.hand_rTips .chapter_hand img:nth-child(1) { 
+  -webkit-animation: hani 2s infinite linear;
+     -moz-animation: hani 2s infinite linear;
+          animation: hani 2s infinite linear;
+}
+
 
 @-webkit-keyframes handTips_ani {
   0% {opacity: 0;-webkit-transform: translate(0,10px);}
@@ -887,6 +894,28 @@ html,body,#dreambox{
   100% {opacity: 1;-webkit-transform: translate(15px,0);}
 }
 
+
+@-webkit-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@-moz-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
 
 
 

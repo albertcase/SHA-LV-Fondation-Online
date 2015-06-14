@@ -52,33 +52,33 @@
 </div>
 
 <script type="text/javascript">
-	;(function($){
-		$(function(){
 
-			var shareUrl = $(".dreamParameters").attr("data-url");
-			shareData = {
-			    title: '路易威登基金会·梦想启航',
-			    desc: '我的梦想已经扬帆！和你的一样吗？',
-		    	url: shareUrl,
-				imgUrl: 'http://' + window.location.host + '/images/share.jpg'
-			};
-			editShare();
+$(function(){
 
-			/* 分享当前梦想 */
-			$(".dreamShare_btn").click(function(){
-				$("#wechatTips").fadeIn();
-			})
+	var shareUrl = $(".dreamParameters").attr("data-url");
+	shareData = {
+	    title: '路易威登基金会·梦想启航',
+	    desc: '我的梦想已经扬帆！和你的一样吗？',
+    	url: shareUrl,
+		imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+	};
+	editShare();
 
-			document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-				ev.preventDefault();
-				$("#wechatTips").fadeOut();
-				return false;
-			} , false)
+	/* 分享当前梦想 */
+	$(".dreamShare_btn").click(function(){
+		$("#wechatTips").fadeIn();
+	})
 
-			var imgSrcArr = [];
-			loadingFun(imgSrcArr);
-		})
-	})(jQuery);
+	document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+		ev.preventDefault();
+		$("#wechatTips").fadeOut();
+		return false;
+	} , false)
+
+	var imgSrcArr = [];
+	loadingFun(imgSrcArr);
+})
+
 </script>
 
 

@@ -43,53 +43,6 @@
 </div>
 
 
-<!-- <div class="page" id="index" data-page="index">
-
-	<div class="demo-test">
-
-		<div class="dreamlist">
-    		<dl>
-    			<dt>
-					<div class="swiper-container dream-swiper">
-					  <div class="swiper-wrapper" id="dreamListCon">
-						   
-					    </div>
-					</div>
-    			</dt>
-    			<dd>
-    				<a href="javascript:pagechange.moveClick('chose');"></a>
-    				<div class="completionRatio">
-    					<p>梦想已完成</p>
-    					<h2>{{ percentage }}<sup>%</sup></h2>
-    				</div>
-    				<img src="" sourcesrc="/images/ugc/bulid-{{ imagename }}.png" width="90%" />
-    				<div class="d-tips"><img src="" sourcesrc="/images/ugc/enlarge_arr.png" width="80%" /></div>
-    			</dd>
-    		</dl>
-    	</div>
-
-		<div class="swiper-button-prev listPrev">
-				<img src="" sourcesrc="/images/ugc/list_arr_l.png" width="100%" />
-		</div>
-		<div class="swiper-button-next listNext">
-				<img src="" sourcesrc="/images/ugc/list_arr_r.png" width="100%" />
-		</div>
-
-		<div class="dream_footer">
-			{% if userdream %}
-		    	<a href="{{ userdream }}" class="btn creatBtn">查看我的梦想之旅</a>
-		    {% else %}
-		    	<a href="javascript:_doing.getCreateData();" class="btn creatBtn">告诉大家你的梦想之旅</a>
-			{% endif %}
-		    <a href="/fondation">
-		        <img src="/images/ugc/story.jpg" width="100%" />
-		    </a>
-		</div>
-	</div>
-
-</div> -->
-
-
 <!-- chose page -->
 <div class="page" id="chose" data-page="chose">
 
@@ -275,9 +228,6 @@
 
 </script>
 
-<div class="default_dreams_home" style="display:none">
-{{default_dreams_home|json_encode()}}
-</div>
 <div class ="default_dreams_in" style="display:none">
 {{default_dreams_in|json_encode()}}
 </div>

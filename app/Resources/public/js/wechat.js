@@ -1,7 +1,7 @@
 var shareData = {
     title: '路易威登基金会·起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    descTimeline: '路易威登基金会·艺术与建筑的碰撞，一个美梦成真的故事 ',
+    descTimeline: '路易威登基金会▪艺术与建筑的碰撞，一个美梦成真的故事',
     link: window.location.host + "/fondation",
     imgUrl: 'http://' + window.location.host + '/images/share.jpg',
     returnFun: function(){
@@ -85,7 +85,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
     wx.onMenuShareTimeline({
-        title: shareData.title, // 分享标题
+        title: shareData.descTimeline, // 分享标题
         link: shareData.link, // 分享链接
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
@@ -138,7 +138,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
 function editShare(){   ///demon
      wx.onMenuShareTimeline({
-            title: shareData.title, // 分享标题
+            title: shareData.descTimeline, // 分享标题
             link: shareData.link, // 分享链接
             imgUrl: shareData.imgUrl, // 分享图标
             success: function () {

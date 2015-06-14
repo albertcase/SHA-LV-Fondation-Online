@@ -41,8 +41,6 @@ class TemplateMessage
      */
     private $user;
 
-
-
     /**
      * Get id
      *

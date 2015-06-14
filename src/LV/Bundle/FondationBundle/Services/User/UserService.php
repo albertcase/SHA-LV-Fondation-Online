@@ -412,7 +412,7 @@ class UserService
                 if($issend) {
                     $message = new TemplateMessage();
                     $message->setUser($user);
-                    $message->setStatus('1');
+                    $message->setIssendPhoto('0');
                     $message->setCreated(time());
                     $this->save($message);
                     return $message;

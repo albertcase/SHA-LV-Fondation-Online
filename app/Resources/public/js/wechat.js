@@ -1,7 +1,7 @@
 var shareData = {
     title: '路易威登基金会·起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    descTimeline: '路易威登基金会▪艺术与建筑的碰撞，一个美梦成真的故事',
+    descTimeline: '路易威登基金会·艺术与建筑的碰撞，一个美梦成真的故事',
     link: window.location.host + "/fondation",
     imgUrl: 'http://' + window.location.host + '/images/share.jpg',
     returnFun: function(){

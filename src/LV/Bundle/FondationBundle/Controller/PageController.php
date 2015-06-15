@@ -204,7 +204,12 @@ class PageController extends Controller
             ->getRepository('LVFondationBundle:InvitationLetter')
             ->findOneBy(array('id' => $id));
         $user = $this->container->get('lv.user.service')->userLoad();   
-        return $this->render('LVFondationBundle:Default:show_invitation.html.twig', array('invitation' => $invitation, 'user' => $user));
+        if($invitation->getUser()->getId() == $user->getId()){
+            $who = 'myself';
+        } else {
+            $who = 'others';
+        }
+        return $this->render('LVFondationBundle:Default:show_invitation.html.twig', array('invitation' => $invitation, 'user' => $user, 'who' => $who));
     }
 
     /** 

@@ -6,7 +6,23 @@
 
 		
 
-		
+		{% if user.id == invitation.user.id %}
+			<div class="handTips" id="handTips">
+				<div class="hand_dot">
+					<div class="c_dot"></div>
+					<div class="hands_active"></div>
+				</div>
+
+				<span>长按保存<br />邀请函</span>
+			</div>
+		<script type="text/javascript">
+			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
+				ev.preventDefault();
+				$(".handTips").hide();
+				return false;
+			} , false)
+		</script>
+		{% endif %}
 
 
 
@@ -26,7 +42,6 @@
 	<script type="text/javascript">
 
 		$(function(){
-			alert(67)
 
 			$("body").css({"background":"#ececec"});
 			shareData = {
@@ -50,13 +65,6 @@
 				return false;
 			} , false)
 
-			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
-				ev.preventDefault();
-				$(".handTips").hide();
-				return false;
-			} , false)
-
-			alert(9078)
 
 			var imgSrcArr = [];
 			loadingFun(imgSrcArr);

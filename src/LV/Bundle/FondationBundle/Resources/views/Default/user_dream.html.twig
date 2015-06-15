@@ -253,7 +253,6 @@
 			})
 
 			var isSubmitForm = {{ userdream.hasuserinfo }};
-			alert(isSubmitForm);
 
 			shareData = {
 			    title: '路易威登基金会·梦想启航',
@@ -264,6 +263,7 @@
 			        if(parseInt(isSubmitForm)==1){
 	                    pagechange.moveClick("share")
 	                }else{
+	                	isSubmitForm = 1;
 	                    pagechange.moveClick('form');
 	                } 
 			    }

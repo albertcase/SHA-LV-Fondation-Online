@@ -257,9 +257,11 @@
 			shareData = {
 			    title: '路易威登基金会·梦想启航',
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
+			    descTimeline: '路易威登基金会·这是我的梦想，你呢？',
 			    link: window.location.host + window.location.pathname,
 				imgUrl: 'http://' + window.location.host + '/images/share.jpg',
 				returnFun: function(){
+					
 			        if(parseInt(isSubmitForm)==1){
 	                    pagechange.moveClick("share")
 	                }else{
@@ -330,7 +332,13 @@
 		</div>	
 		
 		<div class="dream_footer">
-		    <a href="" class="btn creatBtn">告诉大家你的梦想之旅</a>
+
+			{% if userdream.ismyself %}
+		    	<a href="/fondation/dream/{{ userdream.dream_id }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="/fondation/ugc" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
+
 		    <a href="javascript:;">
 		        <img src="/images/ugc/story.jpg" width="100%" />
 		    </a>
@@ -356,9 +364,11 @@
 		shareData = {
 		    title: '路易威登基金会·梦想启航',
 		    desc: '我的梦想已经扬帆！和你的一样吗？',
+		    descTimeline: '路易威登基金会·这是我的梦想，你呢？',
 		    link: window.location.host + "/fondation",
 			imgUrl: 'http://' + window.location.host + '/images/share.jpg',
 			returnFun: function(){
+
 		    }
 		};
 

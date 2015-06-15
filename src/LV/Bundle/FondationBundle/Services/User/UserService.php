@@ -296,12 +296,18 @@ class UserService
 
             $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->findOneBy(array('user' => $user->getId(), 'userdream' => $dream->getId()));
             $isliked = $liked ? 1 : 0;
+            if($mydream = $user->getUserdream())
+                $myself_dream_id = $mydream->getId();
+            else
+                $myself_dream_id= 0;
+
             $dreaminfo = array(
                 'dreamcount' => $dreamcount,
                 'dream_id' => $dream_id,
                 'nickname' => $nickname,
                 'content' => $content,
                 'isliked' => $isliked,
+                'myself_dream_id' => $myself_dream_id,
                 'ismyself' => 0,
             );            
         }

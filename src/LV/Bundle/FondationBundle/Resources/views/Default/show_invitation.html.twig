@@ -14,18 +14,16 @@
 邀请函</span></div>
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" height="100%" class="header_img"/>
-		{% if user.id == invitation.user.id %}
+		
 		<div class="invitation_footer">
 			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
 
-			{% if who == 'myself' %}
+			{% if user.id == invitation.user.id %}
 				<input type="submit" value="分享" class="share_btn">
 			{% else %}	
 			    <input type="button" onclick="location.href='/fondation/invitation'" value="申领邀请函" class="slBtn">
 			{% endif %}
-
 		</div>
-		{% endif %}
 	</div>	
 
 	<script type="text/javascript">

@@ -6,7 +6,7 @@
 {% if userdream.ismyself %}
 
 	<!-- share page -->
-	<div class="page" id="share" data-page="share" data-hasinfo={{ userdream.hasuserinfo }}>
+	<div class="page" id="share" data-page="share">
 
 		<div class="demo-test">
 			<a href="/fondation/ugc" class="backBtn">
@@ -252,13 +252,15 @@
 				$("#wechatTips").fadeIn();
 			})
 
+			var isSubmitForm = {{ userdream.hasuserinfo }};
+
 			shareData = {
 			    title: '路易威登基金会·梦想启航',
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
 			    link: window.location.host + window.location.pathname,
 				imgUrl: 'http://' + window.location.host + '/images/share.jpg',
 				returnFun: function(){
-			        if($("#share").attr("data-hasinfo")==1){
+			        if(parseInt(isSubmitForm)==1){
 	                    pagechange.moveClick("share")
 	                }else{
 	                    pagechange.moveClick('form');

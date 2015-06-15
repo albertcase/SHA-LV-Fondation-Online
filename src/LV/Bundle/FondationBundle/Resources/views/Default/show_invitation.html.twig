@@ -15,6 +15,13 @@
 
 				<span>长按保存<br />邀请函</span>
 			</div>
+		<script type="text/javascript">
+			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
+				ev.preventDefault();
+				$(".handTips").hide();
+				return false;
+			} , false)
+		</script>
 		{% endif %}
 
 
@@ -55,12 +62,6 @@
 			document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
 				ev.preventDefault();
 				$("#wechatTips").fadeOut();
-				return false;
-			} , false)
-
-			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
-				ev.preventDefault();
-				$(".handTips").hide();
 				return false;
 			} , false)
 

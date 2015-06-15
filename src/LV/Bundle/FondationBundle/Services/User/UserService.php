@@ -100,7 +100,7 @@ class UserService
     public function userRegister($openid)
     {
         $current_route = $this->requestStack->getCurrentRequest()->get('_route');
-        $role = $current_route == 'llv_fondation_ibeacon_entrance' ? 'offline' : 'online';
+        $role = $current_route == 'lv_fondation_ibeacon_entrance' ? 'offline' : 'online';
         $user = new User();
         $user->setOpenid($openid);
         $user->setRole($role);

@@ -224,7 +224,19 @@ class PageController extends Controller
     {
         $userservice = $this->container->get('lv.user.service');
         $wechat = $this->container->get('same.wechat');
-        $userservice->setTemplateMessageStatus($wechat);
+        $str = '1234567890abcdefghijklmnopqrstuvwxyz';
+        $code = '';
+        for($i=0;$i<6;$i++){
+            $randval = mt_rand(0,35);
+            $code .= $str[$randval];
+        }
+        $input = array();
+        $input['first'] = 'line one';
+        $input['second'] = 'line two';
+        $input['third'] = 'Code:' . $code;
+        $input['url'] = '';
+        $input['code'] = $code;
+        $userservice->setTemplateMessageStatus($wechat, $input);
         return $this->render('LVFondationBundle:Default:guidetour.html.twig');
     }
 

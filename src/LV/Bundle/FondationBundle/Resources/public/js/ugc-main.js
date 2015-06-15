@@ -98,7 +98,8 @@ var _doing = {
 			        		}
 			        	}
 			        	//console.log(_doing.curChoseGlassDreamNum);
-			        	alert(_doing.curChoseGlassDreamNum%5)
+			        	alert(_doing.curChoseGlassDreamNum)
+			        	alert(swiper.swipeDirection)
 			        	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
 				    }
 

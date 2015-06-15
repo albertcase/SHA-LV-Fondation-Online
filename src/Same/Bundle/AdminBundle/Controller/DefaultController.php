@@ -84,11 +84,15 @@ class DefaultController extends Controller
     public function lookAction()
     {
         $code = $this->getRequest()->get('code');
-        $repository = $this->getDoctrine()->getRepository('SameAdminBundle:Photo');
-        $rs = $repository->findOneByCode($code);
-        $photo = $rs->getPhoto();
-        $photo = json_decode($photo, true);
-        return $this->render('SameAdminBundle:Default:look.html.twig',array('photo'=> $photo));
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
+        $userPhotoCode = $repository->findOneByCode($code);
+        if(!$userPhotoCode){
+            $response = new JsonResponse();
+            $response->setData(array('code'=> 0, 'msg'=> '该code不存在'));
+            return $response;
+        }
+        $photos = $userPhotoCode->getPhotos();
+        return $this->render('SameAdminBundle:Default:look.html.twig',array('photos'=> $photos));
     }
 
     public function uploadAction()

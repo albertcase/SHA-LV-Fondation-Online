@@ -4,14 +4,20 @@
 	<div id="wechatTips"></div>
 	<div class="share">
 
-		<div class="handTips" id="handTips">
-			<div class="hand_dot">
-				<div class="c_dot"></div>
-				<div class="hands_active"></div>
-			</div>
+		
 
-			<span>长按保存<br />
-邀请函</span></div>
+		{% if user.id == invitation.user.id %}
+			<div class="handTips" id="handTips">
+				<div class="hand_dot">
+					<div class="c_dot"></div>
+					<div class="hands_active"></div>
+				</div>
+
+				<span>长按保存<br />邀请函</span>
+			</div>
+		{% endif %}
+
+
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" height="100%" class="header_img"/>
 		
@@ -55,9 +61,6 @@
 			document.getElementById('handTips').addEventListener('touchstart' , function (ev){
 				ev.preventDefault();
 				$(".handTips").hide();
-				setTimeout(function(){
-					$(".handTips").fadeIn();
-				},5000);
 				return false;
 			} , false)
 

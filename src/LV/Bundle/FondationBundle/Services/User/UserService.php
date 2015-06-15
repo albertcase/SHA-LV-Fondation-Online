@@ -390,26 +390,27 @@ class UserService
     * @since 1.0 
     * @return $dream
     */
-    public function setTemplateMessageStatus($wechat) 
+    public function setTemplateMessageStatus($wechat, $input) 
     {
         if($user = $this->userLoad()) {
             if(!$user->getTemplatemessage()) {
                 $data = array();
-                $data['first']['value'] = '第一行字';
+                $data['first']['value'] = $input['first'];
                 $data['first']['color'] = '#000000';
-                $data['keyword1']['value'] = '第二行字';
+                $data['keyword1']['value'] = $input['second'];
                 $data['keyword1']['color'] = '#000000';
                 $data['keyword2']['value'] = date("Y-m-d");
                 $data['keyword2']['color'] = '#000000';
-                $data['remark']['value'] = '第三行字';
+                $data['remark']['value'] = $input['third'];
                 $data['remark']['color'] = '#000000';
                 $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
-                $url = '';
+                $url = $input['url'];
                 $topcolor = '#000000';
                 $openid = $user->getOpenid();
                 $issend = $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
 
                 if($issend) {
+                    $this->setUserPhotoCode($input['code']);
                     $message = new TemplateMessage();
                     $message->setUser($user);
                     $message->setIssendPhoto('0');
@@ -420,6 +421,20 @@ class UserService
               
             }
 
+        }
+        return FALSE;
+    }
+
+    public function setUserPhotoCode($code) 
+    {
+        if($user = $this->userLoad()) {
+            $userphotocode = new UserPhotoCode();
+            $userphotocode->setCode($code);
+            $userphotocode->setUser($user);
+            $userphotocode->setStatus('0');
+            $userphotocode->setCreated(time());
+            $this->save($userphotocode);
+            return $userphotocode;
         }
         return FALSE;
     }

@@ -14,12 +14,16 @@
 邀请函</span></div>
 
 		<img src="" sourcesrc="/files{{ invitation.imgurl }}" height="100%" class="header_img"/>
-		{% if user.id == invitation.user.id %}
+		
 		<div class="invitation_footer">
 			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
-			<input type="submit" value="分享" class="share_btn">
+
+			{% if user.id == invitation.user.id %}
+				<input type="submit" value="分享" class="share_btn">
+			{% else %}	
+			    <input type="button" onclick="location.href='/fondation/invitation'" value="申领邀请函" class="slBtn">
+			{% endif %}
 		</div>
-		{% endif %}
 	</div>	
 
 	<script type="text/javascript">
@@ -28,7 +32,7 @@
 
 			$("body").css({"background":"#ececec"});
 			shareData = {
-			    title: '申领邀请函，共赴北京路易威登基金会',
+			    title: '路易威登基金会·创梦当代',
 			    desc: '申领邀请函，共赴北京路易威登基金会',
 			    descTimeline: '申领邀请函，共赴北京路易威登基金会',
 				imgUrl: 'http://' + window.location.host + '/images/share.jpg',

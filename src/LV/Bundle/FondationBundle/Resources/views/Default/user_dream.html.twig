@@ -6,7 +6,7 @@
 {% if userdream.ismyself %}
 
 	<!-- share page -->
-	<div class="page" id="share" data-page="share" data-hasinfo={{ userdream.hasuserinfo }}>
+	<div class="page" id="share" data-page="share">
 
 		<div class="demo-test">
 			<a href="/fondation/ugc" class="backBtn">
@@ -17,7 +17,7 @@
 			<div class="create_con">
 				<div class="create-content" data-dream-id={{ userdream.dream_id }}>
 
-					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dreamcount }}</span>块玻璃</div>
+					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dream_id }}</span>块玻璃</div>
 					<div class="create-context">
 						<textarea name="" readonly="readonly" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容">{{ userdream.content }}</textarea>
 					</div>
@@ -58,7 +58,7 @@
 			<div class="create_con">
 				<div class="create-content" data-dream-id={{ userdream.dream_id }}>
 
-					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dreamcount }}</span>块玻璃</div>
+					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dream_id }}</span>块玻璃</div>
 					<div class="create-context">
 						<textarea name="" readonly="readonly" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容">{{ userdream.content }}</textarea>
 					</div>
@@ -93,7 +93,7 @@
 			<div class="create_con">
 				<div class="create-content" data-dream-id={{ userdream.dream_id }}>
 
-					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dreamcount }}</span>块玻璃</div>
+					<div class="create-num">你是构建路易威登基金会的<br />第<span>{{ userdream.dream_id }}</span>块玻璃</div>
 					<div class="create-context">
 						<textarea name="" class="creatTextCon" cols="" rows="" placeholder="请输入创作内容">{{ userdream.content }}</textarea>
 					</div>
@@ -194,7 +194,7 @@
 		<div class="page" id="poster" data-page="poster">
 
 			<div class="demo-test">
-				<a href="javascript:pagechange.moveClick('form');" class="backBtn">
+				<a href="/fondation/ugc" class="backBtn">
 					<img src="/images/ugc/reback_arr.png" />
 					返回
 				</a>
@@ -252,14 +252,16 @@
 				$("#wechatTips").fadeIn();
 			})
 
+			var isSubmitForm = {{ userdream.hasuserinfo }};
+
 			shareData = {
 			    title: '路易威登基金会·梦想启航',
 			    desc: '我的梦想已经扬帆！和你的一样吗？',
 			    link: window.location.host + window.location.pathname,
 				imgUrl: 'http://' + window.location.host + '/images/share.jpg',
 				returnFun: function(){
-			        if($("#share").attr("data-hasinfo")==1){
-	                    pagechange.moveClick('view')
+			        if(parseInt(isSubmitForm)==1){
+	                    pagechange.moveClick("share")
 	                }else{
 	                    pagechange.moveClick('form');
 	                } 

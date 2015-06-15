@@ -53,7 +53,27 @@
         {% endfor %}
      </tbody>
     </table>
-     
+    {% if totalpage <= 10 %}
+     <div class="pageone">
+        <a href="javascript:void(0)" onclick="prepage()" class="border"><<</a>
+          {% for i in 1..totalpage %}
+              <a href="" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
+          {% endfor %}
+        <a href="javascript:void(0)" onclick="nextpage()" class="border">>></a>
+      </div>
+    {% else %}
+      <div class="pagetwo">
+        <a href="" class="disable"><<</a>
+        <a href="" class="border">1</a>
+        <a href="" class="border">2</a>
+        <a href="" class="border">3</a>
+        <a href="" class="border">4</a>
+        <a href="" class="etc">...</a>
+        <a href="" class="border">99</a>
+        <a href="" class="border">100</a>
+        <a href="" class="border">>></a>
+      </div>
+    {% endif %}
   </section>
 </div>
 {% endblock %}

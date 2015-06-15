@@ -78,6 +78,7 @@ class ImageService
         imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
         imagecopyresized($bg,$img1,13,50,0,0,641,959,$width,$height); 
         //header("content-type: image/jpeg");
+        $fs = new Filesystem();
         if(!$fs->exists($this->_filedir . '/Offline'))
            $fs->mkdir($this->_filedir . '/Offline', 0700);
         $fileName = '/Offline/' . time() . rand(100,999) . '.jpg';

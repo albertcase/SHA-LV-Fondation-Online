@@ -55,23 +55,45 @@
     </table>
     {% if totalpage <= 10 %}
      <div class="pageone">
-        <a href="javascript:void(0)" onclick="prepage()" class="border"><<</a>
+        <a href="javascript:void(0)" onclick="prepage()" class="{{page == 1 ? 'etc' : 'border'}}"><<</a>
           {% for i in 1..totalpage %}
-              <a href="" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
+              <a href="./table?page={{i}}" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
           {% endfor %}
-        <a href="javascript:void(0)" onclick="nextpage()" class="border">>></a>
+        <a href="javascript:void(0)" onclick="nextpage()" class="{{page == totalpage ? 'etc' : 'border'}}">>></a>
       </div>
     {% else %}
       <div class="pagetwo">
-        <a href="" class="disable"><<</a>
-        <a href="" class="border">1</a>
-        <a href="" class="border">2</a>
-        <a href="" class="border">3</a>
-        <a href="" class="border">4</a>
-        <a href="" class="etc">...</a>
-        <a href="" class="border">99</a>
-        <a href="" class="border">100</a>
-        <a href="" class="border">>></a>
+        <a href="javascript:void(0)" onclick="prepage()" class="{{page == 1 ? 'etc' : 'border'}}"><<</a>
+          {% if page < 5 %}
+            {% for i in 1..5 %}
+                <a href="./table?page={{i}}" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
+            {% endfor %}
+                <a href="" class="etc">...</a>
+            {% for i in (totalpage - 2)..totalpage %}
+                <a href="./table?page={{i}}" class="border">{{i}}</a>
+            {% endfor %}
+          {% elseif page > totalpage - 5 %}
+            {% for i in 1..3 %}
+                <a href="./table?page={{i}}" class="border">{{i}}</a>
+            {% endfor %}
+                <a href="" class="etc">...</a>
+            {% for i in (totalpage - 5)..totalpage %}
+                <a href="./table?page={{i}}" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
+            {% endfor %}
+          {% else %}
+            {% for i in 1..3 %}
+                <a href="./table?page={{i}}" class="border">{{i}}</a>
+            {% endfor %}
+                <a href="" class="etc">...</a>
+            {% for i in (page - 1)..(page + 1) %}
+                <a href="./table?page={{i}}" class="{{i == page ? 'disable' : 'border'}}">{{i}}</a>
+            {% endfor %}    
+                <a href="" class="etc">...</a>
+            {% for i in (totalpage - 2)..totalpage %}
+                <a href="./table?page={{i}}" class="border">{{i}}</a>
+            {% endfor %}
+          {% endif %}
+        <a href="javascript:void(0)" onclick="nextpage()" class="{{page == totalpage ? 'etc' : 'border'}}">>></a>
       </div>
     {% endif %}
   </section>

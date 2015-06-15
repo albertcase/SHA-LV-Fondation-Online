@@ -191,20 +191,19 @@
 		
 		/* 提交创建内容 */
 		$(".finshBtn").click(function(){
-			if($(this).hasClass("isdoing"))return false;
+			var _this = $(this);
+			if(_this.hasClass("isdoing"))return false;
 			
 			var creatTextCon = $(".creatTextCon").val(),
 				creatTextName = $(".creatTextName").val();
 				if(creatTextCon == ""){
 					$(".creatTextCon").addClass("error").attr("placeholder","请输入内容");
 					return false;
-				}
-
-				if(creatTextName == ""){
+				}else if(creatTextName == ""){
 					$(".creatTextName").addClass("error").attr("placeholder","请输入姓名");
 					return false;
 				}else{
-					$(this).addClass("isdoing").val("正在加载...");
+					_this.addClass("isdoing").val("正在加载...");
 					_doing.submitCreateFun(creatTextName,creatTextCon);
 				}
 

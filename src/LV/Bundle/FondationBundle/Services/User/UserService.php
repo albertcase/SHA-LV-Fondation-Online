@@ -9,6 +9,7 @@ use LV\Bundle\FondationBundle\Entity\DreamLike;
 use LV\Bundle\FondationBundle\Entity\DreamView;
 use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 use LV\Bundle\FondationBundle\Entity\TemplateMessage;
+use LV\Bundle\FondationBundle\Entity\UserPhotoCode;
 
 class UserService
 {

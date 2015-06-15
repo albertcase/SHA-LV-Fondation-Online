@@ -75,7 +75,9 @@ html,body,#dreambox{
 	text-align: center;
 	padding: 6px 0;
 	display: inline-block;
+	float: left;
 	color: #444;
+	line-height: 16px;
 }
 
 

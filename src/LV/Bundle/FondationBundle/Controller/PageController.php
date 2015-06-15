@@ -175,6 +175,11 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:chapter4.html.twig');
     }
 
+    public function invitationMmsAction()
+    {
+        return $this->render('LVFondationBundle:Default:invitation_mms.html.twig');
+    }
+
     /** 
     * fondation_invitation
     *

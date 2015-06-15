@@ -85,7 +85,7 @@ var _doing = {
 			        paginationClickable: true,
 			        loop: true,
 					initialSlide : _doing.curChoseGlassDreamNum,
-					onTouchEnd: function(swiper){
+					onSlideChangeEnd: function(swiper){
 				    	if(swiper.swipeDirection == "prev"){
 			        		_doing.curChoseGlassDreamNum--;
 			        		if(_doing.curChoseGlassDreamNum < 0){
@@ -98,11 +98,8 @@ var _doing = {
 			        		}
 			        	}
 			        	//console.log(_doing.curChoseGlassDreamNum);
-				    },
-				    onSlideChangeEnd: function(swiper){
-				    	alert(_doing.curChoseGlassDreamNum%5)
-					    $("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
-					}
+			        	$("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
+				    }
 
 
 				})

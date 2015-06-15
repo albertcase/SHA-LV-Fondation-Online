@@ -9,6 +9,7 @@ use LV\Bundle\FondationBundle\Entity\DreamLike;
 use LV\Bundle\FondationBundle\Entity\DreamView;
 use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 use LV\Bundle\FondationBundle\Entity\TemplateMessage;
+use LV\Bundle\FondationBundle\Entity\UserPhotoCode;
 
 class UserService
 {
@@ -431,7 +432,6 @@ class UserService
             $userphotocode = new UserPhotoCode();
             $userphotocode->setCode($code);
             $userphotocode->setUser($user);
-            $userphotocode->setStatus('0');
             $userphotocode->setCreated(time());
             $this->save($userphotocode);
             return $userphotocode;

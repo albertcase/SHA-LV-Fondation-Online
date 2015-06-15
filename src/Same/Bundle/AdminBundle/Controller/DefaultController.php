@@ -45,7 +45,7 @@ class DefaultController extends Controller
         $page = $this->getRequest()->query->get('page') ? $this->getRequest()->query->get('page') : 1;
         $row  = $this->getRequest()->query->get('row') ? $this->getRequest()->query->get('row') : 10;
         $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
-        $list = $repository->findBy(array(), null, $row, ($page-1)*$row);
+        $list = $repository->findBy(array(), array('id'=>'desc'), $row, ($page-1)*$row);
         $totalRs = $this->getDoctrine()->getEntityManager()->createQuery('select count(p) from LVFondationBundle:UserDream p')->getSingleResult();
         $total = $totalRs[1];
         $totalpage = ceil($total/$row);

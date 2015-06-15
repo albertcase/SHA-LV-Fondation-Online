@@ -431,7 +431,6 @@ class UserService
             $userphotocode = new UserPhotoCode();
             $userphotocode->setCode($code);
             $userphotocode->setUser($user);
-            $userphotocode->setStatus('0');
             $userphotocode->setCreated(time());
             $this->save($userphotocode);
             return $userphotocode;

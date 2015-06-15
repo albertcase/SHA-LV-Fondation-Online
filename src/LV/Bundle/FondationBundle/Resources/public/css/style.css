@@ -70,6 +70,17 @@ html,body,#dreambox{
 	text-size-adjust: none;
 }
 
+.invitationTips{
+	width: 100%;
+	text-align: center;
+	padding: 6px 0;
+	display: inline-block;
+	float: left;
+	color: #444;
+	line-height: 16px;
+}
+
+
 #chapter #dreambox{
 	background: none;
 }

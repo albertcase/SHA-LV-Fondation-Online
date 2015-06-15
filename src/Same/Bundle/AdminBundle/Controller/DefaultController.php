@@ -6,9 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use Same\Bundle\AdminBundle\Entity\Photo;
+use LV\Bundle\FondationBundle\Entity\Photos;
 use LV\Bundle\FondationBundle\Entity\UserDream;
-
+use LV\Bundle\FondationBundle\Entity\UserPhotoCode;
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -42,11 +42,14 @@ class DefaultController extends Controller
 
     public function tableAction()
     {   
-        $page = $this->getRequest()->query->get('page');
+        $page = $this->getRequest()->query->get('page') ? $this->getRequest()->query->get('page') : 1;
         $row  = $this->getRequest()->query->get('row') ? $this->getRequest()->query->get('row') : 10;
         $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserDream');
         $list = $repository->findBy(array(), null, $row, ($page-1)*$row);
-        return $this->render('SameAdminBundle:Default:table.html.twig', array('list' => $list));
+        $totalRs = $this->getDoctrine()->getEntityManager()->createQuery('select count(p) from LVFondationBundle:UserDream p')->getSingleResult();
+        $total = $totalRs[1];
+        $totalpage = ceil($total/$row);
+        return $this->render('SameAdminBundle:Default:table.html.twig', array('list' => $list, 'page' => $page, 'total' => $total, 'totalpage' => $totalpage));
     }
 
     public function reviewAction()
@@ -81,11 +84,15 @@ class DefaultController extends Controller
     public function lookAction()
     {
         $code = $this->getRequest()->get('code');
-        $repository = $this->getDoctrine()->getRepository('SameAdminBundle:Photo');
-        $rs = $repository->findOneByCode($code);
-        $photo = $rs->getPhoto();
-        $photo = json_decode($photo, true);
-        return $this->render('SameAdminBundle:Default:look.html.twig',array('photo'=> $photo));
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
+        $userPhotoCode = $repository->findOneByCode($code);
+        if(!$userPhotoCode){
+            $response = new JsonResponse();
+            $response->setData(array('code'=> 0, 'msg'=> '该code不存在'));
+            return $response;
+        }
+        $photos = $userPhotoCode->getPhotos();
+        return $this->render('SameAdminBundle:Default:look.html.twig',array('photos'=> $photos));
     }
 
     public function uploadAction()
@@ -108,19 +115,23 @@ class DefaultController extends Controller
     {
         $code = $this->getRequest()->get('code');
         $files = $this->getRequest()->get('files');
-        $repository = $this->getDoctrine()->getRepository('SameAdminBundle:Photo');
-        $rs = $repository->findOneByCode($code);
-        if($rs){
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
+        $userPhotoCode = $repository->findOneByCode($code);
+        if(!$userPhotoCode){
             $response = new JsonResponse();
-            $response->setData(array('code'=> 0, 'msg'=> '该code已经被使用了'));
+            $response->setData(array('code'=> 0, 'msg'=> '该code不存在'));
             return $response;
         }
-        $photo = new Photo();
-        $photo->setCode($code);
-        $photo->setPhoto($files);
         $doctrine = $this->getDoctrine()->getManager();
-        $doctrine->persist($photo);
-        $doctrine->flush();
+        $files = json_decode($files);
+        foreach($files as $file){
+            $photo = new Photos();
+            $photo->setUrl($file);
+            $photo->setCreated(time());
+            $photo->setUserphotocode($userPhotoCode);
+            $doctrine->persist($photo);
+            $doctrine->flush();
+        }
         $response = new JsonResponse();
         $response->setData(array('code'=> 1, 'msg'=> '提交成功'));
         return $response;

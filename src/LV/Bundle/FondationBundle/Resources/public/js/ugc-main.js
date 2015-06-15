@@ -168,7 +168,7 @@ var _doing = {
 			    	$(".isdoing_form").removeClass("isdoing_form").val("提交");
 			    	if(data.status == 1){
 			    		pagechange.moveClick('poster');
-			    		alert("提交成功！");
+			    		//alert("提交成功！");
 			    	}
 			    })
 			},

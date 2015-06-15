@@ -38,13 +38,13 @@ class LVPageRequestListener
 
     	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
-            if(!$this->userservicve->userIsLogin()) {
+            if(!$this->userservicve->userLoad()) {
 
                 $url = $event->getRequest()->getRequestUri();
 
                 $isWechatLogin = $this->wechatservice->isLogin($url);
                 
-                //$isWechatLogin = md5(microtime(true));
+                // $isWechatLogin = md5(microtime(true));
                 
                 if($isWechatLogin instanceof RedirectResponse)
                    return $event->setResponse($isWechatLogin);

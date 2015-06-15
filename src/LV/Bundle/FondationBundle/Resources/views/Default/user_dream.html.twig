@@ -332,7 +332,13 @@
 		</div>	
 		
 		<div class="dream_footer">
-		    <a href="" class="btn creatBtn">告诉大家你的梦想之旅</a>
+
+			{% if userdream.ismyself %}
+		    	<a href="/fondation/dream/{{ userdream.dream_id }}" class="btn creatBtn">查看我的梦想之旅</a>
+		    {% else %}
+		    	<a href="/fondation/ugc" class="btn creatBtn">告诉大家你的梦想之旅</a>
+			{% endif %}
+
 		    <a href="javascript:;">
 		        <img src="/images/ugc/story.jpg" width="100%" />
 		    </a>

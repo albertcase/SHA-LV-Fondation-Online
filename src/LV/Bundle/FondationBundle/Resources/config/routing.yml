@@ -38,6 +38,10 @@ lv_fondation_invitation:
     path:     /invitation
     defaults: { _controller: LVFondationBundle:Page:invitation }
 
+lv_fondation_invitation_mms:
+    path:     /invitation/mms
+    defaults: { _controller: LVFondationBundle:Page:invitationMms }
+
 lv_fondation_showinvitation:
     path:     /invitation/show/{id}
     defaults: { _controller: LVFondationBundle:Page:invitationShow }

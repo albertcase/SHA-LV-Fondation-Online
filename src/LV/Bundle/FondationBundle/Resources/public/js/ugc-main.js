@@ -100,7 +100,7 @@ var _doing = {
 			        	//console.log(_doing.curChoseGlassDreamNum);
 				    },
 				    onSlideChangeEnd: function(swiper){
-				    	console.log(6)
+				    	alert(6)
 					    $("#cur-glass").attr("src","/images/ugc/glass-bg-"+_doing.curChoseGlassDreamNum%5+".jpg")
 					}
 

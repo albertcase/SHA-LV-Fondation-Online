@@ -32,9 +32,9 @@
 			<img src="" sourcesrc="/images/form/footer_bg.png" width="100%"/>
 
 			{% if user.id == invitation.user.id %}
-				<input type="submit" value="分享" class="share_btn">
+				<input type="submit" value="分享" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '邀请函', '分享']);" class="share_btn">
 			{% else %}	
-			    <input type="button" onclick="location.href='/fondation/invitation'" value="申领邀请函" class="slBtn">
+			    <input type="button" onclick="location.href='/fondation/invitation'" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '邀请函', '申领邀请函']);" value="申领邀请函" class="slBtn">
 			{% endif %}
 		</div>
 	</div>	

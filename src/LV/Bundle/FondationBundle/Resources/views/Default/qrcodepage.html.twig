@@ -1,1 +1,37 @@
-qrcode
+{% extends '::base.html.twig' %}
+{% block title %}筑梦之旅{% endblock %}
+{% block dreambox %}
+
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/main.css"
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+	'%kernel.root_dir%/Resources/public/css/menu.css'
+	'bundles/lvfondation/css/ugc-style.css'
+%}
+
+
+
+<!-- attention page -->
+<div class="page" id="attention" data-page="attention">
+
+	<div class="demo-test">
+
+		<div class="attention_con">
+			<img src="/images/ugc/attention_tips.png" />
+			<img src="/images/ugc/wechat.png" />
+		</div>
+		<div class="dream_footer">
+		    <a href="/fondation">
+		        <img src="/images/ugc/story.jpg" width="100%" />
+		    </a>
+		</div>
+		
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
+

@@ -433,6 +433,41 @@ class UserService
     }
 
     /** 
+    * setTemplateMessagePhoto
+    *
+    * set the template message status
+    *
+    * @access public
+    * @param array
+    * @since 1.0 
+    * @return $dream
+    */
+    public function setTemplateMessagePhoto($template, $wechat, $input) 
+    {
+            $data = array();
+            $data['first']['value'] = $input['first'];
+            $data['first']['color'] = '#000000';
+            $data['keyword1']['value'] = $input['second'];
+            $data['keyword1']['color'] = '#000000';
+            $data['keyword2']['value'] = date("Y-m-d");
+            $data['keyword2']['color'] = '#000000';
+            $data['remark']['value'] = $input['third'];
+            $data['remark']['color'] = '#000000';
+            $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
+            $url = $input['url'];
+            $topcolor = '#000000';
+            $openid = $template->getUser()->getOpenid();
+            $issend = $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
+
+            if($issend) {
+                $template->setIssendPhoto('1');
+                $this->save($template);
+                return $template;
+            }    
+        return FALSE;
+    }
+
+    /** 
     * getTemplates
     *
     * @access public

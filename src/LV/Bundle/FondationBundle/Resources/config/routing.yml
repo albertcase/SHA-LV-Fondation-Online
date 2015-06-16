@@ -87,3 +87,7 @@ lv_fondation_ibeacon_entrance:
 lv_fondation_desktop:
     path:     /desktop
     defaults: { _controller: LVFondationBundle:Page:desktop }
+
+lv_fondation_photoshow:
+    path:     /photo/show/{id}
+    defaults: { _controller: LVFondationBundle:Page:photoShow }

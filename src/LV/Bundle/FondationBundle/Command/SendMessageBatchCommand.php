@@ -53,11 +53,10 @@ EOF
             $input['first'] = 'line one';
             $input['second'] = 'line two';
             $input['third'] = 'Code:' . $code;
-            $input['url'] = $this->generateUrl(
-                'lv_fondation_userdream',
-                array('id' => $codeid),
-                true,
-                );
+            $input['url'] = $this->getContainer()->get('router')->generateUrl(
+                'lv_fondation_userdream', 
+                array('id' => $codeid), 
+                true);
             $input['code'] = $code;
             $userservice->setTemplateMessagePhoto($template, $wechat, $input);
             $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $codeid));

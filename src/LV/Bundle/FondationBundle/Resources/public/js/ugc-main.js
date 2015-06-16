@@ -145,7 +145,6 @@ var _doing = {
 					ftel.addClass("error").val("").attr("placeholder","手机号码输入有误！");
 					return false;
 				}else{
-					$(".formSubmit_btn").addClass("isdoing_form").val("正在加载...");
 					_doing.userInfoFun(fname.val(),femail.val(),ftel.val());
 				}
 
@@ -157,6 +156,7 @@ var _doing = {
 
 			},
 			userInfoFun : function(fname,femail,ftel){
+				$(".formSubmit_btn").addClass("isdoing_form").val("正在加载...");
 				$.ajax({
 				    type: "POST",
 				    url: "/fondation/api/userinfo",
@@ -170,6 +170,8 @@ var _doing = {
 			    		pagechange.moveClick('poster');
 			    		//alert("提交成功！");
 			    	}
+			    }).fail(function(){
+			    	$(".isdoing_form").removeClass("isdoing_form").val("提交");
 			    })
 			},
 			submitCreateFun : function(nickname,content){
@@ -189,6 +191,8 @@ var _doing = {
 			    	}else{
 			    		alert("创建失败!");
 			    	}
+			    }).fail(function(){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    })
 			},
 			dreamlike : function(dream_id){
@@ -218,6 +222,8 @@ var _doing = {
 			    		$("#share .creatTextCon").val(content);
 			    		$("#share .creatTextName").val(nickname);
 			    	}
+			    }).fail(function(){
+			    	$(".isdoing").removeClass("isdoing").val("完成");
 			    })
 			}
 			
@@ -227,24 +233,24 @@ var _doing = {
 
 
 
-;(function($){
-	$(function(){
 
-		document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
-			ev.preventDefault();
-			$("#wechatTips").fadeOut();
-			return false;
-		} , false)
+$(function(){
 
-		$(".formSubmit_btn").click(function(){
-			if($(this).hasClass("isdoing_form"))return false;
+	document.getElementById('wechatTips').addEventListener('touchstart' , function (ev){
+		ev.preventDefault();
+		$("#wechatTips").fadeOut();
+		return false;
+	} , false)
 
-			_doing.formData();
-		})
+	$(".formSubmit_btn").click(function(){
+		if($(this).hasClass("isdoing_form"))return false;
 
-
+		_doing.formData();
 	})
-})(jQuery);
+
+
+})
+
 
 
 

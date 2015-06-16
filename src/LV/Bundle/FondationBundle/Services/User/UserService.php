@@ -432,6 +432,45 @@ class UserService
         return FALSE;
     }
 
+    /** 
+    * getTemplates
+    *
+    * @access public
+    * @param mixed code
+    * @since 1.0 
+    * @return $userphotocode
+    */
+    public function getTemplates() 
+    {
+        $templates =  $this->em->getRepository('LVFondationBundle:TemplateMessage')->findBy(array('issend_photo' => 0));
+        return $templates;
+    }
+
+    /** 
+    * setIbeaconRecord
+    *
+    * @access public
+    * @param mixed ibeacon_id
+    * @since 1.0 
+    * @return $user
+    */
+    public function setIbeaconRecord($ibeacon_id) 
+    {
+        $record = new IbeaconRecord();
+        $record->setIbeaconId($ibeacon_id);
+        $record->setCreated(time());
+        $this->save($record);
+        return $record;
+    }
+
+    /** 
+    * setUserPhotoCode
+    *
+    * @access public
+    * @param mixed code
+    * @since 1.0 
+    * @return $userphotocode
+    */
     public function setUserPhotoCode($code) 
     {
         if($user = $this->userLoad()) {

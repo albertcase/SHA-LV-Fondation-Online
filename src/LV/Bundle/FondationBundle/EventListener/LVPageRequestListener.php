@@ -42,7 +42,6 @@ class LVPageRequestListener
             return $event->setResponse(new RedirectResponse($url));
         }
             
-
     	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
             if(!$this->userservicve->userLoad()) {

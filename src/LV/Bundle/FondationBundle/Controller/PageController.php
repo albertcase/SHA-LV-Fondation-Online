@@ -288,5 +288,27 @@ class PageController extends Controller
     {
         return $this->render('LVFondationBundle:Default:desktop.html.twig');
     }
+    
+    /** 
+    *
+    * Page for ibeacon
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function ibeaconAction($id)
+    {
+        $userservice = $this->container->get('lv.user.service');
+        $userservice->setIbeaconRecord($id);
+        $shoppingmall = array('1', '2', '3', '4', '5', '6', '7', '8', '9');
+        $show = array('10', '11', '12', '13', '14', '15');
+        if(in_array($id, $shoppingmall)) {
+            return $this->redirect('/fondation/ibeacon/map-' . $id . '.html');
+        }
+        if(in_array($id, $show)) {
+            return $this->redirect($this->generateUrl('lv_fondation_ibeacon_entrance'));
+        }
+    }
 
 }

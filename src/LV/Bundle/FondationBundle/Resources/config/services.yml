@@ -6,7 +6,7 @@
 services:
     lv.page.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVPageRequestListener
-        arguments: [@router, @service_container, @lv.user.service ,@same.wechat]
+        arguments: [@router, @service_container, @lv.user.service, @same.wechat, @lv.mobile.detect]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
     lv.api.listener:
@@ -20,6 +20,8 @@ services:
     lv.image.service:
         class: LV\Bundle\FondationBundle\Services\Image\ImageService
         arguments: [@service_container]
+    lv.mobile.detect:
+        class: LV\Bundle\FondationBundle\Lib\MobileDetect\MobileDetect
     lv.page.test_listener_one:
         class: LV\Bundle\FondationBundle\EventListener\TestOneListener
         tags:

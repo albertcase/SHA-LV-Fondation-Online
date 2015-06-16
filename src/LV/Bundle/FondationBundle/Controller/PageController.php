@@ -276,4 +276,17 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:qrcodepage.html.twig');
     }
 
+    /** 
+    *
+    * Page for Desktop
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function desktopAction()
+    {
+        return $this->render('LVFondationBundle:Default:desktop.html.twig');
+    }
+
 }

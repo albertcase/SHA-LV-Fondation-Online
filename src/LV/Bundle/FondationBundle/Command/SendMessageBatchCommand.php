@@ -46,7 +46,7 @@ EOF
         $userservice = $this->getContainer()->get('lv.user.service');
         $wechat = $this->getContainer()->get('same.wechat');
         $templates =  $userservice->getTemplates();
-        var_dump($this->getContainer()->get('router'));exit;
+        //var_dump($this->getContainer()->get('router'));exit;
         foreach ($templates as $template) {
             $codeid = $template->getUser()->getUserphotocode()->getId();
             $input = array();

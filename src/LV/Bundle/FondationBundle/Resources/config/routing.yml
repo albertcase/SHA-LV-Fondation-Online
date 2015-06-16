@@ -91,3 +91,7 @@ lv_fondation_desktop:
 lv_fondation_photoshow:
     path:     /photo/show/{id}
     defaults: { _controller: LVFondationBundle:Page:photoShow }
+
+lv_fondation_ibeacon:
+    path:     /ibeacon/{id}
+    defaults: { _controller: LVFondationBundle:Page:ibeacon }

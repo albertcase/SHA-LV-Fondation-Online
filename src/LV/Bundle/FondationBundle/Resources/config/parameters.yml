@@ -8,4 +8,8 @@ parameters:
         - lv_fondation_journey
         - lv_fondation_ibeacon_entrance
         - lv_fondation_wechat_entrance
+    start_date: 2015-06-16 00:00:01
+    end_date: 2015-07-28 18:30:23
+	start_date_ibeacon: 2015-06-16 00:00:01
+    end_date_ibeacon: 2015-06-20 23:59:59
 

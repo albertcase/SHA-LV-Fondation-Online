@@ -4,6 +4,7 @@ var shareData = {
     descTimeline: '路易威登基金会·艺术与建筑的碰撞，一个美梦成真的故事',
     link: window.location.host + "/fondation",
     imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    sharePageVal: '',
     returnFun: function(){
         //alert(6);
     }
@@ -93,6 +94,8 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
             if($("#wechatTips").length > 0){
                 $("#wechatTips").hide();
             }          
+
+            _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareTimeline', shareData.sharePageVal]);
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -114,6 +117,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
                 $("#wechatTips").hide();
             }
 
+            _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareAppMessage', shareData.sharePageVal]);
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -154,6 +158,7 @@ function editShare(){   ///demon
                     $("#wechatTips").hide();
                 }
                 
+                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareTimeline', shareData.sharePageVal]);
                 shareData.returnFun();
                 
                 //alert('分享成功');
@@ -176,7 +181,7 @@ function editShare(){   ///demon
                 if($("#wechatTips").length > 0){
                     $("#wechatTips").hide();
                 }
-
+                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareAppMessage', shareData.sharePageVal]);
                 shareData.returnFun();
 
                 //alert('分享成功');

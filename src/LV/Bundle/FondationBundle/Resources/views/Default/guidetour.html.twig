@@ -1,1 +1,80 @@
-guide tour
+{% extends '::base.html.twig' %}
+{% block title %}路易威登基金会{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/chapter.css"
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+	'bundles/lvfondation/css/swiper.min.css'
+	'%kernel.root_dir%/Resources/public/css/menu.css'
+	'bundles/lvfondation/css/guide-style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/chapter.js"
+    '%kernel.root_dir%/Resources/public/js/*'
+    '@LVFondationBundle/Resources/public/js/swiper.min.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
+
+<!-- 全景地图 -->
+<div class="guideCon">
+    <div class="mapArea">
+        <a href="javascript:;" class="link-1"></a>
+        <a href="javascript:;" class="link-2"></a>
+        <a href="javascript:;" class="link-3"></a>
+        <a href="javascript:;" class="link-4"></a>
+        <a href="javascript:;" class="link-5"></a>
+        <img src="/images/audioGuide/map.jpg" width="100%" />
+    </div>
+    
+    <img src="/images/audioGuide/kv.jpg" width="100%" />
+</div>
+
+
+
+<!-- 地图详细 -->
+<div class="mapInfo">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/images/audioGuide/banner.jpg" width="100%" />
+            </div>
+            <div class="swiper-slide">
+                <img src="/images/audioGuide/banner.jpg" width="100%" />
+            </div>
+            <div class="swiper-slide">
+                <img src="/images/audioGuide/banner.jpg" width="100%" />
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="mapIntro">
+        <img src="/images/audioGuide/scrollbg.jpg" width="100%" />
+        <div class="introCon">09890845609845</div>
+        <div class="audioControler">
+            <div class="leftBtn">
+                <img src="/images/audioGuide/leftBtn.png" width="100%" />
+            </div>
+            <div class="audioCon">
+                <img src="/images/audioGuide/play.png" width="100%" />
+            </div>
+            <div class="rightBtn">
+                <img src="/images/audioGuide/rightBtn.png" width="100%" />
+            </div>
+        </div>
+    </div>
+
+    <div class="mapPos">
+        <img src="/images/audioGuide/curmap.jpg" width="100%" />
+    </div>
+</div>
+
+
+
+{% endblock %}

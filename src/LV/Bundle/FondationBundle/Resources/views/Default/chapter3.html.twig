@@ -56,7 +56,7 @@
 
             <div class="swiper-slide swiper-no-swiping">
             	<div class="glassInstall_info">
-		    			<a href="javascript:defaultGlass();mySwiper.slideTo(1, 600, true);" class="backBtn">
+		    			<a href="javascript:defaultGlass();mySwiper.slideTo(1, 600, true);" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '第三章', '返回按钮']);" class="backBtn">
 								<img src="/images/ugc/reback_arr.png" />
 								返回
 						</a>
@@ -80,14 +80,14 @@
 							</p>
 							<div class="btnArea">
 								
-								<a href="/fondation/ugc" class="talk_btn">
+								<a href="/fondation/ugc" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '第三章', '开启你的筑梦之旅按钮']);" class="talk_btn">
 									<img src="" sourcesrc="/images/talk_btn.png" width="100%" />
 								</a>
 								
 							</div>
 						</div>
 						
-						<a href="chapter4">
+						<a href="chapter4" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '第三章', '进入第四章按钮']);">
 							<img src="" sourcesrc="/images/chapter3/kv.jpg" width="100%" class="c5" />
 						</a>
 		    	</div>
@@ -105,6 +105,7 @@
 <script type="text/javascript">
 
 $(".glassBlock").click(function(){
+	 _hmt.push(['_trackEvent', 'btn', 'click', '第三章', '玻璃面板合成点击']);
 	$("#glassStep2").removeClass("swiper-no-swiping");
 	$(".chapter_hand").hide();
 	$(this).animate({"opacity":0.1,"margin-top":"9em"},600,function(){

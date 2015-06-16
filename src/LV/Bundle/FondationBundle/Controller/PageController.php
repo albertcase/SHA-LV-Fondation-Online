@@ -288,7 +288,7 @@ class PageController extends Controller
     {
         return $this->render('LVFondationBundle:Default:desktop.html.twig');
     }
-    
+
     /** 
     *
     * Page for ibeacon
@@ -309,6 +309,19 @@ class PageController extends Controller
         if(in_array($id, $show)) {
             return $this->redirect($this->generateUrl('lv_fondation_ibeacon_entrance'));
         }
+    }
+
+    /** 
+    *
+    * Page photo Show
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function photoShowAction($id)
+    {
+
     }
 
 }

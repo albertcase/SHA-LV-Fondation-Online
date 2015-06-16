@@ -45,22 +45,27 @@ EOF
     {
         $userservice = $this->getContainer()->get('lv.user.service');
         $wechat = $this->getContainer()->get('same.wechat');
-        $templates =  $userservice->getTemplates();
-        //var_dump($this->getContainer()->get('router'));exit;
-        foreach ($templates as $template) {
+
+        foreach ($userservice->getTemplates() as $template) {
+            $router = $this->getContainer()->get('router');
             $codeid = $template->getUser()->getUserphotocode()->getId();
+            $context = $router->getContext();
+            $context->setHost('www.lvcampaign.com');
+
+            $code = $template->getUser()->getUserphotocode()->getCode();
             $input = array();
             $input['first'] = 'line one';
             $input['second'] = 'line two';
             $input['third'] = 'Code:' . $code;
-            $input['url'] = $this->getContainer()->get('router')->generateUrl(
-                'lv_fondation_userdream', 
+            $input['url'] = $router->generate(
+                'lv_fondation_photoshow', 
                 array('id' => $codeid), 
                 true);
             $input['code'] = $code;
+
             $userservice->setTemplateMessagePhoto($template, $wechat, $input);
             $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $codeid));
         }
-        
+
     }
 }

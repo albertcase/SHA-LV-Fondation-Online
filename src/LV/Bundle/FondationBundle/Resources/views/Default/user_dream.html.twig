@@ -146,7 +146,7 @@
 						</li> -->
 					</ul>
 
-					<a href="javascript:;" onclick="_hmt.push(['_trackEvent', 'btn', 'click', 'UGC', '申领海报提交按钮']);" class="btn formSubmit_btn">
+					<a href="javascript:;" class="btn formSubmit_btn">
 						提交
 					</a>
 
@@ -360,6 +360,12 @@
 			$(".supportIcon i").html("已支持");
 			$(".supportIcon img").attr("src","/images/ugc/likehover.png")
 			_doing.dreamlike(dream_id);
+		})
+
+
+		/* 分享当前梦想 */
+		$(".shareIcon").click(function(){
+			$("#wechatTips").fadeIn();
 		})
 
 

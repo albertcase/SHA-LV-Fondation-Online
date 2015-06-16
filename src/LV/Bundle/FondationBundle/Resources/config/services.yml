@@ -9,29 +9,23 @@ services:
         arguments: [@router, @service_container, @lv.user.service, @same.wechat, @lv.mobile.detect]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
     lv.api.listener:
         class: LV\Bundle\FondationBundle\EventListener\LVApiRequestListener
         arguments: [@router, @service_container, @lv.user.service]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
     lv.user.service:
         class: LV\Bundle\FondationBundle\Services\User\UserService
         arguments: [@doctrine.orm.entity_manager, @request_stack]
+
     lv.image.service:
         class: LV\Bundle\FondationBundle\Services\Image\ImageService
         arguments: [@service_container]
+
     lv.mobile.detect:
         class: LV\Bundle\FondationBundle\Lib\MobileDetect\MobileDetect
-    lv.page.test_listener_one:
-        class: LV\Bundle\FondationBundle\EventListener\TestOneListener
-        tags:
-            - { name: kernel.event_listener, event: test.one, method: onTestOne, priority: 0 }
-    lv.page.test_listener_two:
-        class: LV\Bundle\FondationBundle\EventListener\TestTwoListener
-        tags:
-            - { name: kernel.event_listener, event: test.one, method: onTestTwo, priority: 1 }
-    lv.hello_controller:
-        class:     LV\Bundle\FondationBundle\Controller\TestController
 
     session.memcached:
         class: Memcached

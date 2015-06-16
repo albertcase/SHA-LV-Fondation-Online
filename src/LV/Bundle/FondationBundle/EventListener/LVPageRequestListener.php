@@ -13,12 +13,13 @@ class LVPageRequestListener
     private $userservice;
     private $wechatservice;
 
-    public function __construct($router, $container, $userservice, $wechatservice)
+    public function __construct($router, $container, $userservice, $wechatservice, $mobiledetect)
     {
         $this->router = $router;
         $this->container = $container;
         $this->userservicve = $userservice;
         $this->wechatservice = $wechatservice;
+        $this->mobiledetect = $mobiledetect;
     }
 
     /** 
@@ -35,6 +36,12 @@ class LVPageRequestListener
     {
 
     	$current_route = $event->getRequest()->get('_route');
+
+        if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop'){
+            $url = $this->router->generate('lv_fondation_desktop');
+            return $event->setResponse(new RedirectResponse($url));
+        }
+            
 
     	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 

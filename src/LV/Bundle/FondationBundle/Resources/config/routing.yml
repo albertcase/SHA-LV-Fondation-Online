@@ -83,3 +83,7 @@ lv_fondation_wechat_entrance:
 lv_fondation_ibeacon_entrance:
     path:     /ibeacon/entrance
     defaults: { _controller: LVFondationBundle:Page:ibeaconEntrance }
+
+lv_fondation_desktop:
+    path:     /desktop
+    defaults: { _controller: LVFondationBundle:Page:desktop }

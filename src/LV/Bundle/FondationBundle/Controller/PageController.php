@@ -321,7 +321,13 @@ class PageController extends Controller
     */
     public function photoShowAction($id)
     {
-
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
+        $userPhotoCode = $repository->findById($id);
+        if(!$userPhotoCode){
+            return $this->redirect('/fondation');
+        }
+        $photos = $userPhotoCode->getPhotos();
+        return $this->render('SameAdminBundle:Default:look.html.twig',array('photos'=> $photos));
     }
 
 }

@@ -37,6 +37,9 @@ class DefaultController extends Controller
 
     public function fileAction()
     {
+        if(!$this->container->get('session')->get('same_admin_name')) {
+            return $this->redirect('./index');
+        }   
         return $this->render('SameAdminBundle:Default:file.html.twig');
     }
 

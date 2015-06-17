@@ -52,17 +52,14 @@ EOF
             $context = $router->getContext();
             $context->setHost('www.lvcampaign.com');
 
-            $code = $template->getUser()->getUserphotocode()->getCode();
             $input = array();
-            $input['first'] = 'line one';
-            $input['second'] = 'line two';
-            $input['third'] = 'Code:' . $code;
+            $input['first'] = '查看您的现场定制专属照片';
+            $input['second'] = '路易威登基金会建筑展';
+            $input['third'] = '点击查看详情，获取您的现场定制专属照片'
             $input['url'] = $router->generate(
                 'lv_fondation_photoshow', 
                 array('id' => $codeid), 
                 true);
-            $input['code'] = $code;
-
             $userservice->setTemplateMessagePhoto($template, $wechat, $input);
             $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $codeid));
         }

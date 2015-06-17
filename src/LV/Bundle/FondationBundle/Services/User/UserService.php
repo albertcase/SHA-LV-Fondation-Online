@@ -36,8 +36,9 @@ class UserService
     */
     public function userIsLogin()
     {
-        $session = $this->requestStack->getCurrentRequest()->getSession();
-        $uid = $session->get('user');
+        // $session = $this->requestStack->getCurrentRequest()->getSession();
+        // $uid = $session->get('user');
+        $uid = isset($_COOKIE['user']) ? $_COOKIE['user'] : 0;
         if($uid) {
             return $uid;
         }
@@ -79,8 +80,9 @@ class UserService
     {
         $user = $this->findUserByOpenId($openid);
         $user = $user ? $user : $this->userRegister($openid);
-        $session = $this->requestStack->getCurrentRequest()->getSession();
-        $session->set('user', $user->getId());
+        setcookie("user", $user->getId(), time()+3600*24);
+        // $session = $this->requestStack->getCurrentRequest()->getSession();
+        // $session->set('user', $user->getId());
         return $user;
         // $this->requestStack->getCurrentRequest()->cookies;
         // $cookie = new Cookie('openid', $openid, time() + 3600 * 24 * 7);

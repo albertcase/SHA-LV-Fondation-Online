@@ -808,7 +808,7 @@ html,body,#dreambox{
 	width: 9px;
 	height: 9px;
 	border-radius: 13px;
-	background: #008dae;
+	background: none;
 	position: absolute;
 	left: 50%;
 	top: 50%;

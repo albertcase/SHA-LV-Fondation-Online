@@ -785,8 +785,8 @@ html,body,#dreambox{
 .hand_dot{
 	width: 22px;
 	height: 22px;
-	background: url("/images/form/hand_dot.png") center top no-repeat;
-	background-size: 100% auto;
+	/*background: url("/images/form/hand_dot.png") center top no-repeat;
+	background-size: 100% auto;*/
 	position: absolute;
 	left: 50%;
 	top: 0;

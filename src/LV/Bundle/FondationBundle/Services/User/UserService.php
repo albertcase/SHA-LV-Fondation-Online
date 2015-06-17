@@ -459,7 +459,6 @@ class UserService
             $topcolor = '#000000';
             $openid = $template->getUser()->getOpenid();
             $issend = $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
-
             if($issend) {
                 $template->setIssendPhoto('1');
                 $this->save($template);

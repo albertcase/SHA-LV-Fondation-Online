@@ -322,7 +322,7 @@ class PageController extends Controller
     public function photoShowAction($id)
     {
         $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
-        $userPhotoCode = $repository->findById($id);
+        $userPhotoCode = $repository->findOneBy(array('id' => $id));
         if(!$userPhotoCode){
             return $this->redirect('/fondation');
         }

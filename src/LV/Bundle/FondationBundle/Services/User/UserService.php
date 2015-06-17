@@ -10,6 +10,7 @@ use LV\Bundle\FondationBundle\Entity\DreamView;
 use LV\Bundle\FondationBundle\Entity\InvitationLetter;
 use LV\Bundle\FondationBundle\Entity\TemplateMessage;
 use LV\Bundle\FondationBundle\Entity\UserPhotoCode;
+use LV\Bundle\FondationBundle\Entity\IbeaconRecord;
 
 class UserService
 {

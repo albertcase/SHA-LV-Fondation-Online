@@ -47,21 +47,23 @@ EOF
         $wechat = $this->getContainer()->get('same.wechat');
 
         foreach ($userservice->getTemplates() as $template) {
-            $router = $this->getContainer()->get('router');
-            $codeid = $template->getUser()->getUserphotocode()->getId();
-            $context = $router->getContext();
-            $context->setHost('www.lvcampaign.com');
+            if($template->getUser()->getUserphotocode()->getPhotos()){
+                $router = $this->getContainer()->get('router');
+                $codeid = $template->getUser()->getUserphotocode()->getId();
+                $context = $router->getContext();
+                $context->setHost('www.lvcampaign.com');
 
-            $input = array();
-            $input['first'] = '查看您的现场定制专属照片';
-            $input['second'] = '路易威登基金会建筑展';
-            $input['third'] = '点击查看详情，获取您的现场定制专属照片'
-            $input['url'] = $router->generate(
-                'lv_fondation_photoshow', 
-                array('id' => $codeid), 
-                true);
-            $userservice->setTemplateMessagePhoto($template, $wechat, $input);
-            $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $codeid));
+                $message = array();
+                $message['first'] = '查看您的现场定制专属照片';
+                $message['second'] = '路易威登基金会建筑展';
+                $message['third'] = '点击查看详情，获取您的现场定制专属照片';
+                $message['url'] = $router->generate(
+                    'lv_fondation_photoshow', 
+                    array('id' => $codeid), 
+                    true);
+                $userservice->setTemplateMessagePhoto($template, $wechat, $message);
+                $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $codeid));
+            }
         }
 
     }

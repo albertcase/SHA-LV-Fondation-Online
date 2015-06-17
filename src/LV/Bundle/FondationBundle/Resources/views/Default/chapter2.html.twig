@@ -155,6 +155,10 @@
 			$(".scrollsTips.st-2").css({"bottom":"1.6em"});
 			$(".scrollsTips.st-1").css({"bottom":"-10em"});
 			myScroll.on('scroll', myCustomFn);	
+
+			setTimeout(function(){
+				$(".hand_rTips").fadeOut();
+			},3000)
 		}
 
 		function myCustomFn(){
@@ -169,9 +173,11 @@
 				$(".scrollsTips.st-2").css({"bottom":"1.6em"});
 				$(".scrollsTips.st-1").css({"bottom":"-10em"});
 			    $(".panoramaLink").hide();
-			    $(".hand_rTips").show();
+			    // $(".hand_rTips").show();
 			}
 		}
+
+		
 
 		$(".focus-dot").bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
 			animationListener_focusdot();

@@ -1,6 +1,5 @@
 {% extends '::base.html.twig' %}
 {% block title %}筑梦之旅{% endblock %}
-{% block dreambox %}
 
 {% block head_style %}
 {% stylesheets filter='cssrewrite' output="css/main.css"
@@ -11,10 +10,10 @@
 {% endstylesheets %}
 {% endblock %}
 
-
+{% block dreambox %}
 
 <!-- attention page -->
-<div class="page" id="attention" data-page="attention">
+<div class="page page-active" id="attention" data-page="attention">
 
 	<div class="demo-test">
 
@@ -31,8 +30,6 @@
 	</div>
 
 </div>
-
-
 
 
 {% endblock %}

@@ -37,7 +37,7 @@ class LVPageRequestListener
 
     	$current_route = $event->getRequest()->get('_route');
 
-        if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop' && !preg_match('/^api_fondation_*/', $current_route)){
+        if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop' && !preg_match('/^api_fondation_*/', $current_route) && !preg_match('/^same_admin_*/', $current_route)){
             $url = $this->router->generate('lv_fondation_desktop');
             return $event->setResponse(new RedirectResponse($url));
         }

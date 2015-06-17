@@ -118,11 +118,11 @@ class DefaultController extends Controller
     {
         $code = $this->getRequest()->get('code');
         $files = $this->getRequest()->get('files');
-        /*if(!$files) {
+        if(!$files) {
             $response = new JsonResponse();
             $response->setData(array('code'=> 0, 'msg'=> '请上传图片'));
             return $response;
-        }*/
+        }
         $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
         $userPhotoCode = $repository->findOneByCode($code);
         if(!$userPhotoCode){

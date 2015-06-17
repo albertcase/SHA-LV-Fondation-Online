@@ -67,17 +67,17 @@ class WechatController extends Controller
     public function tempalteAction($openid)
     {   
         $data = array();
-        $data['first']['value'] = '第一行字';
+        $data['first']['value'] = '现场拍摄您的定制照片，请告知摄影师您的专属Code';
         $data['first']['color'] = '#000000';
-        $data['keyword1']['value'] = '第二行字';
+        $data['keyword1']['value'] = '路易威登基金会建筑展';
         $data['keyword1']['color'] = '#000000';
         $data['keyword2']['value'] = date("Y-m-d");
         $data['keyword2']['color'] = '#000000';
-        $data['remark']['value'] = '第三行字';
+        $data['remark']['value'] = '您的专属Code为xxxxxx';
         $data['remark']['color'] = '#000000';
         $wechat = $this->get('same.wechat');
         $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
-        $url = 'http://www.lvcampaign.com';
+        $url = '';
         $topcolor = '#000000';
         return $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
     }

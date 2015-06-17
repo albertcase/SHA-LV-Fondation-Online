@@ -232,9 +232,9 @@ class PageController extends Controller
             $code .= $str[$randval];
         }
         $input = array();
-        $input['first'] = 'line one';
-        $input['second'] = 'line two';
-        $input['third'] = 'Code:' . $code;
+        $input['first'] = '现场拍摄您的定制照片，请告知摄影师您的专属Code';
+        $input['second'] = '路易威登基金会建筑展';
+        $input['third'] = '您的专属Code为:' . $code;
         $input['url'] = '';
         $input['code'] = $code;
         $userservice->setTemplateMessageStatus($wechat, $input);
@@ -321,7 +321,13 @@ class PageController extends Controller
     */
     public function photoShowAction($id)
     {
-
+        $repository = $this->getDoctrine()->getRepository('LVFondationBundle:UserPhotoCode');
+        $userPhotoCode = $repository->findById($id);
+        if(!$userPhotoCode){
+            return $this->redirect('/fondation');
+        }
+        $photos = $userPhotoCode->getPhotos();
+        return $this->render('SameAdminBundle:Default:look.html.twig',array('photos'=> $photos));
     }
 
 }

@@ -25,7 +25,7 @@ class PageController extends Controller
     {
         $user = $this->container->get('lv.user.service')->userLoad();
 
-        date_default_timezone_set('PRC'); 
+
         $start_date = $this->container->getParameter('start_date');
         $end_date = $this->container->getParameter('end_date');
         $now = strtotime(date("Y-m-d H:i:s"));

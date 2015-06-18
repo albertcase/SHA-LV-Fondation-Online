@@ -22,10 +22,10 @@ class DefaultController extends Controller
         $password = $this->getRequest()->query->get('password');
         $msg = array();
         if($username == 'admin' && $password == 'lv2015'){
-            $this->container->get('session')->set('same_admin_name',$username);
+            //$this->container->get('session')->set('same_admin_name',$username);
             $msg = array('code'=> 1, "msg"=>'file');
         }else if($username == 'admin' && $password == '1qazxsw2'){
-            $this->container->get('session')->set('same_admin_name',$username);
+            //$this->container->get('session')->set('same_admin_name',$username);
             $msg = array('code'=> 1, "msg"=>'list');
         }else{
             $msg = array('code'=> 0, "msg"=>'登录失败');
@@ -37,9 +37,9 @@ class DefaultController extends Controller
 
     public function fileAction()
     {
-        if(!$this->container->get('session')->get('same_admin_name')) {
+        /*if(!$this->container->get('session')->get('same_admin_name')) {
             return $this->redirect('./index');
-        }   
+        }  */ 
         return $this->render('SameAdminBundle:Default:file.html.twig');
     }
 

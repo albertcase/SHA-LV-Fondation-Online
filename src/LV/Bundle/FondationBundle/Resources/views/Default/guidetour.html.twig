@@ -26,17 +26,20 @@
 <script type="text/javascript" src="http://lab.cubiq.org/iscroll5/build/iscroll.js"></script>
 <div class="guideCon">
     <div class="mapArea">
-        <a href="javascript:;" class="hotlink link-1" data-id="0"></a>
-        <a href="javascript:;" class="hotlink link-2" data-id="1"></a>
-        <a href="javascript:;" class="hotlink link-3" data-id="2"></a>
-        <a href="javascript:;" class="hotlink link-4" data-id="3"></a>
-        <a href="javascript:;" class="hotlink link-5" data-id="4"></a>
-        <a href="javascript:;" class="hotlink link-6" data-id="5"></a>
-        <a href="javascript:;" class="hotlink link-7" data-id="6"></a>
+        <a href="javascript:;" class="hotlink link-0" data-id="0"></a>
+        <a href="javascript:;" class="hotlink link-1" data-id="1"></a>
+        <a href="javascript:;" class="hotlink link-2" data-id="2"></a>
+        <a href="javascript:;" class="hotlink link-3" data-id="3"></a>
+        <a href="javascript:;" class="hotlink link-4" data-id="4"></a>
+        <a href="javascript:;" class="hotlink link-9" data-id="9"></a>
+        <a href="javascript:;" class="hotlink link-6" data-id="6"></a>
+        <a href="javascript:;" class="hotlink link-7" data-id="7"></a>
+        <a href="javascript:;" class="hotlink link-8" data-id="8"></a>
+        <a href="javascript:;" class="hotlink link-5" data-id="5"></a>
         <img src="" sourcesrc="/images/audioGuide/map.jpg" width="100%" />
     </div>
     
-    <img src="" sourcesrc="/images/audioGuide/kv.jpg" width="100%" />
+    <a href="/fondation/ugc"><img src="" sourcesrc="/images/audioGuide/kv.jpg" width="100%" /></a>
 </div>
 
 
@@ -55,10 +58,9 @@ function loaded() {
 
 
   
-var audioSrc = ["audio1.m4a","audio2.mp3"];
 var audio = document.createElement("audio");
 function audioFun(num){
-    audio.src = "/images/audioGuide/audio/"+audioSrc[num];
+    audio.src = "/images/audioGuide/audio/audio"+num+".m4a";
     audio.autoplay = true; //设置是否自动播放
     // audio.addEventListener('ended', function () { //循环播放
     //     audio.play();
@@ -78,7 +80,20 @@ function GetQueryString(){
     if(r!=null)return r; return null;
 }
 
+eventTester = function(e){  
+    audio.addEventListener(e,function(){ 
+        if(e=="play"){
+            $(".audioCon").addClass("pause");
+            $(".audioCon img").attr("src","/images/audioGuide/pause.png"); 
+        }else{
+            $(".audioCon").removeClass("pause");
+            $(".audioCon img").attr("src","/images/audioGuide/play.png"); 
+        }
+        
+    });  
+} 
 
+ 
 function hotSpotFun(cunSpot){
     $(".mapInfo").show().animate({"top":"0","opacity":1});
     var swiperImgLength = 0;
@@ -121,7 +136,17 @@ function hotSpotFun(cunSpot){
 
 
     $(".audioCon").click(function(){
-        audio.play();
+        
+        if($(this).hasClass("pause")){
+            $(this).removeClass("pause");
+            $(this).find("img").attr("src","/images/audioGuide/play.png");
+            audio.pause();
+        }else{
+            $(this).addClass("pause");
+            $(this).find("img").attr("src","/images/audioGuide/pause.png");
+            audio.play();
+        }
+        
     })
 
     $(".rebackMap").click(function(){
@@ -138,19 +163,66 @@ function hotSpotFun(cunSpot){
 
 }
 
-if(GetQueryString()){
-    hotSpotFun(GetQueryString());
-}else{
-    $(".guideCon").animate({"opacity":1});
-}
-
 $(".hotlink").click(function(){
     var curid = $(this).attr("data-id");
     hotSpotFun(curid);
 })
 
-var imgSrcArr = [];
-loadingFun(imgSrcArr);
+
+var imgSrcArr = [
+    "/images/audioGuide/kv.jpg",
+    "/images/audioGuide/leftBtn.png",
+    "/images/audioGuide/rightBtn.png",
+    "/images/audioGuide/map.jpg",
+    "/images/audioGuide/mask.png",
+    "/images/audioGuide/pause.png",
+    "/images/audioGuide/play.png",
+    "/images/audioGuide/scrollbg.jpg",
+    "/images/audioGuide/share.jpg"
+];
+
+// "/images/audioGuide/audio/audio0.m4a",
+// "/images/audioGuide/audio/audio1.m4a",
+// "/images/audioGuide/audio/audio2.m4a",
+// "/images/audioGuide/audio/audio3.m4a",
+// "/images/audioGuide/audio/audio4.m4a",
+// "/images/audioGuide/audio/audio5.m4a",
+// "/images/audioGuide/audio/audio6.m4a",
+// "/images/audioGuide/audio/audio7.m4a",
+// "/images/audioGuide/audio/audio8.m4a",
+// "/images/audioGuide/audio/audio9.m4a"
+
+for(var i=0; i<=9; i++){
+    for(var r=0; r<=1; r++){
+        var imgurla = "/images/audioGuide/hotSpot"+i+"/banner"+r+".jpg";
+        var curmap = "/images/audioGuide/hotSpot"+i+"/curmap.jpg";
+        imgSrcArr.push(imgurla,curmap);
+    }  
+}
+
+loadingFun(imgSrcArr,finshReturnFun);
+
+function finshReturnFun(){
+    if(GetQueryString()){
+        hotSpotFun(GetQueryString());
+    }else{
+        $(".guideCon").animate({"opacity":1});
+    }
+
+    eventTester("play");
+    eventTester("ended");
+
+    shareData = {
+        title: '弗兰克·盖里巴黎路易威登基金会建筑展览北京语音导览',
+        desc: '弗兰克·盖里巴黎路易威登基金会建筑展览北京语音导览',
+        descTimeline: '弗兰克·盖里巴黎路易威登基金会建筑展览北京语音导览',
+        url: window.location.host + '/fondation/#1',
+        imgUrl: 'http://' + window.location.host + '/images/audioGuide/share.jpg',
+        sharePage: '语音导览',
+        sharePageVal: '语音导览'
+    };
+    editShare();
+}
 
 </script>
 

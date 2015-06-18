@@ -29,43 +29,61 @@ body {
 	position: absolute;
 	left: 0;
 	top: 0;
-	/*background: green;
-	opacity: 0.6;*/
+	background: green;
+	opacity: 0.6;
+}
+
+.mapArea a.link-0{
+	left: 57%;
+	top: 82%;
 }
 
 .mapArea a.link-1{
+	width: 100px;
+	left: 35%;
+	top: 70%;
+}
+
+.mapArea a.link-2{
+	width: 80px;
+	height: 40px;
+	left: 11%;
+	top: 57%;
+}
+
+.mapArea a.link-3{
 	left: 23%;
 	top: 49%;
 }
 
-.mapArea a.link-2{
-	left: 26%;
-	top: 39%;
-}
-
-.mapArea a.link-3{
-	left: 22%;
-	top: 17%;
-}
-
 .mapArea a.link-4{
-	left: 51%;
-	top: 13%;
+	left: 27%;
+	top: 38%;
 }
 
 .mapArea a.link-5{
-	left: 60%;
-	top: 46%;
+	left: 37%;
+	top: 29%;
 }
 
 .mapArea a.link-6{
-	left: 45%;
-	top: 56%;
+	left: 51%;
+	top: 12%;
 }
 
 .mapArea a.link-7{
+	left: 53%;
+	top: 48%;
+}
+
+.mapArea a.link-8{
 	left: 44%;
-	top: 31%;
+	top: 54%;
+}
+
+.mapArea a.link-9{
+	left: 22%;
+	top: 15%;
 }
 
 
@@ -123,21 +141,12 @@ body {
 	padding: 0 0 10px 0;
 }
 
-/*.introText{
-	width: 100%;
-	height: 70%;
-	overflow: auto;
-	letter-spacing: .1em;
-	line-height: 22px;
-	-ms-overflow-scrolling: touch; 
-    -moz-overflow-scrolling: touch; 
-    -webkit-overflow-scrolling: touch; 
-    -o-overflow-scrolling: touch;  
-}*/
-
 .introCon p{
 	font-size: 16px;
 	width: 100%;
+	letter-spacing: 0.1em;
+	font-family: "微软雅黑";
+	padding: 0 0 3em 0;
 }
 
 .audioControler{
@@ -180,7 +189,7 @@ body {
 	position: absolute;
 	z-index: 1;
 	width: 100%;
-	height:52%;
+	height:72%;
 	overflow: hidden;
 }
 
@@ -204,6 +213,11 @@ body {
 	-ms-text-size-adjust: none;
 	-o-text-size-adjust: none;
 	text-size-adjust: none;
+	-ms-overflow-scrolling: touch; 
+    -moz-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; 
+    -o-overflow-scrolling: touch;  
 }
+
 
 

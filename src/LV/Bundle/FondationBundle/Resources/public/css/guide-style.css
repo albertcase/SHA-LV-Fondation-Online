@@ -29,13 +29,13 @@ body {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: green;
-	opacity: 0.6;
+	/*background: green;
+	opacity: 0.6;*/
 }
 
 .mapArea a.link-0{
-	left: 57%;
-	top: 82%;
+	left: 35%;
+	top: 86%;
 }
 
 .mapArea a.link-1{
@@ -57,13 +57,13 @@ body {
 }
 
 .mapArea a.link-4{
-	left: 27%;
-	top: 38%;
+	left: 34%;
+	top: 42%;
 }
 
 .mapArea a.link-5{
-	left: 37%;
-	top: 29%;
+	left: 22%;
+	top: 15%;
 }
 
 .mapArea a.link-6{
@@ -72,18 +72,18 @@ body {
 }
 
 .mapArea a.link-7{
-	left: 53%;
-	top: 48%;
+	left: 49%;
+	top: 43%;
 }
 
 .mapArea a.link-8{
-	left: 44%;
-	top: 54%;
+	left: 50%;
+	top: 52%;
 }
 
 .mapArea a.link-9{
-	left: 22%;
-	top: 15%;
+	left: 37%;
+	top: 29%;
 }
 
 

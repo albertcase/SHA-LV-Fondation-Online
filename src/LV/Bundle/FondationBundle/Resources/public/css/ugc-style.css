@@ -587,6 +587,11 @@ html,body,#dreambox{
 	height: 36%;
 }
 
+.create-context textarea{
+	width: 100%;
+	height: 100%;
+}
+
 .create-context,.create-name{
 	width: 100%;
 	text-align: center;

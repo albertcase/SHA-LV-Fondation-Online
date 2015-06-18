@@ -116,7 +116,8 @@ function hotSpotFun(cunSpot){
     $(".swiper-wrapper").html(swiperHtml);
     var mySwiper = new Swiper('.swiper-container', {
         effect : 'coverflow',
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination',
+        loop: 'true'
     })
 
     history.pushState({"page": cunSpot}, "" , "#"+cunSpot);

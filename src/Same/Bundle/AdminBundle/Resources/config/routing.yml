@@ -10,7 +10,7 @@ same_admin_table:
 same_admin_look:
     path:     /look
     defaults: { _controller: SameAdminBundle:Default:look }
-same_admin_look:
+same_admin_clear:
     path:     /clear
     defaults: { _controller: SameAdminBundle:Default:clear }
 same_admin_index:

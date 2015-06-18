@@ -72,11 +72,12 @@ class ImageService
     public function ImageCreateForOffline($img)
     {
         list($width,$height)=getimagesize($img);
+        //list($width,$height)=getimagesize("images/imagesevice/photoframe_bg.png");
         $img1 = ImageCreateFromJpeg($img); 
-        $bg = ImageCreateFromJpeg( "images/imagesevice/bg.jpg"); 
-        $logo = ImageCreateFromPng("images/imagesevice/logo.png"); 
-        imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
-        imagecopyresized($bg,$img1,13,50,0,0,641,959,$width,$height); 
+        $bg = ImageCreateFromPng("images/imagesevice/photoframe_bg.png"); 
+        //$logo = ImageCreateFromPng("images/imagesevice/logo.png"); 
+        //imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
+        imagecopyresized($bg,$img1,13,150,0,0,720,1075,$width,$height); 
         //header("content-type: image/jpeg");
         $fs = new Filesystem();
         if(!$fs->exists($this->_filedir . '/Offline'))

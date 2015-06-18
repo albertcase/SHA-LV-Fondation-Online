@@ -102,9 +102,13 @@ class DefaultController extends Controller
     {
         $files = $this->getRequest()->files->get('file');
         $fs = new Filesystem();
+        $filedir = $this->container->getParameter('files_base_dir');
         $imageurl = array();
+        if(!$fs->exists($filedir . '/Upload'))
+           $fs->mkdir($filedir . '/Upload', 0700);
+        
         for($i = 0; $i < count($files); $i++) {
-            $filename = time() . rand(100,999) . '.jpg';
+            $filename = '/Upload/' .time() . rand(100,999) . '.jpg';
             $fs->rename($files[$i], $this->container->getParameter('files_base_dir') . '/' .$filename);
             $image = $this->container->get('lv.image.service');
             $imageurl[]= $image->ImageCreateForOffline($this->container->getParameter('files_base_dir') . '/' .$filename);

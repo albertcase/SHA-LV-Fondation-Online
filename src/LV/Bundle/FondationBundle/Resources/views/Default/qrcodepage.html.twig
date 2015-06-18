@@ -1,36 +1,25 @@
-{% extends '::base.html.twig' %}
-{% block title %}筑梦之旅{% endblock %}
-
-{% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/main.css"
-	'%kernel.root_dir%/Resources/public/css/reset.css'
-	'%kernel.root_dir%/Resources/public/css/menu.css'
-	'bundles/lvfondation/css/ugc-style.css'
-%}
-{% endstylesheets %}
-{% endblock %}
-
+{% extends "LVFondationBundle::ugclayout.html.twig" %}
+ {% block title %}路易威登基金会{% endblock %}
 {% block dreambox %}
+<div id="wechatTips"></div>
 
 <!-- attention page -->
-<div class="page page-active" id="attention" data-page="attention">
 
-	<div class="demo-test">
-
-		<div class="attention_con">
-			<img src="/images/ugc/attention_tips.png" />
-			<img src="/images/ugc/wechat.png" />
-		</div>
-		<div class="dream_footer">
-		    <a href="/fondation">
-		        <img src="/images/ugc/story.jpg" width="100%" />
-		    </a>
-		</div>
-		
-	</div>
-
+<div class="attention_con">
+	<img src="/images/ugc/attention_tips.png" />
+	<img src="/images/ugc/wechat.png" />
 </div>
+<div class="dream_footer">
+    <a href="/fondation">
+        <img src="/images/ugc/story.jpg" width="100%" />
+    </a>
+</div>
+		
 
+
+<script type="text/javascript">
+$(".loading").remove();
+</script>
 
 {% endblock %}
 

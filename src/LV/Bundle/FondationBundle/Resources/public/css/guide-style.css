@@ -62,29 +62,30 @@ body {
 }
 
 .mapArea a.link-5{
+	left: 37%;
+	top: 29%;
+}
+
+.mapArea a.link-6{
 	left: 22%;
 	top: 15%;
 }
 
-.mapArea a.link-6{
+.mapArea a.link-7{
 	left: 51%;
 	top: 12%;
 }
 
-.mapArea a.link-7{
+.mapArea a.link-8{
 	left: 49%;
 	top: 43%;
 }
 
-.mapArea a.link-8{
+.mapArea a.link-9{
 	left: 50%;
 	top: 52%;
 }
 
-.mapArea a.link-9{
-	left: 37%;
-	top: 29%;
-}
 
 
 

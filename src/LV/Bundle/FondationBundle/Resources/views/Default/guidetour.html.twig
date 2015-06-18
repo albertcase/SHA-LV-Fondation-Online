@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block title %}路易威登基金会{% endblock %}
 {% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/chapter.css"
+{% stylesheets filter='cssrewrite' output="css/guide.css"
 	'%kernel.root_dir%/Resources/public/css/reset.css'
 	'bundles/lvfondation/css/swiper.min.css'
 	'%kernel.root_dir%/Resources/public/css/menu.css'
@@ -11,7 +11,7 @@
 {% endstylesheets %}
 {% endblock %}
 {% block head_scripts %}
-{% javascripts output="js/chapter.js"
+{% javascripts output="js/guide.js"
     '%kernel.root_dir%/Resources/public/js/*'
     '@LVFondationBundle/Resources/public/js/swiper.min.js'
     '@LVFondationBundle/Resources/public/js/iscroll-probe.js'

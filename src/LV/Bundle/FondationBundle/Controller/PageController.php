@@ -274,13 +274,13 @@ class PageController extends Controller
     */
     public function ibeaconEntranceAction()
     {
-        return $this->forward('LVFondationBundle:Page:guideTour');
-        // $wechat = $this->container->get('same.wechat');
-        // $userservice = $this->container->get('lv.user.service');
-        // $issubscribed = $wechat->isSubscribed($userservice->userLoad()->getOpenid());
-        // if($issubscribed)
-        //     return $this->forward('LVFondationBundle:Page:guideTour');
-        // return $this->render('LVFondationBundle:Default:qrcodepage.html.twig');
+        // return $this->forward('LVFondationBundle:Page:guideTour');
+        $wechat = $this->container->get('same.wechat');
+        $userservice = $this->container->get('lv.user.service');
+        $issubscribed = $wechat->isSubscribed($userservice->userLoad()->getOpenid());
+        if($issubscribed)
+            return $this->forward('LVFondationBundle:Page:guideTour');
+        return $this->render('LVFondationBundle:Default:qrcodepage.html.twig');
     }
 
     /** 

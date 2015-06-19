@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
   <meta name="robots" content="noindex">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
-	<meta content="yes"name="apple-mobile-web-app-capable"/>
- 	<meta content="black"name="apple-mobile-web-app-status-bar-style"/>
-	<meta name="format-detection"content="telphone=no"/>
-	<title>路易威登</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+  <meta content="yes"name="apple-mobile-web-app-capable"/>
+  <meta content="black"name="apple-mobile-web-app-status-bar-style"/>
+  <meta name="format-detection"content="telphone=no"/>
+  <title>路易威登</title>
   <link rel="stylesheet" type="text/css" href="/css/page.css" />
   <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css" />
   <style type="text/css">
@@ -16,7 +16,50 @@
       overflow: auto;
       position: relative;
     }
-#hit{
+
+/*.mapcon {
+  position: absolute;
+  left: 0;
+  bottom: 0%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+  float: left;
+  display: inline-block;
+  position: relative;
+  height: auto;
+  margin: 0;
+}*/
+
+.mapcon img,.imgArea{
+  display: inline-block;
+  float: left;
+}
+
+
+.imgArea p{
+  float: left;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mapcon img{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.mapcon p:nth-child(1) img,.mapcon p:nth-child(1) img#hit{
+      position: absolute;
+      left: -167px;
+      top: 20px;
+      width: 160%;
+      height: auto;
+}
+
+.mapcon p:nth-child(2) img,.mapcon p:nth-child(2) img#hit{
       position: absolute;
       left: -200px;
       top: -20px;
@@ -34,14 +77,23 @@
         <div class="guide" id="content">
           <ul class="floor">
             <li>
+                <span class="curfloor hover">B1</span><span class="textStaus-2"><em>1</em>向西80米<br />至扶梯上L1楼</span><span class="floorArr"><img src="/images/map/stepArr.png" width="100%" /></span>
                 <span class="curfloor">L1</span><span class="textStaus-2"><em>2</em>向西20米<br />至金桐东路</span>
                 <span class="textStaus-2"><em>3</em>向南200米<br />至LV店铺</span>
                 <span class="textStaus-2">到达路易威登之家<br/>及基金会展览</span>
             </li>
           <ul>
         </div>  
-        <div class="mapcon">
-          <img src="/images/map/map1-b.png" id="hit" />
+        <div class="mapcon floorChange" id="triggerArea">
+          <div class="imgArea">
+          <p>
+          <img src="/images/map/map1-a.png" id="hit" style="display:inline-block;" />
+          </p>
+          <p>
+          <img src="/images/map/map1-b.png" />
+          </p>
+          </div>
+
           <div class="floor_guide">
                <img src="/images/map/b1-l1.png" />
           </div>
@@ -56,16 +108,20 @@
 
 <script type="text/javascript">
 ;(function($){
+    $(".imgArea").css("width",parseInt($(document).width())*2);
+    $(".imgArea p").css({"width":$(document).width(),"height":$(".mapcon").css("height")});
+
     $(window).load(function(){  
       $("#content").mCustomScrollbar({
           axis:"x",
           advanced:{autoExpandHorizontalScroll:true},
       }); 
+
     });
 })(jQuery);
 </script>
 <script type="text/javascript">
-/*$(".curfloor").click(function(){
+$(".curfloor").click(function(){
   if($(this).hasClass("hover"))return false;
   $(".curfloor").removeClass("hover");
   $(this).addClass("hover");
@@ -84,7 +140,7 @@
     $(".floor_guide img").attr("src","/images/map/l1.png");
   }
 
-  aa();*/
+
   
   // $(".floorChange img").hide();
   // if($(this).index()==0){
@@ -93,7 +149,7 @@
   //   $(".floorChange img").eq(1).fadeIn();
   // }  
 
-
+})
 
 
 function orientationChange() {
@@ -132,8 +188,8 @@ addEventListener('load', function(){
 // });
 
 </script>
-<script src="/js/hammer.js"></script>
-<script src="/js/drag.js"></script>
+<script src="js/hammer.js"></script>
+<script src="js/drag.js"></script>
 
 <script type="text/javascript">
 var _hmt = _hmt || [];

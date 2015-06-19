@@ -256,7 +256,7 @@ class PageController extends Controller
     * @return view
     */
     public function wechatEntranceAction()
-    {return $this->forward('LVFondationBundle:Page:guideTour');
+    {
         $userservice = $this->container->get('lv.user.service');
         if($userservice->userLoad()->getRole() == 'offline') 
             return $this->forward('LVFondationBundle:Page:guideTour');

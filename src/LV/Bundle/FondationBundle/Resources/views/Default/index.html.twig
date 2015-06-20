@@ -108,7 +108,11 @@
 			defaultSlide = 0;
 			//shareInfo(defaultSlide);
 		}else{
-			defaultSlide = GetQueryString();
+			var hashindex = GetQueryString();
+			if(!isNaN(hashindex))
+				defaultSlide = hashindex;
+			else
+				defaultSlide = 0;
 		}
 		var mySwiper = $('.swiper-container').swiper({
 			pagination: '.swiper-pagination',

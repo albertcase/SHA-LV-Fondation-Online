@@ -313,7 +313,7 @@ html,body,#dreambox{
 }
 
 .completionRatio{
-	width: 56%;
+	width: 50%;
 	font-size: 12px;
 	position: absolute;
 	top: -1.4em;
@@ -322,7 +322,7 @@ html,body,#dreambox{
 }
 
 .completionRatio h2{
-	width: 56%;
+	width: 50%;
 	font-size: 38px;
 	float: left;
 	display: inline-block;
@@ -334,7 +334,7 @@ html,body,#dreambox{
 }
 
 .completionRatio p{
-	width: 42%;
+	width: 50%;
 	padding:1.2em 0 1px 0;
 	float: left;
 	display: inline-block;

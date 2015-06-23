@@ -54,7 +54,7 @@
 .menu{
 	width: 56%;
 	display: inline-block;
-	margin: 4em 0 0 0; 
+	margin: 3em 0 0 0; 
 }
 
 .menu li{
@@ -76,7 +76,7 @@
 	width: 100%;
 	position: absolute;
 	left: 0;
-	bottom: 1.8em;
+	bottom: 1.2em;
 }
 
 .close{

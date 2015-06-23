@@ -229,6 +229,7 @@ function finshReturnFun(){
         hotSpotFun(GetQueryString());
     }else{
         $(".guideCon").animate({"opacity":1});
+        history.pushState("/", null, "#");
     }
 
     eventTester("play");

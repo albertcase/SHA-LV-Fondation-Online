@@ -32,7 +32,9 @@ var loadingFun = function(imgSrcArr,finshReturnFun){
 			$(".loading").hide();
 			$("#dreambox").animate({"opacity" : 1});	
 			wechatFun();
-			finshReturnFun();
+			if(finshReturnFun){
+				finshReturnFun();
+			}
 		    console.log("加载完成!");
 		} , function ( p ){
 			$('.loading_con p').html(p+"%");

@@ -316,8 +316,8 @@ html,body,#dreambox{
 	width: 56%;
 	font-size: 12px;
 	position: absolute;
-	top: -1.2em;
-	right: 0;
+	top: -1.4em;
+	right: -0.4em;
 	text-align: left;
 }
 
@@ -326,6 +326,7 @@ html,body,#dreambox{
 	font-size: 38px;
 	float: left;
 	display: inline-block;
+	text-align: right;
 }
 
 .completionRatio h2 sup{
@@ -337,6 +338,7 @@ html,body,#dreambox{
 	padding:1.2em 0 1px 0;
 	float: left;
 	display: inline-block;
+	text-align: right;
 }
 
 .modelView{

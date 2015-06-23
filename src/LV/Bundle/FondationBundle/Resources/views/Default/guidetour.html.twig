@@ -26,21 +26,41 @@
 <script type="text/javascript" src="http://lab.cubiq.org/iscroll5/build/iscroll.js"></script>
 <div class="guideCon">
     <div class="mapArea">
-        <a href="javascript:;" title="概览" class="hotlink link-0" data-id="0"></a>
-        <a href="javascript:;" title="了解基金会项目" class="hotlink link-1" data-id="1"></a>
-        <a href="javascript:;" title="了解基金会建筑设计" class="hotlink link-2" data-id="2"></a>
-        <a href="javascript:;" title="历史" class="hotlink link-3" data-id="3"></a>
-        <a href="javascript:;" title="项目计划" class="hotlink link-4" data-id="4"></a>
-        <a href="javascript:;" title="确定模型" class="hotlink link-5" data-id="5"></a>
-        <a href="javascript:;" title="设计理念" class="hotlink link-6" data-id="6"></a>
-        <a href="javascript:;" title="内部空间" class="hotlink link-7" data-id="7"></a>
-        <a href="javascript:;" title="冰川建筑体" class="hotlink link-8" data-id="8"></a>
-        <a href="javascript:;" title="玻璃帆船" class="hotlink link-9" data-id="9"></a>
+        <a href="javascript:;" title="概览" class="hotlink link-0" data-id="0">
+            <span><img src="/images/audioGuide/focus0.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="了解基金会项目" class="hotlink link-1" data-id="1">
+            <span><img src="/images/audioGuide/focus1.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="了解基金会建筑设计" class="hotlink link-2" data-id="2">
+            <span><img src="/images/audioGuide/focus2.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="历史" class="hotlink link-3" data-id="3">
+            <span><img src="/images/audioGuide/focus3.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="项目计划" class="hotlink link-4" data-id="4">
+            <span><img src="/images/audioGuide/focus4.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="确定模型" class="hotlink link-5" data-id="5">
+            <span><img src="/images/audioGuide/focus5.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="设计理念" class="hotlink link-6" data-id="6">
+            <span><img src="/images/audioGuide/focus6.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="内部空间" class="hotlink link-7" data-id="7">
+            <span><img src="/images/audioGuide/focus7.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="冰川建筑体" class="hotlink link-8" data-id="8">
+            <span><img src="/images/audioGuide/focus8.png" width="100%" /></span>
+        </a>
+        <a href="javascript:;" title="玻璃帆船" class="hotlink link-9" data-id="9">
+            <span><img src="/images/audioGuide/focus9.png" width="100%" /></span>
+        </a>
         
         <img src="" sourcesrc="/images/audioGuide/map.jpg" width="100%" />
     </div>
     
-    <a href="/fondation/ugc"><img src="" sourcesrc="/images/audioGuide/kv.jpg" width="100%" /></a>
+    <a href="/fondation/ugc" class="ugckv"><img src="" sourcesrc="/images/audioGuide/kv.jpg" /></a>
 </div>
 
 
@@ -224,7 +244,31 @@ function finshReturnFun(){
         sharePageVal: '语音导览'
     };
     editShare();
+
+    function focusCycle(focusEle){
+        $('.'+focusEle).each(function(i){
+             $(this).delay(250+(600*i)).animate({
+                  opacity:1,
+             }, 400, function(){
+                $('.hotlink').removeClass("bounceIn");
+                $(this).addClass("bounceIn");
+             });
+        });
+    }
+
+    focusCycle("hotlink");
+
+
+    $(".link-9").bind("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(){
+        focusCycle("hotlink");
+    });
 }
+
+
+
+
+
+
 
 </script>
 

@@ -225,7 +225,7 @@ for(var i=0; i<=9; i++){
 loadingFun(imgSrcArr,finshReturnFun);
 
 function finshReturnFun(){
-    if(GetQueryString()){
+    if(parseInt(GetQueryString())&&parseInt(GetQueryString())>=0&&parseInt(GetQueryString())<=9){
         hotSpotFun(GetQueryString());
     }else{
         $(".guideCon").animate({"opacity":1});

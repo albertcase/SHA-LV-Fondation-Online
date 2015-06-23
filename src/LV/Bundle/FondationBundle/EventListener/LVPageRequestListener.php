@@ -4,6 +4,7 @@ namespace LV\Bundle\FondationBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class LVPageRequestListener
 {
@@ -41,8 +42,13 @@ class LVPageRequestListener
             $url = $this->router->generate('lv_fondation_desktop');
             return $event->setResponse(new RedirectResponse($url));
         }
-            
+
     	if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
+
+            if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
+                $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error.html.twig');
+                return $event->setResponse(new Response($rendered));
+            }
 
             if(!$this->userservicve->userLoad()) {
 

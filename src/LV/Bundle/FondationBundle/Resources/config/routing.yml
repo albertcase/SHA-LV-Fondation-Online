@@ -95,3 +95,7 @@ lv_fondation_photoshow:
 lv_fondation_ibeacon:
     path:     /ibeacon/{id}
     defaults: { _controller: LVFondationBundle:Page:ibeacon }
+
+lv_fondation_guidetour:
+    path:     /guidetour
+    defaults: { _controller: LVFondationBundle:Page:guideTourOnline }

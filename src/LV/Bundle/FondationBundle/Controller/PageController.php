@@ -349,4 +349,18 @@ class PageController extends Controller
         return $this->render('LVFondationBundle:Default:photo_show.html.twig',array('photos'=> $photos));
     }
 
+    /** 
+    *
+    * guideTour Page
+    *
+    * @access public
+    * @since 1.0 
+    * @return view
+    */
+    public function guideTourOnlineAction()
+    {
+        return $this->render('LVFondationBundle:Default:guidetour.html.twig');
+    }
+
+
 }

@@ -13,7 +13,7 @@ parameters:
     end_date: 2015-07-28 18:30:23
     start_date_ibeacon: 2015-06-16 00:00:01
     end_date_ibeacon: 2015-06-20 23:59:59
-    send_message_start_date1: 2015-06-25 18:00:00
+    send_message_start_date1: 2015-06-25 17:00:00
     send_message_end_date1: 2015-06-25 21:00:00
     send_message_start_date2: 2015-06-26 18:00:00
     send_message_end_date2: 2015-06-26 21:00:00

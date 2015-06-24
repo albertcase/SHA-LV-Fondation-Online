@@ -47,7 +47,7 @@ EOF
         $wechat = $this->getContainer()->get('same.wechat');
 
         foreach ($userservice->getTemplates() as $template) {
-            if($template->getUser()->getUserphotocode()->getPhotos()){
+            if(count($template->getUser()->getUserphotocode()->getPhotos()) != 0){
                 $router = $this->getContainer()->get('router');
                 $codeid = $template->getUser()->getUserphotocode()->getId();
                 $context = $router->getContext();

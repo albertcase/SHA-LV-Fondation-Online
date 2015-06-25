@@ -64,6 +64,13 @@ class WechatController extends Controller
         return $wechat->getJsTicket($url);
     }
 
+    public function refrenceAction()
+    {   
+        $wechat = $this->get('same.wechat');
+        var_dump($wechat->refrenceAccessToken());
+        exit;
+    }
+
     public function tempalteAction($openid)
     {   
         $data = array();

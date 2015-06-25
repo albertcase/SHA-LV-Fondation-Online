@@ -84,6 +84,27 @@ class Wechat
 	}
 
 	/** 
+	* wechat_access_token
+	* get access_token
+	* @access private
+	* @since 1.0 
+	* @return string $access_token
+	*/ 
+	public function refrenceAccessToken() {
+		$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
+		$result = json_decode($result, true);
+		$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
+		$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
+		$this->_memcache->set('wechat_server_access_token', $result['access_token']);
+		$returnMsg = array();
+		$returnMsg['wechat_server_time'] = $this->_memcache->get('wechat_server_time');
+		$returnMsg['wechat_server_ticket'] = $this->_memcache->get('wechat_server_ticket');
+		$returnMsg['wechat_server_access_token'] = $this->_memcache->get('wechat_server_access_token');
+        return $returnMsg;
+
+	}
+
+	/** 
 	* wechat_js_sdk
 	* get js ticket
 	* @access private

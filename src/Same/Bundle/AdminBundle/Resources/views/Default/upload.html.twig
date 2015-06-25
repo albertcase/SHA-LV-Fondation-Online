@@ -21,19 +21,21 @@
 
 {% block content %}
 	<div id="upload_form">
-		<div class="login">
-			<p>上传文件</p>
-		</div>
-		<div class="info">
-			<ul>
-				<li>文件：
-					<input type="file"  name="file[]" class="file_con"/>
-				</li>
-			</ul>
-			<a href="javascript:;">
-				<input type="submit"  value="上&nbsp;&nbsp;传" class="up_btn"/>	
-			</a>	
-		</div>	
+		<form action="{{ path('same_admin_dbtocsv') }}" method="post" enctype="multipart/form-data">
+			<div class="login">
+				<p>上传文件</p>
+			</div>
+			<div class="info">
+				<ul>
+					<li>文件：
+						<input type="file"  name="file" class="file_con"/>
+					</li>
+				</ul>
+				<a href="javascript:;">
+					<input type="submit"  value="上&nbsp;&nbsp;传" class="up_btn"/>	
+				</a>	
+			</div>	
+		</form>
 	</div>	
 {% endblock %} 
 

@@ -241,10 +241,10 @@ class PageController extends Controller
         if($issend) {
             $userservice = $this->container->get('lv.user.service');
             $wechat = $this->container->get('same.wechat');
-            $str = '1234567890';
+            $str = '0123456789';
             $code = '';
             for($i=0;$i<6;$i++){
-                $randval = mt_rand(0,35);
+                $randval = mt_rand(0,9);
                 $code .= $str[$randval];
             }
             $input = array();

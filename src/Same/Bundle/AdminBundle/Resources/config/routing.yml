@@ -1,3 +1,9 @@
+same_admin_fake:
+    path:     /same/admin/fake
+    defaults: { _controller: SameAdminBundle:Default:fake }
+same_admin_fakedata:
+    path:     /same/admin/fakedata
+    defaults: { _controller: SameAdminBundle:Default:fakedata }
 same_admin_review:
     path:     /same/admin/review
     defaults: { _controller: SameAdminBundle:Default:review }

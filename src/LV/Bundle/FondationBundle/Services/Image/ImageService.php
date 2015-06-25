@@ -75,9 +75,17 @@ class ImageService
         //list($width,$height)=getimagesize("images/imagesevice/photoframe_bg.png");
         $img1 = ImageCreateFromJpeg($img); 
         $bg = ImageCreateFromPng("images/imagesevice/photoframe_bg.png"); 
+        //如果图片是横的 旋转90度
+        if($width > $height) {
+            $img1 = imagerotate($img1, 270, 0);
+            imagecopyresized($bg,$img1,13,150,0,0,720,1075,$height,$width); 
+        }else{
+            imagecopyresized($bg,$img1,13,150,0,0,720,1075,$width,$height); 
+        }
+        
         //$logo = ImageCreateFromPng("images/imagesevice/logo.png"); 
         //imagecopyresized($bg,$logo,13,10,0,0,641,29,641,29); 
-        imagecopyresized($bg,$img1,13,150,0,0,720,1075,$width,$height); 
+        
         //header("content-type: image/jpeg");
         $fs = new Filesystem();
         if(!$fs->exists($this->_filedir . '/Offline'))

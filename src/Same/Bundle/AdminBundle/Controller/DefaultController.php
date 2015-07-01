@@ -27,6 +27,9 @@ class DefaultController extends Controller
         }else if($username == 'admin' && $password == '1qazxsw2'){
             //$this->container->get('session')->set('same_admin_name',$username);
             $msg = array('code'=> 1, "msg"=>'list');
+        }else if($username == 'admin' && $password == 'samesame123'){
+            //$this->container->get('session')->set('same_admin_name',$username);
+            $msg = array('code'=> 1, "msg"=>'dbtocsv');
         }else{
             $msg = array('code'=> 0, "msg"=>'登录失败');
         }
@@ -37,10 +40,17 @@ class DefaultController extends Controller
 
     public function fileAction()
     {
-        /*if(!$this->container->get('session')->get('same_admin_name')) {
-            return $this->redirect('./index');
-        }  */ 
         return $this->render('SameAdminBundle:Default:file.html.twig');
+    }
+
+    public function fakeAction()
+    {
+        return $this->render('SameAdminBundle:Default:fake.html.twig');
+    }
+
+    public function fakedataAction()
+    {
+        print_r($_POST);die;
     }
 
     public function tableAction()
@@ -73,6 +83,31 @@ class DefaultController extends Controller
 
     public function dbtocsvAction()
     {
+        if($this->getRequest()->getMethod() == 'POST') {
+            $files = $this->getRequest()->files->get('file');
+            $fs = new Filesystem();
+            $filedir = $this->container->getParameter('files_base_dir');
+            if(!$fs->exists($filedir . '/Txt'))
+               $fs->mkdir($filedir . '/Txt', 0700);
+            $filename = '/Txt/' .time() . rand(100,999) . '.txt';
+            $fs->rename($files, $this->container->getParameter('files_base_dir') . $filename);
+            $handle = fopen ($this->container->getParameter('files_base_dir') . $filename, "r");
+            $ln= 0;
+            $userservice = $this->get('lv.user.service');
+            while (!feof($handle)) {
+                $line = fgets($handle, 4096);  
+                $lineary = explode('|', $line);
+                if(count($lineary) == 2){
+                    $nickname = str_replace(array("\r\n", "\r", "\n"), "", trim($lineary[0]));
+                    $content = str_replace(array("\r\n", "\r", "\n"), "", trim($lineary[1]));
+                    $userservice->createFakeUserDream($nickname, $content);
+                    $ln++;
+                }    
+            }
+            fclose($handle);
+            print 'insert '. $ln .' rows';
+            exit;
+        }
         return $this->render('SameAdminBundle:Default:upload.html.twig');
     }
 

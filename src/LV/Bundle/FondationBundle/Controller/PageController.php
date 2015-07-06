@@ -223,20 +223,16 @@ class PageController extends Controller
     */
     public function guideTourAction()
     {
-        $smsd1 = $this->container->getParameter('send_message_start_date1');
-        $smed1 = $this->container->getParameter('send_message_end_date1');
-        $smsd2 = $this->container->getParameter('send_message_start_date2');
-        $smed2 = $this->container->getParameter('send_message_end_date2');
-        $smsd3 = $this->container->getParameter('send_message_start_date3');
-        $smed3 = $this->container->getParameter('send_message_end_date3');
         $now = strtotime(date("Y-m-d H:i:s"));
+        $senddate = $this->container->getParameter('send_message_date');
         $issend = FALSE;
-        if($now >= $smsd1 && $now <= $smed1)
-            $issend = TRUE;
-        if($now >= $smsd2 && $now <= $smed2)
-            $issend = TRUE;
-        if($now >= $smsd3 && $now <= $smed3)
-            $issend = TRUE;
+
+        foreach($senddate as $date) {
+            if($now >= $date['start'] && $now <= $date['end']){
+                $issend = TRUE;
+                break;
+            }
+        }
 
         if($issend) {
             $userservice = $this->container->get('lv.user.service');

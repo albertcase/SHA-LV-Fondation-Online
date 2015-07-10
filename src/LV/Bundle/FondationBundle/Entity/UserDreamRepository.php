@@ -28,8 +28,8 @@ class UserDreamRepository extends EntityRepository
 		$query = $em
             ->createQuery(
             	'SELECT ud FROM LVFondationBundle:UserDream ud
-            	WHERE ud.status = :status 
-            	ORDER BY ud.id DESC'
+            	WHERE ud.status >= :status 
+            	ORDER BY ud.status DESC, ud.id DESC'
             	)
             ->setParameter(':status', 1)
             ->setMaxResults($limit);

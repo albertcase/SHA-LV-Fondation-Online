@@ -333,6 +333,9 @@ class UserService
             $views = $this->em->getRepository('LVFondationBundle:DreamView')->retrieveViewCount($dream_id);
             $liked = $this->em->getRepository('LVFondationBundle:DreamLike')->retrieveLikedCount($dream_id);
 
+            $views = $views + 100;
+            $liked = $liked + 20;
+
             if($dream->getUser()->getId() == $user->getId()){
                 $call = '您';
                 $who = 'myself';

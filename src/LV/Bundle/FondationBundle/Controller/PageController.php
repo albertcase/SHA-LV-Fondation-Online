@@ -30,6 +30,7 @@ class PageController extends Controller
         $end_date = $this->container->getParameter('end_date');
         $now = strtotime(date("Y-m-d H:i:s"));
         $percentage = ceil((($now - $start_date) / ($end_date - $start_date)) * 100);
+        $percentage = 100;
         if($percentage >= 100)
             $percentage = 100;
 

@@ -31,5 +31,5 @@ same_wechat_test:
     defaults: { _controller: SameWechatBundle:Wechat:test }
 
 same_wechat_refrence:
-    path:     /same/wechat/refrence
+    path:     /same/wechat/reflash/7dc132fe47aa1b8f34df58a24053e33a
     defaults: { _controller: SameWechatBundle:Wechat:refrence }

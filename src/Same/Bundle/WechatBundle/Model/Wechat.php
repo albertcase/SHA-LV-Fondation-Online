@@ -91,7 +91,7 @@ class Wechat
 	* @return string $access_token
 	*/ 
 	public function refrenceAccessToken() {
-		$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
+		$result = file_get_contents("http://vuitton.cynocloud.com/interface/getsignpackage/?refresh=true");
 		$result = json_decode($result, true);
 		$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 		$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);

@@ -12,6 +12,7 @@ namespace Same\Bundle\WechatBundle\Model;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Filesystem\Filesystem;
 
 class Wechat
 {
@@ -75,6 +76,25 @@ class Wechat
 		if((!$access_token) || (strtotime($time) - time() <= 0)){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
 			$result = json_decode($result, true);
+
+			$fs = new Filesystem();
+			$filedir = $this->_container->getParameter('files_base_dir');
+			if(!$fs->exists($filedir. '/Log'))
+	            $fs->mkdir($filedir. '/Log', 0700);
+	        $fileName = '/Log/' . date('Ymd') . '-auto.txt';
+	        $file = $filedir . $fileName;
+	        $content = "请求时间--". date('Y-m-d H:i:s'). "\n";
+	        $content .= "请求地址--http://vuitton.cynocloud.com/interface/getsignpackage\n";
+	        if(!$access_token)
+	        	$content .= "请求原因--memcache取不到token\n";
+	        else
+	        	$content .= "请求原因--token到期\n";
+	        $content .= "返回结果--". $result. "\n----------------------\n\n";
+	        if(!$fs->exists($file))
+	        	$fs->dumpFile($file, $content, 0700);
+	        else
+	        	file_put_contents($file, $content, FILE_APPEND);
+
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
@@ -93,6 +113,22 @@ class Wechat
 	public function refrenceAccessToken() {
 		$result = file_get_contents("http://vuitton.cynocloud.com/interface/getsignpackage/?refresh=true");
 		$result = json_decode($result, true);
+
+		$fs = new Filesystem();
+		$filedir = $this->_container->getParameter('files_base_dir');
+		if(!$fs->exists($filedir. '/Log'))
+            $fs->mkdir($filedir. '/Log', 0700);
+        $fileName = '/Log/' . date('Ymd') . '-hand.txt';
+        $file = $filedir . $fileName;
+        $content = "请求时间--". date('Y-m-d H:i:s'). "\n";
+        $content .= "请求地址--http://vuitton.cynocloud.com/interface/getsignpackage/?refresh=true\n";
+        $content .= "请求原因--手动刷新\n";
+        $content .= "返回结果--". $result. "\n----------------------\n\n";
+        if(!$fs->exists($file))
+        	$fs->dumpFile($file, $content, 0700);
+        else
+        	file_put_contents($file, $content, FILE_APPEND);
+
 		$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 		$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 		$this->_memcache->set('wechat_server_access_token', $result['access_token']);
@@ -118,6 +154,25 @@ class Wechat
 		if((!$ticket) || (strtotime($time) - time() <= 7200)){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
 			$result = json_decode($result, true);
+
+			$fs = new Filesystem();
+			$filedir = $this->_container->getParameter('files_base_dir');
+			if(!$fs->exists($filedir. '/Log'))
+	            $fs->mkdir($filedir. '/Log', 0700);
+	        $fileName = '/Log/' . date('Ymd') . '-auto.txt';
+	        $file = $filedir . $fileName;
+	        $content = "请求时间--". date('Y-m-d H:i:s'). "\n";
+	        $content .= "请求地址--http://vuitton.cynocloud.com/interface/getsignpackage\n";
+	        if(!$access_token)
+	        	$content .= "请求原因--memcache取不到token\n";
+	        else
+	        	$content .= "请求原因--token到期\n";
+	        $content .= "返回结果--". $result. "\n----------------------\n\n";
+	        if(!$fs->exists($file))
+	        	$fs->dumpFile($file, $content, 0700);
+	        else
+	        	file_put_contents($file, $content, FILE_APPEND);
+	        
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 			$this->_memcache->set('wechat_server_access_token', $result['access_token']);	

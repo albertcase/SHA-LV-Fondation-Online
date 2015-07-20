@@ -75,7 +75,6 @@ class Wechat
 		$access_token = $this->_memcache->get('wechat_server_access_token');
 		if((!$access_token) || (strtotime($time) - time() <= 0)){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
-			$result = json_decode($result, true);
 
 			$fs = new Filesystem();
 			$filedir = $this->_container->getParameter('files_base_dir');
@@ -95,6 +94,7 @@ class Wechat
 	        else
 	        	file_put_contents($file, $content, FILE_APPEND);
 
+	        $result = json_decode($result, true);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
@@ -112,8 +112,7 @@ class Wechat
 	*/ 
 	public function refrenceAccessToken() {
 		$result = file_get_contents("http://vuitton.cynocloud.com/interface/getsignpackage/?refresh=true");
-		$result = json_decode($result, true);
-
+		
 		$fs = new Filesystem();
 		$filedir = $this->_container->getParameter('files_base_dir');
 		if(!$fs->exists($filedir. '/Log'))
@@ -129,6 +128,7 @@ class Wechat
         else
         	file_put_contents($file, $content, FILE_APPEND);
 
+        $result = json_decode($result, true);
 		$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 		$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 		$this->_memcache->set('wechat_server_access_token', $result['access_token']);
@@ -153,7 +153,6 @@ class Wechat
 		$ticket = $this->_memcache->get('wechat_server_ticket');
 		if((!$ticket) || (strtotime($time) - time() <= 7200)){
 			$result = file_get_contents("http://vuitton.cynocloud.com/Interface/getSignPackage");
-			$result = json_decode($result, true);
 
 			$fs = new Filesystem();
 			$filedir = $this->_container->getParameter('files_base_dir');
@@ -173,6 +172,7 @@ class Wechat
 	        else
 	        	file_put_contents($file, $content, FILE_APPEND);
 	        
+	        $result = json_decode($result, true);
 			$this->_memcache->set('wechat_server_time', $result['access_token_expiretime']);
 			$this->_memcache->set('wechat_server_ticket', $result['js_api_ticket']);
 			$this->_memcache->set('wechat_server_access_token', $result['access_token']);	

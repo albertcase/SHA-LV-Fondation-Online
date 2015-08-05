@@ -1,0 +1,3 @@
+lv_cvd_index:
+    path:     /
+    defaults: { _controller: LVCvdBundle:Page:index }

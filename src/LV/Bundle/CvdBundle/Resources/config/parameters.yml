@@ -1,0 +1,3 @@
+parameters:
+    cvd_access_need_router:
+        - lv_cvd_index

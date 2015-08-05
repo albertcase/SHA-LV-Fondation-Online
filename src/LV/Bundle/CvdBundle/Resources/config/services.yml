@@ -1,0 +1,17 @@
+# services:
+#    lv_fondation.example:
+#        class: LV\Bundle\FondationBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    cvd.page.listener:
+        class: LV\Bundle\CvdBundle\EventListener\CvdPageRequestListener
+        arguments: [@router, @service_container, @lv.user.service, @same.wechat, @lv.mobile.detect]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    # cvd.api.listener:
+    #     class: LV\Bundle\CvdBundle\EventListener\CvdApiRequestListener
+    #     arguments: [@router, @service_container, @lv.user.service]
+    #     tags:
+    #         - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

@@ -1,0 +1,16 @@
+{% extends '::cvd_base.html.twig' %}
+{% block title %}xxx{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/main.css"
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/main.js"
+    '%kernel.root_dir%/Resources/public/js/*'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

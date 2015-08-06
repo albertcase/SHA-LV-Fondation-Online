@@ -8,6 +8,10 @@ lv_cvd_product:
     requirements: 
       gender: male|female
 
+lv_cvd_create:
+    path:     /create
+    defaults: { _controller: LVCvdBundle:Page:create }
+
 lv_cvd_share:
     path:     /share/{id}
     defaults: { _controller: LVCvdBundle:Page:share }

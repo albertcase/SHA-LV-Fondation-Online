@@ -1,3 +1,13 @@
 lv_cvd_index:
     path:     /
     defaults: { _controller: LVCvdBundle:Page:index }
+
+lv_cvd_product:
+    path:     /product/{gender}
+    defaults: { _controller: LVCvdBundle:Page:product }
+    requirements: 
+      gender: male|female
+
+lv_cvd_share:
+    path:     /share/{id}
+    defaults: { _controller: LVCvdBundle:Page:share }

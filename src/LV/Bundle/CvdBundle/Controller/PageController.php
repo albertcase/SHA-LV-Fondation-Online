@@ -10,4 +10,14 @@ class PageController extends Controller
     {
         return $this->render('LVCvdBundle:Default:index.html.twig');
     }
+
+    public function productAction($gender)
+    {
+        return $this->render('LVCvdBundle:Default:product.html.twig', array('gender' => $gender));
+    }
+
+    public function shareAction($id)
+    {
+        return $this->render('LVCvdBundle:Default:share.html.twig', array('id' => $id));
+    }
 }

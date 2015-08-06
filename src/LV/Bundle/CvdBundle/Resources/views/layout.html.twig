@@ -3,13 +3,17 @@
 {% block head_style %}
 {% stylesheets filter='cssrewrite' output="css/main.css"
 	'%kernel.root_dir%/Resources/public/css/reset.css'
+	'@LVCvdBundle/Resources/public/css/swiper.min.css'
+	'@LVCvdBundle/Resources/public/css/style.css'
 %}
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
 {% endstylesheets %}
 {% endblock %}
 {% block head_scripts %}
 {% javascripts output="js/main.js"
-    '%kernel.root_dir%/Resources/public/js/*'
+    '%kernel.root_dir%/Resources/public/js/jquery.js'
+    '@LVCvdBundle/Resources/public/js/swiper.min.js'
+    '@LVCvdBundle/Resources/public/js/main.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}

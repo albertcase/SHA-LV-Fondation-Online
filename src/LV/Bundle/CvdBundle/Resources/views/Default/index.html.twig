@@ -1,5 +1,205 @@
 {% extends 'LVCvdBundle::layout.html.twig' %} 
 {% block title %}xxx{% endblock %}
 {% block content %}
-	df
+		
+<article id="dreambox">
+
+	<!-- home -->
+	<section class="mainer" id="home" style="display:none;">
+		<div class="container">
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
+			</a>
+
+			<div class="slogan">
+				<img src="/images/cvd/slogan.png" sourcesrc="" width="100%" />
+			</div>
+
+			<div class="entrance">
+				<dl>
+					<dt>
+						<img src="/images/cvd/bags1.png" sourcesrc="" width="100%" />
+					</dt>
+					<dd><p>锁住她</p></dd>
+				</dl>
+
+				<dl>
+					<dt>
+						<img src="/images/cvd/bags2.png" sourcesrc="" width="100%" />
+					</dt>
+					<dd><p>锁住他</p></dd>
+				</dl>
+			</div>
+		</div>
+
+		<img src="/images/cvd/bg.jpg" sourcesrc="" width="100%" />
+	</section>
+
+	<!-- products -->
+	<section class="mainer" id="product" style="display:none;">
+		<div class="container">
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
+			</a>
+
+			
+
+
+
+
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	
+		            	<div class="products">
+							<ul>
+								<li class="current">
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis1</p>
+								</li>
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis2</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis3</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis4</p>
+								</li>
+							</ul>
+						</div>
+
+		            </div>
+		            <div class="swiper-slide">
+
+		            	<div class="products">
+							<ul>
+								<li class="current">
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis a</p>
+								</li>
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis b</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis c</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis d</p>
+								</li>
+							</ul>
+						</div>
+
+		            </div>
+
+		            <div class="swiper-slide">
+
+		            	<div class="products">
+							<ul>
+								<li class="current">
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis</p>
+								</li>
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis</p>
+								</li>
+
+								<li>
+									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
+									<p>Capucines MM Rubis</p>
+								</li>
+							</ul>
+						</div>
+
+		            </div>
+
+		        </div>
+		        <!-- Add Arrows -->
+		        <div class="swiper-button-next">
+		        	<img sourcesrc="" src="/images/cvd/arr_r.png" />
+		        </div>
+		        <div class="swiper-button-prev">
+		        	<img sourcesrc="" src="/images/cvd/arr_l.png" />
+		        </div>
+		    </div>
+
+
+
+
+		</div>
+		<div class="lockLove">
+			<a href="javascript:;" class="gomore"><img src="/images/cvd/magnifier.png" sourcesrc="" /><span>前往官网了解七夕臻品</span></a>
+			<a href="javascript:;" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" sourcesrc="" width="100%" /></a>
+		</div>
+		<img src="/images/cvd/bg2.jpg" sourcesrc="" width="100%" />
+	</section>
+
+
+
+	<!-- products -->
+	<section class="mainer" id="create">
+		<div class="container">
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
+			</a>
+
+			<div class="locked_con">
+				<img src="/images/cvd/lock.png" sourcesrc="" width="38%" />
+				<div class="withlove">
+					<input type="text" class="sweetHeart" maxlength="3"> 
+					<p>
+						<img src="/images/cvd/withlove.png" sourcesrc="" width="30%" />
+					</p>
+					<input type="text" class="youname" maxlength="3"> 
+				</div>
+			</div>
+		</div>
+		<img src="/images/cvd/bg2.jpg" sourcesrc="" width="100%" />
+	</section>
+
+</article>
+
+<script type="text/javascript">
+	var swiper = new Swiper('.swiper-container', {
+	    nextButton: '.swiper-button-next',
+	    prevButton: '.swiper-button-prev',
+	    effect : 'coverflow',
+	    slidesPerView: 1,
+		centeredSlides: true,
+	    coverflow: {
+            rotate: 100,
+            stretch: 30,
+            depth: 20,
+            modifier: 1,
+            slideShadows : false
+        }
+	});
+
+	$(".products li").click(function(){
+		var prevCur = $(this).siblings("li.current");
+		$(this).siblings("li").removeClass("current");
+		$(this).insertBefore(prevCur).addClass("current");
+	})
+
+
+</script>
+
+
 {% endblock %}

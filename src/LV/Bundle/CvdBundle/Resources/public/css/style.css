@@ -260,9 +260,11 @@ html,body,#dreambox{
 	width: 30%;
 	height: 30px;
 	line-height: 30px;
-	border-bottom: 1px #ccc solid;
+	border-bottom: 1px #403233 solid;
 	display: inline-block;
 	margin: 0 0 0 -6%;
+	text-align: center;
+	color: #403233;
 }
 
 

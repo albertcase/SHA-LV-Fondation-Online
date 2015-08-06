@@ -265,6 +265,9 @@ html,body,#dreambox{
 	margin: 0 0 0 -6%;
 	text-align: center;
 	color: #403233;
+	font-size: 16px;
+	background: none;
+	text-transform: capitalize;
 }
 
 

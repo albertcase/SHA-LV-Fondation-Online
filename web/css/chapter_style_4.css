@@ -7,30 +7,30 @@
 
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #999;
+    color:    #ccc;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #999;
+    color:    #ccc;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #999;
+    color:    #ccc;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #999;
+    color:    #ccc;
 }
 
 
 .error::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #f00;
+    color:    #999;
 }
 .error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #f00;
+    color:    #999;
 }
 .error::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #f00;
+    color:    #999;
 }
 .error:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #f00;
+    color:    #999;
 }
 
 
@@ -38,6 +38,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	position: relative;
+	overflow-x: hidden;
 	/*background: #f1f1f1;*/
 
 	-ms-overflow-scrolling: hidde; 
@@ -68,6 +69,17 @@ html,body,#dreambox{
 	-o-text-size-adjust: none;
 	text-size-adjust: none;
 }
+
+.invitationTips{
+	width: 100%;
+	text-align: center;
+	padding: 6px 0;
+	display: inline-block;
+	float: left;
+	color: #444;
+	line-height: 16px;
+}
+
 
 #chapter #dreambox{
 	background: none;
@@ -142,9 +154,13 @@ html,body,#dreambox{
 }
 
 
+.swiper-container-horizontal>.swiper-pagination{
+	bottom: 25px;
+}
+
 
 .chapter-l,.chapter-r{
-	width: 3%;
+	width: 6%;
 	height: 100%;
 	float: left;
 	display: inline-block;
@@ -154,10 +170,15 @@ html,body,#dreambox{
 }
 
 .chapter-l span, .chapter-r span{
-    width: 100%;
+    width: 50%;
     position: absolute;
     left: 0;
     top: 49%;
+}
+
+.chapter-r span{
+	left: auto;
+	right: 0;
 }
 
 .chapter-l span img, .chapter-r span img{
@@ -214,10 +235,14 @@ html,body,#dreambox{
 	margin: 0;
 }
 
-.dreamTrip, .dreamTrip img{
+.dreamTrip{
 	width: 100%;
+	overflow: hidden;
 }
 
+.dreamTrip img{
+	width: 106%;
+}
 
 
 
@@ -253,7 +278,8 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	padding: 12% 0 0 0;
+	position: relative;
+	/*padding: 12% 0 0 0;*/
 }
 
 .contentImg{
@@ -322,7 +348,7 @@ html,body,#dreambox{
 	width: 100%;
 	position: relative;
 	text-align: center;
-	margin: 10% 0 6% 0;
+	margin: 16% 0 6% 0;
 }
 
 .mapInfo h2{
@@ -341,7 +367,7 @@ html,body,#dreambox{
 	position: relative;
 }
 
-.coordinate_link{
+.coordinate_link,.coordinate_link_chpater4{
 	width: 30%;
 	height: 56px;
 	position: absolute;
@@ -349,6 +375,95 @@ html,body,#dreambox{
 	top: 5em;
 	z-index: 2;
 }
+
+.coordinate_link{
+	left: -0.2em;
+ 	top: 4.8em;
+}
+
+.coordinate_link_chpater4{
+	left: auto;
+	right: 6.2em;
+	top: 7.6em;
+}
+
+.point{
+	width: 20%;
+	height: 40%;
+	background: url("/images/chapter2/points.png") no-repeat;
+	background-size: 100% auto;
+	display: inline-block;
+	position: absolute;
+	top: 40%;
+}
+
+
+.point { 
+    -webkit-animation: pointAni 2s infinite ease-in-out;
+    -moz-animation: pointAni 2s infinite ease-in-out;
+    animation: pointAni 2s infinite ease-in-out;
+}
+
+
+
+/**
+ * = animate 动画样式
+ *******************************************************************************************************/
+/*箭头指示引导*/
+@-webkit-keyframes pointAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@-moz-keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes arrAni {
+  0%,30% {opacity: 0;}
+  60% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
+.chapter_hand{
+	width: 36%;
+	position: absolute;
+	left: 46%;
+	top: 76%;
+}
+
+.hand_rTips{
+	width: 27%;
+	height: 80px;
+	position: fixed;
+	left: 50%;
+	bottom: 18%;
+	margin: 0 0 0 -15%;
+	z-index: 10;
+	text-align: center;
+	line-height: 0;
+}
+
+.handlinea{
+	width: 100%;
+	margin: 0;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+
+.hand_rTips .chapter_hand{
+	width: 40%;
+	position: absolute;
+	left: 50%;
+	top: 16%;
+	margin: 0 0 0 -25%;
+}
+
 
 .activeTips_chapter2{
 	width: 100%;
@@ -367,7 +482,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: relative;
 }
 
@@ -396,6 +511,13 @@ html,body,#dreambox{
 	display: inline-block;
 }
 
+.glassInstall .chapter_hand{
+	width: 10%;
+	top: 36%;
+	z-index: 9;
+}
+
+
 .glassBlock_tips{
 	width: 100%;
 	height: 22px;
@@ -405,13 +527,14 @@ html,body,#dreambox{
 	color: #3b3b3c;
 	margin: 6em 0 0.8em 0;
 	display: inline-block;
+	opacity: 0;
 }
 
 .glassInstall_fin{
 	width: 100%;
 	height: 100%;
 	background: url("/images/chapter3/building_fin.jpg") center top no-repeat;
-	background-size: 100% auto;
+	background-size: 106% auto;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -472,8 +595,8 @@ html,body,#dreambox{
 	left: 0;
 	top: 0;
 	z-index: 3;
-	display: none;
-	opacity: 0;
+	/*display: none;
+	opacity: 0;*/
 }
 
 .glassInstall_info .c3{
@@ -484,6 +607,7 @@ html,body,#dreambox{
 
 /* chapter4 */
 .chapter4{
+	width: 100%;
 	padding: 0 0 0 0;
 	display: inline-block;
 }
@@ -525,9 +649,23 @@ html,body,#dreambox{
 }
 
 .chapterimg-4 img{
-	margin: 10px 0;
+	margin: 15px 0;
 	display: inline-block;
 }
+
+.chapterimg-4 img:nth-child(1){
+	margin-top: 65px;
+}
+
+.chaptermap4{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 6;
+}
+
 
 .chapter4 .btnArea{
 	padding: 0;
@@ -539,7 +677,7 @@ html,body,#dreambox{
 
 .viewmore{
 	width: 76%;
-	height: 3%;
+	height: 5%;
 	background: none;
 	position: absolute;
 	right: 0;
@@ -585,8 +723,8 @@ html,body,#dreambox{
 .header_img{
 	position: relative;
 	display: inline-block;
-	width:92%;
-	margin: 4em 0px 1.2em 4%;
+	width:96%;
+	margin: 0 0 0 2%;
 	
 }
 .invitation{
@@ -644,12 +782,45 @@ html,body,#dreambox{
 
 }
 /* share */
-.handTips{
-	width: 20%;
+.hand_dot{
+	width: 22px;
+	height: 22px;
+	/*background: url("/images/form/hand_dot.png") center top no-repeat;
+	background-size: 100% auto;*/
 	position: absolute;
 	left: 50%;
-	margin: 0 0 0 -10%;
-	top: 36%; 
+	top: 0;
+	margin: 0 0 0 -14px;
+}
+
+.hands_active{
+	width: 32px;
+	height: 90px;
+	background: url("/images/form/hand.png") center top no-repeat;
+	background-size: 100% auto;
+	position: absolute;
+	left: 50%;
+	top: 14px;
+	margin: 0 0 0 -12px;
+}
+
+.c_dot{
+	width: 9px;
+	height: 9px;
+	border-radius: 13px;
+	background: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -4.5px 0 0 -4.5px; 
+}
+
+.handTips{
+	width: 60px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -30px;
+	top: 18%; 
 	height: 96px;
 	z-index: 6;
 	background: url("/images/hand-1.png") center top no-repeat;
@@ -657,64 +828,162 @@ html,body,#dreambox{
 	text-align: center;
 }
 
-.handTips { 
-  -webkit-animation: handTips_ani 1.5s infinite ease-in-out;
-     -moz-animation: handTips_ani 1.5s infinite ease-in-out;
-          animation: handTips_ani 1.5s infinite ease-in-out;
+
+.c_dot { 
+  -webkit-animation: dot_anidot_ani 2s infinite linear;
+     -moz-animation: dot_ani 2s infinite linear;
+          animation: dot_ani 2s infinite linear;
+}
+
+
+.chapterlink2{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9;
+}
+
+.hands_active,.chapter_hand { 
+  -webkit-animation: handTips_ani 1.5s infinite linear;
+     -moz-animation: handTips_ani 1.5s infinite linear;
+          animation: handTips_ani 1.5s infinite linear;
+}
+
+.hand_rTips .chapter_hand{
+	-webkit-animation: none;
+     -moz-animation: none;
+          animation: none;
+}
+
+.hand_rTips .chapter_hand img:nth-child(2) { 
+  -webkit-animation: handrTips_ani 2s infinite linear;
+     -moz-animation: handrTips_ani 2s infinite linear;
+          animation: handrTips_ani 2s infinite linear;
+          margin: -24px 0 0 0;
+}
+
+.hand_rTips .chapter_hand img:nth-child(1) { 
+  -webkit-animation: hani 2s infinite linear;
+     -moz-animation: hani 2s infinite linear;
+          animation: hani 2s infinite linear;
+          width: 160%;
+          margin: 0 0 0 -6px;
 }
 
 
 @-webkit-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @-moz-keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
 @keyframes handTips_ani {
-  0%,30% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;}
-  60% {
-  	background: url("/images/hand-2.png") center top no-repeat;
-	background-size: 50% auto;
-  }
-  100% {
-  	background: url("/images/hand-1.png") center top no-repeat;
-	background-size: 50% auto;
-  }
+  0% {opacity: 0;-webkit-transform: translate(0,10px);}
+  30% {opacity: 0.5;-webkit-transform: translate(0,5px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
+  100% {opacity: 0;-webkit-transform: translate(0,-10px);}
 }
+
+
+@-webkit-keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+@-moz-keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+@keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+
+
+@-webkit-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@-moz-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+
+
+
+@-webkit-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@-moz-keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+@keyframes dot_ani {
+  0% {opacity: 1;-webkit-transform: scale(0);}
+  30% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  60% {opacity: 0;-webkit-transform: scale(1.2);}
+  90% {opacity: 0.6;-webkit-transform: scale(0.6);}
+  100% {opacity: 1;-webkit-transform: scale(0);}
+}
+
+
+
+
 
 .handTips span{
 	width: 100%;
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	line-height: 16px;
+	line-height: 14px;
+	color: #fff;
+	font-size: 12px;
 }
 
 .share{
 	background:#ececec;
 	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .share_name{
 	position: relative;
@@ -731,10 +1000,9 @@ html,body,#dreambox{
 	margin: 2% 0px 0px 15%;
 
 }
-.share_btn{
-	background: none;
+.share_btn,.slBtn{
 	width:40%;
-	border: 1px solid #000;
+	border: 1px solid #010101;
 	font-size: 1.2em;
 	padding: 6px 0px;
 	font-weight: bold;
@@ -744,7 +1012,18 @@ html,body,#dreambox{
 	bottom: 1em;
 	margin: 0 0 0 -20%;
 	z-index: 10;
+	background: #ececec;
+	color: #040301;
 }
+
+.invitation_footer{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+
 /* address */
 .intro{
 	position: relative;
@@ -1528,57 +1807,30 @@ html,body,#dreambox{
 
 
 
-@media handheld and (min-height:400px),screen and (max-height:420px) {
-	.menu li a{
-		padding: 0.2em 0 0.4em 0;
-	}
 
-	.glassInstall{
-		background-position: center 90%; 
-	}
 
-	.glassInstall_fin{
-		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
-		background-size: 100% auto;
-	}
 
-	.glassInstall h2{
-		margin:3em 0 0 0;
-	}
 
-	.arrUp {
-	  width: 6%;
-	  margin: 0 0 0 -3%;
-	  bottom: 1em;
-	}
-
-	.glassBlock {
-	  margin: 0.6em 0 0 0;
-	}
-
-	.glass_footer{
-		bottom: 0.5em;
-	}
-
-	.glassInfo p{
-		padding: 0.9em 0;
-	}
-
+.backBtn{
+	width: 15%;
+	position: absolute;
+	left: 3%;
+	top: 4em;
+	font-size: 14px;
+	color: #363533;
+	z-index: 100;
+	display: none;
 }
 
+.backBtn img{
+	width: 6%;
+	vertical-align: middle;
+	display: inline-block;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.backBtn.white{
+	color: #fff;
+}
 
 
 
@@ -1652,11 +1904,19 @@ html,body,#dreambox{
 	opacity: 0;
 }
 
+.focuslv-cn .chapter_hand{
+	width: 34%;
+	top: 70px;
+	left: 38%;
+	z-index: 9;
+}
+
+
 .focuslv-cn{
 	width: 120px;
 	position: absolute;
 	left: 50%;
-	top:40px;
+	top:-45px;
 	margin: 0 0 0 -60px; 
 	line-height: 0;
 	opacity: 0;
@@ -1674,12 +1934,12 @@ html,body,#dreambox{
 
 
 .panoramaLink{
-	width: 18%;
+	width: 28%;
 	height: 27%;
 	background: none;
 	position: absolute;
-	left: 16%;
-	top: 50%;
+	left: 7%;
+	top: 40%;
 	z-index: 99;
 	display: none;
 }
@@ -1721,3 +1981,73 @@ html,body,#dreambox{
 	opacity: 0.6;
 }
 
+
+
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+   .point{
+		top: 72%;
+	}
+
+	.coordinate_link_chpater4{
+		right: 8em;
+  		top: 8.5em;
+	}
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    .point{
+		top: 56%;
+	}
+
+	.coordinate_link_chpater4{
+		right: 7.2em;
+  		top: 8.2em;
+	}
+}
+
+
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.menu li a{
+		padding: 0.2em 0 0.4em 0;
+	}
+
+	.glassInstall{
+		background-position: center 90%; 
+	}
+
+	.glassInstall_fin{
+		background: url("/images/chapter3/building_fin.jpg") center 72% no-repeat;
+		background-size: 100% auto;
+	}
+
+	.glassInstall h2{
+		margin:3em 0 0 0;
+	}
+
+	.arrUp {
+	  width: 6%;
+	  margin: 0 0 0 -3%;
+	  bottom: 1em;
+	}
+
+	.glassBlock {
+	  margin: 0.6em 0 0 0;
+	}
+
+	.glass_footer{
+		bottom: 0.5em;
+	}
+
+	.glassInfo p{
+		padding: 0.9em 0;
+	}
+
+}

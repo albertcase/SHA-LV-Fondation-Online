@@ -1,0 +1,19 @@
+LV\Bundle\CvdBundle\Entity\Locks:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        imgurl:
+            type: string
+            length: 255
+        sex:
+            type: string
+            length: '10'
+        created:
+            type: integer
+    lifecycleCallbacks: {  }

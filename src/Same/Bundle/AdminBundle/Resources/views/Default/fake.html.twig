@@ -1,0 +1,39 @@
+{% extends 'SameAdminBundle::layout.html.twig' %}
+{% block title %}LV OFFLINE{% endblock %}
+
+{% block head_css %}
+{% stylesheets filter='cssrewrite' output="css/same_admin_upload.css"
+	'bundles/sameadmin/css/reset.css'
+	'bundles/sameadmin/css/main.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block head_js %}
+{% javascripts output="js/same_admin_fake.js"
+	'@SameAdminBundle/Resources/public/js/jquery.js'
+    '@SameAdminBundle/Resources/public/js/fake.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %} 
+
+{% block content %}
+	<div id="upload_form">
+			<div class="login">
+				<p>提交数据</p>
+			</div>
+			<div class="info">
+				用户名：<input type="text" id="username" name="username" class="account" />
+				<p style="text-align:left;margin:1em 0 0 1.2em;">梦&nbsp;&nbsp;想：</p><br/><textarea id="content" name="content" style="resize:none;background: none;color:#0abad1;line-height:1.8em;width:160px; text-transform: lowercase;height:3.8em;border:none;padding-top:0.8em;margin-top:-6.2em;margin-left:4em;"/></textarea>
+				<div style="border-bottom:1px dashed #0abad1;width:160px;margin-left:70px;position:relative;margin-top:-1.8em;"/></div>
+				<div style="border-bottom:1px dashed #0abad1;width:160px;margin-top:1.8em;margin-left:70px;"/></div>
+				<a href="javascript:;">
+					<input type="submit"  value="上&nbsp;&nbsp;传" class="up_btn"/>	
+				</a>	
+			</div>	
+		</form>
+	</div>	
+{% endblock %} 
+

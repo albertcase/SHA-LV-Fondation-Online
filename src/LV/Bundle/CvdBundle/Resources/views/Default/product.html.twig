@@ -1,5 +1,140 @@
 {% extends 'LVCvdBundle::layout.html.twig' %} 
-{% block title %}xxx{% endblock %}
 {% block content %}
-	{{gender}}
+	
+
+	<!-- products -->
+	<section class="mainer" id="product" data-type={{gender}}>
+		<div class="container">
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" width="100%" />
+			</a>
+
+			
+
+
+
+
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper"></div>
+		        <!-- Add Arrows -->
+		        <div class="swiper-button-next">
+		        	<img src="/images/cvd/arr_r.png" />
+		        </div>
+		        <div class="swiper-button-prev">
+		        	<img src="/images/cvd/arr_l.png" />
+		        </div>
+		    </div>
+
+
+
+
+		</div>
+		<div class="lockLove">
+			<a href="javascript:;" class="gomore"><img src="/images/cvd/magnifier.png" /><span>前往官网了解七夕臻品</span></a>
+			<a href="/app_dev.php/cvd/create" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
+		</div>
+		<img src="/images/cvd/bg2.jpg" width="100%" style="margin:-40px 0 0 0;" />
+	</section>
+
+
+<script type="text/javascript">
+	
+	var female = {
+        "bags": ["Capucines MM Rubis","Go-14 Malletage Noir","Triangle Sac PM Monogram","Twist MM Azteque"],
+        "accessories": ["Essential V Strass Bracelet","Essential V Strass Hoop Earrings","LVllusion V Shawl","Rock N' Roses Stole"],
+        "shoe": ["Eyeline Pump","Vinyl Pump","Sixties Loafer","Oxford Ballerina"],
+        "watch": ["Monogram Sun Pendant<br />Pink Gold And White Mother-Of-Pearl","Lockit Bracelet,Yellow Gold<br />And Non-Plated White Gold","Tambour Lovely Cup 28mm","Emprise Small Steel"]
+	}
+
+	var male = {
+        "bags": ["Porte-Documents Voyage Bandouliere","Porte-Documents Jour","Tadao PM D. Graphite Rope","Christopher Pm"],
+        "accessories": ["LV40 Taurillon Noir & Cognac","Pont Neuf Taurillon Noir ","Illustre Key Holder","Dragonne LV Key Holder"],
+        "shoe": ["Loyalty Richelieu","Trooper Loafer","Frontrow Sneaker","Run Away Sneaker"],
+        "watch": ["Small Clous Ring In Ceramic And<br />Platinum With One Diamond","Large Empreinte Ring In White Gold","Tambour In Black Automatic Gmt,39.5mm","Tambour Blue Gmt 39.5mm"]
+	}
+
+
+	var femaleCoatHtml =  $.map(female,function(v,k){
+		return '<div class="swiper-slide"><div class="products" id="'+k+'"><ul><li class="current"><img src="/images/cvd/pro/female/'+k+'/'+k+'-1.png" width="100%" /><p>'+v[0]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-2.png" width="100%" /><p>'+v[1]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-3.png" width="100%" /><p>'+v[2]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-4.png" width="100%" /><p>'+v[3]+'</p></li></ul></div></div>';
+		num++;
+	}).join("");
+
+	var maleCoatHtml =  $.map(male,function(v,k){
+		return '<div class="swiper-slide"><div class="products" id="'+k+'"><ul><li class="current"><img src="/images/cvd/pro/male/'+k+'/'+k+'-1.png" width="100%" /><p>'+v[0]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-2.png" width="100%" /><p>'+v[1]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-3.png" width="100%" /><p>'+v[2]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-4.png" width="100%" /><p>'+v[3]+'</p></li></ul></div></div>';
+		num++;
+	}).join("");
+
+
+	function getType(){
+		var str = window.location.pathname;
+		var pos = "female";
+
+		if(str.indexOf('product/female') > 0){
+			pos = "female"
+		}else{
+			pos = "male"
+		}
+
+		return pos;
+	}
+
+	if(getType() == "female"){
+		$(".swiper-wrapper").html(femaleCoatHtml);
+	}else{
+		$(".swiper-wrapper").html(maleCoatHtml);
+	}
+
+	
+
+
+
+	// 0 accessories   1 bags   2 shoe   3 watch
+
+	var swiper = new Swiper('.swiper-container', {
+	    nextButton: '.swiper-button-next',
+	    prevButton: '.swiper-button-prev',
+	    effect : 'coverflow',
+	    slidesPerView: 1,
+		centeredSlides: true,
+	    coverflow: {
+            rotate: 100,
+            stretch: 30,
+            depth: 20,
+            modifier: 1,
+            slideShadows : false
+        }
+	});
+
+	$(".products li").click(function(){
+		var prevCur = $(this).siblings("li.current");
+		$(this).siblings("li").removeClass("current");
+		$(this).insertBefore(prevCur).addClass("current");
+	})
+
+
+
+
+	$(function(){
+
+		shareData = {
+		    title: 'lv',
+		    desc: 'lv',
+		    descTimeline: 'lv',
+			link: window.location.host,
+			imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+			sharePage: getType(),
+			sharePageVal: getType()
+		};
+		editShare();
+
+	})
+
+
+</script>
+
+
+
+
+
 {% endblock %}

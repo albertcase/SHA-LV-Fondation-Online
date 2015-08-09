@@ -58,10 +58,14 @@ html,body,#dreambox{
 
 
 /* home */
+#home{
+	opacity: 0;
+}
+
 .logo{
 	width: 67%;
 	display: inline-block;
-	margin: 27% 0 0 0;
+	margin: 25% 0 0 0;
 }
 
 .slogan{
@@ -87,12 +91,16 @@ html,body,#dreambox{
 }
 
 .entrance dd p{
-	width: 100%;
+	width: 90%;
 	position: relative;
+	font-size: 15px;
+	padding: 10px 0;
+	display: inline-block;
+	margin: 0 0 0 12%;
 }
 
 .entrance dd p:before,.entrance dd p:after{
-	width: 15%;
+	width: 12%;
 	height: 20px;
 	overflow: hidden;
 	background: url("/images/cvd/line.png") center no-repeat;
@@ -100,7 +108,7 @@ html,body,#dreambox{
 	content:"";
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0 7%;
+	margin: 0 6%;
 }
 
 
@@ -110,7 +118,7 @@ html,body,#dreambox{
 }
 
 #product .logo,#create .logo{
-	margin: 6% 0 0 0;
+	margin: 5% 0 0 0;
 	width: 60%;
 }
 
@@ -146,7 +154,6 @@ html,body,#dreambox{
 .products{
 	width: 100%;
 	position: relative;
-	margin: 6% 0 0 0;
 	display: inline-block;
 }
 
@@ -156,10 +163,10 @@ html,body,#dreambox{
 }
 
 .products li{
-	width: 24%;
+	width: 31%;
     display: inline-block;
-    margin: 0 4%;
-    padding: 3% 0;
+    margin: 0 1%;
+    padding: 1% 0;
 }
 
 .products li img{
@@ -169,12 +176,23 @@ html,body,#dreambox{
 
 .products li p{
 	padding: 3px 0;
+	height: 34px;
+	line-height: 14px;
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
 }
 
 .products li.current{
 	width: 90%;
 	margin: 0;
 	text-align: center;
+}
+
+.products li.current p{
+	font-size: 14px;
 }
 
 .products li.current img{
@@ -237,39 +255,160 @@ html,body,#dreambox{
 	width: 100%;
 }
 
-.withlove img{
-	margin: -18% 0 0 -5%;
+.withlove p img{
+	margin: -27% 0 0 0;
+	display: inline-block;
+}
+
+.lockImg{
+	margin: 0 0 0 6%;
 	display: inline-block;
 }
 
 .sweetHeart{
 	position: absolute;
-	left: 35%;
-    top: -120px;
+	left: 38%;
+    top: -122px;
     width: 18%;
-    font-size: 24px;
+    font-size: 22px;
     color: #fcba84;
-    background: none;
     border: none;
     line-height: 0;
     text-align: center;
     text-transform: uppercase;
+    background: url("/images/cvd/loveline.png") center bottom no-repeat;
+    background-size: 100% auto;
 }
 
-.youname{
+.sweetHeartArea{
+	position: absolute;
+	left: 38.5%;
+    top: -116px;
+    width: 18%;
+    padding: 0 0 8px 0;
+    text-align: center;
+}
+
+.sweetHeartArea img{
+	width: 32%;
+	display: inline-block;
+}
+
+.yourname{
 	width: 30%;
 	height: 30px;
 	line-height: 30px;
 	border-bottom: 1px #403233 solid;
 	display: inline-block;
-	margin: 0 0 0 -6%;
+	margin: -16% 0 0 0;
 	text-align: center;
 	color: #403233;
-	font-size: 16px;
+	font-size: 20px;
 	background: none;
 	text-transform: capitalize;
 }
 
+.btnArea{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	color: #090000;
+	padding: 0 0 30px 0;
+	text-align: center;
+}
+
+.btnArea p{
+	font-size: 14px;
+}
+
+.btn{
+	width: 36%;
+	display: inline-block;
+	padding: 10px 0;
+	font-size: 20px;
+	color: #090000;
+	margin: 6px 0 0 0;
+}
+
+.btn span{
+	display: inline-block;
+}
+
+.btn:before,.btn:after{
+	width: 15%;
+	height: 18px;
+	overflow: hidden;
+	background: url("/images/cvd/line.png") center no-repeat;
+	background-size: 100% auto;
+	content:"";
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 7%;
+}
+
+#share .btn{
+	width: 60%;
+}
+
+#share .btn:before, #share .btn:after{
+	vertical-align: super;
+}
+
+#canvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	display: none;
+}
+
+#complete{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+#wechat{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 10;
+	display: none;
+}
+
+#wechat img{
+	width: 76%;
+	float: right;
+	display: inline-block;
+	margin: 10px 10px 0 0; 
+}
+
+#loading{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	text-align: center;
+}
+
+.loading_con{
+	width: 70%;
+	display: inline-block;
+	margin: 60% 0 0 0;
+}
+
+.loading_con p{
+	font-size: 16px;
+	text-align: center;
+	padding: 15px 0;
+}
 
 
 

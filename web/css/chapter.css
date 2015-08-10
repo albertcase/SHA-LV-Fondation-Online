@@ -147,7 +147,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 .menu{
 	width: 56%;
 	display: inline-block;
-	margin: 4em 0 0 0; 
+	margin: 3em 0 0 0; 
 }
 
 .menu li{
@@ -169,7 +169,7 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 	width: 100%;
 	position: absolute;
 	left: 0;
-	bottom: 1.8em;
+	bottom: 1.2em;
 }
 
 .close{
@@ -416,30 +416,30 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #999;
+    color:    #ccc;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #999;
+    color:    #ccc;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #999;
+    color:    #ccc;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #999;
+    color:    #ccc;
 }
 
 
 .error::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #f00;
+    color:    #999;
 }
 .error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #f00;
+    color:    #999;
 }
 .error::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #f00;
+    color:    #999;
 }
 .error:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #f00;
+    color:    #999;
 }
 
 
@@ -478,6 +478,17 @@ html,body,#dreambox{
 	-o-text-size-adjust: none;
 	text-size-adjust: none;
 }
+
+.invitationTips{
+	width: 100%;
+	text-align: center;
+	padding: 6px 0;
+	display: inline-block;
+	float: left;
+	color: #444;
+	line-height: 16px;
+}
+
 
 #chapter #dreambox{
 	background: none;
@@ -551,6 +562,10 @@ html,body,#dreambox{
   100% {opacity: 0;-webkit-transform: translate(0,-6px);}
 }
 
+
+.swiper-container-horizontal>.swiper-pagination{
+	bottom: 25px;
+}
 
 
 .chapter-l,.chapter-r{
@@ -631,6 +646,7 @@ html,body,#dreambox{
 
 .dreamTrip{
 	width: 100%;
+	overflow: hidden;
 }
 
 .dreamTrip img{
@@ -671,6 +687,7 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	overflow: auto;
+	position: relative;
 	/*padding: 12% 0 0 0;*/
 }
 
@@ -819,7 +836,42 @@ html,body,#dreambox{
 }
 
 
+.chapter_hand{
+	width: 36%;
+	position: absolute;
+	left: 46%;
+	top: 76%;
+}
 
+.hand_rTips{
+	width: 27%;
+	height: 80px;
+	position: fixed;
+	left: 50%;
+	bottom: 18%;
+	margin: 0 0 0 -15%;
+	z-index: 10;
+	text-align: center;
+	line-height: 0;
+}
+
+.handlinea{
+	width: 100%;
+	margin: 0;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+
+.hand_rTips .chapter_hand{
+	width: 40%;
+	position: absolute;
+	left: 50%;
+	top: 16%;
+	margin: 0 0 0 -25%;
+}
 
 
 .activeTips_chapter2{
@@ -868,6 +920,13 @@ html,body,#dreambox{
 	display: inline-block;
 }
 
+.glassInstall .chapter_hand{
+	width: 10%;
+	top: 36%;
+	z-index: 9;
+}
+
+
 .glassBlock_tips{
 	width: 100%;
 	height: 22px;
@@ -877,6 +936,7 @@ html,body,#dreambox{
 	color: #3b3b3c;
 	margin: 6em 0 0.8em 0;
 	display: inline-block;
+	opacity: 0;
 }
 
 .glassInstall_fin{
@@ -944,8 +1004,8 @@ html,body,#dreambox{
 	left: 0;
 	top: 0;
 	z-index: 3;
-	display: none;
-	opacity: 0;
+	/*display: none;
+	opacity: 0;*/
 }
 
 .glassInstall_info .c3{
@@ -1001,6 +1061,20 @@ html,body,#dreambox{
 	margin: 15px 0;
 	display: inline-block;
 }
+
+.chapterimg-4 img:nth-child(1){
+	margin-top: 65px;
+}
+
+.chaptermap4{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 6;
+}
+
 
 .chapter4 .btnArea{
 	padding: 0;
@@ -1120,8 +1194,8 @@ html,body,#dreambox{
 .hand_dot{
 	width: 22px;
 	height: 22px;
-	background: url("/images/form/hand_dot.png") center top no-repeat;
-	background-size: 100% auto;
+	/*background: url("/images/form/hand_dot.png") center top no-repeat;
+	background-size: 100% auto;*/
 	position: absolute;
 	left: 50%;
 	top: 0;
@@ -1143,7 +1217,7 @@ html,body,#dreambox{
 	width: 9px;
 	height: 9px;
 	border-radius: 13px;
-	background: #008dae;
+	background: none;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -1171,11 +1245,42 @@ html,body,#dreambox{
 }
 
 
-.hands_active { 
+.chapterlink2{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9;
+}
+
+.hands_active,.chapter_hand { 
   -webkit-animation: handTips_ani 1.5s infinite linear;
      -moz-animation: handTips_ani 1.5s infinite linear;
           animation: handTips_ani 1.5s infinite linear;
 }
+
+.hand_rTips .chapter_hand{
+	-webkit-animation: none;
+     -moz-animation: none;
+          animation: none;
+}
+
+.hand_rTips .chapter_hand img:nth-child(2) { 
+  -webkit-animation: handrTips_ani 2s infinite linear;
+     -moz-animation: handrTips_ani 2s infinite linear;
+          animation: handrTips_ani 2s infinite linear;
+          margin: -24px 0 0 0;
+}
+
+.hand_rTips .chapter_hand img:nth-child(1) { 
+  -webkit-animation: hani 2s infinite linear;
+     -moz-animation: hani 2s infinite linear;
+          animation: hani 2s infinite linear;
+          width: 160%;
+          margin: 0 0 0 -6px;
+}
+
 
 @-webkit-keyframes handTips_ani {
   0% {opacity: 0;-webkit-transform: translate(0,10px);}
@@ -1197,6 +1302,52 @@ html,body,#dreambox{
   60% {opacity: 1;-webkit-transform: translate(0,0);}
   90% {opacity: 0.5;-webkit-transform: translate(0,-5px);}
   100% {opacity: 0;-webkit-transform: translate(0,-10px);}
+}
+
+
+@-webkit-keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+@-moz-keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+@keyframes handrTips_ani {
+  0% {opacity: 1;-webkit-transform: translate(-15px,0);}
+  30% {opacity: 1;-webkit-transform: translate(-7.5px,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(7.5px,0);}
+  100% {opacity: 1;-webkit-transform: translate(15px,0);}
+}
+
+
+@-webkit-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@-moz-keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
+}
+@keyframes hani {
+  0% {opacity: 1;-webkit-transform: translate(0,0);}
+  30% {opacity: 1;-webkit-transform: translate(0,0);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  90% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 1;-webkit-transform: translate(0,0);}
 }
 
 
@@ -1258,7 +1409,7 @@ html,body,#dreambox{
 	margin: 2% 0px 0px 15%;
 
 }
-.share_btn{
+.share_btn,.slBtn{
 	width:40%;
 	border: 1px solid #010101;
 	font-size: 1.2em;
@@ -2070,10 +2221,10 @@ html,body,#dreambox{
 
 
 .backBtn{
-	width: 20%;
-	position: fixed;
-	left: 6%;
-	top: 5em;
+	width: 15%;
+	position: absolute;
+	left: 3%;
+	top: 4em;
 	font-size: 14px;
 	color: #363533;
 	z-index: 100;
@@ -2086,6 +2237,9 @@ html,body,#dreambox{
 	display: inline-block;
 }
 
+.backBtn.white{
+	color: #fff;
+}
 
 
 
@@ -2159,11 +2313,19 @@ html,body,#dreambox{
 	opacity: 0;
 }
 
+.focuslv-cn .chapter_hand{
+	width: 34%;
+	top: 70px;
+	left: 38%;
+	z-index: 9;
+}
+
+
 .focuslv-cn{
 	width: 120px;
 	position: absolute;
 	left: 50%;
-	top:40px;
+	top:-45px;
 	margin: 0 0 0 -60px; 
 	line-height: 0;
 	opacity: 0;
@@ -2181,12 +2343,12 @@ html,body,#dreambox{
 
 
 .panoramaLink{
-	width: 18%;
+	width: 28%;
 	height: 27%;
 	background: none;
 	position: absolute;
-	left: 16%;
-	top: 45%;
+	left: 7%;
+	top: 40%;
 	z-index: 99;
 	display: none;
 }

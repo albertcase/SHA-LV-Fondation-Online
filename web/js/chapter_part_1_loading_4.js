@@ -1,5 +1,5 @@
 
-var loadingFun = function(imgSrcArr){
+var loadingFun = function(imgSrcArr,finshReturnFun){
 
 		$("#dreambox img").each(function(){ 
 			imgSrcArr.push($(this).attr("sourcesrc")) 
@@ -25,7 +25,6 @@ var loadingFun = function(imgSrcArr){
 		}
 
 
-
 		LoadFn(imgSrcArr , function (){
 			$("#dreambox img").each(function(){ 
 				$(this).attr("src",$(this).attr("sourcesrc"));
@@ -33,6 +32,9 @@ var loadingFun = function(imgSrcArr){
 			$(".loading").hide();
 			$("#dreambox").animate({"opacity" : 1});	
 			wechatFun();
+			if(finshReturnFun){
+				finshReturnFun();
+			}
 		    console.log("加载完成!");
 		} , function ( p ){
 			$('.loading_con p').html(p+"%");

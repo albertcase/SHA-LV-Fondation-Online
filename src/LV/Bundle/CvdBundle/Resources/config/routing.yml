@@ -15,3 +15,7 @@ lv_cvd_create:
 lv_cvd_share:
     path:     /share/{id}
     defaults: { _controller: LVCvdBundle:Page:share }
+
+lv_cvd_save:
+    path:     /save
+    defaults: { _controller: LVCvdBundle:Api:save }

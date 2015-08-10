@@ -1,27 +1,38 @@
 var shareData = {
-    title: '第一章：路易威登基金会▪起航',
+    title: '路易威登基金会·起航',
     desc: '艺术与建筑的碰撞，一个美梦成真的故事',
-    link: window.location.host,
-    imgUrl: 'http://' + window.location.host + '/images/share.jpg'
+    descTimeline: '路易威登基金会·艺术与建筑的碰撞，一个美梦成真的故事',
+    link: window.location.host + "/fondation",
+    imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    sharePageVal: '',
+    returnFun: function(){
+        //alert(6);
+    }
 };
 
 
 
 function wechatFun(){
+    var wechatUrl;
+    if(window.location.href.indexOf('#') < 0){
+        wechatUrl = window.location.href;
+    }else{
+        wechatUrl = window.location.href.substr(0,window.location.href.indexOf('#'));
+    }
+    
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/same/wechat/jssdk",
         data: {
-            "url": window.location.href
+            "url": wechatUrl
         },
         dataType:"json"
     }).done(function(data){
-            wechatShare(data.appId,data.time,data.noncestr,data.sign);
+            wechatShare(data.appid,data.timestamp,data.noncestr,data.sign);
     }).fail(function() {
         console.log("请求接口失败！");
     });
 }
-
 
 
 function wechatShare(appid,timestamp_val,noncestr,signature_val){
@@ -75,13 +86,17 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
     wx.onMenuShareTimeline({
-        title: shareData.title, // 分享标题
+        title: shareData.descTimeline, // 分享标题
         link: shareData.link, // 分享链接
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
-            // 用户确认分享后执行的回调函数
-            
-            
+            // 用户确认分享后执行的回调函数  
+            if($("#wechatTips").length > 0){
+                $("#wechatTips").hide();
+            }          
+
+            _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareTimeline', shareData.sharePageVal]);
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
@@ -98,11 +113,17 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
+            if($("#wechatTips").length > 0){
+                $("#wechatTips").hide();
+            }
+
+            _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareAppMessage', shareData.sharePageVal]);
+            shareData.returnFun();
             //alert('分享成功');
         },
         cancel: function () { 
             // 用户取消分享后执行的回调函数
-           // alert("分享失败")
+            // alert("分享失败")
         }
     });
       
@@ -126,7 +147,51 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
 
 
+function editShare(){   ///demon
+     wx.onMenuShareTimeline({
+            title: shareData.descTimeline, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                if($("#wechatTips").length > 0){
+                    $("#wechatTips").hide();
+                }
+                
+                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareTimeline', shareData.sharePageVal]);
+                shareData.returnFun();
+                
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+                // alert("分享失败")
 
+            }
+        });
+        
+        
+        wx.onMenuShareAppMessage({
+            title: shareData.title, // 分享标题
+            link: shareData.link, // 分享链接
+            imgUrl: shareData.imgUrl, // 分享图标
+            desc: shareData.desc,
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+                if($("#wechatTips").length > 0){
+                    $("#wechatTips").hide();
+                }
+                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareAppMessage', shareData.sharePageVal]);
+                shareData.returnFun();
+
+                //alert('分享成功');
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+               // alert("分享失败")
+            }
+        });
+}
 
 
 

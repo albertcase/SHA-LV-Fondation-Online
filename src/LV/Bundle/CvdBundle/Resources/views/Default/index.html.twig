@@ -1,205 +1,225 @@
 {% extends 'LVCvdBundle::layout.html.twig' %} 
-{% block title %}xxx{% endblock %}
 {% block content %}
-		
+
+<div id="loading">
+
+	<div class="loading_con">
+		<img src="/images/cvd/loading.png" width="100%" />
+		<p></p>
+	</div>
+
+</div>
+	
 <article id="dreambox">
 
 	<!-- home -->
-	<section class="mainer" id="home" style="display:none;">
+	<section class="mainer" id="home">
 		<div class="container">
 			<a href="javascript:;" class="logo">
-				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
+				<img src="" sourcesrc="/images/cvd/logo.png" width="100%" />
 			</a>
 
 			<div class="slogan">
-				<img src="/images/cvd/slogan.png" sourcesrc="" width="100%" />
+				<img src="" sourcesrc="/images/cvd/slogan.png" width="100%" />
 			</div>
 
 			<div class="entrance">
 				<dl>
 					<dt>
-						<img src="/images/cvd/bags1.png" sourcesrc="" width="100%" />
+						<img src="" sourcesrc="/images/cvd/bags1.png" width="100%" />
 					</dt>
 					<dd><p>锁住她</p></dd>
 				</dl>
 
 				<dl>
 					<dt>
-						<img src="/images/cvd/bags2.png" sourcesrc="" width="100%" />
+						<img src="" sourcesrc="/images/cvd/bags2.png" width="100%" />
 					</dt>
 					<dd><p>锁住他</p></dd>
 				</dl>
 			</div>
 		</div>
 
-		<img src="/images/cvd/bg.jpg" sourcesrc="" width="100%" />
-	</section>
-
-	<!-- products -->
-	<section class="mainer" id="product" style="display:none;">
-		<div class="container">
-			<a href="javascript:;" class="logo">
-				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
-			</a>
-
-			
-
-
-
-
-			<!-- Swiper -->
-		    <div class="swiper-container">
-		        <div class="swiper-wrapper">
-		            <div class="swiper-slide">
-		            	
-		            	<div class="products">
-							<ul>
-								<li class="current">
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis1</p>
-								</li>
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis2</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis3</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis4</p>
-								</li>
-							</ul>
-						</div>
-
-		            </div>
-		            <div class="swiper-slide">
-
-		            	<div class="products">
-							<ul>
-								<li class="current">
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis a</p>
-								</li>
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis b</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis c</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis d</p>
-								</li>
-							</ul>
-						</div>
-
-		            </div>
-
-		            <div class="swiper-slide">
-
-		            	<div class="products">
-							<ul>
-								<li class="current">
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis</p>
-								</li>
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis</p>
-								</li>
-
-								<li>
-									<img src="/images/cvd/pro.png" sourcesrc="" width="100%" />
-									<p>Capucines MM Rubis</p>
-								</li>
-							</ul>
-						</div>
-
-		            </div>
-
-		        </div>
-		        <!-- Add Arrows -->
-		        <div class="swiper-button-next">
-		        	<img sourcesrc="" src="/images/cvd/arr_r.png" />
-		        </div>
-		        <div class="swiper-button-prev">
-		        	<img sourcesrc="" src="/images/cvd/arr_l.png" />
-		        </div>
-		    </div>
-
-
-
-
-		</div>
-		<div class="lockLove">
-			<a href="javascript:;" class="gomore"><img src="/images/cvd/magnifier.png" sourcesrc="" /><span>前往官网了解七夕臻品</span></a>
-			<a href="javascript:;" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" sourcesrc="" width="100%" /></a>
-		</div>
-		<img src="/images/cvd/bg2.jpg" sourcesrc="" width="100%" />
-	</section>
-
-
-
-	<!-- products -->
-	<section class="mainer" id="create">
-		<div class="container">
-			<a href="javascript:;" class="logo">
-				<img src="/images/cvd/logo.png" sourcesrc="" width="100%" />
-			</a>
-
-			<div class="locked_con">
-				<img src="/images/cvd/lock.png" sourcesrc="" width="38%" />
-				<div class="withlove">
-					<input type="text" class="sweetHeart" maxlength="3"> 
-					<p>
-						<img src="/images/cvd/withlove.png" sourcesrc="" width="30%" />
-					</p>
-					<input type="text" class="youname" maxlength="12"> 
-				</div>
-			</div>
-		</div>
-		<img src="/images/cvd/bg2.jpg" sourcesrc="" width="100%" />
+		<img src="" sourcesrc="/images/cvd/bg.jpg" width="100%" />
 	</section>
 
 </article>
 
-<script type="text/javascript">
-	var swiper = new Swiper('.swiper-container', {
-	    nextButton: '.swiper-button-next',
-	    prevButton: '.swiper-button-prev',
-	    effect : 'coverflow',
-	    slidesPerView: 1,
-		centeredSlides: true,
-	    coverflow: {
-            rotate: 100,
-            stretch: 30,
-            depth: 20,
-            modifier: 1,
-            slideShadows : false
-        }
-	});
 
-	$(".products li").click(function(){
-		var prevCur = $(this).siblings("li.current");
-		$(this).siblings("li").removeClass("current");
-		$(this).insertBefore(prevCur).addClass("current");
-	})
+<script type="text/javascript">
+
+var allImgSrcArr = [
+	"/images/cvd/a.png",
+	"/images/cvd/b.png",
+	"/images/cvd/c.png",
+	"/images/cvd/d.png",
+	"/images/cvd/e.png",
+	"/images/cvd/f.png",
+	"/images/cvd/g.png",
+	"/images/cvd/h.png",
+	"/images/cvd/i.png",
+	"/images/cvd/j.png",
+	"/images/cvd/k.png",
+	"/images/cvd/l.png",
+	"/images/cvd/m.png",
+	"/images/cvd/n.png",
+	"/images/cvd/o.png",
+	"/images/cvd/p.png",
+	"/images/cvd/q.png",
+	"/images/cvd/r.png",
+	"/images/cvd/s.png",
+	"/images/cvd/t.png",
+	"/images/cvd/u.png",
+	"/images/cvd/v.png",
+	"/images/cvd/w.png",
+	"/images/cvd/x.png",
+	"/images/cvd/y.png",
+	"/images/cvd/z.png",
+	"/images/cvd/arr_l.png",
+	"/images/cvd/arr_r.png",
+	"/images/cvd/bg.jpg",
+	"/images/cvd/bg2.jpg",
+	"/images/cvd/line.png",
+	"/images/cvd/lock.png",
+	"/images/cvd/lockLove_btn.png",
+	"/images/cvd/logo.png",
+	"/images/cvd/loveline.png",
+	"/images/cvd/magnifier.png",
+	"/images/cvd/slogan.png",
+	"/images/cvd/wechat.png",
+	"/images/cvd/withlove.png",
+	"/images/cvd/pro/female/accessories/accessories-1.png",
+	"/images/cvd/pro/female/accessories/accessories-2.png",
+	"/images/cvd/pro/female/accessories/accessories-3.png",
+	"/images/cvd/pro/female/accessories/accessories-4.png",
+	"/images/cvd/pro/female/bags/bags-1.png",
+	"/images/cvd/pro/female/bags/bags-2.png",
+	"/images/cvd/pro/female/bags/bags-3.png",
+	"/images/cvd/pro/female/bags/bags-4.png",
+	"/images/cvd/pro/female/shoe/shoe-1.png",
+	"/images/cvd/pro/female/shoe/shoe-2.png",
+	"/images/cvd/pro/female/shoe/shoe-3.png",
+	"/images/cvd/pro/female/shoe/shoe-4.png",
+	"/images/cvd/pro/female/watch/watch-1.png",
+	"/images/cvd/pro/female/watch/watch-2.png",
+	"/images/cvd/pro/female/watch/watch-3.png",
+	"/images/cvd/pro/female/watch/watch-4.png",
+	"/images/cvd/pro/male/accessories/accessories-1.png",
+	"/images/cvd/pro/male/accessories/accessories-2.png",
+	"/images/cvd/pro/male/accessories/accessories-3.png",
+	"/images/cvd/pro/male/accessories/accessories-4.png",
+	"/images/cvd/pro/male/bags/bags-1.png",
+	"/images/cvd/pro/male/bags/bags-2.png",
+	"/images/cvd/pro/male/bags/bags-3.png",
+	"/images/cvd/pro/male/bags/bags-4.png",
+	"/images/cvd/pro/male/shoe/shoe-1.png",
+	"/images/cvd/pro/male/shoe/shoe-2.png",
+	"/images/cvd/pro/male/shoe/shoe-3.png",
+	"/images/cvd/pro/male/shoe/shoe-4.png",
+	"/images/cvd/pro/male/watch/watch-1.png",
+	"/images/cvd/pro/male/watch/watch-2.png",
+	"/images/cvd/pro/male/watch/watch-3.png",
+	"/images/cvd/pro/male/watch/watch-4.png"
+];
+
+var loadingFun = function(){
+
+
+		function LoadFn ( arr , fn , fn2){
+				var loader = new PxLoader();
+				for( var i = 0 ; i < arr.length; i ++)
+				{
+					loader.addImage(arr[i]);
+				};
+				
+				loader.addProgressListener(function(e) {
+						var percent = Math.round( e.completedCount / e.totalCount * 100 );
+						if(fn2) fn2(percent)
+				});	
+				
+				
+				loader.addCompletionListener( function(){
+					if(fn) fn();	
+				});
+				loader.start();	
+		}
+
+
+		LoadFn(allImgSrcArr , function (){
+		    console.log("加载完成!");
+		    $("#home img").each(function(){ 
+				$(this).attr("src",$(this).attr("sourcesrc"));
+			})
+		    _doing();
+		} , function ( p ){
+			$('.loading_con p').html(p+"%");
+		});
+
+};
+
+
+
+var loadingImg = new Image();
+	loadingImg.src="/images/cvd/loading.png";
+	loadingImg.onload = function(){
+		loadingFun();
+	}
+
+
+
+
+
+function _doing(){
+	$("#loading").hide();
+	TweenMax.fromTo(document.querySelector('#home'), 1, {
+        scale:2,
+        autoAlpha:0,
+        blurFilter:{blurX:50, blurY:10},
+        opacity:0
+    }, {
+        autoAlpha:1,
+    	scale:1,
+    	opacity:1,
+        ease: Elastic.easeOut,
+        easeParams: [0.2, 0.7],
+        force3D: false,
+        onComplete:function(){
+        }
+    });
+}
+
+
+$(".entrance dl").click(function(){
+	if($(this).index() == 0){
+		location.href = "/app_dev.php/cvd/product/female"
+	}else{
+		location.href = "/app_dev.php/cvd/product/male"
+	}
+})
+
+
+
+$(function(){
+
+	shareData = {
+	    title: 'lv',
+	    desc: 'lv',
+	    descTimeline: 'lv',
+		link: window.location.host,
+		imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+		sharePage: '首页',
+		sharePageVal: '首页'
+	};
+	editShare();
+
+})
+
+
 
 
 </script>
+
+
 
 
 {% endblock %}

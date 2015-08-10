@@ -50,6 +50,14 @@
 
 <script type="text/javascript">
 		
+		function GetQueryString(name){
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return unescape(r[2]); return null;
+		}
+
+		var curGender = GetQueryString("gender");
+
 		$(".shareBtn").click(function(){
 			$("#wechat").show();
 		})
@@ -144,28 +152,6 @@
 		};
 
 
-
-
-
-
-		$(".createBtn").click(function(){
-			var shName = $(".sweetHeart").val();
-			var yName = $(".yourname").val();
-
-			if(shName == "" || shName.length<2){
-				alert("请在锁上铭刻爱人姓名缩写");
-				return false;
-			}
-
-			if(yName == "" || shName.length<2){
-				alert("请输入您自己的姓名");
-				return false;
-			}
-
-			loadingFunName(shName, yName);
-		})
-
-
 		/* create */
 		function create(sweetName, yourname){
 
@@ -248,29 +234,62 @@
 			rImg.src = c.toDataURL("image/jpg", 1.0);
 			rImg.width = window.document.body.clientWidth;
 			document.getElementById("resultImg").appendChild(rImg);
+
+			var rImgUrl = c.toDataURL("image/jpg", 1.0).replace("data:image/png;base64,", "");
+			submitPhoto(rImgUrl, curGender);
 		}
 
 
 
 
-		$(function(){
+		// $(function(){
 
-			shareData = {
-			    title: 'lv',
-			    desc: 'lv',
-			    descTimeline: 'lv',
-				link: window.location.host,
-				imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
-				sharePage: getType(),
-				sharePageVal: getType()
-			};
-			editShare();
+		// 	shareData = {
+		// 	    title: 'lv',
+		// 	    desc: 'lv',
+		// 	    descTimeline: 'lv',
+		// 		link: window.location.host,
+		// 		imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+		// 		sharePage: getType(),
+		// 		sharePageVal: getType()
+		// 	};
+		// 	editShare();
 
-		})
-
-
+		// })
 
 
+		// 提交分数
+	function submitPhoto(_imgurl, _sex){
+		$.ajax({
+		    type: "POST",
+		    url: "/app_dev.php/cvd/save",
+		    data: {
+		    	"imgurl": _imgurl,
+		    	"sex": _sex
+		    },
+		    dataType:"json"
+	    }).done(function(data){
+    		
+	    });
+	}
+
+
+	$(".createBtn").click(function(){
+		var shName = $(".sweetHeart").val();
+		var yName = $(".yourname").val();
+
+		if(shName == "" || shName.length<2){
+			alert("请在锁上铭刻爱人姓名缩写");
+			return false;
+		}
+
+		if(yName == "" || shName.length<2){
+			alert("请输入您自己的姓名");
+			return false;
+		}
+
+		loadingFunName(shName, yName);
+	})
 
 
 	

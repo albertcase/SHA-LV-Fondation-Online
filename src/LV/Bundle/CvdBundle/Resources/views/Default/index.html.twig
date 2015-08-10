@@ -146,7 +146,7 @@ var loadingFun = function(){
 
 
 		LoadFn(allImgSrcArr , function (){
-		    console.log("加载完成!");
+		    //console.log("加载完成!");
 		    $("#home img").each(function(){ 
 				$(this).attr("src",$(this).attr("sourcesrc"));
 			})
@@ -188,12 +188,11 @@ function _doing(){
     });
 }
 
-
 $(".entrance dl").click(function(){
 	if($(this).index() == 0){
-		location.href = "/app_dev.php/cvd/product/female"
+		location.href = "{{ url('lv_cvd_product', {'gender': 'female'}) }}"
 	}else{
-		location.href = "/app_dev.php/cvd/product/male"
+		location.href = "{{ url('lv_cvd_product', {'gender': 'male'}) }}"
 	}
 })
 

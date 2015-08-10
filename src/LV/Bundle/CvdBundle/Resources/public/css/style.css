@@ -483,12 +483,32 @@ html,body,#dreambox{
 /* 6plus */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+	.sweetHeartArea{
+		top: -140px;
+	}
 
+	.sweetHeart{
+		top: -150px;
+	}
+
+	.yourname{
+		margin: -10% 0 0 0;
+	}
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+	.sweetHeartArea{
+		top: -136px;
+	}
 
+	.sweetHeart{
+		top: -142px;
+	}
+
+	.yourname{
+		margin: -10% 0 0 0;
+	}
 }
 
 

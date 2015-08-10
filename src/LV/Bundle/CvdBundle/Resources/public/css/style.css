@@ -38,7 +38,6 @@ html,body,#dreambox{
 	width: 100%;
 	height: 100%;
 	position: relative;
-	overflow-x: hidden;
 	background: #fff;
 	-ms-overflow-scrolling: hidde; 
     -moz-overflow-scrolling: touch; 
@@ -56,6 +55,11 @@ html,body,#dreambox{
 	text-align: center;
 }
 
+.mainer{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
 
 /* home */
 #home{
@@ -167,6 +171,8 @@ html,body,#dreambox{
     display: inline-block;
     margin: 0 1%;
     padding: 1% 0;
+    font-family: "Arial";
+    text-align: center;
 }
 
 .products li img{
@@ -175,23 +181,28 @@ html,body,#dreambox{
 
 .products li p{
 	padding: 3px 0;
-	height: 34px;
-	line-height: 14px;
+	height: 27px;
+	line-height: 12px;
     overflow: hidden;
     float: left;
     display: inline-block;
     text-align: center;
     width: 100%;
+    color: #651723;
+    font-size: 11px;
 }
 
 .products li.current{
 	width: 90%;
 	margin: 0;
-	text-align: center;
 }
 
 .products li.current p{
 	font-size: 14px;
+	color: #090000;
+	line-height: 16px;
+	height: 33px;
+	padding: 0 0 6px 0;
 }
 
 .products li.current img{
@@ -262,6 +273,7 @@ html,body,#dreambox{
 .lockImg{
 	margin: 0 0 0 6%;
 	display: inline-block;
+	opacity: 0;
 }
 
 .sweetHeart{
@@ -277,11 +289,12 @@ html,body,#dreambox{
     text-transform: uppercase;
     background: url("/images/cvd/loveline.png") center bottom no-repeat;
     background-size: 100% auto;
+    opacity: 0;
 }
 
 .sweetHeartArea{
 	position: absolute;
-	left: 38.5%;
+	left: 38%;
     top: -116px;
     width: 18%;
     padding: 0 0 8px 0;
@@ -313,7 +326,7 @@ html,body,#dreambox{
 	left: 0;
 	bottom: 0;
 	color: #090000;
-	padding: 0 0 30px 0;
+	padding: 0 0 27px 0;
 	text-align: center;
 }
 
@@ -324,8 +337,8 @@ html,body,#dreambox{
 .btn{
 	width: 36%;
 	display: inline-block;
-	padding: 10px 0;
-	font-size: 20px;
+	padding: 8px 0;
+	font-size: 18px;
 	color: #090000;
 	margin: 6px 0 0 0;
 }
@@ -343,7 +356,7 @@ html,body,#dreambox{
 	content:"";
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0 7%;
+	margin: 0 6%;
 }
 
 #share .btn{
@@ -352,6 +365,12 @@ html,body,#dreambox{
 
 #share .btn:before, #share .btn:after{
 	vertical-align: super;
+	width: 10%;
+}
+
+#share .btn.goPlay:before, #share .btn.goPlay:after{
+	width: 9%;
+	vertical-align: middle;
 }
 
 #canvas{
@@ -409,6 +428,9 @@ html,body,#dreambox{
 	padding: 15px 0;
 }
 
+.create_bg{
+	height: auto;
+}
 
 
 /* 横屏显示代码 */
@@ -483,31 +505,66 @@ html,body,#dreambox{
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	.sweetHeartArea{
-		top: -140px;
+		top: -145px;
 	}
 
 	.sweetHeart{
-		top: -150px;
+		top: -155px;
 	}
 
 	.yourname{
 		margin: -10% 0 0 0;
+	}
+
+	#resultImg{
+		width: 100%;
+		height: 100%;
+	}
+
+	#resultImg img{
+		height: 100%;
+	}
+
+	.btnArea{
+		padding: 0 0 36px 0;
+	}
+
+	.create_bg{
+		height: 100%;
 	}
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
 	.sweetHeartArea{
-		top: -136px;
+		top: -140px;
 	}
 
 	.sweetHeart{
-		top: -142px;
+		top: -145px;
 	}
 
 	.yourname{
 		margin: -10% 0 0 0;
 	}
+
+	#resultImg{
+		width: 100%;
+		height: 100%;
+	}
+
+	#resultImg img{
+		height: 100%;
+	}
+
+	.btnArea{
+		padding: 0 0 36px 0;
+	}
+
+	.create_bg{
+		height: 100%;
+	}
+
 }
 
 
@@ -516,5 +573,12 @@ html,body,#dreambox{
 
 @media handheld and (min-height:400px),screen and (max-height:420px) {
 
+	html,body,#dreambox{
+	    overflow: auto;
+	}
+
+	.btnArea{
+		bottom: -8em;
+	}
 
 }

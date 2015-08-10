@@ -7,9 +7,21 @@
 		<div id="resultImg">
 			<img src="/{{locks.imgurl}}" width="100%" />
 		</div>
+
+
 		<div class="btnArea">
+
+			{% if ismylocks %}
+
 			<p>您的爱意已经传达</p>
-			<a href="/app_dev.php/cvd/product/{{locks.sex}}" class="btn goPlay"><span>继续观赏<br />甄选商品</span></a>
+			<a href="{{ url('lv_cvd_product', {'gender': locks.sex}) }}" class="btn goPro"><span>继续观赏<br />甄选商品</span></a>
+
+			{% else %}
+
+			<p>路易威登七夕为您锁爱</p>
+			<a href="{{ url('lv_cvd_index') }}" class="btn goPlay"><span>我也要锁住爱</span></a>
+
+			{% endif %}
 		</div>
 	</section>
 

@@ -17,7 +17,7 @@
 				<img src="/images/cvd/lock.png" class="lockImg" width="38%" />
 				<div class="withlove">
 					<div class="sweetHeartArea"></div>
-					<input type="text" class="sweetHeart" maxlength="3"> 
+					<input type="text" class="sweetHeart" onkeyup="this.value=this.value.replace(/[^a-z]/g,'');" maxlength="3"> 
 					<p>
 						<img src="/images/cvd/withlove.png" width="30%" />
 					</p>
@@ -33,7 +33,7 @@
 			</div>
 
 		</div>
-		<img src="/images/cvd/bg2.jpg" width="100%" />
+		<img src="/images/cvd/bg2.jpg" class="create_bg" width="100%" />
 	</section>
 
 
@@ -49,7 +49,27 @@
 
 
 <script type="text/javascript">
-		
+		TweenMax.fromTo(document.querySelector('.lockImg'), 1, {
+	        scale:2,
+	        y:-600,
+	        autoAlpha:0,
+	        blurFilter:{blurX:50, blurY:10},
+	        opacity:0
+	    }, {
+	        autoAlpha:1,
+	    	scale:1,
+	    	y:0,
+	    	opacity:1,
+	        ease: Elastic.easeOut,
+	        easeParams: [0.2, 0.7],
+	        force3D: false,
+	        onComplete:function(){
+	        	$(".sweetHeart").animate({"opacity":1},function(){
+	        		$(".sweetHeart").focus();
+	        	});
+	        }
+	    });		
+
 		function GetQueryString(name){
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
 			var r = window.location.search.substr(1).match(reg);

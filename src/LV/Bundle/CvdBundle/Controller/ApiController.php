@@ -23,7 +23,12 @@ class ApiController extends Controller
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($locks);
         $doctrine->flush();
-        $status = array('status' => $locks->getId());
+        $url = $this->generateUrl(
+                    'lv_cvd_share',
+                    array('id' => $locks->getId()),
+                    true
+                );
+        $status = array('status' => '1', 'url' => $url);
         $response = new JsonResponse();
         $response->setData($status);
         return $response;

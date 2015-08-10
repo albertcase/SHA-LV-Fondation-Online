@@ -40,7 +40,7 @@
 
 	<section class="mainer" id="complete" style="display:none;">
 		<div id="resultImg"></div>
-		<div class="btnArea">
+		<div class="btnArea" style="display:none;">
 			<p>将这份爱分享给她吧</p>
 
 			<a href="javascript:;" class="btn shareBtn">分享</a>
@@ -242,22 +242,6 @@
 
 
 
-		// $(function(){
-
-		// 	shareData = {
-		// 	    title: 'lv',
-		// 	    desc: 'lv',
-		// 	    descTimeline: 'lv',
-		// 		link: window.location.host,
-		// 		imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
-		// 		sharePage: getType(),
-		// 		sharePageVal: getType()
-		// 	};
-		// 	editShare();
-
-		// })
-
-
 		// 提交分数
 	function submitPhoto(_imgurl, _sex){
 		$.ajax({
@@ -269,7 +253,20 @@
 		    },
 		    dataType:"json"
 	    }).done(function(data){
-    		
+    			
+    		shareData = {
+			    title: 'lv',
+			    desc: 'lv',
+			    descTimeline: 'lv',
+				link: data.url,
+				imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+				sharePage: "create",
+				sharePageVal: 'create'
+			};
+			editShare();
+
+			$("#complete .btnArea").show();
+
 	    });
 	}
 

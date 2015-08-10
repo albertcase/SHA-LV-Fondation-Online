@@ -23,6 +23,7 @@ class PageController extends Controller
 
     public function shareAction($id)
     {
+        
         return $this->render('LVCvdBundle:Default:share.html.twig', array('id' => $id));
     }
 }

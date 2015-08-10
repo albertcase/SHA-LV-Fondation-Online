@@ -27,10 +27,12 @@ class ApiController extends Controller
         $success = file_put_contents($file, $img);
 
         $sex = $request->get('sex');
+        $user = $this->container->get('lv.user.service')->userLoad();
 
 		$locks = new Locks();
         $locks->setImgurl($file);
         $locks->setSex($sex);
+        $locks->setUser($user);
         $locks->setCreated(time());
 
         $doctrine = $this->getDoctrine()->getManager();

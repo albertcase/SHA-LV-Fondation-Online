@@ -25,6 +25,12 @@ class Locks
     private $sex;
 
     /**
+     * @ORM\OneToOne(targetEntity="LV\Bundle\FondationBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
      * @var integer
      */
     private $created;
@@ -85,7 +91,7 @@ class Locks
     {
         return $this->sex;
     }
-
+    
     /**
      * Set created
      *

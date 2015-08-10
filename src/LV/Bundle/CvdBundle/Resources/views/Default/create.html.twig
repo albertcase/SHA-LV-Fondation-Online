@@ -246,7 +246,7 @@
 	function submitPhoto(_imgurl, _sex){
 		$.ajax({
 		    type: "POST",
-		    url: "/app_dev.php/cvd/save",
+		    url: "{{ url('lv_cvd_save') }}",
 		    data: {
 		    	"imgurl": _imgurl,
 		    	"sex": _sex

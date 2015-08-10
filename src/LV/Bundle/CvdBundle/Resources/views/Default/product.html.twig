@@ -32,7 +32,7 @@
 		</div>
 		<div class="lockLove">
 			<a href="javascript:;" class="gomore"><img src="/images/cvd/magnifier.png" /><span>前往官网了解七夕臻品</span></a>
-			<a href="/app_dev.php/cvd/create" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
+			<a href="/app_dev.php/cvd/create?gender={{gender}}" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
 		</div>
 		<img src="/images/cvd/bg2.jpg" width="100%" style="margin:-40px 0 0 0;" />
 	</section>
@@ -108,8 +108,10 @@
 
 	$(".products li").click(function(){
 		var prevCur = $(this).siblings("li.current");
+		$(prevCur).insertAfter($(this).siblings("li").eq(2));
 		$(this).siblings("li").removeClass("current");
-		$(this).insertBefore(prevCur).addClass("current");
+		$(this).insertBefore($(this).siblings("li").eq(0)).addClass("current");
+
 	})
 
 

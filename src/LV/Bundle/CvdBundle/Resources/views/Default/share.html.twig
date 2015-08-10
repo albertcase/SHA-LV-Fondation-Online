@@ -1,13 +1,14 @@
 {% extends 'LVCvdBundle::layout.html.twig' %} 
 {% block content %}
-	<!-- {{id}} -->
-
+	{{locks.sex}}
+	{{locks.imgurl}}
+	{{ismylocks}}
 	<section class="mainer" id="share">
 		<div id="resultImg"></div>
 		<div class="btnArea">
 			<p>您的爱意已经传达</p>
 
-			<a href="{{ url('lv_cvd_product', {'gender': 'female'}) }}" class="btn goPlay"><span>继续观赏<br />甄选商品</span></a>
+			<a href="/app_dev.php/cvd/product/female" class="btn goPlay"><span>继续观赏<br />甄选商品</span></a>
 		</div>
 	</section>
 

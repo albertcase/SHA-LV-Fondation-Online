@@ -92,6 +92,13 @@ class User
     private $userphotocode;
 
     /**
+     *
+     * @ORM\OneToOne(targetEntity="LV\Bundle\CvdBundle\Entity\Locks", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $locks;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -367,5 +374,29 @@ class User
     public function getUserphotocode()
     {
         return $this->userphotocode;
+    }
+
+
+    /**
+     * Set locks
+     *
+     * @param \LV\Bundle\CvdBundle\Entity\Locks $locks
+     * @return User
+     */
+    public function setLocks(\LV\Bundle\CvdBundle\Entity\Locks $locks = null)
+    {
+        $this->locks = $locks;
+
+        return $this;
+    }
+
+    /**
+     * Get locks
+     *
+     * @return \LV\Bundle\CvdBundle\Entity\Locks 
+     */
+    public function getLocks()
+    {
+        return $this->locks;
     }
 }

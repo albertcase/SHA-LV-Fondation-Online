@@ -1,6 +1,6 @@
 lv_cvd:
     resource: "@LVCvdBundle/Resources/config/routing.yml"
-    prefix:   /cvd
+    prefix:   /love
 
 same_admin:
     resource: "@SameAdminBundle/Resources/config/routing.yml"

@@ -10,7 +10,7 @@ class ApiController extends Controller
 {
     public function saveAction()
     {      
-        $request = $this->getRequest()->query;
+        $request = $this->getRequest()->request;
         $status = array('status' => 0);
         $imgurl = $request->get('imgurl');
         $sex = $request->get('sex');

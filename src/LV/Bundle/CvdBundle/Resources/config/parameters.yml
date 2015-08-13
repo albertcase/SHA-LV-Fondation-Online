@@ -1,3 +1,6 @@
 parameters:
     cvd_access_need_router:
         - lv_cvd_index
+        - lv_cvd_share
+        - lv_cvd_product
+        - lv_cvd_create

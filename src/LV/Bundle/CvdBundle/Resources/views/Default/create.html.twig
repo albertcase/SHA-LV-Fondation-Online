@@ -17,7 +17,7 @@
 				<img src="/images/cvd/lock.png" class="lockImg" width="38%" />
 				<div class="withlove">
 					<div class="sweetHeartArea"></div>
-					<input type="text" class="sweetHeart" onkeyup="this.value=this.value.replace(/[^a-z]/g,'');" maxlength="3"> 
+					<input type="text" class="sweetHeart" maxlength="3"> 
 					<p>
 						<img src="/images/cvd/withlove.png" width="30%" />
 					</p>
@@ -27,7 +27,7 @@
 
 
 			<div class="btnArea">
-				<p>请在锁上铭刻爱人姓名缩写</p>
+				<p>路易威登漫漫七夕，为你锁住爱</p>
 
 				<a href="javascript:;" class="btn createBtn">确认</a>
 			</div>
@@ -41,7 +41,7 @@
 	<section class="mainer" id="complete" style="display:none;">
 		<div id="resultImg"></div>
 		<div class="btnArea" style="display:none;">
-			<p>将这份爱分享给她吧</p>
+			<p>路易威登漫漫七夕，为你锁住爱<br />将这份爱分享给她</p>
 
 			<a href="javascript:;" class="btn shareBtn">分享</a>
 		</div>
@@ -65,7 +65,7 @@
 	        force3D: false,
 	        onComplete:function(){
 	        	$(".sweetHeart").animate({"opacity":1},function(){
-	        		$(".sweetHeart").focus();
+	        		//$(".sweetHeart").focus();
 	        	});
 	        }
 	    });		
@@ -86,9 +86,32 @@
 			$(this).hide();
 		})
 
+		$(".sweetHeart").focus(function(){
+			$(this).addClass("hover");
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).removeClass("hover");
+			}
+		})
+
+		$(".yourname").focus(function(){
+			$(this).addClass("hover");
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).removeClass("hover");
+			}
+		})
+
 		$(".sweetHeart").change(function(){
 			$(".sweetHeart").val($(this).val().replace(/\s/g,""));
 			var sweetHeartName = $(this).val().replace(/\s/g,"");
+			var isEn = /^[A-Za-z]+$/;
+			if(!isEn.test(sweetHeartName)){ 
+				$(this).val("");
+				alert("请在锁上铭刻爱人英文姓名缩写");
+				return false;              
+			}
+
 			if(sweetHeartName != "" && sweetHeartName.length>=2){
 				$(this).hide();
 				var sweetHeartHtml = "";
@@ -207,7 +230,7 @@
 			ctx.drawImage(lock,(bg.width-lock.width)/2+30,-80);
 			
 			//withlove
-			ctx.drawImage(withlove,(bg.width-withlove.width)/2,lock.height*0.8);
+			ctx.drawImage(withlove,(bg.width-withlove.width)/2,lock.height*0.83);
 
 			//line
 			ctx.lineWidth = 1; 
@@ -299,12 +322,12 @@
 		var yName = $(".yourname").val();
 
 		if(shName == "" || shName.length<2){
-			alert("请在锁上铭刻爱人姓名缩写");
+			alert("请在锁上铭刻爱人英文姓名缩写");
 			return false;
 		}
 
 		if(yName == "" || shName.length<2){
-			alert("请输入您自己的姓名");
+			alert("输入您的署名");
 			return false;
 		}
 

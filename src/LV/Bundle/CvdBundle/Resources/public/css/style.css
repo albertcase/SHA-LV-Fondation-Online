@@ -7,16 +7,20 @@
 
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #ccc;
+    color:    #bebebe;
+    font-size: 12px;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #ccc;
+    color:    #bebebe;
+    font-size: 12px;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #ccc;
+    color:    #bebebe;
+    font-size: 12px;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #ccc;
+    color:    #bebebe;
+    font-size: 12px;
 }
 
 
@@ -69,7 +73,7 @@ html,body,#dreambox{
 .logo{
 	width: 67%;
 	display: inline-block;
-	margin: 25% 0 0 0;
+	margin: 20% 0 0 0;
 }
 
 .slogan{
@@ -79,7 +83,7 @@ html,body,#dreambox{
 }
 
 .entrance{
-	width: 67%;
+	width: 82%;
 	display: inline-block;
 	margin: 18% 0 0 0;
 }
@@ -266,7 +270,7 @@ html,body,#dreambox{
 }
 
 .withlove p img{
-	margin: -27% 0 0 0;
+	margin: -25% 0 0 0;
 	display: inline-block;
 }
 
@@ -290,6 +294,11 @@ html,body,#dreambox{
     background: url("/images/cvd/loveline.png") center bottom no-repeat;
     background-size: 100% auto;
     opacity: 0;
+}
+
+.sweetHeart.hover{
+	background: url("/images/cvd/loveline_hover.png") center bottom no-repeat;
+    background-size: 100% auto;
 }
 
 .sweetHeartArea{
@@ -318,7 +327,14 @@ html,body,#dreambox{
 	font-size: 20px;
 	background: none;
 	text-transform: capitalize;
+	background: url("/images/cvd/text_placeholder.png") center no-repeat;
+	background-size: 70% auto;
 }
+
+.yourname.hover{
+	background: none;
+}
+
 
 .btnArea{
 	width: 100%;

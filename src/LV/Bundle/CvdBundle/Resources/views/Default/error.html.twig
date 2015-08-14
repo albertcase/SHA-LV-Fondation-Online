@@ -1,1 +1,108 @@
-error
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>路易威登浪漫七夕</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <!--禁用手机号码链接(for iPhone)-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+        <!--自适应设备宽度-->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--控制全屏时顶部状态栏的外，默认白色-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="Keywords" content="">
+        <meta name="Description" content="...">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			text-align: center;
+		}
+
+
+		/* 横屏显示代码 */
+
+@-webkit-keyframes rotation {
+    10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+    90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+}
+@keyframes rotation {
+    10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+    90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+}
+
+#orientLayer { 
+	display: none; 
+}
+
+@media screen and (min-aspect-ratio: 13/9) { 
+    #orientLayer { 
+    	display: block; 
+    } 
+}
+.mod-orient-layer { 
+	display: none; 
+	position: fixed; 
+	height: 100%; 
+	width: 100%; 
+	left: 0; 
+	top: 0; 
+	right: 0; 
+	bottom: 0; 
+	background: #000; 
+	z-index: 9997;
+}
+.mod-orient-layer__content { 
+	position: absolute; 
+	width: 100%; 
+	top: 45%; 
+	margin-top: -75px; 
+	text-align: center;
+}
+.mod-orient-layer__icon-orient {
+	background-image: url('/images/heng.png');
+	display: inline-block; 
+	width: 67px; 
+	height: 109px;
+    transform: rotate(90deg); 
+    -webkit-transform: rotate(90deg); 
+    -webkit-animation: rotation infinite 1.5s ease-in-out; 
+    animation: rotation infinite 1.5s ease-in-out; 
+    -webkit-background-size: 67px; 
+    background-size: 67px;
+}
+.mod-orient-layer__desc { 
+	margin-top: 20px; 
+	font-size: 15px; 
+	color: #fff;
+}
+
+
+
+		
+	</style>
+
+</head>
+<body>
+	<img src="/images/cvd/pc.jpg" width="100%" />
+
+
+
+
+	<!-- 横屏代码 -->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+
+</body>
+</html>

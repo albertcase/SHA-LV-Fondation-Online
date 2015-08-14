@@ -4,3 +4,6 @@ parameters:
         - lv_cvd_share
         - lv_cvd_product
         - lv_cvd_create
+    cvd_access_error_router:
+        - lv_cvd_create
+        - lv_cvd_share

@@ -36,36 +36,34 @@ class CvdPageRequestListener
     public function onKernelRequest(GetResponseEvent $event)
     {
 
-    	$current_route = $event->getRequest()->get('_route');
+        $current_route = $event->getRequest()->get('_route');
 
         // if(!$this->mobiledetect->isMobile()){
         //     $url = $this->router->generate('lv_cvd_desktop');
         //     return $event->setResponse(new RedirectResponse($url));
         // }
-
-    	if($current_route && in_array($current_route, $this->container->getParameter('cvd_access_need_router'))) {
-
-            // if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
-            //     $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error.html.twig');
-            //     return $event->setResponse(new Response($rendered));
-            // }
-
-            if(!$this->userservicve->userLoad()) {
-
-                $url = $event->getRequest()->getRequestUri();
-
-                $isWechatLogin = $this->wechatservice->isLogin($url);
-                
-                // $isWechatLogin = md5(microtime(true));
-                
-                if($isWechatLogin instanceof RedirectResponse)
-                   return $event->setResponse($isWechatLogin);
-
-                $this->userservicve->userLogin($isWechatLogin);
-
+        if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
+            if(in_array($current_route, $this->container->getParameter('cvd_access_error_router'))) {
+                $rendered = $this->container->get('templating')->render('LVCvdBundle:Default:error.html.twig');
+                return $event->setResponse(new Response($rendered));
             }
-            
-    	}
+        } else {
+            if($current_route && in_array($current_route, $this->container->getParameter('cvd_access_need_router'))) {
+
+                if(!$this->userservicve->userLoad()) {
+
+                    $url = $event->getRequest()->getRequestUri();
+
+                    $isWechatLogin = $this->wechatservice->isLogin($url);
+
+                    if($isWechatLogin instanceof RedirectResponse)
+                       return $event->setResponse($isWechatLogin);
+
+                    $this->userservicve->userLogin($isWechatLogin);
+                } 
+            }
+        }
+        
     }
 
 }

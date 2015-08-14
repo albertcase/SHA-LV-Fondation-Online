@@ -174,7 +174,7 @@ html,body,#dreambox{
 	width: 31%;
     display: inline-block;
     margin: 0 1%;
-    padding: 1% 0;
+    padding: 1% 0 4% 0;
     font-family: "Arial";
     text-align: center;
 }

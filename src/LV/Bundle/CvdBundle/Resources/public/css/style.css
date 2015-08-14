@@ -73,7 +73,7 @@ html,body,#dreambox{
 .logo{
 	width: 72%;
 	display: inline-block;
-	margin: 20% 0 0 0;
+	margin: 18% 0 0 0;
 }
 
 .slogan{
@@ -99,7 +99,7 @@ html,body,#dreambox{
 }
 
 .entrance dd p{
-	width: 90%;
+	width: 82%;
 	position: relative;
 	font-size: 15px;
 	padding: 6px 0;
@@ -351,7 +351,7 @@ html,body,#dreambox{
 	left: 0;
 	bottom: 0;
 	color: #090000;
-	padding: 0 0 25px 0;
+	padding: 0 0 20px 0;
 	text-align: center;
 }
 
@@ -360,9 +360,9 @@ html,body,#dreambox{
 }
 
 .btn{
-	width: 52%;
+	width: 46%;
 	display: inline-block;
-	padding: 6px 0;
+	padding: 9px 0 6px 0;
 	color: #090000;
 	margin: 6px 0 0 0;
 }
@@ -556,10 +556,6 @@ html,body,#dreambox{
 		height: 100%;
 	}
 
-	.btnArea{
-		padding: 0 0 25px 0;
-	}
-
 	.create_bg{
 		height: 100%;
 	}
@@ -587,10 +583,6 @@ html,body,#dreambox{
 
 	#resultImg img{
 		height: 100%;
-	}
-
-	.btnArea{
-		padding: 0 0 25px 0;
 	}
 
 	.create_bg{

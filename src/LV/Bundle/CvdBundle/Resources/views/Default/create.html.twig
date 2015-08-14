@@ -285,7 +285,7 @@
 
 
 
-		// 提交分数
+		// 提交生成的图片
 	function submitPhoto(_imgurl, _sex){
 		$.ajax({
 		    type: "POST",
@@ -296,7 +296,7 @@
 		    },
 		    dataType:"json"
 	    }).done(function(data){
-    			
+    		$("#complete .btnArea").show();	
     		shareData = {
 			    title: '我与路易威登送你七夕臻礼，等你来轻启爱的誓言',
 			    desc: '将你的名字印记在我的心锁上，带你见证七夕最浪漫的誓言',
@@ -310,9 +310,6 @@
 				}
 			};
 			editShare();
-
-			$("#complete .btnArea").show();
-
 	    });
 	}
 

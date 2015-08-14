@@ -336,7 +336,7 @@ html,body,#dreambox{
 	font-size: 20px;
 	background: none;
 	text-transform: capitalize;
-	background: url("/images/cvd/text_placeholder.png") center no-repeat;
+	background: url("/images/cvd/text_placeholder.png") center 82% no-repeat;
 	background-size: 70% auto;
 }
 
@@ -351,7 +351,7 @@ html,body,#dreambox{
 	left: 0;
 	bottom: 0;
 	color: #090000;
-	padding: 0 0 27px 0;
+	padding: 0 0 25px 0;
 	text-align: center;
 }
 
@@ -382,6 +382,12 @@ html,body,#dreambox{
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 6%;
+}
+
+.createLoading{
+	text-align: center;
+	width: 100%;
+	margin: -32% 0 0 0;
 }
 
 #share .btn{
@@ -425,7 +431,7 @@ html,body,#dreambox{
 }
 
 #wechat img{
-	width: 76%;
+	width: 92%;
 	float: right;
 	display: inline-block;
 	margin: 10px 10px 0 0; 
@@ -552,7 +558,7 @@ html,body,#dreambox{
 	}
 
 	.btnArea{
-		padding: 0 0 36px 0;
+		padding: 0 0 30px 0;
 	}
 
 	.create_bg{
@@ -585,7 +591,7 @@ html,body,#dreambox{
 	}
 
 	.btnArea{
-		padding: 0 0 36px 0;
+		padding: 0 0 30px 0;
 	}
 
 	.create_bg{

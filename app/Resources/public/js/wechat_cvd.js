@@ -158,7 +158,7 @@ function editShare(){   ///demon
                     $("#wechatTips").hide();
                 }
                 
-                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareTimeline', shareData.sharePageVal]);
+                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
                 shareData.returnFun();
                 
                 //alert('分享成功');
@@ -181,7 +181,7 @@ function editShare(){   ///demon
                 if($("#wechatTips").length > 0){
                     $("#wechatTips").hide();
                 }
-                _hmt.push(['_trackEvent', 'share', shareData.sharePage, 'ShareAppMessage', shareData.sharePageVal]);
+                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
                 shareData.returnFun();
 
                 //alert('分享成功');

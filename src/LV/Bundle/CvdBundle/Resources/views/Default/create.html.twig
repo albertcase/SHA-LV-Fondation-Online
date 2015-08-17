@@ -258,26 +258,30 @@
 				var nImg = new Image();
 				nImg.src = '/images/cvd/'+sweetName[i]+'.png'; 
 
-				switch(i){
-					case 0:
-						if(sweetName.length < 3){
-							ctx.drawImage(nImg,logo.width*0.59 ,lock.height*0.64);
-						}else{
-							ctx.drawImage(nImg,logo.width*0.56,lock.height*0.64);
-						}
-						break;
-					case 1:
-						if(sweetName.length < 3){
-							ctx.drawImage(nImg,logo.width*0.67,lock.height*0.64);
-						}else{
-							ctx.drawImage(nImg,logo.width*0.63,lock.height*0.64);
-						}
-						
-						break;
-					case 2:
-						ctx.drawImage(nImg,logo.width*0.70,lock.height*0.64);
-						break;
+				nImg.onload = function(){
+					switch(i){
+						case 0:
+							if(sweetName.length < 3){
+								ctx.drawImage(nImg,logo.width*0.59 ,lock.height*0.64);
+							}else{
+								ctx.drawImage(nImg,logo.width*0.56,lock.height*0.64);
+							}
+							break;
+						case 1:
+							if(sweetName.length < 3){
+								ctx.drawImage(nImg,logo.width*0.67,lock.height*0.64);
+							}else{
+								ctx.drawImage(nImg,logo.width*0.63,lock.height*0.64);
+							}
+							
+							break;
+						case 2:
+							ctx.drawImage(nImg,logo.width*0.70,lock.height*0.64);
+							break;
+					}
 				}
+
+	
 			}
 
 			$("#create").hide();

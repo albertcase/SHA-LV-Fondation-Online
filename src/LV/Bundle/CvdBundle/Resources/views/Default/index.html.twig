@@ -177,8 +177,12 @@ loadingImg.onload = function(){
 
 
 function _doing(){
-	$("#loading").hide();
-	TweenMax.fromTo(document.querySelector('#home'), 1, {
+
+	$("#loading").animate({"opacity":0},function(){
+		$("#loading").hide();
+	}).hide();
+
+	TweenMax.fromTo(document.querySelector('#home'), 2, {
         scale:1.2,
         autoAlpha:0,
         blurFilter:{blurX:50, blurY:10},
@@ -193,6 +197,7 @@ function _doing(){
         onComplete:function(){
         }
     });
+	
 }
 
 $(".entrance dl").click(function(){

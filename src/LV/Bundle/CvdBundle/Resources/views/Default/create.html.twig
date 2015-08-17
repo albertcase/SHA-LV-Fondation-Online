@@ -259,7 +259,8 @@
 				nImg.src = '/images/cvd/'+sweetName[i]+'.png'; 
 
 				nImg.onload = function(){
-					alert(this.src)
+					alert(this);
+					alert(this.src);
 					switch(i){
 						case 0:
 							if(sweetName.length < 3){

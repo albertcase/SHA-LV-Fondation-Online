@@ -49,6 +49,11 @@
 
 <script type="text/javascript">
 
+_hmt.push(['_trackPageview', 'index']);
+
+
+
+
 var allImgSrcArr = [
 	"/images/cvd/pc.jpg",
 	"/images/cvd/a.png",
@@ -192,8 +197,10 @@ function _doing(){
 
 $(".entrance dl").click(function(){
 	if($(this).index() == 0){
+		_hmt.push(['_trackEvent', 'btn', 'click', '锁住她']);
 		location.href = "{{ url('lv_cvd_product', {'gender': 'female'}) }}"
 	}else{
+		_hmt.push(['_trackEvent', 'btn', 'click', '锁住他']);
 		location.href = "{{ url('lv_cvd_product', {'gender': 'male'}) }}"
 	}
 })

@@ -13,7 +13,7 @@
 {% javascripts output="js/main.js"
     '%kernel.root_dir%/Resources/public/js/jquery.js'
     '%kernel.root_dir%/Resources/public/js/jweixin.js'
-    '%kernel.root_dir%/Resources/public/js/wechat.js'
+    '%kernel.root_dir%/Resources/public/js/wechat_cvd.js'
     '%kernel.root_dir%/Resources/public/js/PxLoader.js'
     '%kernel.root_dir%/Resources/public/js/tweenMax.min.js'
     '@LVCvdBundle/Resources/public/js/swiper.min.js'
@@ -28,5 +28,17 @@
         <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
     </div>
 </div>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?38a2f94d03df36dfccbca6b719d4e325";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
 
 {% endblock %}

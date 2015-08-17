@@ -31,15 +31,16 @@
 
 		</div>
 		<div class="lockLove">
-			<a href="http://www.louisvuitton.cn/zhs-cn/homepage" target="_blank" class="gomore"><img src="/images/cvd/magnifier.png" /><span>前往官网了解七夕臻品</span></a>
-			<a href=" {{ url('lv_cvd_create') }}?gender={{gender}}" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
+			<a href="http://www.louisvuitton.cn/zhs-cn/homepage" onclick="_hmt.push(['_trackEvent', 'link', '前往官网了解七夕臻品', '{{gender}}']);" target="_blank" class="gomore"><img src="/images/cvd/magnifier.png" /><span>前往官网了解七夕臻品</span></a>
+			<a href=" {{ url('lv_cvd_create') }}?gender={{gender}}" onclick="_hmt.push(['_trackEvent', 'link', '锁住这份爱', '{{gender}}']);" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
 		</div>
 		<img src="/images/cvd/bg2.jpg" width="100%" style="margin:-12% 0 0 0;" />
 	</section>
 
 
 <script type="text/javascript">
-	
+	_hmt.push(['_trackPageview', 'product/{{gender}}']);
+
 	var female = {
         "bags": ["Capucines<br />中号手袋","Go-14 Malletage<br />中号手袋","Sac Triangle Monogram<br />小号手袋","Twist Epi Azteque<br />中号手袋"],
         "accessories": ["经典V水晶石手镯","经典V水晶石耳环","LVllusion V <br />披肩","Rock N' Roses <br />长围巾"],

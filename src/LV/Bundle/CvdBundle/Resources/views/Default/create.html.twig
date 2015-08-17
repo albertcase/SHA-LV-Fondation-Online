@@ -125,8 +125,7 @@
 				$(this).hide();
 				var sweetHeartHtml = "";
 				for(var i=0; i<sweetHeartName.length; i++){
-					sweetHeartHtml += '<img src="/images/cvd/'+sweetHeartName[i]+'.png" />'
-					alert(sweetHeartHtml);
+					sweetHeartHtml += '<img src="/images/cvd/'+sweetHeartName[i].toLocaleLowerCase()+'.png" />'
 				}
 				$(".sweetHeartArea").html(sweetHeartHtml);
 			}

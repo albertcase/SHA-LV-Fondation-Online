@@ -82,7 +82,7 @@ class ApiController extends Controller
         $data['remark']['color'] = '#000000';
         $wechat = $this->get('same.wechat');
         $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
-        $url = '';
+        $url = 'http://www.lvcampaign.com';
         $topcolor = '#000000';
         return $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
     }

@@ -76,7 +76,7 @@ class ApiController extends Controller
         $data['first']['color'] = '#000000';
         $data['keyword1']['value'] = '路易威登邀您共度浪漫七夕';
         $data['keyword1']['color'] = '#000000';
-        $data['keyword2']['value'] = date("Y-m-d");
+        $data['keyword2']['value'] = '2015-08-18到2015-08-20';
         $data['keyword2']['color'] = '#000000';
         $data['remark']['value'] = '点击查看详情，获取您的精美茶歇邀请函';
         $data['remark']['color'] = '#000000';

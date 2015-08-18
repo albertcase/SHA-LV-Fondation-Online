@@ -38,7 +38,7 @@ function wechatFun(){
 function sharelogFun(_type){
     $.ajax({
         type: "POST",
-        url: "{{ url('lv_cvd_sharelog') }}",
+        url: "/chinesevday/sharelog",
         data: {
             "type": _type
         },
@@ -176,7 +176,7 @@ function editShare(){   ///demon
                 shareData.returnFun();
 
                 sharelogFun("Timeline");
-                
+
                 _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
                 
                 //alert('分享成功');

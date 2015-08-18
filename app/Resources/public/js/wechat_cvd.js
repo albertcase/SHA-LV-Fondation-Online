@@ -2,9 +2,10 @@ var shareData = {
     title: '路易威登臻礼相伴爱情旅程，七夕一起见证我们的爱情',
     desc: '将你的名字印记在我的心锁上，愿真挚之爱如影随行。',
     descTimeline: '“锁住爱”- 路易威登与您相伴浪漫七夕',
-    link: window.location.host,
+    link: window.location.host + "/chinesevday",
     imgUrl: 'http://' + window.location.host + '/images/share.jpg',
     sharePageVal: '',
+    shareLog:'0',
     returnFun: function(){
         //alert(6);
     }
@@ -33,6 +34,20 @@ function wechatFun(){
         console.log("请求接口失败！");
     });
 }
+
+function sharelogFun(_type){
+    $.ajax({
+        type: "POST",
+        url: "{{ url('lv_cvd_sharelog') }}",
+        data: {
+            "type": _type
+        },
+        dataType:"json"
+    }).done(function(data){
+
+    })
+}
+
 
 
 function wechatShare(appid,timestamp_val,noncestr,signature_val){
@@ -96,6 +111,11 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
             }          
 
             _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
+
+            if(shareData.shareLog == "1"){
+                sharelogFun("Timeline");
+            }
+            
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -118,6 +138,11 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
             }
 
             _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
+
+            if(shareData.shareLog == "1"){
+                sharelogFun("ShareAppMessage");
+            }
+
             shareData.returnFun();
             //alert('分享成功');
         },
@@ -159,6 +184,11 @@ function editShare(){   ///demon
                 }
                 
                 _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
+
+                if(shareData.shareLog == "1"){
+                    sharelogFun("Timeline");
+                }
+
                 shareData.returnFun();
                 
                 //alert('分享成功');
@@ -182,6 +212,11 @@ function editShare(){   ///demon
                     $("#wechatTips").hide();
                 }
                 _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
+
+                if(shareData.shareLog == "1"){
+                    sharelogFun("ShareAppMessage");
+                }
+
                 shareData.returnFun();
 
                 //alert('分享成功');
@@ -196,7 +231,7 @@ function editShare(){   ///demon
 
 
 
-
+wechatFun();
 
 
 

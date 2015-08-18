@@ -33,6 +33,13 @@ class Sharelog
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=10)
+     */
+    private $status;
     
     /**
      * @var string
@@ -119,5 +126,28 @@ class Sharelog
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Sharelog
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

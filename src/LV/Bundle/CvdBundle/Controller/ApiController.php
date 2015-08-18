@@ -55,13 +55,18 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $type = $request->get('type');
         $user = $this->container->get('lv.user.service')->userLoad();
-        $sharelog = new Sharelog();
-        $sharelog->setType($type);
-        $sharelog->setUser($user);
-        $sharelog->setCreated(time());
-        $doctrine = $this->getDoctrine()->getManager();
-        $doctrine->persist($locks);
-        $doctrine->flush();
+        $repository = $this->getDoctrine()->getRepository('LVCvdBundle:Sharelog');
+        $log = $repository->findByUser($user);
+        if(!$log){
+            $sharelog = new Sharelog();
+            $sharelog->setType($type);
+            $sharelog->setUser($user);
+            $sharelog->setCreated(time());
+            $sharelog->setStatus(0);
+            $doctrine = $this->getDoctrine()->getManager();
+            $doctrine->persist($sharelog);
+            $doctrine->flush();
+        }
         $status = array('status' => '1', 'type' => $type);
         $response = new JsonResponse();
         $response->setData($status);

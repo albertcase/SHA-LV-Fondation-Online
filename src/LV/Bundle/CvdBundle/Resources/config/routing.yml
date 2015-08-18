@@ -19,3 +19,11 @@ lv_cvd_share:
 lv_cvd_save:
     path:     /save
     defaults: { _controller: LVCvdBundle:Api:save }
+
+lv_cvd_sharelog:
+    path:     /sharelog
+    defaults: { _controller: LVCvdBundle:Api:share }
+
+lv_cvd_error:
+    path:     /desktop
+    defaults: { _controller: LVCvdBundle:Page:error }

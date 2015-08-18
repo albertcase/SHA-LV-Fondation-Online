@@ -5,6 +5,7 @@ namespace LV\Bundle\CvdBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use LV\Bundle\CvdBundle\Entity\Locks;
+use LV\Bundle\CvdBundle\Entity\Sharelog;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
@@ -44,6 +45,24 @@ class ApiController extends Controller
                     true
                 );
         $status = array('status' => '1', 'url' => $url);
+        $response = new JsonResponse();
+        $response->setData($status);
+        return $response;
+    }
+
+    public function shareAction()
+    {
+        $request = $this->getRequest()->request;
+        $type = $request->get('type');
+        $user = $this->container->get('lv.user.service')->userLoad();
+        $sharelog = new Sharelog();
+        $sharelog->setType($type);
+        $sharelog->setUser($user);
+        $sharelog->setCreated(time());
+        $doctrine = $this->getDoctrine()->getManager();
+        $doctrine->persist($locks);
+        $doctrine->flush();
+        $status = array('status' => '1', 'type' => $type);
         $response = new JsonResponse();
         $response->setData($status);
         return $response;

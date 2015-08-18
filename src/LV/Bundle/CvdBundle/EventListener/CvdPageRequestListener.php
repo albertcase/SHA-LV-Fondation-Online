@@ -44,8 +44,10 @@ class CvdPageRequestListener
         // }
         if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
             if(in_array($current_route, $this->container->getParameter('cvd_access_error_router'))) {
-                $rendered = $this->container->get('templating')->render('LVCvdBundle:Default:error.html.twig');
-                return $event->setResponse(new Response($rendered));
+                //$rendered = $this->container->get('templating')->render('LVCvdBundle:Default:error.html.twig');
+                //return $event->setResponse(new Response($rendered));
+                $url = $this->router->generate('lv_cvd_error');
+                return $event->setResponse(new RedirectResponse($url));
             }
         } else {
             if($current_route && in_array($current_route, $this->container->getParameter('cvd_access_need_router'))) {

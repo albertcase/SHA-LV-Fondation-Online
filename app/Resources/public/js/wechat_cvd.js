@@ -106,17 +106,14 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         imgUrl: shareData.imgUrl, // 分享图标
         success: function () {
             // 用户确认分享后执行的回调函数  
-            if($("#wechatTips").length > 0){
-                $("#wechatTips").hide();
-            }          
 
-            _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
+            shareData.returnFun();
 
             if(shareData.shareLog == "1"){
                 sharelogFun("Timeline");
             }
-            
-            shareData.returnFun();
+
+            _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
             //alert('分享成功');
         },
         cancel: function () { 
@@ -133,17 +130,14 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
         desc: shareData.desc,
         success: function () { 
             // 用户确认分享后执行的回调函数
-            if($("#wechatTips").length > 0){
-                $("#wechatTips").hide();
-            }
-
-            _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
+            
+            shareData.returnFun();
 
             if(shareData.shareLog == "1"){
                 sharelogFun("ShareAppMessage");
             }
 
-            shareData.returnFun();
+            _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
             //alert('分享成功');
         },
         cancel: function () { 
@@ -179,17 +173,14 @@ function editShare(){   ///demon
             imgUrl: shareData.imgUrl, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                if($("#wechatTips").length > 0){
-                    $("#wechatTips").hide();
-                }
-                
-                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
+
+                shareData.returnFun();
 
                 if(shareData.shareLog == "1"){
                     sharelogFun("Timeline");
                 }
 
-                shareData.returnFun();
+                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
                 
                 //alert('分享成功');
             },
@@ -208,17 +199,14 @@ function editShare(){   ///demon
             desc: shareData.desc,
             success: function () { 
                 // 用户确认分享后执行的回调函数
-                if($("#wechatTips").length > 0){
-                    $("#wechatTips").hide();
-                }
-                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
+
+                shareData.returnFun();
 
                 if(shareData.shareLog == "1"){
                     sharelogFun("ShareAppMessage");
                 }
 
-                shareData.returnFun();
-
+                _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
                 //alert('分享成功');
             },
             cancel: function () { 

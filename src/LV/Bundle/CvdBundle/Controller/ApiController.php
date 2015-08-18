@@ -67,4 +67,23 @@ class ApiController extends Controller
         $response->setData($status);
         return $response;
     }
+
+    public function testAction()
+    {
+        $openid = 'oKK-FjjesKwlG4K2xEtLEg4qPKYc';
+        $data = array();
+        $data['first']['value'] = '恭喜您获得参与路易威登浪漫七夕茶歇邀请函';
+        $data['first']['color'] = '#000000';
+        $data['keyword1']['value'] = '路易威登邀您共度浪漫七夕';
+        $data['keyword1']['color'] = '#000000';
+        $data['keyword2']['value'] = date("Y-m-d");
+        $data['keyword2']['color'] = '#000000';
+        $data['remark']['value'] = '点击查看详情，获取您的精美茶歇邀请函';
+        $data['remark']['color'] = '#000000';
+        $wechat = $this->get('same.wechat');
+        $template_id = 'boicCRp5adiZr2AoXgGCX-xV7DE1oVhrqbE0RwEx3UY';
+        $url = '';
+        $topcolor = '#000000';
+        return $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
+    }
 }

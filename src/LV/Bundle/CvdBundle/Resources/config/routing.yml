@@ -27,3 +27,7 @@ lv_cvd_sharelog:
 lv_cvd_error:
     path:     /desktop
     defaults: { _controller: LVCvdBundle:Page:error }
+
+lv_cvd_test:
+    path:     /test
+    defaults: { _controller: LVCvdBundle:Page:test }

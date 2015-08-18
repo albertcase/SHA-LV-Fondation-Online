@@ -109,9 +109,7 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
 
             shareData.returnFun();
 
-            if(shareData.shareLog == "1"){
-                sharelogFun("Timeline");
-            }
+            sharelogFun("Timeline");
 
             _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
             //alert('分享成功');
@@ -133,9 +131,10 @@ function wechatShare(appid,timestamp_val,noncestr,signature_val){
             
             shareData.returnFun();
 
-            if(shareData.shareLog == "1"){
-                sharelogFun("ShareAppMessage");
-            }
+            // if(shareData.shareLog == "1"){
+            //     sharelogFun("ShareAppMessage");
+            // }
+            sharelogFun("ShareAppMessage");
 
             _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
             //alert('分享成功');
@@ -176,10 +175,8 @@ function editShare(){   ///demon
 
                 shareData.returnFun();
 
-                if(shareData.shareLog == "1"){
-                    sharelogFun("Timeline");
-                }
-
+                sharelogFun("Timeline");
+                
                 _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享到朋友圈']);
                 
                 //alert('分享成功');
@@ -202,9 +199,7 @@ function editShare(){   ///demon
 
                 shareData.returnFun();
 
-                if(shareData.shareLog == "1"){
-                    sharelogFun("ShareAppMessage");
-                }
+                sharelogFun("ShareAppMessage");
 
                 _hmt.push(['_trackEvent', 'btn', '右上角分享', '分享给好友']);
                 //alert('分享成功');

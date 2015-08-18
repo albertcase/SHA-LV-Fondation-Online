@@ -30,4 +30,4 @@ lv_cvd_error:
 
 lv_cvd_test:
     path:     /test
-    defaults: { _controller: LVCvdBundle:Page:test }
+    defaults: { _controller: LVCvdBundle:Api:test }

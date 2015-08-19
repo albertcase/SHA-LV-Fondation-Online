@@ -624,14 +624,6 @@ html,body,#dreambox{
 
 @media handheld and (min-height:490px),screen and (max-height:520px) {
 
-	html,body,#dreambox{
-	    overflow: auto;
-	}
-
-	.btnArea{
-		bottom: -8em;
-	}
-
 	.mainer{
 		height: 100%;
 	}

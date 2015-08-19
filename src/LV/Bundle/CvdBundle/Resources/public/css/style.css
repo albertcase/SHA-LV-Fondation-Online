@@ -569,6 +569,10 @@ html,body,#dreambox{
 		width: 90%;
 		display: inline-block;
 	}
+
+	.mainer{
+		height: 100%;
+	}
 }
 
 /* 6 */
@@ -610,8 +614,29 @@ html,body,#dreambox{
 		display: inline-block;
 	}
 
+	.mainer{
+		height: 100%;
+	}
+
 }
 
+/* 5s */
+
+@media handheld and (min-height:490px),screen and (max-height:520px) {
+
+	html,body,#dreambox{
+	    overflow: auto;
+	}
+
+	.btnArea{
+		bottom: -8em;
+	}
+
+	.mainer{
+		height: 100%;
+	}
+
+}
 
 
 /* 4s */
@@ -627,6 +652,7 @@ html,body,#dreambox{
 	}
 
 }
+
 
 
 

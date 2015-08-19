@@ -26,6 +26,11 @@ class PageController extends Controller
         return $this->render('LVCvdBundle:Default:error.html.twig');
     }
 
+    public function desktopAction()
+    {
+        return $this->render('LVCvdBundle:Default:desktop.html.twig');
+    }
+
     public function shareAction($id)
     {
         $repository = $this->getDoctrine()->getRepository('LVCvdBundle:Locks');

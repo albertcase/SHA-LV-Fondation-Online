@@ -47,7 +47,6 @@ html,body,#dreambox{
     -moz-overflow-scrolling: touch; 
     -webkit-overflow-scrolling: touch; 
     -o-overflow-scrolling: touch;  
-    overflow: hidden;
 }
 
 
@@ -73,7 +72,7 @@ html,body,#dreambox{
 .logo{
 	width: 76%;
 	display: inline-block;
-	margin: 12% 0 0 0;
+	margin: 18% 0 0 0;
 }
 
 .slogan{

@@ -622,7 +622,7 @@ html,body,#dreambox{
 
 /* 5s */
 
-@media handheld and (min-height:490px),screen and (max-height:520px) {
+@media handheld and (min-height:490px),screen and (max-height:510px) {
 
 	.mainer{
 		height: 100%;

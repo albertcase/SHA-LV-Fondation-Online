@@ -42,8 +42,11 @@ function getHeight(){
 	if($(window).height() > 700){
 
 	}else{
-		$("#con").css({"height": $(window).height()});
-		$("body").css({"line-height": $(window).height()});
+		
+		$("#con").onload=function){
+			$("#con").css({"height": $(window).height(),"margin":(parseInt($(window).height())-this.height)/2});
+			
+		}
 	}
 	
 }

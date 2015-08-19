@@ -15,7 +15,14 @@
 		body{
 			width: 100%;
 			text-align: center;
+			background: #000;
 		}
+
+		#con{
+			position: absolute;
+			top:50%;
+		}
+
 	</style>
 <script>
     var _hmt = _hmt || [];
@@ -35,7 +42,7 @@ function getHeight(){
 	if($(window).height() > 700){
 
 	}else{
-		$("#con").css("height",$(window).height());
+		$("#con").css({"height": $(window).height(),"margin-top": -parseInt($(window).height())/2});
 	}
 	
 }

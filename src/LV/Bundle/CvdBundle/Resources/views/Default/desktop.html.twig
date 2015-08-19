@@ -42,7 +42,8 @@ function getHeight(){
 	if($(window).height() > 700){
 
 	}else{
-		$("#con").css({"height": $(window).height(),"margin-top": -parseInt($(window).height())/2});
+		$("#con").css({"height": $(window).height()});
+		$("body").css("line-height": parseInt($(window).height()));
 	}
 	
 }

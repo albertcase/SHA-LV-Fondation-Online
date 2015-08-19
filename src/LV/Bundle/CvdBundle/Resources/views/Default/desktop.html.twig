@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>路易威登基金会</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+	<script type="text/javascript" src="http://coachfoc.samesamechina.com/js/jquery.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+	<img src="/images/desktop/desktop.jpg" id="con">
+
+<script type="text/javascript">
+function getHeight(){
+	if($(window).height() > 700){
+
+	}else{
+		$("#con").css("height",$(window).height());
+	}
+	
+}
+getHeight()
+
+
+$(window).resize(function(){
+ 	 getHeight()
+});
+</script>
+
+
+</body>
+</html>

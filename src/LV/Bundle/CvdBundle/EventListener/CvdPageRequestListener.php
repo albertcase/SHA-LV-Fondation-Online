@@ -38,10 +38,10 @@ class CvdPageRequestListener
 
         $current_route = $event->getRequest()->get('_route');
 
-        // if(!$this->mobiledetect->isMobile()){
-        //     $url = $this->router->generate('lv_cvd_desktop');
-        //     return $event->setResponse(new RedirectResponse($url));
-        // }
+        if(!$this->mobiledetect->isMobile()){
+            $url = $this->router->generate('lv_cvd_desktop');
+            return $event->setResponse(new RedirectResponse($url));
+        }
         if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
             if(in_array($current_route, $this->container->getParameter('cvd_access_error_router'))) {
                 //$rendered = $this->container->get('templating')->render('LVCvdBundle:Default:error.html.twig');

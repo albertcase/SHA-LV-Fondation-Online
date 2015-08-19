@@ -606,3 +606,23 @@ html,body,#dreambox{
 	}
 
 }
+
+/* 4s */
+
+@media handheld and (min-height:550px),screen and (max-height:570px) {
+	
+	.entrance{
+		background:green;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+

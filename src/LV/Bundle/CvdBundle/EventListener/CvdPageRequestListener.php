@@ -38,7 +38,7 @@ class CvdPageRequestListener
 
         $current_route = $event->getRequest()->get('_route');
 
-        if(!$this->mobiledetect->isMobile()){
+        if(!$this->mobiledetect->isMobile() && $current_route != 'lv_cvd_desktop'){
             $url = $this->router->generate('lv_cvd_desktop');
             return $event->setResponse(new RedirectResponse($url));
         }

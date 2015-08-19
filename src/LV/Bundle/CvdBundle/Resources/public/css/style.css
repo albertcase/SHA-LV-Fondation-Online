@@ -47,7 +47,6 @@ html,body,#dreambox{
     -moz-overflow-scrolling: touch; 
     -webkit-overflow-scrolling: touch; 
     -o-overflow-scrolling: touch;  
-    overflow: hidden;
 }
 
 
@@ -166,7 +165,7 @@ html,body,#dreambox{
 }
 
 .products ul{
-	width: 90%;
+	width: 86%;
 	display: inline-block;
 }
 
@@ -559,6 +558,17 @@ html,body,#dreambox{
 	.create_bg{
 		height: 100%;
 	}
+
+	.logo{
+		width: 76%;
+		display: inline-block;
+		margin: 18% 0 0 0;
+	}
+
+	.products ul{
+		width: 90%;
+		display: inline-block;
+	}
 }
 
 /* 6 */
@@ -589,6 +599,17 @@ html,body,#dreambox{
 		height: 100%;
 	}
 
+	.logo{
+		width: 76%;
+		display: inline-block;
+		margin: 18% 0 0 0;
+	}
+
+	.products ul{
+		width: 90%;
+		display: inline-block;
+	}
+
 }
 
 
@@ -606,3 +627,13 @@ html,body,#dreambox{
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

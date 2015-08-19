@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>路易威登基金会</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <!--禁用手机号码链接(for iPhone)-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+    <!--自适应设备宽度-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--控制全屏时顶部状态栏的外，默认白色-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="...">
+
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="../css/guide-style.css" />
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/swiper.min.js"></script>
+     <script type="text/javascript" src="../js/data.js"></script>
+</head>
+<body>
+
+<div id="navLevel" class="page-prev">
+    <ul class="menu">
+        <li>
+            <a href="javascript:;" title="CHAPTER1 起航"><img src="../imgs/n-1.png" width="100%"></a>
+        </li>
+        <li>
+            <a href="javascript:;" title="CHAPTER2 梦想之旅"><img src="../imgs/n-2.png" width="100%"></a>
+        </li>
+        <li>
+            <a href="javascript:;" title="CHAPTER3 立梦建筑"><img src="../imgs/n-3.png" width="100%"></a>
+        </li>
+        <li>
+            <a href="javascript:;" title="CHAPTER4 创梦当代"><img src="../imgs/n-4.png" width="100%"></a>
+        </li>
+        <li>
+            <a href="javascript:;" title="讲述自己的梦想之旅"><img src="../imgs/n-5.png" width="100%"></a>
+        </li>
+        <li>
+            <a href="javascript:;" title="邀请函"><img src="../imgs/n-6.png" width="100%"></a>
+        </li>
+    </ul>
+
+    <div class="navLevel_footer">
+        <a class="close" href="javascript:;">
+            <img src="../imgs/close.png" width="100%">
+            关 闭
+        </a>
+    </div>
+    
+</div>
+
+
+<div id="dreambox">
+<div class="head">
+    <img src="../imgs/nav_bg.png" class="nav-bg" />
+    <a href="javascript:;" class="nav_icon">
+        <img src="../imgs/nav_icon.png" />
+    </a>
+    <img src="../imgs/menu-bg.png" height="100%" />
+</div>
+
+
+
+<!-- 全景地图 -->
+<div class="guideCon">
+    <div class="mapArea">
+        <a href="javascript:;" class="hotlink link-1" data-id="0"></a>
+        <a href="javascript:;" class="hotlink link-2" data-id="1"></a>
+        <a href="javascript:;" class="hotlink link-3" data-id="2"></a>
+        <a href="javascript:;" class="hotlink link-4" data-id="3"></a>
+        <a href="javascript:;" class="hotlink link-5" data-id="4"></a>
+        <a href="javascript:;" class="hotlink link-6" data-id="5"></a>
+        <a href="javascript:;" class="hotlink link-7" data-id="6"></a>
+        <img src="/images/audioGuide/map.jpg" width="100%" />
+    </div>
+    
+    <img src="/images/audioGuide/kv.jpg" width="100%" />
+</div>
+
+
+
+<!-- 地图详细 -->
+<div class="mapInfo"></div>
+
+
+
+</div>
+
+
+
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/menu.js"></script>
+<script type="text/javascript"> 
+    
+    var audioSrc = ["audio1.m4a","audio2.mp3"];
+    var audio = document.createElement("audio");
+    function audioFun(num){
+        console.log(num)
+        audio.src = "/images/audioGuide/audio/"+audioSrc[num];
+        audio.autoplay = true; //设置是否自动播放
+        // audio.addEventListener('ended', function () { //循环播放
+        //     audio.play();
+        // }, false);
+    }
+
+
+    // Resetting currentTime will restart the sound
+    // function restart() {
+    //     audio.currentTime = 0;
+    //     audio.play();
+    // }
+
+
+
+
+function GetQueryString(){
+    var r = unescape(location.hash);
+    r=r.replace("#","");
+    if(r!=null)return r; return null;
+}
+
+
+function hotSpotFun(cunSpot){
+    $(".mapInfo").show().animate({"top":"0","opacity":1});
+    var swiperImgLength = 0;
+    var guideContent = $.map(audioData,function(v,k){
+
+        if(k==cunSpot){
+            swiperImgLength = v.imgLength;
+            return '<div class="swiper-container" data-id="'+v.id+'"><div class="swiper-wrapper"></div><div class="swiper-pagination"></div></div><div class="mapIntro"><img src="/images/audioGuide/scrollbg.jpg" width="100%" /><div class="introCon"><h2>'+v.theme+'</h2><div class="introText"><p>'+v.description+'</p></div></div><div class="textMask"><img src="/images/audioGuide/mask.png" width="100%" /></div><div class="audioControler"><div class="leftBtn"><img src="/images/audioGuide/leftBtn.png" width="100%" /></div><div class="audioCon"><img src="/images/audioGuide/play.png" width="100%" /></div><div class="rightBtn"><img src="/images/audioGuide/rightBtn.png" width="100%" /></div></div></div><div class="mapPos"><a href="javascript:;" class="rebackMap"><img src="/images/audioGuide/hotSpot'+cunSpot+'/curmap.jpg" width="100%" /></a></div>'
+        }
+    })
+
+    $(".mapInfo").html(guideContent);
+    audioFun(cunSpot);
+    var swiperHtml = "";
+    for(i=0; i<=swiperImgLength; i++){
+        swiperHtml+='<div class="swiper-slide"><img src="/images/audioGuide/hotSpot'+cunSpot+'/banner'+i+'.jpg" width="100%" /></div>'
+    }
+
+    $(".swiper-wrapper").html(swiperHtml);
+    var mySwiper = new Swiper('.swiper-container', {
+        effect : 'coverflow',
+        pagination: '.swiper-pagination'
+    })
+
+    history.pushState({"page": cunSpot}, "" , "#"+cunSpot);
+
+    $(".leftBtn").click(function(){
+        var getSpot = GetQueryString();
+        if(getSpot<=0)return false;
+        getSpot--;
+        hotSpotFun(getSpot);
+    })
+
+    $(".rightBtn").click(function(){
+        var getSpot = GetQueryString();
+        if(getSpot>=9)return false;
+        getSpot++;
+        hotSpotFun(getSpot);
+    })
+
+
+    $(".audioCon").click(function(){
+        audio.play();
+    })
+
+    $(".rebackMap").click(function(){
+        $(".mapInfo").animate({"top":"0","opacity":0},function(){
+            $(this).hide();
+            audio.pause();
+            $(".guideCon").animate({"opacity":1});
+            window.location.hash = ""
+        });
+    })
+}
+
+if(GetQueryString()){
+    hotSpotFun(GetQueryString());
+}else{
+    $(".guideCon").animate({"opacity":1});
+}
+
+$(".hotlink").click(function(){
+    var curid = $(this).attr("data-id");
+    hotSpotFun(curid);
+})
+
+</script>
+</body>
+</html>

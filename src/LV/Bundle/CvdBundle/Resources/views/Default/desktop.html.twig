@@ -44,6 +44,7 @@ function getHeight(){
 	}else{
 		
 		$("#con").load(function(){
+			console.log($(this).height());
 			$("#con").css({"height": $(window).height()});  
 			$("#con").css({"margin-top":(parseInt($(window).height())-$(this).height())/2});  
 		});

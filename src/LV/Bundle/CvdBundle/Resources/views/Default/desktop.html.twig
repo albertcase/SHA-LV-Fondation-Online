@@ -44,7 +44,8 @@ function getHeight(){
 	}else{
 		
 		$("#con").load(function(){
-			$("#con").css({"height": $(window).height(),"margin-top":(parseInt($(window).height())-this.height)/2});   
+			$("#con").css({"height": $(window).height()});  
+			$("#con").css({"margin-top":(parseInt($(window).height())-$(this).height())/2});  
 		});
 	}
 	

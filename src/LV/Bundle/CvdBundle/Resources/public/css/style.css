@@ -60,7 +60,7 @@ html,body,#dreambox{
 
 .mainer{
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	position: relative;
 }
 
@@ -266,7 +266,7 @@ html,body,#dreambox{
 	text-align: center;
 	position: absolute;
 	left: 0;
-	top: -12%;
+	top: -18%;
 }
 
 .withlove{
@@ -569,6 +569,20 @@ html,body,#dreambox{
 		width: 90%;
 		display: inline-block;
 	}
+
+	.mainer{
+		height: 100%;
+	}
+
+	/* create */
+	.locked_con{
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: -12%;
+	}
+
 }
 
 /* 6 */
@@ -610,8 +624,41 @@ html,body,#dreambox{
 		display: inline-block;
 	}
 
+	.mainer{
+		height: 100%;
+	}
+
+	/* create */
+	.locked_con{
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: -12%;
+	}
+
+
 }
 
+/* 5s */
+
+@media handheld and (min-height:490px),screen and (max-height:510px) {
+
+	.mainer{
+		height: 100%;
+	}
+
+	/* create */
+	.locked_con{
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: -12%;
+	}
+
+
+}
 
 
 /* 4s */
@@ -626,7 +673,18 @@ html,body,#dreambox{
 		bottom: -8em;
 	}
 
+	/* create */
+	.locked_con{
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: -12%;
+	}
+
+
 }
+
 
 
 

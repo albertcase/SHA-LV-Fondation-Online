@@ -1,0 +1,170 @@
+.guideCon{
+	opacity: 0;
+}
+
+.mapArea{
+	width: 100%;
+	position: relative;
+}
+
+.mapArea a{
+	width: 50px;
+	height: 50px;
+	background: green;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.6;
+}
+
+.mapArea a.link-1{
+	left: 23%;
+	top: 49%;
+}
+
+.mapArea a.link-2{
+	left: 26%;
+	top: 39%;
+}
+
+.mapArea a.link-3{
+	left: 22%;
+	top: 17%;
+}
+
+.mapArea a.link-4{
+	left: 51%;
+	top: 13%;
+}
+
+.mapArea a.link-5{
+	left: 60%;
+	top: 46%;
+}
+
+.mapArea a.link-6{
+	left: 45%;
+	top: 56%;
+}
+
+.mapArea a.link-7{
+	left: 44%;
+	top: 31%;
+}
+
+
+
+/* mapInfo */
+
+.mapInfo{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9;
+	background: #fff;
+	overflow: auto;
+	display: none;
+	opacity: 0;
+}
+
+.swiper-wrapper, .swiper-container{
+	height: auto;
+}
+
+.swiper-pagination-bullet{
+	background: #fff;
+	opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+	width: 15px;
+	opacity: 1;
+	border-radius: 6px;
+	-webkit-transition:all .6s ease-out;
+	-moz-transition:all .6s ease-out;
+	transition:all .6s ease-out;
+}
+
+.mapIntro{
+	width: 100%;
+	position: relative;
+}
+
+.introCon{
+	width: 90%;
+	height: 90%;
+	position: absolute;
+	left: 6%;
+	top: 5%;
+}
+
+.introCon h2{
+	font-size: 20px;
+	width: 100%;
+	text-align: center;
+	padding: 0 0 10px 0;
+}
+
+.introText{
+	width: 100%;
+	height: 70%;
+	overflow: auto;
+	letter-spacing: .1em;
+	line-height: 22px;
+}
+
+.introCon p{
+	font-size: 16px;
+	width: 100%;
+	padding: 0 0 60px 0;
+}
+
+.audioControler{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: -1.5em;
+	text-align: center;
+	z-index: 3;
+}
+
+.textMask{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+}
+
+.leftBtn{
+	width: 15%;
+	position: absolute;
+	left: 1em;
+	top: 1em;
+}
+
+.audioCon{
+	width: 20%;
+	display: inline-block;
+}
+
+.rightBtn{
+	width: 15%;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+

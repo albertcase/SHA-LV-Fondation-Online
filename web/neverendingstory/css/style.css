@@ -1,0 +1,303 @@
+@charset "utf-8";
+
+
+.opacity0{
+  opacity: 0;
+}
+
+.page{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+  display: none;
+  z-index: 9;
+}
+
+.logo{
+  width: 62%;
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  margin: 0 0 0 -31%; 
+  z-index: 12;
+  text-align: center;
+}
+
+.flower{
+  width: 57%;
+  display: inline-block;
+  margin: 46% 0 0 0;
+  position: relative;
+}
+
+
+.spinner{
+  position: absolute;
+  left: 0;
+  bottom: -40%;
+  width: 100%;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 6px;
+  height: 6px;
+  background-color: #919295;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 6px;
+  -webkit-animation: bouncedelay 2s infinite ease-in-out;
+  animation: bouncedelay 2s infinite ease-in-out;
+  -webkit-animation-fill-mode: none;
+  animation-fill-mode: none;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.spinner .bounce3 {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #919295; }
+    40% { background-color: #fff;}
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #919295;} 
+    40% { background-color: #fff;}
+}
+
+
+
+/* video */
+
+.pageCon{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 16;
+}
+
+#video{
+  background: url("../imgs/bg.jpg") center bottom no-repeat;
+  background-size: 100% auto;
+}
+
+.video{
+  width: 100%;
+  display: inline-block;
+  margin: 40% 0 0 0;
+  position: relative;
+  z-index: 3;
+}
+
+
+.poster{
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.poster span{
+  width:100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: url("../imgs/play.png") center no-repeat;
+  background-size: 18% auto;
+}
+
+#mod_player{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.slogan{
+  width: 38%;
+  position: absolute;
+  left: 50%;
+  top: -27%;
+  margin: 0 0 0 -19%;
+  z-index: 6;
+}
+
+.changeTips{
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: -36%;
+  margin: 0 0 0 -25%;
+  z-index: 6;
+}
+
+.wifitips{
+  width: 108%;
+  position: absolute;
+  left: -4%;
+  bottom: -8%;
+}
+
+
+.swipeArea{
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.pageArr { 
+    width: 6%;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    margin: 0 0 0 -3%;
+    -webkit-animation: start 1.5s infinite ease-in-out;
+    -moz-animation: start 1.5s infinite ease-in-out;
+    animation: start 1.5s infinite ease-in-out;
+
+}
+
+
+
+/**
+ * = animate 鍔ㄧ敾鏍峰紡
+ *******************************************************************************************************/
+/*绠ご鎸囩ず寮曞*/
+@-webkit-keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@-moz-keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@keyframes start {
+  0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+  60% {opacity: 1;-webkit-transform: translate(0,0);}
+  100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+
+
+
+
+
+
+
+/* qrcode */
+#qrcode{
+  background: url("../imgs/qrcode_bg.jpg") center top no-repeat;
+  background-size: 100% auto;
+}
+
+.qrcode_con{
+  width:46%;
+  display: inline-block;
+  margin: 56% 0 0 0;
+  position: relative;
+}
+
+.ewmtips{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -29%;
+}
+
+
+
+
+
+
+
+
+
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+
+  .logo{
+    top: 9%;
+  }
+
+  #video{
+    background: url("../imgs/bg.jpg") center bottom no-repeat;
+    background-size: 100% auto;
+  }
+
+  .video{
+    margin: 32% 0 0 0;
+  }
+
+  .slogan{
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: -18%;
+    margin: 0 0 0 -20%;
+    z-index: 6;
+  }
+
+  .changeTips{
+      width: 50%;
+      position: absolute;
+      left: 50%;
+      bottom: -30%;
+      margin: 0 0 0 -25%;
+      z-index: 6;
+    }
+
+
+
+  #qrcode{
+    background: url("../imgs/qrcode_bg.jpg") center bottom no-repeat;
+    background-size: 100% auto;
+  }
+
+
+  .qrcode_con{
+    margin: 38% 0 0 0;
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

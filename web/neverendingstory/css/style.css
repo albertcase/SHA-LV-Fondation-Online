@@ -479,7 +479,8 @@
 
 .successPup_con span{
   display: inline-block;
-  margin: 0 0 0 14%;
+  margin: 0 0 0 42%;
+  float: left;
 }
 
 

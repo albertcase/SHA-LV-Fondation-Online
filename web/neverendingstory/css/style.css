@@ -286,6 +286,207 @@
 
 
 
+.wrapFrom{
+  width: 100%;
+  height: 100%;
+  background: #ebebeb;
+  text-align: center;
+}
+
+
+.fpage{
+  width: 76%;
+  display: none;
+  margin: 16% 0 0 0;
+}
+
+.fpage#form{
+  display: inline-block;
+}
+
+#form h1{
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  padding: 0 0 15% 0;
+}
+
+#form h1 span{
+  width: 100%;
+  font-size: 18px;
+  display: inline-block;
+}
+
+#form h2{
+  width: 100%;
+  font-size: 16px;
+  display: inline-block;
+}
+
+#form ul{
+  width: 100%;
+  display: inline-block;
+  margin: 15% 0;
+}
+
+#form li{
+  width: 100%;
+  padding: 6px 0;
+  background: #e5e0da;
+  font-size: 14px;
+  color: #a5a5a5;
+  margin: 9px 0;
+  display: inline-block;
+}
+
+#form li.sex{
+  background:#e5e0da url("../imgs/select_arr.png") no-repeat 92% center;
+  background-size: 5% auto;
+}
+
+#form li span{
+  width: 27%;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  float: left;
+  text-align: center;
+}
+
+#form li input, #form li select{
+  width: 70%;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  background: none;
+  border:none;
+  font-size: 14px;
+  float: left;
+}
+
+
+
+/*#form li input{
+  width: 80%;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  background: none;
+  border:none;
+  font-size: 14px;
+}*/
+
+.pf_footer{
+  width: 100%;
+  display: inline-block;
+}
+
+.submit_btn{
+  width: 38%;
+  display: inline-block;
+  position: relative;
+}
+
+.submit_btn em{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  margin: -10% 0 0 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.rule_link{
+  font-size: 18px;
+  color: #533f35;
+  width: 100%;
+  display: inline-block;
+  margin: 6% 0 20% 0;
+}
+
+.rule_link i{
+  font-style: normal;
+  border-bottom: 1px #533f35 solid;
+}
+
+
+
+
+
+/* rule */
+#rule h1{
+  font-size: 22px;
+  width: 100%;
+  display: inline-block;
+  margin: 6% 0 18% 0;
+}
+
+#rule h2{
+  font-size: 18px;
+  width: 100%;
+  display: inline-block;
+}
+
+.back_btn{
+  width: 38%;
+  display: inline-block;
+  position: relative;
+}
+
+.back_btn em{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  margin: -10% 0 0 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+#rule .pf_footer{
+  margin: 20% 0 22% 0;
+}
+
+
+.successPup{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  background: rgba(0,0,0,0.95);
+  display: none;
+}
+
+
+.successPup_con{
+  width:60%;
+  height: 100px;
+  line-height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -30%;
+  background: #e5e0da url("../imgs/r_icon.png") no-repeat 27% center;
+  color: #533f35;
+  background-size: 10% auto;
+  font-size: 18px;
+}
+
+.successPup_con span{
+  display: inline-block;
+  margin: 0 0 0 14%;
+}
+
+
+
+
+
+
 
 
 

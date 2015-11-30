@@ -20,7 +20,7 @@
   width: 62%;
   position: absolute;
   left: 50%;
-  top: 8%;
+  top: 10%;
   margin: 0 0 0 -31%; 
   z-index: 12;
   text-align: center;
@@ -96,7 +96,7 @@
 .video{
   width: 100%;
   display: inline-block;
-  margin: 40% 0 0 0;
+  margin: 43% 0 0 0;
   position: relative;
   z-index: 3;
 }
@@ -141,7 +141,7 @@
   width: 50%;
   position: absolute;
   left: 50%;
-  bottom: -36%;
+  bottom: -23%;
   margin: 0 0 0 -25%;
   z-index: 6;
 }
@@ -206,7 +206,7 @@
 
 /* qrcode */
 #qrcode{
-  background: url("../imgs/qrcode_bg.jpg") center top no-repeat;
+  background: url("../imgs/qrcode_bg.jpg") center bottom no-repeat;
   background-size: 100% auto;
 }
 
@@ -247,7 +247,7 @@
   }
 
   .video{
-    margin: 32% 0 0 0;
+    margin: 30% 0 0 0;
   }
 
   .slogan{
@@ -263,7 +263,7 @@
       width: 50%;
       position: absolute;
       left: 50%;
-      bottom: -30%;
+      bottom: -22%;
       margin: 0 0 0 -25%;
       z-index: 6;
     }
@@ -277,7 +277,7 @@
 
 
   .qrcode_con{
-    margin: 38% 0 0 0;
+    margin: 50% 0 0 0;
   }
 
 
@@ -297,7 +297,7 @@
 .fpage{
   width: 76%;
   display: none;
-  margin: 16% 0 0 0;
+  margin: 33% 0 0 0;
 }
 
 .fpage#form{
@@ -308,7 +308,7 @@
   font-size: 24px;
   width: 100%;
   text-align: center;
-  padding: 0 0 15% 0;
+  /*padding: 0 0 15% 0;*/
 }
 
 #form h1 span{
@@ -326,16 +326,16 @@
 #form ul{
   width: 100%;
   display: inline-block;
-  margin: 15% 0;
+  margin: 9% 0 9% 0;
 }
 
 #form li{
   width: 100%;
-  padding: 6px 0;
+  padding: 4px 0;
   background: #e5e0da;
   font-size: 14px;
   color: #a5a5a5;
-  margin: 9px 0;
+  margin: 4px 0;
   display: inline-block;
 }
 
@@ -393,17 +393,17 @@
   top: 50%;
   width: 100%;
   text-align: center;
-  margin: -10% 0 0 0;
-  font-size: 16px;
+  margin: -9% 0 0 0;
+  font-size: 14px;
   color: #fff;
 }
 
 .rule_link{
-  font-size: 18px;
+  font-size: 16px;
   color: #533f35;
   width: 100%;
   display: inline-block;
-  margin: 6% 0 20% 0;
+  margin: 6% 0 9% 0;
 }
 
 .rule_link i{
@@ -441,13 +441,13 @@
   top: 50%;
   width: 100%;
   text-align: center;
-  margin: -10% 0 0 0;
-  font-size: 16px;
+  margin: -9% 0 0 0;
+  font-size: 14px;
   color: #fff;
 }
 
 #rule .pf_footer{
-  margin: 20% 0 22% 0;
+  margin: 23.5% 0 10% 0;
 }
 
 
@@ -457,13 +457,13 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9;
-  background: rgba(0,0,0,0.95);
+  z-index: 16;
+  background: rgba(235,235,235,1);
   display: none;
 }
 
 
-.successPup_con{
+/*.successPup_con{
   width:60%;
   height: 100px;
   line-height: 100px;
@@ -482,6 +482,28 @@
   margin: 0 0 0 42%;
   float: left;
 }
+*/
+
+.successPup_con{
+  width:60%;
+  height: 100px;
+  line-height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -30%;
+  /*background: #e5e0da url("../imgs/r_icon.png") no-repeat 27% center;*/
+  background: #533f35;
+  color: #fff;
+  background-size: 10% auto;
+  font-size: 18px;
+  text-align: center;
+}
+
+.successPup_con span{
+  display: inline-block;
+  /*margin: 0 0 0 14%;*/
+}
 
 
 
@@ -490,6 +512,46 @@
 
 
 
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+  #form ul{
+    width: 100%;
+    display: inline-block;
+    margin: 9% 0 9% 0;
+  }
+
+  #form li{
+    width: 100%;
+    padding: 6px 0;
+    background: #e5e0da;
+    font-size: 14px;
+    color: #a5a5a5;
+    margin: 9px 0;
+    display: inline-block;
+  }
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+  #form ul{
+    width: 100%;
+    display: inline-block;
+    margin: 9% 0 9% 0;
+  }
+
+  #form li{
+    width: 100%;
+    padding: 6px 0;
+    background: #e5e0da;
+    font-size: 14px;
+    color: #a5a5a5;
+    margin: 9px 0;
+    display: inline-block;
+  }
+}
 
 
 

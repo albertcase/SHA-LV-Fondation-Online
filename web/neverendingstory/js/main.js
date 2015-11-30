@@ -56,6 +56,9 @@ document.addEventListener('touchmove' , function (ev){
 				onallended: function(){
 					$(".poster").show();
 					videoFun(0);
+
+					pageAnimate_out("video");
+					pageAnimate_in("qrcode");
 				},
 				onpause: function(){
 					$(".poster").show();

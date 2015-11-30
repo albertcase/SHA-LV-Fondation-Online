@@ -13,7 +13,7 @@ document.addEventListener('touchmove' , function (ev){
 ;(function($){
     $(function(){
 
-        var basePath= '../';    //'http://wximg.qq.com/wxp/moment/4ySCn1mfl/';
+        var basePath= '';    //'http://wximg.qq.com/wxp/moment/4ySCn1mfl/';
 		// var wa = new WxMoment.Analytics({
 		//     //projectName 请与微信商务团队确认
 		//     projectName: "20151207LV"

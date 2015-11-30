@@ -99,20 +99,20 @@ document.addEventListener('touchmove' , function (ev){
 			var loader = new WxMoment.Loader();
 			
 			    //添加一个资源
-			    loader.addImage(basePath + '/imgs/arr.png');
-			    loader.addImage(basePath + '/imgs/bg.jpg');
-			    loader.addImage(basePath + '/imgs/change_tips.png');
-			    loader.addImage(basePath + '/imgs/ewmtips.png');
-			    loader.addImage(basePath + '/imgs/flower.png');
-			    loader.addImage(basePath + '/imgs/logo.png');
+			    loader.addImage(basePath + 'imgs/arr.png');
+			    loader.addImage(basePath + 'imgs/bg.jpg');
+			    loader.addImage(basePath + 'imgs/change_tips.png');
+			    loader.addImage(basePath + 'imgs/ewmtips.png');
+			    loader.addImage(basePath + 'imgs/flower.png');
+			    loader.addImage(basePath + 'imgs/logo.png');
 
-			    loader.addImage(basePath + '/imgs/play.png');
-			    loader.addImage(basePath + '/imgs/poster.jpg');
+			    loader.addImage(basePath + 'imgs/play.png');
+			    loader.addImage(basePath + 'imgs/poster.jpg');
 
-			    loader.addImage(basePath + '/imgs/qrcode_bg.jpg');
-			    loader.addImage(basePath + '/imgs/qrcode.png');
-			    loader.addImage(basePath + '/imgs/share.jpg');
-			    loader.addImage(basePath + '/imgs/slogan.png');
+			    loader.addImage(basePath + 'imgs/qrcode_bg.jpg');
+			    loader.addImage(basePath + 'imgs/qrcode.png');
+			    loader.addImage(basePath + 'imgs/share.jpg');
+			    loader.addImage(basePath + 'imgs/slogan.png');
 
 			    //监听资源加载完成事件
 			    loader.addCompletionListener(function () {

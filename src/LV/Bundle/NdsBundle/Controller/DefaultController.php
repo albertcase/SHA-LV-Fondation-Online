@@ -3,11 +3,16 @@
 namespace LV\Bundle\NdsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use LV\Bundle\NdsBundle\Entity\Ndsinfo;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
+
     	$user = $this->get('lv.user.service');
     	$wechat = $this->get('same.wechat');
     	if(!$user->userLoad()) {
@@ -15,9 +20,8 @@ class DefaultController extends Controller
 	        $url = $this->getRequest()->getRequestUri();
 
 	        $isWechatLogin = $wechat->isLogin($url);
-
 	        if($isWechatLogin instanceof RedirectResponse)
-	           return $this->setResponse($isWechatLogin);
+	           return $isWechatLogin;
 
 	        $user->userLogin($isWechatLogin);
 	    }
@@ -47,7 +51,7 @@ class DefaultController extends Controller
             $doctrine->persist($ndsinfo);
             $doctrine->flush();
         }
-        $status = array('status' => '1', 'type' => $type);
+        $status = array('data' => '1', 'msg' => '提交成功');
         $response = new JsonResponse();
         $response->setData($status);
         return $response;

@@ -507,23 +507,27 @@
 
 
 .agreement{
-  width: 106%;
+  width: 110%;
   display: inline-block;
+  margin: 0 0 12% -8%;
 }
 
 .agreement input{
-  width: 10%;
+  width: 8%;
   float: left;
   display: inline-block;
 }
 
 .agreement img{
-  width: 80%;
+  width: 90%;
   float: left;
   display: inline-block;
-  margin: 0 0 0 3%;
 }
 
+.fpage#attention img{
+  margin: 10% 0 0 0;
+  display: inline-block;
+}
 
 
 

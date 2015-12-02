@@ -1,0 +1,3 @@
+lv_nds_homepage:
+    path:     /index
+    defaults: { _controller: LVNdsBundle:Default:index }

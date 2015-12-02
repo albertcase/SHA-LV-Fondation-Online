@@ -1,3 +1,7 @@
+lv_nds:
+    resource: "@LVNdsBundle/Resources/config/routing.yml"
+    prefix:   /nds
+
 lv_cvd:
     resource: "@LVCvdBundle/Resources/config/routing.yml"
     prefix:   /chinesevday

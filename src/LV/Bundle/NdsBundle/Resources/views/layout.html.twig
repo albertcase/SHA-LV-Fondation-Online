@@ -1,0 +1,29 @@
+{% extends '::cvd_base.html.twig' %}
+{% block title %}路易威登{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/main.css"
+	'@LVNdsBundle/Resources/public/css/reset.css'
+	'@LVNdsBundle/Resources/public/css/style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/main.js"
+    '%kernel.root_dir%/Resources/public/js/jquery.js'
+    '%kernel.root_dir%/Resources/public/js/jweixin.js'
+%}
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?38a2f94d03df36dfccbca6b719d4e325";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% endblock %}

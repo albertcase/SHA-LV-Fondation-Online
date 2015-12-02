@@ -1,0 +1,124 @@
+{% extends 'LVNdsBundle::layout.html.twig' %} 
+{% block content %}
+<div class="successPup">
+	<div class="successPup_con">
+		<span>提交成功</span>
+	</div>
+</div>
+
+<div class="wrapFrom">
+
+<a href="javascript:;" class="logo" >
+	<img src="/neverendingstory/imgs/logo_black.png" width="100%" />
+</a>
+
+<section class="fpage" id="form">
+	
+
+	<h1>
+		<img src="/neverendingstory/imgs/form_tips.png" width="49%" />
+	</h1>
+	<!-- <h2>
+		跟随路易威登踏上永无止境的旅程
+	</h2> -->
+
+	<ul>
+		<li>
+			<span>姓名</span><input type="text" name="name" placeholder="">
+		</li>
+		<li>
+			<span>电话</span><input type="tel" name="tel" maxlength="11" placeholder="">
+		</li>
+
+		<li class="sex">
+			<span>性别</span>
+			<select name="sex">
+				<option>请选择</option>
+				<option>男</option>
+				<option>女</option>
+			</select>
+			<!--  <input type="text" name="sex" placeholder=""> -->
+		</li>
+		<li>
+			<span>城市</span><input type="text" name="city" placeholder="">
+		</li>
+	</ul>
+
+	<div class="pf_footer">
+		<a href="javascript:;" class="submit_btn">
+			<em>提 交</em>
+			<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
+		</a>
+
+		<a href="javascript:changePage('rule');" class="rule_link">
+			<i>活动细则</i>
+		</a>
+	</div>
+
+
+</section>
+
+<section class="fpage" id="rule">
+	<h1>活动细则</h1>
+	<img src="/neverendingstory/imgs/rule_text.png" width="100%" />
+
+	<div class="pf_footer">
+		<a href="javascript:changePage('form');" class="back_btn">
+			<em>返 回</em>
+			<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
+		</a>
+	</div>
+</section>
+
+</div>
+
+
+<!-- 横屏代码 -->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function isPhoneNum(value){
+		return /^0?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
+	}
+
+	$(".submit_btn").click(function(){
+		var _name = $("input[name='name']").val();
+		var _tel = $("input[name='tel']").val();
+		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
+		var _city = $("input[name='city']").val();
+
+		if(_name == "" || !_name){
+			alert("请填写姓名");
+			return false;
+		}else if(!isPhoneNum(_tel)){
+			alert("请填写正确的手机号码");
+			return false;
+		}else if(_sex == "请选择"){
+			alert("请选择性别");
+			return false;
+		}else if(_city == ""){
+			alert("请填写城市");
+			return false;
+		}else{
+			$(".successPup").show();
+			//console.log(_name+":"+_tel);
+		}
+	})
+
+
+
+	function changePage(cp){
+		$(".fpage").hide();
+		$("#"+cp).css("display","inline-block");
+	}
+
+	$()
+
+</script>
+
+{% endblock %}

@@ -26,11 +26,7 @@ kbd, samp, code { font-family:monospace;}
 img, input, button, select, textarea { vertical-align:middle;outline:none;}
 ul, ol { list-style:none;}
 img, fieldset { border:0;}
-abbr, acronym { cursor:help; border-bottom:1px dotted black;}
-table {	width:100%; border-spacing:0; border:0;}
-table th, table td { border:0;}
-legend, hr { overflow:hidden; position:absolute; top:0; left:0;}
-legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0;}
+
 
 /**
  * = global 统一样式
@@ -59,14 +55,14 @@ body h1,body h2,body h3,body h4,body h5,body h6,body strong,body em {font-weight
 a,img { -webkit-touch-callout: none;}
 
 /* 去除input和输入框的默认样式，并默认赋予30%的黑色背景 */
-input { -webkit-appearance: none; border: none; background:#f4f5f1; border-radius: 0; color:#000; }
+/*input { -webkit-appearance: none; border: none; background:#f4f5f1; border-radius: 0; color:#000; }*/
 textarea { border: none; background: #f6f7f3; border-radius: 0; border:1px #ededed solid; color:#000; }
 
 
 /* 去除iphone中按下时的高亮效果 */
 /* 无法选择复制内容 */
 * { -webkit-user-select: none; -moz-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
-input,textarea { -webkit-user-select: auto; -moz-user-select: auto; text-transform:Capitalize; }
+/*input,textarea { -webkit-user-select: auto; -moz-user-select: auto; text-transform:Capitalize; }*/
 
 /* 阻止旋转屏幕时自动调整字体大小 */
 * { -webkit-text-size-adjust: none;}

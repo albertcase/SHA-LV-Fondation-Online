@@ -107,6 +107,7 @@
 	isIdCard("430524199108148197")
 
 	$(".submit_btn").click(function(){
+		if($(this).hasClass("disable")) return false;
 		var _name = $("input[name='name']").val();
 		var _tel = $("input[name='tel']").val();
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
@@ -132,7 +133,15 @@
 		}else if(!pcb){
 			alert("请阅读“活动细则”并勾选");
 		}else{
-			$(".successPup").show();
+			var submitVal = {
+			    	"name": _name,
+			    	"mobile": _tel,
+			    	"sex": _sex,
+			    	"city": _city,
+			    	"idcard": _id_card
+			    }
+			$(".submit_btn").addClass("disable").find("em").html("提交中..");
+			submitForm(submitVal);
 			//console.log(_name+":"+_tel);
 		}
 	})
@@ -145,7 +154,20 @@
 		$("#"+cp).css("display","inline-block");
 	}
 
-	$()
+	
+function submitForm(value){
+	$.ajax({
+	    type: "POST",
+	    url: "{{ url('lv_nds_api') }}",
+	    data: value,
+	    dataType:"json"
+    }).done(function(data){
+    	$(".successPup").show();
+    	$(".submit_btn").removeClass("disable").find("em").html("提交");
+    });
+}
+	
+
 
 </script>
 

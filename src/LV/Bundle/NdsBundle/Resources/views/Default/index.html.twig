@@ -42,6 +42,9 @@
 		<li>
 			<span>城市</span><input type="text" name="city" placeholder="">
 		</li>
+		<li>
+			<span>身份证</span><input type="text" name="id_card" placeholder="">
+		</li>
 	</ul>
 
 	<div class="pf_footer">
@@ -86,11 +89,19 @@
 		return /^0?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
 	}
 
+	function isIdCard(value){
+		return /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(value);
+	}
+
+	isIdCard("430524199108148197")
+
 	$(".submit_btn").click(function(){
 		var _name = $("input[name='name']").val();
 		var _tel = $("input[name='tel']").val();
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
 		var _city = $("input[name='city']").val();
+		var _id_card = $("input[name='id_card']").val();
+
 
 		if(_name == "" || !_name){
 			alert("请填写姓名");
@@ -104,6 +115,8 @@
 		}else if(_city == ""){
 			alert("请填写城市");
 			return false;
+		}else if(!isIdCard(_id_card)){
+			alert("身份证错误");
 		}else{
 			$(".successPup").show();
 			//console.log(_name+":"+_tel);

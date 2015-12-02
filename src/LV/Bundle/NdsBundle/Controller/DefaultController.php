@@ -25,7 +25,7 @@ class DefaultController extends Controller
 
 	        $user->userLogin($isWechatLogin);
 	    }
-	    $subscribe = 1;
+	    $subscribe = 0;
         return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
     }
 

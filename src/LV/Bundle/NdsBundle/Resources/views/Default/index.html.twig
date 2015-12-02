@@ -177,6 +177,8 @@ function submitForm(value){
     }).done(function(data){
     	$(".successPup").show();
     	$(".submit_btn").removeClass("disable").find("em").html("提交");
+    }).fail(function(data) {
+        alert(data.msg);
     });
 }
 	

@@ -511,7 +511,10 @@
   display: inline-block;
   margin: 0 0 12% -8%;
 }
-
+.agreement label{
+  width: 100%;
+  display: inline-block;
+}
 .agreement input{
   width: 8%;
   float: left;

@@ -15,18 +15,19 @@ class DefaultController extends Controller
 
     	$user = $this->get('lv.user.service');
     	$wechat = $this->get('same.wechat');
-    	if(!$user->userLoad()) {
+    	// if(!$user->userLoad()) {
 
-	        $url = $this->getRequest()->getRequestUri();
+	    //     $url = $this->getRequest()->getRequestUri();
 
-	        $isWechatLogin = $wechat->isLogin($url);
-	        if($isWechatLogin instanceof RedirectResponse)
-	           return $isWechatLogin;
+	    //     $isWechatLogin = $wechat->isLogin($url);
+	    //     if($isWechatLogin instanceof RedirectResponse)
+	    //        return $isWechatLogin;
 
-	        $user->userLogin($isWechatLogin);
-	    }
+	    //    $user->userLogin($isWechatLogin);
+	    //}
 	    $subscribe = 0;
         return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
+
     }
 
     public function infoAction()
@@ -43,7 +44,7 @@ class DefaultController extends Controller
         if(!$log){
             $ndsinfo = new Ndsinfo();
             $ndsinfo->setUser($user);
-            $ndsinfo->setName($name);     
+            $ndsinfo->setName($type);     
             $ndsinfo->setMobile($mobile);
             $ndsinfo->setSex($sex);
             $ndsinfo->setCity($city);

@@ -23,9 +23,11 @@ class DefaultController extends Controller
 	    //     if($isWechatLogin instanceof RedirectResponse)
 	    //        return $isWechatLogin;
 
-	    //     $user->userLogin($isWechatLogin);
-	    // }
-        return $this->render('LVNdsBundle:Default:index.html.twig');
+	    //    $user->userLogin($isWechatLogin);
+	    //}
+	    $subscribe = 0;
+        return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
+
     }
 
     public function infoAction()

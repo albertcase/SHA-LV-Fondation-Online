@@ -43,7 +43,7 @@ class DefaultController extends Controller
         if(!$log){
             $ndsinfo = new Ndsinfo();
             $ndsinfo->setUser($user);
-            $ndsinfo->setName($type);     
+            $ndsinfo->setName($name);     
             $ndsinfo->setMobile($mobile);
             $ndsinfo->setSex($sex);
             $ndsinfo->setCity($city);

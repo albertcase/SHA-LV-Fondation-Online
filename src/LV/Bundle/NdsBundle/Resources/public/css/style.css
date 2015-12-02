@@ -291,6 +291,7 @@
   min-height: 100%;
   background: #ebebeb;
   text-align: center;
+  overflow: auto;
 }
 
 
@@ -528,7 +529,7 @@
 }
 
 .fpage#attention img{
-  margin: 10% 0 0 0;
+  margin: 6% 0 10% 0;
   display: inline-block;
 }
 

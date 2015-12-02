@@ -8,6 +8,19 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+    	$user = $this->get('lv.user.service');
+    	$wechat = $this->get('same.wechat');
+    	if(!$user->userLoad()) {
+
+	        $url = $this->getRequest()->getRequestUri();
+
+	        $isWechatLogin = $wechat->isLogin($url);
+
+	        if($isWechatLogin instanceof RedirectResponse)
+	           return $this->setResponse($isWechatLogin);
+
+	        $user->userLogin($isWechatLogin);
+	    }
         return $this->render('LVNdsBundle:Default:index.html.twig');
     }
 

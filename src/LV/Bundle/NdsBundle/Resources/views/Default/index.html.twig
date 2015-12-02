@@ -38,6 +38,7 @@
 				<span>性别</span>
 				<select name="sex">
 					<!-- <option>请选择</option> -->
+					<option></option>
 					<option>男</option>
 					<option>女</option>
 				</select>
@@ -134,7 +135,7 @@
 		}else if(!isPhoneNum(_tel)){
 			alert("请填写正确的手机号码");
 			return false;
-		}else if(_sex == "请选择"){
+		}else if(_sex == "请选择"||_sex == ""){
 			alert("请选择性别");
 			return false;
 		}else if(_city == ""){

@@ -12,6 +12,10 @@
 	<img src="/neverendingstory/imgs/logo_black.png" width="100%" />
 </a>
 
+<section class="fpage" id="attention" style="display:none;">
+	<img src="/neverendingstory/imgs/attention.png" width="60%" />
+</section>
+
 <section class="fpage" id="form">
 	
 
@@ -46,6 +50,13 @@
 			<span>身份证</span><input type="text" name="id_card" placeholder="">
 		</li>
 	</ul>
+	<div class="agreement">
+		<label>
+			<input type="checkbox" class="agreeInput" checked>
+			<img src="/neverendingstory/imgs/agreement_text.png" />
+		</label>
+	</div>
+
 
 	<div class="pf_footer">
 		<a href="javascript:;" class="submit_btn">
@@ -101,6 +112,7 @@
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
 		var _city = $("input[name='city']").val();
 		var _id_card = $("input[name='id_card']").val();
+		var pcb = $(".agreeInput").is(':checked');
 
 
 		if(_name == "" || !_name){
@@ -117,11 +129,14 @@
 			return false;
 		}else if(!isIdCard(_id_card)){
 			alert("身份证错误");
+		}else if(!pcb){
+			alert("请勾选承诺提供的信息真实有效");
 		}else{
 			$(".successPup").show();
 			//console.log(_name+":"+_tel);
 		}
 	})
+
 
 
 

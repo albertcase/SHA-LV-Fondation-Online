@@ -506,10 +506,23 @@
 }
 
 
+.agreement{
+  width: 106%;
+  display: inline-block;
+}
 
+.agreement input{
+  width: 10%;
+  float: left;
+  display: inline-block;
+}
 
-
-
+.agreement img{
+  width: 80%;
+  float: left;
+  display: inline-block;
+  margin: 0 0 0 3%;
+}
 
 
 

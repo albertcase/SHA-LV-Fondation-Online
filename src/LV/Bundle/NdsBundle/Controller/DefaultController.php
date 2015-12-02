@@ -25,7 +25,8 @@ class DefaultController extends Controller
 
 	        $user->userLogin($isWechatLogin);
 	    }
-        return $this->render('LVNdsBundle:Default:index.html.twig');
+	    $subscribe = 1;
+        return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
     }
 
     public function infoAction()
@@ -42,7 +43,7 @@ class DefaultController extends Controller
         if(!$log){
             $ndsinfo = new Ndsinfo();
             $ndsinfo->setUser($user);
-            $ndsinfo->setName($type);     
+            $ndsinfo->setName($name);     
             $ndsinfo->setMobile($mobile);
             $ndsinfo->setSex($sex);
             $ndsinfo->setCity($city);

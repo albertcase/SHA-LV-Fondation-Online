@@ -404,7 +404,7 @@
   color: #533f35;
   width: 100%;
   display: inline-block;
-  margin: 6% 0 0 0;
+  margin: 6% 0 2% 0;
 }
 
 .rule_link i{
@@ -512,6 +512,7 @@
   display: inline-block;
   margin: 0 0 9% 0;
   position: relative;
+  text-align: center;
 }
 .agreement label{
   width: 100%;
@@ -519,15 +520,15 @@
 }
 .agreement input{
   width: 8%;
-  position: absolute;
+/*  position: absolute;
   left: -8%;
-  top: 0;
+  top: 0;*/
   background: none;
+  display: inline-block;
 }
 
 .agreement img{
   width: 80%;
-  float: left;
   display: inline-block;
 }
 

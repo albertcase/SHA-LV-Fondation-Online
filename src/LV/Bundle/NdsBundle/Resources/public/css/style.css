@@ -519,9 +519,8 @@
 }
 .agreement input{
   width: 8%;
-  height:100%;
   position: absolute;
-  left: -8%;
+  left: -9%;
   top: 0;
   background: none;
 }

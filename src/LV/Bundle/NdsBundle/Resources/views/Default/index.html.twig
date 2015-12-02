@@ -12,65 +12,77 @@
 	<img src="/neverendingstory/imgs/logo_black.png" width="100%" />
 </a>
 
-<section class="fpage" id="attention" style="display:none;">
-	<img src="/neverendingstory/imgs/attention.png" width="60%" />
-</section>
 
-<section class="fpage" id="form">
+
+{% if subscribe %}
+	
+	<section class="fpage" id="form">
 	
 
-	<h1>
-		<img src="/neverendingstory/imgs/form_tips.png" width="49%" />
-	</h1>
-	<!-- <h2>
-		跟随路易威登踏上永无止境的旅程
-	</h2> -->
+		<h1>
+			<img src="/neverendingstory/imgs/form_tips.png" width="49%" />
+		</h1>
+		<!-- <h2>
+			跟随路易威登踏上永无止境的旅程
+		</h2> -->
 
-	<ul>
-		<li>
-			<span>姓名</span><input type="text" name="name" placeholder="">
-		</li>
-		<li>
-			<span>电话</span><input type="tel" name="tel" maxlength="11" placeholder="">
-		</li>
+		<ul>
+			<li>
+				<span>姓名</span><input type="text" name="name" placeholder="">
+			</li>
+			<li>
+				<span>电话</span><input type="tel" name="tel" maxlength="11" placeholder="">
+			</li>
 
-		<li class="sex">
-			<span>性别</span>
-			<select name="sex">
-				<option>请选择</option>
-				<option>男</option>
-				<option>女</option>
-			</select>
-			<!--  <input type="text" name="sex" placeholder=""> -->
-		</li>
-		<li>
-			<span>城市</span><input type="text" name="city" placeholder="">
-		</li>
-		<li>
-			<span>身份证</span><input type="text" name="id_card" placeholder="">
-		</li>
-	</ul>
-	<div class="agreement">
-		<label>
-			<input type="checkbox" class="agreeInput" checked>
-			<img src="/neverendingstory/imgs/agreement_text.png" />
-		</label>
-	</div>
-
-
-	<div class="pf_footer">
-		<a href="javascript:;" class="submit_btn">
-			<em>提 交</em>
-			<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
-		</a>
-
-		<a href="javascript:changePage('rule');" class="rule_link">
-			<i>活动细则</i>
-		</a>
-	</div>
+			<li class="sex">
+				<span>性别</span>
+				<select name="sex">
+					<option>请选择</option>
+					<option>男</option>
+					<option>女</option>
+				</select>
+				<!--  <input type="text" name="sex" placeholder=""> -->
+			</li>
+			<li>
+				<span>城市</span><input type="text" name="city" placeholder="">
+			</li>
+			<li>
+				<span>身份证</span><input type="text" name="id_card" placeholder="">
+			</li>
+		</ul>
+		<div class="agreement">
+			<label>
+				<input type="checkbox" class="agreeInput" checked>
+				<img src="/neverendingstory/imgs/agreement_text.png" />
+			</label>
+		</div>
 
 
-</section>
+		<div class="pf_footer">
+			<a href="javascript:;" class="submit_btn">
+				<em>提 交</em>
+				<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
+			</a>
+
+			<a href="javascript:changePage('rule');" class="rule_link">
+				<i>活动细则</i>
+			</a>
+		</div>
+
+
+	</section>
+
+
+{% else %}
+
+	<section class="fpage" id="attention" style="display:inline-block;">
+		<img src="/neverendingstory/imgs/attention.png" width="60%" />
+	</section>
+
+{% endif %}
+
+
+
 
 <section class="fpage" id="rule">
 	<h1>活动细则</h1>

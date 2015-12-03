@@ -594,6 +594,15 @@
   .rule_link{
     margin: 6% 0 10% 0;
   }
+
+  #form li{
+    margin: 1px 0;
+  }
+
+  .fpage {
+      margin: 25% 0 0 0;
+  }
+
 }
 
 

@@ -524,8 +524,8 @@
 
 .checkboxInput span{
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   background: #444;
   text-align: center;
 }

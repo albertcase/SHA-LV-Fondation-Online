@@ -332,7 +332,6 @@
 
 #form li{
   width: 100%;
-  padding: 4px 0;
   background: #e5e0da;
   font-size: 14px;
   color: #a5a5a5;
@@ -348,8 +347,8 @@
 #form li span{
   width: 27%;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 32px;
   float: left;
   text-align: center;
 }
@@ -357,8 +356,8 @@
 #form li input, #form li select{
   width: 70%;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 32px;
   background: none;
   border:none;
   font-size: 14px;

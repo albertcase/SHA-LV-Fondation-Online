@@ -524,8 +524,8 @@
 
 .checkboxInput span{
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background: #444;
   text-align: center;
 }
@@ -543,7 +543,7 @@
 .agreement .checkboxInput img{
   width: 60%;
   display: inline-block;
-  margin: 20% 0 0 0;
+  margin: 16% 0 0 0;
 }
 
 

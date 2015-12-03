@@ -325,7 +325,7 @@
 }
 
 #form ul{
-  width: 100%;
+  width: 80%;
   display: inline-block;
   margin: 9% 0 9% 0;
 }
@@ -514,17 +514,32 @@
   position: relative;
   text-align: center;
 }
+
+.checkboxInput{
+  width: 8%;
+  position: relative;
+  background: none;
+  display: inline-block;
+}
+
+.checkboxInput span{
+  width: 100%;
+  display: inline-block;
+}
+
 .agreement label{
   width: 100%;
   display: inline-block;
 }
 .agreement input{
-  width: 8%;
-/*  position: absolute;
-  left: -8%;
-  top: 0;*/
+  width: 100%;
   background: none;
   display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
 }
 
 .agreement img{
@@ -543,7 +558,7 @@
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
   #form ul{
-    width: 100%;
+    width: 80%;
     display: inline-block;
     margin: 6% 0 6% 0;
   }
@@ -562,7 +577,7 @@
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
   #form ul{
-    width: 100%;
+    width: 80%;
     display: inline-block;
     margin: 6% 0 6% 0;
   }

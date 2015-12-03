@@ -518,28 +518,16 @@
 .checkboxInput{
   width: 8%;
   position: relative;
-  background: none;
   display: inline-block;
+  vertical-align: top;
 }
 
 .checkboxInput span{
-  width: 100%;
   display: inline-block;
-}
-
-.agreement label{
-  width: 100%;
-  display: inline-block;
-}
-.agreement input{
-  width: 100%;
-  background: none;
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  opacity: 0;
+  width: 20px;
+  height: 20px;
+  background: #444;
+  text-align: center;
 }
 
 .agreement img{
@@ -552,6 +540,11 @@
   display: inline-block;
 }
 
+.agreement .checkboxInput img{
+  width: 60%;
+  display: inline-block;
+  margin: 20% 0 0 0;
+}
 
 
 /* 6plus */

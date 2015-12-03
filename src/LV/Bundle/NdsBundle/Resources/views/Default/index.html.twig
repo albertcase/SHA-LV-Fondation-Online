@@ -51,17 +51,14 @@
 				<span>身份证</span><input type="text" name="id_card" placeholder="">
 			</li>
 		</ul>
-		<div class="agreement">
-			<label>
+		<div class="agreement hover">
 				<div class="checkboxInput">
 					<span>
 						<img src="/neverendingstory/imgs/checkbox_chose.png" width="100%" />
 					</span>
-					<input type="checkbox" class="agreeInput" checked>
 				</div>
 				
 				<img src="/neverendingstory/imgs/agreement_text.png" />
-			</label>
 		</div>
 
 
@@ -125,6 +122,17 @@
 
 	isIdCard("430524199108148197")
 
+	$(".agreement").click(function(){
+		console.log($(this).hasClass("hover"));
+		if($(this).hasClass("hover")){
+			$(".checkboxInput span img").hide();
+			$(this).removeClass("hover");
+		}else{
+			$(".checkboxInput span img").show();
+			$(this).addClass("hover");
+		}
+	})
+
 	$(".submit_btn").click(function(){
 		if($(this).hasClass("disable")) return false;
 		var _name = $("input[name='name']").val();
@@ -132,7 +140,7 @@
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
 		var _city = $("input[name='city']").val();
 		var _id_card = $("input[name='id_card']").val();
-		var pcb = $(".agreeInput").is(':checked');
+		var pcb = $(".agreement").hasClass("hover");
 
 
 		if(_name == "" || !_name){

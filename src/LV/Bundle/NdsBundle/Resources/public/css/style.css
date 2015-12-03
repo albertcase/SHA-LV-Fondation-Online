@@ -591,9 +591,6 @@
 /* 4s */
 
 @media handheld and (min-height:400px),screen and (max-height:420px) {
-  .rule_link{
-    margin: 6% 0 10% 0;
-  }
 
   #form li{
     margin: 1px 0;
@@ -609,7 +606,11 @@
   }
 
   .agreement {
-      margin: 0 0 6% 0;
+      margin: 0 0 4% 0;
+  }
+
+  #form ul{
+    margin: 4% 0 4% 0;
   }
 
 }

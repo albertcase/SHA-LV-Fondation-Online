@@ -588,7 +588,13 @@
 
 
 
+/* 4s */
 
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+  .rule_link{
+    margin: 6% 0 10% 0;
+  }
+}
 
 
 

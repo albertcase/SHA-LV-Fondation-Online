@@ -325,18 +325,17 @@
 }
 
 #form ul{
-  width: 100%;
+  width: 80%;
   display: inline-block;
-  margin: 9% 0 9% 0;
+  margin: 6% 0 6% 0;
 }
 
 #form li{
   width: 100%;
-  padding: 4px 0;
   background: #e5e0da;
   font-size: 14px;
   color: #a5a5a5;
-  margin: 4px 0;
+  margin: 2px 0;
   display: inline-block;
 }
 
@@ -348,8 +347,8 @@
 #form li span{
   width: 27%;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
+  height: 34px;
+  line-height: 34px;
   float: left;
   text-align: center;
 }
@@ -357,8 +356,8 @@
 #form li input, #form li select{
   width: 70%;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
+  height: 34px;
+  line-height: 34px;
   background: none;
   border:none;
   font-size: 14px;
@@ -508,23 +507,26 @@
 
 
 .agreement{
-  width: 100%;
+  width: 90%;
   display: inline-block;
   margin: 0 0 9% 0;
   position: relative;
   text-align: center;
 }
-.agreement label{
-  width: 100%;
-  display: inline-block;
-}
-.agreement input{
+
+.checkboxInput{
   width: 8%;
-/*  position: absolute;
-  left: -8%;
-  top: 0;*/
-  background: none;
+  position: relative;
   display: inline-block;
+  vertical-align: top;
+}
+
+.checkboxInput span{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #444;
+  text-align: center;
 }
 
 .agreement img{
@@ -537,20 +539,25 @@
   display: inline-block;
 }
 
+.agreement .checkboxInput img{
+  width: 60%;
+  display: inline-block;
+  margin: 6% 0 0 0;
+}
 
 
 /* 6plus */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
   #form ul{
-    width: 100%;
+    width: 80%;
     display: inline-block;
     margin: 6% 0 6% 0;
   }
 
   #form li{
     width: 100%;
-    padding: 6px 0;
+    /*padding: 6px 0;*/
     background: #e5e0da;
     font-size: 14px;
     color: #a5a5a5;
@@ -562,14 +569,14 @@
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
   #form ul{
-    width: 100%;
+    width: 80%;
     display: inline-block;
     margin: 6% 0 6% 0;
   }
 
   #form li{
     width: 100%;
-    padding: 6px 0;
+    /*padding: 6px 0;*/
     background: #e5e0da;
     font-size: 14px;
     color: #a5a5a5;
@@ -581,7 +588,32 @@
 
 
 
+/* 4s */
 
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+
+  #form li{
+    margin: 1px 0;
+  }
+
+  .fpage {
+      margin: 22% 0 0 0;
+  }
+
+  #form li{
+      height:31px;
+      line-height: 31px;
+  }
+
+  .agreement {
+      margin: 0 0 4% 0;
+  }
+
+  #form ul{
+    margin: 4% 0 4% 0;
+  }
+
+}
 
 
 

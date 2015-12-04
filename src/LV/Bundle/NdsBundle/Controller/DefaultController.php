@@ -25,7 +25,9 @@ class DefaultController extends Controller
 
 	       $user->userLogin($isWechatLogin);
 	    }
-	    $subscribe = 1;
+        $openid = $user->userLoad()->getOpenid();
+        
+	    $subscribe = $wechat->isSubscribed($openid);
         return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
 
     }

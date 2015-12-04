@@ -57,7 +57,13 @@ function getHeight(){
 		$("#con").removeAttr("style");  
 	}else{
 		$("#con").css({"height": $(window).height(), "background": "none"});  
-		$("#con img").css({"display":"inline-block","height": "100%", "width": "auto", "margin-left": -(parseInt($('#con img').css('width'))-parseInt($(window).width()))/2}); 
+
+		if(parseInt($(window).width()) > parseInt($('#con img').css('width'))){
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto", "margin-left": -(parseInt($(window).width())-parseInt($('#con img').css('width')))/2}); 
+		}else{
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto", "margin-left": -(parseInt($('#con img').css('width'))-parseInt($(window).width()))/2}); 
+		}
+		
 	}
 	
 }

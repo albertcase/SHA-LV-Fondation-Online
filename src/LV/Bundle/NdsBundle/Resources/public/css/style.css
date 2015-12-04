@@ -485,18 +485,18 @@
 */
 
 .successPup_con{
-  width:60%;
-  height: 100px;
-  line-height: 100px;
+  width:40%;
+  height: 70px;
+  line-height: 70px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin: -50px 0 0 -30%;
+  margin: -35px 0 0 -20%;
   /*background: #e5e0da url("../imgs/r_icon.png") no-repeat 27% center;*/
   background: #533f35;
   color: #fff;
   background-size: 10% auto;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -529,6 +529,11 @@
   text-align: center;
 }
 
+.agreement.hover .checkboxInput span{
+  background:#444 url("/neverendingstory/imgs/checkbox_chose.png") no-repeat center;
+  background-size: 60% auto;
+}
+
 .agreement img{
   width: 80%;
   display: inline-block;
@@ -539,11 +544,10 @@
   display: inline-block;
 }
 
-.agreement .checkboxInput img{
+/*.agreement .checkboxInput img{
   width: 60%;
   display: inline-block;
-  margin: 6% 0 0 0;
-}
+}*/
 
 
 /* 6plus */

@@ -26,7 +26,7 @@ class DefaultController extends Controller
 	       $user->userLogin($isWechatLogin);
 	    }
         $openid = $user->userLoad()->getOpenid();
-        
+
 	    $subscribe = $wechat->isSubscribed($openid);
         return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
 
@@ -54,8 +54,12 @@ class DefaultController extends Controller
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($ndsinfo);
             $doctrine->flush();
+            $status = array('data' => '1', 'msg' => '提交成功');
+            $response = new JsonResponse();
+            $response->setData($status);
+            return $response;
         }
-        $status = array('data' => '1', 'msg' => '提交成功');
+        $status = array('data' => '2', 'msg' => '您已提交过信息');
         $response = new JsonResponse();
         $response->setData($status);
         return $response;

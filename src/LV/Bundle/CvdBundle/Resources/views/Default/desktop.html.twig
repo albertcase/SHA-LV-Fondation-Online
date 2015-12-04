@@ -23,8 +23,17 @@
 		#con{
 			width: 100%;
 			height: 100%;
+			overflow: hidden;
 			background: #000 url("/images/cvd/desktop.jpg") no-repeat center;
+			text-align: center;
 		}
+
+		#con img{
+			display: none;
+			float: left;
+		}
+
+
 
 	</style>
 <script>
@@ -38,18 +47,38 @@
 </script>
 </head>
 <body>
-<div id="con"></div>
+<div id="con">
+	<img src="/images/cvd/desktop.jpg" />
+</div>
 
 <script type="text/javascript">
 function getHeight(){
-	if($(window).height() > 500){
 
+	if($(window).height() > 670){
+		$("#con img").hide()
+		$("#con").removeAttr("style");  
 	}else{
-		$("#con").css({"height": $(window).height(), "background-size": "auto 100%"});  
+		$("#con").css({"height": $(window).height(), "background": "none"});  
+
+		if(parseInt($(window).width()) > parseInt($('#con img').css('width'))){
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto"}); 
+			$("#con img").css({"margin-left": (parseInt($(window).width())-parseInt($('#con img').css('width')))/2});
+		}else{
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto"}); 
+			$("#con img").css({"margin-left": -(parseInt($('#con img').css('width'))-parseInt($(window).width()))/2});
+		}
+		
 	}
 	
 }
-getHeight()
+
+
+var img = new Image();
+    img.src = "/images/cvd/desktop.jpg";
+    img.onload = function(){
+    	getHeight();
+    }
+
 
 
 $(window).resize(function(){

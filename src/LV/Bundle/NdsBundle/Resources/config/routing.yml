@@ -1,5 +1,5 @@
 lv_nds_homepage:
-    path:     /index
+    path:     /form
     defaults: { _controller: LVNdsBundle:Default:index }
 
 lv_nds_api:

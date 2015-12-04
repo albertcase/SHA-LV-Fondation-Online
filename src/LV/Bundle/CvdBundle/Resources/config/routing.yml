@@ -1,37 +1,37 @@
 lv_cvd_index:
-    path:     /
+    path:     /chinesevday/
     defaults: { _controller: LVCvdBundle:Page:index }
 
 lv_cvd_product:
-    path:     /product/{gender}
+    path:     /chinesevday/product/{gender}
     defaults: { _controller: LVCvdBundle:Page:product }
     requirements: 
       gender: male|female
 
 lv_cvd_create:
-    path:     /create
+    path:     /chinesevday/create
     defaults: { _controller: LVCvdBundle:Page:create }
 
 lv_cvd_share:
-    path:     /share/{id}
+    path:     /chinesevday/share/{id}
     defaults: { _controller: LVCvdBundle:Page:share }
 
 lv_cvd_save:
-    path:     /save
+    path:     /chinesevday/save
     defaults: { _controller: LVCvdBundle:Api:save }
 
 lv_cvd_sharelog:
-    path:     /sharelog
+    path:     /chinesevday/sharelog
     defaults: { _controller: LVCvdBundle:Api:share }
 
 lv_cvd_error:
-    path:     /desktop
+    path:     /chinesevday/desktop
     defaults: { _controller: LVCvdBundle:Page:error }
 
 lv_cvd_test:
-    path:     /test
+    path:     /chinesevday/test
     defaults: { _controller: LVCvdBundle:Api:test }
 
 lv_cvd_desktop:
-    path:     /pc
+    path:     /neverendingstory/pc
     defaults: { _controller: LVCvdBundle:Page:desktop }

@@ -232,7 +232,7 @@ class Wechat
 		$appid = $this->_container->getParameter('appid');
 		$time = $this->_memcache->get('wechat_server_js_time');
 		$ticket = $this->_memcache->get('wechat_server_js_ticket');
-		if((!$ticket) || $time - time() <= 0)){
+		if((!$ticket) || ($time - time() <= 0)){
 			$access_token = $this->getAccessToken();
 			$result = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$access_token."&type=jsapi");
 			$result = json_decode($result, true);

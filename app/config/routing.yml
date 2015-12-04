@@ -4,7 +4,7 @@ lv_nds:
 
 lv_cvd:
     resource: "@LVCvdBundle/Resources/config/routing.yml"
-    prefix:   /neverendingstory
+    prefix:   /
 
 same_admin:
     resource: "@SameAdminBundle/Resources/config/routing.yml"

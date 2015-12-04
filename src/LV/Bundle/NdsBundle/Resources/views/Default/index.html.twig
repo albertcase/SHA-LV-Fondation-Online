@@ -197,8 +197,14 @@ function submitForm(value){
 	    data: value,
 	    dataType:"json"
     }).done(function(data){
-    	$(".successPup").show();
-    	$(".submit_btn").removeClass("disable").find("em").html("提交");
+    	
+    	if(data.code == 1){
+    		$(".successPup").show();
+    		$(".submit_btn").removeClass("disable").find("em").html("提交");
+    	}else{
+    		alert(data.msg);
+    	}
+    	
     }).fail(function(data) {
         alert(data.msg);
     });

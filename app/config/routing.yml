@@ -1,6 +1,6 @@
 lv_nds:
     resource: "@LVNdsBundle/Resources/config/routing.yml"
-    prefix:   /nds
+    prefix:   /neverendingstory
 
 lv_cvd:
     resource: "@LVCvdBundle/Resources/config/routing.yml"

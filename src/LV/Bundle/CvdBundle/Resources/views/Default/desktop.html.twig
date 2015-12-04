@@ -53,6 +53,7 @@
 
 <script type="text/javascript">
 function getHeight(){
+
 	if($(window).height() > 670){
 		$("#con img").hide()
 		$("#con").removeAttr("style");  
@@ -60,15 +61,24 @@ function getHeight(){
 		$("#con").css({"height": $(window).height(), "background": "none"});  
 
 		if(parseInt($(window).width()) > parseInt($('#con img').css('width'))){
-			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto", "margin-left": (parseInt($(window).width())-parseInt($('#con img').css('width')))/2}); 
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto"}); 
+			$("#con img").css({"margin-left": (parseInt($(window).width())-parseInt($('#con img').css('width')))/2});
 		}else{
-			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto", "margin-left": -(parseInt($('#con img').css('width'))-parseInt($(window).width()))/2}); 
+			$("#con img").css({"display":"inline-block","height": "100%", "width": "auto"}); 
+			$("#con img").css({"margin-left": -(parseInt($('#con img').css('width'))-parseInt($(window).width()))/2});
 		}
 		
 	}
 	
 }
-getHeight()
+
+
+var img = new Image();
+    img.src = "/images/cvd/desktop.jpg";
+    img.onload = function(){
+    	getHeight();
+    }
+
 
 
 $(window).resize(function(){

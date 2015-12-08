@@ -74,6 +74,11 @@ document.addEventListener('touchmove' , function (ev){
 		    player.enterFullScreen();
 		    player.play();
 		});
+
+
+		$(".poster").click(function(){
+			alert(6);
+		})
 		
 		videoFun(0);
 		/* 戒指动画 */

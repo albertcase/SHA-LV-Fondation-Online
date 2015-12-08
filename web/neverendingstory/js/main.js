@@ -78,6 +78,7 @@ document.addEventListener('touchmove' , function (ev){
 
 		$(".poster").click(function(){
 			alert(6);
+			$(this).hide();
 		})
 		
 		videoFun(0);

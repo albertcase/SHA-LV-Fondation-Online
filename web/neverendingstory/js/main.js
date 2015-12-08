@@ -70,15 +70,17 @@ document.addEventListener('touchmove' , function (ev){
 			});
 		}
 
-		touch.on('.poster', 'touchstart', function(ev){
-		    player.enterFullScreen();
-		    player.play();
-		});
+		// touch.on('.poster', 'touchstart', function(ev){
+		//     player.enterFullScreen();
+		//     player.play();
+		// });
 
 
 		$(".poster").click(function(){
-			alert(6);
-			$(this).hide();
+			player.enterFullScreen();
+		    player.play();
+			// alert(6);
+			// $(this).hide();
 		})
 		
 		videoFun(0);

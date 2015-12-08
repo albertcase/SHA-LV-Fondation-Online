@@ -79,8 +79,6 @@ document.addEventListener('touchmove' , function (ev){
 		$(".poster").click(function(){
 			player.enterFullScreen();
 		    player.play();
-			// alert(6);
-			// $(this).hide();
 		})
 		
 		videoFun(0);

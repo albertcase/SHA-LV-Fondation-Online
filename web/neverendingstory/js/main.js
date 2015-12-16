@@ -70,10 +70,16 @@ document.addEventListener('touchmove' , function (ev){
 			});
 		}
 
-		touch.on('.poster', 'touchstart', function(ev){
-		    player.enterFullScreen();
+		// touch.on('.poster', 'touchstart', function(ev){
+		//     player.enterFullScreen();
+		//     player.play();
+		// });
+
+
+		$(".poster").click(function(){
+			player.enterFullScreen();
 		    player.play();
-		});
+		})
 		
 		videoFun(0);
 		/* 戒指动画 */

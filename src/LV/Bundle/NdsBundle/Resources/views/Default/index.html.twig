@@ -197,7 +197,7 @@ function submitForm(value){
 	    data: value,
 	    dataType:"json"
     }).done(function(data){
-    	alert(data.code)
+    	
     	if(data.code == 1){
     		$(".successPup").show();
     		$(".submit_btn").removeClass("disable").find("em").html("提交");

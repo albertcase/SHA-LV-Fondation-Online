@@ -45,11 +45,15 @@
 				</select>
 				<!--  <input type="text" name="sex" placeholder=""> -->
 			</li>
-			<li>
+			<!-- <li>
 				<span>城市</span><input type="text" name="city" placeholder="">
-			</li>
-			<li>
+			</li> -->
+			<!-- <li>
 				<span>身份证</span><input type="text" name="id_card" placeholder="">
+			</li> -->
+
+			<li>
+				<span>出行日期</span><input type="date" name="id_date" placeholder="">
 			</li>
 		</ul>
 		<div class="agreement hover">
@@ -69,9 +73,12 @@
 				<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
 			</a>
 
-			<a href="javascript:changePage('rule');" class="rule_link">
+			<!-- <a href="javascript:changePage('rule');" class="rule_link">
 				<i>活动细则</i>
-			</a>
+			</a> -->
+			<p class="formTips">
+				<img src="/neverendingstory/imgs/formTips.png" width="100%" />
+			</p>
 		</div>
 
 
@@ -197,7 +204,7 @@ function submitForm(value){
 	    data: value,
 	    dataType:"json"
     }).done(function(data){
-    	
+
     	if(data.code == 1){
     		$(".successPup").show();
     		$(".submit_btn").removeClass("disable").find("em").html("提交");
@@ -228,6 +235,10 @@ if (typeof WeixinJSBridge == "undefined"){
 }else{
     onBridgeReady();
 }
+
+
+
+
 
 
 </script>

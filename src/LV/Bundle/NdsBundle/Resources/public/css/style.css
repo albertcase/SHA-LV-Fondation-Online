@@ -597,7 +597,7 @@
 @media handheld and (min-height:400px),screen and (max-height:420px) {
 
   #form li{
-    margin: 1px 0;
+    margin: 3px 0;
   }
 
   .fpage {

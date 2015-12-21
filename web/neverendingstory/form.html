@@ -60,7 +60,7 @@
 			<!--  <input type="text" name="sex" placeholder=""> -->
 		</li>
 		<li>
-			<span>城市</span><input type="text" name="city" placeholder="">
+			<span>出行日期</span><input type="date" name="date" placeholder="">
 		</li>
 	</ul>
 
@@ -70,9 +70,13 @@
 			<img src="imgs/btn.jpg" width="100%" />
 		</a>
 
-		<a href="javascript:changePage('rule');" class="rule_link">
+		<p class="formTips">
+			<img src="imgs/formTips.png" width="100%" />
+		</p>
+
+		<!-- <a href="javascript:changePage('rule');" class="rule_link">
 			<i>活动细则</i>
-		</a>
+		</a> -->
 	</div>
 
 
@@ -110,7 +114,7 @@
 		var _name = $("input[name='name']").val();
 		var _tel = $("input[name='tel']").val();
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
-		var _city = $("input[name='city']").val();
+		var _time = $("input[name='date']").val();
 
 		if(_name == "" || !_name){
 			alert("请填写姓名");
@@ -121,8 +125,8 @@
 		}else if(_sex == "请选择"){
 			alert("请选择性别");
 			return false;
-		}else if(_city == ""){
-			alert("请填写城市");
+		}else if(_time == ""){
+			alert("请选择出行日期");
 			return false;
 		}else{
 			$(".successPup").show();
@@ -137,7 +141,7 @@
 		$("#"+cp).css("display","inline-block");
 	}
 
-	$()
+	
 
 </script>
 

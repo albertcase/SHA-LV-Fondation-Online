@@ -53,7 +53,7 @@
 			</li> -->
 
 			<li>
-				<span>出行日期</span><input type="date" name="id_date" placeholder="">
+				<span>出行日期</span><input type="date" name="date" placeholder="">
 			</li>
 		</ul>
 		<!-- <div class="agreement hover">
@@ -152,10 +152,18 @@
 		var _name = $("input[name='name']").val();
 		var _tel = $("input[name='tel']").val();
 		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
-		var _city = $("input[name='city']").val();
-		var _id_card = $("input[name='id_card']").val();
-		var pcb = $(".agreement").hasClass("hover");
+		var _time = $("input[name='date']").val();
+		// var _id_card = $("input[name='id_card']").val();
+		// var pcb = $(".agreement").hasClass("hover");
 
+		// else if(!isIdCard(_id_card)){
+		// 	alert("请填写正确的身份证");
+		// else if(_city == ""){
+		// 	alert("请填写城市");
+		// 	return false;
+		// }else if(!pcb){
+		// 	alert("请阅读“活动细则”并勾选");
+		// }
 
 		if(_name == "" || !_name){
 			alert("请填写姓名");
@@ -166,20 +174,16 @@
 		}else if(_sex == "请选择"||_sex == ""){
 			alert("请选择性别");
 			return false;
-		}else if(_city == ""){
-			alert("请填写城市");
+		}else if(_time == ""){
+			alert("请选择出行日期");
 			return false;
-		}else if(!isIdCard(_id_card)){
-			alert("请填写正确的身份证");
-		}else if(!pcb){
-			alert("请阅读“活动细则”并勾选");
 		}else{
 			var submitVal = {
 			    	"name": _name,
 			    	"mobile": _tel,
 			    	"sex": _sex,
-			    	"city": _city,
-			    	"idcard": _id_card
+			    	// "city": _city,
+			    	"time": _time
 			    }
 			$(".submit_btn").addClass("disable").find("em").html("提交中..");
 			submitForm(submitVal);

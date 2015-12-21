@@ -354,7 +354,7 @@
 }
 
 #form li span{
-  width: 27%;
+  width: 30%;
   display: inline-block;
   height: 34px;
   line-height: 34px;
@@ -363,7 +363,7 @@
 }
 
 #form li input, #form li select{
-  width: 70%;
+  width: 67%;
   display: inline-block;
   height: 34px;
   line-height: 34px;

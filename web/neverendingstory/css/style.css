@@ -359,11 +359,12 @@
   height: 40px;
   line-height: 40px;
   float: left;
-  text-align: center;
+  text-align: left;
+  margin: 0 0 0 2%;
 }
 
 #form li input, #form li select{
-  width: 67%;
+  width: 66%;
   display: inline-block;
   height: 40px;
   line-height: 40px;

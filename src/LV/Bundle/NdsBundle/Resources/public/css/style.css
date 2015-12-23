@@ -563,6 +563,7 @@
 
   #form li{
     width: 100%;
+    padding: 2% 0;
     background: #e5e0da;
     font-size: 14px;
     color: #a5a5a5;
@@ -581,6 +582,7 @@
 
   #form li{
     width: 100%;
+    padding: 2% 0;
     background: #e5e0da;
     font-size: 14px;
     color: #a5a5a5;

@@ -344,7 +344,7 @@
   background: #e5e0da;
   font-size: 14px;
   color: #a5a5a5;
-  margin: 6px 0;
+  margin: 4px 0;
   display: inline-block;
 }
 
@@ -356,8 +356,8 @@
 #form li span{
   width: 30%;
   display: inline-block;
-  height: 38px;
-  line-height: 38px;
+  height: 40px;
+  line-height: 40px;
   float: left;
   text-align: center;
 }
@@ -365,8 +365,8 @@
 #form li input, #form li select{
   width: 67%;
   display: inline-block;
-  height: 38px;
-  line-height: 38px;
+  height: 40px;
+  line-height: 40px;
   background: none;
   border:none;
   font-size: 14px;

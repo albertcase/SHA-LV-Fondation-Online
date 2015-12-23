@@ -15,7 +15,7 @@
 
 
 
-
+{% if subscribe %}
 
 	<section class="fpage" id="form">
 	
@@ -87,7 +87,13 @@
 		<img src="/neverendingstory/imgs/formTips.png" width="100%" />
 	</div>
 
+{% else %}
 
+	<section class="fpage" id="attention" style="display:inline-block;">
+		<img src="/neverendingstory/imgs/attention.png" width="60%" />
+	</section>
+
+{% endif %}
 
 
 <section class="fpage" id="rule">

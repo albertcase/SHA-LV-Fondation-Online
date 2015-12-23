@@ -49,7 +49,7 @@ class DefaultController extends Controller
             $ndsinfo->setName($name);     
             $ndsinfo->setMobile($mobile);
             $ndsinfo->setSex($sex);
-            $ndsinfo->setCity($time);
+            $ndsinfo->setTime($time);
             $ndsinfo->setCreated(date("Y-m-d H:i:s"));
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($ndsinfo);

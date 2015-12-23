@@ -38,8 +38,8 @@ class DefaultController extends Controller
         $name = $request->get('name');
         $mobile = $request->get('mobile');
         $sex = $request->get('sex');
-        $city = $request->get('city');
-        $idcard = $request->get('idcard');
+        $time = $request->get('time');
+        //$idcard = $request->get('idcard');
         $user = $this->container->get('lv.user.service')->userLoad();
         $repository = $this->getDoctrine()->getRepository('LVNdsBundle:Ndsinfo');
         $log = $repository->findByUser($user);
@@ -49,8 +49,8 @@ class DefaultController extends Controller
             $ndsinfo->setName($name);     
             $ndsinfo->setMobile($mobile);
             $ndsinfo->setSex($sex);
-            $ndsinfo->setCity($city);
-            $ndsinfo->setIdcard($idcard);
+            $ndsinfo->setTime($time);
+            $ndsinfo->setCreated(date("Y-m-d H:i:s"));
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($ndsinfo);
             $doctrine->flush();

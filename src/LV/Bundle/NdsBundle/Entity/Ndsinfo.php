@@ -51,16 +51,16 @@ class Ndsinfo
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=20)
+     * @ORM\Column(name="time", type="string", length=20)
      */
-    private $city;
+    private $time;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="idcard", type="string", length=50)
+     * @ORM\Column(name="created", type="string", length=50)
      */
-    private $idcard;
+    private $created;
 
 
     /**
@@ -166,48 +166,48 @@ class Ndsinfo
     }
 
     /**
-     * Set city
+     * Set time
      *
-     * @param string $city
+     * @param string $time
      * @return Ndsinfo
      */
-    public function setCity($city)
+    public function setTime($time)
     {
-        $this->city = $city;
+        $this->time = $time;
 
         return $this;
     }
 
     /**
-     * Get city
+     * Get time
      *
      * @return string 
      */
-    public function getCity()
+    public function getTime()
     {
-        return $this->city;
+        return $this->time;
     }
 
     /**
-     * Set idcard
+     * Set created
      *
-     * @param string $idcard
+     * @param string $created
      * @return Ndsinfo
      */
-    public function setIdcard($idcard)
+    public function setCreated($created)
     {
-        $this->idcard = $idcard;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get idcard
+     * Get created
      *
      * @return string 
      */
-    public function getIdcard()
+    public function getCreated()
     {
-        return $this->idcard;
+        return $this->created;
     }
 }

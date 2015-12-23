@@ -552,6 +552,12 @@
 }*/
 
 
+/* 12.21 */
+.formTips{
+  margin: 9% 0 6% 0;
+}
+
+
 /* 6plus */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
@@ -619,15 +625,14 @@
     margin: 4% 0 4% 0;
   }
 
+  .formTips{
+    margin: 6% 0 6% 0;
+  }
 }
 
 
 
 
 
-/* 12.21 */
-.formTips{
-  margin: 7% 0 6% 0;
-}
 
 

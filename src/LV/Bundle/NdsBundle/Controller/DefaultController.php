@@ -12,7 +12,16 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-
+        if (date("mdH") >= 122823 && date("mdH") <= 122901) {
+            header("Content-type:text/html;charset=utf-8");
+            print '系统正在维护中，请于29日1点后访问该页面';
+            exit;
+        }
+        if (date("mdH") >= 122910 && date("mdH") <= 122912) {
+            header("Content-type:text/html;charset=utf-8");
+            print '系统正在维护中，请于29日12点后访问该页面';
+            exit;
+        }
     	$user = $this->get('lv.user.service');
     	$wechat = $this->get('same.wechat');
     	if(!$user->userLoad()) {
@@ -30,6 +39,13 @@ class DefaultController extends Controller
 	    $subscribe = $wechat->isSubscribed($openid);
         return $this->render('LVNdsBundle:Default:index.html.twig', array('subscribe' => $subscribe));
 
+    }
+
+    public function testAction()
+    {
+        header("Content-type:text/html;charset=utf-8");
+        print '系统正在维护中，请于29日1点后访问该页面';
+        exit;
     }
 
     public function infoAction()

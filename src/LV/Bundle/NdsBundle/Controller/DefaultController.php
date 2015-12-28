@@ -12,14 +12,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        if (date("mdH") >= 122823 && date("mdH") <= 122901) {
+        if (date("mdH") >= 122923 && date("mdH") <= 123001) {
             header("Content-type:text/html;charset=utf-8");
-            print '系统正在维护中，请于29日1点后访问该页面';
+            print '系统正在维护中，请于30日1点后访问该页面';
             exit;
         }
-        if (date("mdH") >= 122910 && date("mdH") <= 122912) {
+        if (date("mdH") >= 123010 && date("mdH") <= 123012) {
             header("Content-type:text/html;charset=utf-8");
-            print '系统正在维护中，请于29日12点后访问该页面';
+            print '系统正在维护中，请于30日12点后访问该页面';
             exit;
         }
     	$user = $this->get('lv.user.service');

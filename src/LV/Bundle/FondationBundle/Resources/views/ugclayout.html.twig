@@ -2,6 +2,8 @@
 {% block title %}筑梦之旅{% endblock %}
 {% block head_style %}
 {% stylesheets filter='cssrewrite' output="css/ugcmain.css?a=01"
+    '%kernel.root_dir%/Resources/public/css/reset.css'
+    '%kernel.root_dir%/Resources/public/css/menu.css'
     '@LVFondationBundle/Resources/public/css/swiper.min.css'
     '@LVFondationBundle/Resources/public/css/ugc-style.css'
 %}

@@ -46,13 +46,13 @@ class LVPageRequestListener
 
             if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
-                if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
-                    if($current_route == 'lv_fondation_invitation')
-                        $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error_invitation.html.twig');
-                    else
-                        $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error.html.twig');
-                    return $event->setResponse(new Response($rendered));
-                }
+                // if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
+                //     if($current_route == 'lv_fondation_invitation')
+                //         $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error_invitation.html.twig');
+                //     else
+                //         $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error.html.twig');
+                //     return $event->setResponse(new Response($rendered));
+                // }
 
                 if(!$this->userservicve->userLoad()) {
 

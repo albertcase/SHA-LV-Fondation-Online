@@ -54,13 +54,15 @@ class Wechat
 						  	          	'redirecturl'=> $redirecturl
 						  	          ), 
 						  	          true);
-		$http_data = array();
-		$http_data['appid'] = $this->_container->getParameter('appid');
-		$http_data['redirect_uri'] = $callback;
-		$http_data['response_type'] = $type;
-		$http_data['scope'] = $scope;
-		$http_data['state'] = $state;
-		return new RedirectResponse($this->_container->getParameter('oauthApiUrl') . http_build_query($http_data) . '#wechat_redirect', 302);
+		$this->_session->set('wechat_callback', $callback);
+		return new RedirectResponse($this->_container->getParameter('curio_oauth_uri'));
+		// $http_data = array();
+		// $http_data['appid'] = $this->_container->getParameter('appid');
+		// $http_data['redirect_uri'] = $callback;
+		// $http_data['response_type'] = $type;
+		// $http_data['scope'] = $scope;
+		// $http_data['state'] = $state;
+		// return new RedirectResponse($this->_container->getParameter('oauthApiUrl') . http_build_query($http_data) . '#wechat_redirect', 302);
 	}
 
 	/** 
@@ -268,19 +270,19 @@ class Wechat
 	* @return array access_token&openid
 	*/ 
 	public function getOauthAccessToken($code) {
-		$http_data = array();
-		$http_data['code'] = $code;
-		$http_data['grant_type'] = 'authorization_code';
-		$http_data['appid'] = $this->_container->getParameter('appid');
-		$http_data['secret'] = $this->_container->getParameter('appsecret');
-		$result = file_get_contents($this->_container->getParameter('accessTokenApiUrl') . http_build_query($http_data));
-		$result = json_decode($result, true);
-		if(isset($result['access_token'])){
-			$this->_session->set('wechat_user_access_token', $result['access_token']);
+		// $http_data = array();
+		// $http_data['code'] = $code;
+		// $http_data['grant_type'] = 'authorization_code';
+		// $http_data['appid'] = $this->_container->getParameter('appid');
+		// $http_data['secret'] = $this->_container->getParameter('appsecret');
+		// $result = file_get_contents($this->_container->getParameter('accessTokenApiUrl') . http_build_query($http_data));
+		// $result = json_decode($result, true);
+		//if(isset($result['access_token'])){
+			//$this->_session->set('wechat_user_access_token', $result['access_token']);
 			$this->_session->set('wechat_user_openid', $result['openid']);
-			$this->_session->set('wechat_user_scope', $result['scope']);
-		}
-		return $result;
+			//$this->_session->set('wechat_user_scope', $result['scope']);
+		//}
+		return 1;
 	}
 
 	/** 
@@ -291,7 +293,7 @@ class Wechat
 	* @return json access_token&openid or RedirectResponse
 	*/ 
 	public function isLogin($redirecturl, $scope ='snsapi_base') {
-		if($access_token = $this->_session->get('wechat_user_access_token')){
+		if($openid = $this->_session->get('wechat_user_openid')){
 			//$info = array();
 			//$info['access_token'] = $access_token;
 			//$info['openid'] = $this->_session->get('wechat_user_openid');
@@ -328,14 +330,17 @@ class Wechat
 	}
 
 	public function isSubscribed($openid, $lang = 'zh_CN'){
-		$access_token = $this->getAccessToken();
-		$http_data = array();
-	    $http_data['access_token'] = $access_token;
-	    $http_data['openid'] = $openid;
-	 	$http_data['lang'] = $lang;
-		$result = file_get_contents($this->_container->getParameter('userInfoApiUrl') . http_build_query($http_data));
+		//$access_token = $this->getAccessToken();
+		// $http_data = array();
+	 //    $http_data['access_token'] = $access_token;
+	 //    $http_data['openid'] = $openid;
+	 // 	$http_data['lang'] = $lang;
+		// $result = file_get_contents($this->_container->getParameter('userInfoApiUrl') . http_build_query($http_data));
+		// $result = json_decode($result, true);
+		// return $result['subscribe'];
+		$result = file_get_contents("http://api.curio.im/v2/wx/users/" . $openid . "?access_token=".$this->_container->getParameter('curio_access_token'));
 		$result = json_decode($result, true);
-		return $result['subscribe'];
+		return $result['data']['subscribe'];
 	}
 
 

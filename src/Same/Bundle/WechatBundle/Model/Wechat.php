@@ -280,7 +280,7 @@ class Wechat
 		// $result = json_decode($result, true);
 		//if(isset($result['access_token'])){
 			//$this->_session->set('wechat_user_access_token', $result['access_token']);
-			$this->_session->set('wechat_user_openid', $result['openid']);
+			$this->_session->set('wechat_user_openid', $code);
 			//$this->_session->set('wechat_user_scope', $result['scope']);
 		//}
 		return 1;

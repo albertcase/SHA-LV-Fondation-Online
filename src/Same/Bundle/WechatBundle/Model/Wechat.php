@@ -48,12 +48,13 @@ class Wechat
 	* @return RedirectResponse
 	*/ 
 	public function oauth($redirecturl, $scope = 'snsapi_userinfo', $state = 'STATE', $type = 'code') {
-		$callback = $this->_router
-				  		 ->generate('same_wechat_callback', 
-						  	          array(
-						  	          	'redirecturl'=> $redirecturl
-						  	          ), 
-						  	          true);
+		// $callback = $this->_router
+		// 		  		 ->generate('same_wechat_callback', 
+		// 				  	          array(
+		// 				  	          	'redirecturl'=> $redirecturl
+		// 				  	          ), 
+		// 				  	          true);
+		$callback = $redirecturl;
 		$this->_session->set('wechat_callback', $callback);
 		return new RedirectResponse($this->_container->getParameter('curio_oauth_uri'));
 		// $http_data = array();

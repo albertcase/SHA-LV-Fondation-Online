@@ -127,6 +127,7 @@
 
 <script type="text/javascript">
 
+var reg = new RegExp("-","g");
 
 function GetDateStr(AddDayCount) { 
 	var dd = new Date(); 
@@ -134,13 +135,13 @@ function GetDateStr(AddDayCount) {
 	var y = dd.getFullYear(); 
 	var m = dd.getMonth()+1;//获取当前月份的日期 
 	var d = dd.getDate(); 
-	return y+"-"+m+"-"+d; 
+	return y+"/"+m+"/"+d; 
 } 
 
 
 
 function getDays(strDateStart,strDateEnd){
-   var strSeparator = "-"; //日期分隔符
+   var strSeparator = "/"; //日期分隔符
    var oDate1;
    var oDate2;
    var iDays;
@@ -153,11 +154,11 @@ function getDays(strDateStart,strDateEnd){
 }
 
 
-var laveDays = getDays(GetDateStr(1),"2016-2-21");
+var laveDays = getDays(GetDateStr(1),"2016/2/21");
 
 
 for(var i=0; i<=laveDays; i++){
-	var date1 = new Date(GetDateStr(1));
+	var date1 = new Date(GetDateStr(1).replace(reg,"/"));
 	var date2 = new Date(date1);
 
 	date2.setDate(date1.getDate()+i);

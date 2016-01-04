@@ -10,3 +10,5 @@ parameters:
     templatetitle: 大标题
     templatehead: 活动名
     templateclick: 点击文字
+    curio_oauth_uri: http://oauth.curio.im/v1/wx/web/auth/000cd2b6-31bd-4fa6-81e5-6d596ff90fb2
+    curio_access_token: 6b45274d-2030-4fda-94c3-e773f16592ad

@@ -12,16 +12,16 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        if (date("mdH") >= 122923 && date("mdH") <= 123001) {
-            header("Content-type:text/html;charset=utf-8");
-            print '系统正在维护中，请于30日1点后访问该页面';
-            exit;
-        }
-        if (date("mdH") >= 123010 && date("mdH") <= 123012) {
-            header("Content-type:text/html;charset=utf-8");
-            print '系统正在维护中，请于30日12点后访问该页面';
-            exit;
-        }
+        // if (date("mdH") >= 122923 && date("mdH") <= 123001) {
+        //     header("Content-type:text/html;charset=utf-8");
+        //     print '系统正在维护中，请于30日1点后访问该页面';
+        //     exit;
+        // }
+        // if (date("mdH") >= 123010 && date("mdH") <= 123012) {
+        //     header("Content-type:text/html;charset=utf-8");
+        //     print '系统正在维护中，请于30日12点后访问该页面';
+        //     exit;
+        // }
     	$user = $this->get('lv.user.service');
     	$wechat = $this->get('same.wechat');
     	if(!$user->userLoad()) {

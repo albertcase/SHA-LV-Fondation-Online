@@ -41,11 +41,14 @@ class WechatController extends Controller
 
     public function callbackAction()
     {
-        $redirecturl = $this->getRequest()->query->get('redirecturl');
-        $code = $this->getRequest()->query->get('code');
+        //$redirecturl = $this->getRequest()->query->get('redirecturl');
+        //$code = $this->getRequest()->query->get('code');
+        $redirecturl = $this->container->get('session')->get('wechat_callback');
+        $openid = $this->getRequest()->query->get('openid');
         $wechat = $this->get('same.wechat');
-        $result = $wechat->getOauthAccessToken($code);
-        if(isset($result['access_token'])){
+        //$result = $wechat->getOauthAccessToken($code);
+        $result = $wechat->getOauthAccessToken($openid);
+        if($result){
             return new RedirectResponse($redirecturl, 302);
         }
     }

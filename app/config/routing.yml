@@ -1,6 +1,6 @@
 lv_mother:
     resource: "@LVMotherBundle/Resources/config/routing.yml"
-    prefix:   /mothersday
+    prefix:   /16mothersday
 
 lv_nds:
     resource: "@LVNdsBundle/Resources/config/routing.yml"

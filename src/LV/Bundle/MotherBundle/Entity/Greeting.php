@@ -15,7 +15,7 @@ class Greeting
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="LV\Bundle\FondationBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="LV\Bundle\FondationBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

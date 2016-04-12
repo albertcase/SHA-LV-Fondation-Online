@@ -43,7 +43,6 @@ class LVPageRequestListener
                 $url = $this->router->generate('lv_fondation_desktop');
                 return $event->setResponse(new RedirectResponse($url));
             }
-
             if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
 
                 if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {

@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Same\Bundle\AdminBundle\SameAdminBundle(),
             new LV\Bundle\CvdBundle\LVCvdBundle(),
             new LV\Bundle\NdsBundle\LVNdsBundle(),
+            new LV\Bundle\MotherBundle\LVMotherBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

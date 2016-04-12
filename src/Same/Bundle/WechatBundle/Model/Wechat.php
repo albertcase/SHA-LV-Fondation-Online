@@ -56,7 +56,10 @@ class Wechat
 		// 				  	          true);
 		$callback = $redirecturl;
 		$this->_session->set('wechat_callback', $callback);
-		return new RedirectResponse($this->_container->getParameter('curio_oauth_uri'));
+		if ($scope == 'snsapi_base')
+			return new RedirectResponse($this->_container->getParameter('curio_oauth_uri'));
+		else 
+			return new RedirectResponse($this->_container->getParameter('curio_info_uri'));
 		// $http_data = array();
 		// $http_data['appid'] = $this->_container->getParameter('appid');
 		// $http_data['redirect_uri'] = $callback;

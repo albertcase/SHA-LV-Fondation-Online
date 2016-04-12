@@ -1,3 +1,7 @@
+lv_mother:
+    resource: "@LVMotherBundle/Resources/config/routing.yml"
+    prefix:   /mothersday
+
 lv_nds:
     resource: "@LVNdsBundle/Resources/config/routing.yml"
     prefix:   /neverendingstory

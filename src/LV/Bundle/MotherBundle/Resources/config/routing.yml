@@ -1,0 +1,11 @@
+lv_mother_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LVMotherBundle:Default:index }
+
+lv_mother_save:
+    path:     /save
+    defaults: { _controller: LVMotherBundle:Default:save }
+
+lv_mother_card:
+    path:     /card/{id}
+    defaults: { _controller: LVMotherBundle:Default:card }

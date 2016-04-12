@@ -44,8 +44,8 @@ class Greeting
     /**
      * Set user
      *
-     * @param string $user
-     * @return Greeting
+     * @param integer $user
+     * @return Ndsinfo
      */
     public function setUser($user)
     {
@@ -57,7 +57,7 @@ class Greeting
     /**
      * Get user
      *
-     * @return string 
+     * @return integer 
      */
     public function getUser()
     {

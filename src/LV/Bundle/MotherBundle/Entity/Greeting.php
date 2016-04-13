@@ -6,11 +6,18 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Greeting
+ *
+ * @ORM\Table()
+ * @ORM\Entity
  */
 class Greeting
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -22,11 +29,22 @@ class Greeting
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nickname", type="blob")
+     */
+    private $nickname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="string", length=255)
      */
     private $message;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="createtime", type="datetime")
      */
     private $createtime;
 
@@ -44,8 +62,8 @@ class Greeting
     /**
      * Set user
      *
-     * @param integer $user
-     * @return Ndsinfo
+     * @param string $user
+     * @return Greeting
      */
     public function setUser($user)
     {
@@ -57,11 +75,34 @@ class Greeting
     /**
      * Get user
      *
-     * @return integer 
+     * @return string 
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set nickname
+     *
+     * @param string $nickname
+     * @return Greeting
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname
+     *
+     * @return string 
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
     }
 
     /**

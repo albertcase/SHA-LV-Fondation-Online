@@ -6,31 +6,46 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Info
+ *
+ * @ORM\Table()
+ * @ORM\Entity
  */
 class Info
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="openid", type="string", length=255)
      */
     private $openid;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nickname", type="blob")
      */
     private $nickname;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="headimgurl", type="string", length=255)
      */
     private $headimgurl;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="createtime", type="datetime")
      */
     private $createtime;
 

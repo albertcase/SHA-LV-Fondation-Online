@@ -42,9 +42,9 @@ class Greeting
     private $message;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="createtime", type="datetime")
+     * @ORM\Column(name="createtime", type="string", length=255)
      */
     private $createtime;
 
@@ -131,7 +131,7 @@ class Greeting
     /**
      * Set createtime
      *
-     * @param \DateTime $createtime
+     * @param string $createtime
      * @return Greeting
      */
     public function setCreatetime($createtime)
@@ -144,7 +144,7 @@ class Greeting
     /**
      * Get createtime
      *
-     * @return \DateTime 
+     * @return string
      */
     public function getCreatetime()
     {

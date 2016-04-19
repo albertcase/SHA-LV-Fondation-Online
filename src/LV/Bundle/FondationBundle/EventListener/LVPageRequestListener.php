@@ -39,10 +39,10 @@ class LVPageRequestListener
     	$current_route = $event->getRequest()->get('_route');
 
         //if(!preg_match('/^lv_cvd_*/', $current_route)) {
-            if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop' && !preg_match('/^api_fondation_*/', $current_route) && !preg_match('/^same_admin_*/', $current_route) && !preg_match('/^same_wechat_*/', $current_route)){
-                $url = $this->router->generate('lv_fondation_desktop');
-                return $event->setResponse(new RedirectResponse($url));
-            }
+            // if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop' && !preg_match('/^api_fondation_*/', $current_route) && !preg_match('/^same_admin_*/', $current_route) && !preg_match('/^same_wechat_*/', $current_route)){
+            //     $url = $this->router->generate('lv_fondation_desktop');
+            //     return $event->setResponse(new RedirectResponse($url));
+            // }
             // if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
             //     if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
             //         if($current_route == 'lv_fondation_invitation')

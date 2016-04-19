@@ -57,6 +57,7 @@ class WechatController extends Controller
     public function saveAction()
     {
         $data = $GLOBALS['HTTP_RAW_POST_DATA'];
+        //$data = json_encode(array('data'=>array('openid'=>'123','nickname'=>'456','headimgurl'=>'789')));
         $doctrine = $this->getDoctrine()->getManager();
         $data = json_decode($data, true);
         $repository = $this->getDoctrine()->getRepository('SameWechatBundle:Info');

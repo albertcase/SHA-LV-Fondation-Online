@@ -28,6 +28,14 @@ class DefaultController extends Controller
         return $this->render('LVMotherBundle:Default:index.html.twig');
     }
 
+    public function logoutAction()
+    {
+        $this->container->get('session')->clear();
+        exit;
+    }
+
+    
+
     public function saveAction()
     {
         $user = $this->container->get('lv.user.service')->userLoad();

@@ -44,7 +44,6 @@ class LVPageRequestListener
                 return $event->setResponse(new RedirectResponse($url));
             }
             if($current_route && in_array($current_route, $this->container->getParameter('access_need_router'))) {
-                echo 3;exit;
                 if (!preg_match('/MicroMessenger/', $event->getRequest()->headers->get('User-Agent'))) {
                     if($current_route == 'lv_fondation_invitation')
                         $rendered = $this->container->get('templating')->render('LVFondationBundle:Default:wechat_error_invitation.html.twig');
@@ -74,7 +73,6 @@ class LVPageRequestListener
                 }
                 
             }
-            echo 4;exit;
         }
     }
 

@@ -36,7 +36,7 @@ class LVPageRequestListener
     public function onKernelRequest(GetResponseEvent $event)
     {
 
-    	$current_route = $event->getRequest()->get('_route');
+    	echo $current_route = $event->getRequest()->get('_route');exit;
 
         if(!preg_match('/^lv_cvd_*/', $current_route)) {
             if(!$this->mobiledetect->isMobile() && $current_route != 'lv_fondation_desktop' && !preg_match('/^api_fondation_*/', $current_route) && !preg_match('/^same_admin_*/', $current_route) && !preg_match('/^same_wechat_*/', $current_route)){

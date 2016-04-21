@@ -2,6 +2,10 @@ lv_mother_homepage:
     path:     /
     defaults: { _controller: LVMotherBundle:Default:index }
 
+lv_mother_logout:
+    path:     /logout
+    defaults: { _controller: LVMotherBundle:Default:logout }
+
 lv_mother_save:
     path:     /save
     defaults: { _controller: LVMotherBundle:Default:save }

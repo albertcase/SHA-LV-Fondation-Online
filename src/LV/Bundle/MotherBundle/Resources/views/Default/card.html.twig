@@ -1,1 +1,131 @@
-{{ $id }}
+
+{% extends 'LVMotherBundle::layout.html.twig' %} 
+
+{% block boxcontent %}
+
+<!-- <div class="puplayer udmiddle" id="qrcodePup">
+
+	<div class="puplayerCon">
+		<a href="javascript:;" class="close">
+			<img src="/motherdayImg/close.png" width="100%" />
+		</a>
+
+		<div class="qrcodeContent">
+			<img src="/motherdayImg/qrcode.jpg" width="100%" />
+		</div>
+
+	</div>
+
+</div> -->
+
+<div class="puplayer udmiddle" id="orderPup">
+
+	<div class="puplayerCon">
+		<a href="javascript:;" class="close">
+			<img src="/motherdayImg/close.png" width="100%" />
+		</a>
+
+		<div class="orderContent">
+			<img src="/motherdayImg/gift.png" width="100%" />
+		</div>
+		
+
+		<a href="javascript:;" class="telbtn">
+			<img src="/motherdayImg/tel_btn.jpg" width="100%" />
+		</a>
+	</div>
+
+</div>
+
+
+
+
+<div class="section" id="prolist">
+	<div class="con">
+		<!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-1.png" width="100%" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-2.png" width="100%" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-3.png" width="100%" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-4.png" width="100%" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-2.png" width="100%" />
+	            </div>
+	            <div class="swiper-slide">
+	            	<img src="/motherdayImg/pro-3.png" width="100%" />
+	            </div>
+	        </div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div>
+	    </div>
+
+	    <div class="profooter">
+	    	<a href="javascript:;" class="btn csmorebtn">
+				<img src="/motherdayImg/cs_more_btn.jpg" width="100%" />
+			</a>
+			<!-- <a href="javascript:;" class="btn getinfobtn">
+				<img src="/motherdayImg/getinfo_btn.jpg" width="100%" />
+			</a> -->
+	    </div>
+
+	    <img src="/motherdayImg/more.png" class="more" width="100%" />
+
+	</div>
+</div>
+
+
+	{% javascripts output="js/vmain.min.js"
+	    '%kernel.root_dir%/Resources/public/js/swiper.min.js'
+	%}
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+    <!-- Initialize Swiper -->
+    <script>
+    	var defaultNum = {{ id }};
+	    var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        slidesPerView: 1,
+	        paginationClickable: true,
+	        spaceBetween: 30,
+	        loop: false,
+	        initialSlide : parseInt(defaultNum-1, 10)
+	    });
+
+
+
+
+		$(".close").click(function(){
+			$(".puplayer").css({"height": "0","opacity": 0});
+		})
+
+		$(".puplayer").click(function(e){
+			$(".puplayer").css({"height": "0","opacity": 0});
+			e.stopPropagation();
+		})
+
+		$(".puplayerCon").click(function(e){
+			e.stopPropagation();
+		})
+
+		$(".getinfobtn").click(function(){
+			$("#qrcodePup").css({"height": "100%"}).animate({"opacity": 1});
+		})
+
+		$(".csmorebtn").click(function(){
+			$("#orderPup").css({"height": "100%"}).animate({"opacity": 1});
+		})
+    </script>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends '::cvd_base.html.twig' %}
+{% block title %}路易威登母亲节{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/motherday.css"
+	'@LVMotherBundle/Resources/public/css/reset.css'
+	'%kernel.root_dir%/Resources/public/css/swiper.min.css'
+	'@LVMotherBundle/Resources/public/css/style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/motherday.js"
+    '%kernel.root_dir%/Resources/public/js/jquery.js'
+    '%kernel.root_dir%/Resources/public/js/jweixin.js'
+    '%kernel.root_dir%/Resources/public/js/PxLoader.js'
+%}
+
+
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block dreambox %}
+	
+	<div id="dreambox">
+		<div id="header">
+			<div class="nav-icon udmiddle">
+					<i></i>
+					<div class="menu">
+						<img src="/motherdayImg/nav_bg_h.png" width="100%" />
+						<ul>
+							<li class="active">臻选1</li>
+							<li>臻选2</li>
+							<li>臻选3</li>
+							<li>臻选4</li>
+							<li>臻选5</li>
+							<li>臻选6</li>
+							<li>view all</li>
+							<li>定制母亲节贺卡</li>
+						</ul>
+						<img src="/motherdayImg/nav_bg_b.png" width="100%" />
+					</div>
+			</div>
+
+			<img src="/motherdayImg/logo.png" width="100%" />
+		</div>
+		{% block boxcontent %}
+		{% endblock %}
+		<!-- <img src="/motherdayImg/bg.jpg" width="100%" /> -->
+	</div>
+
+	<div class="mask"></div>
+
+
+	<!-- 横屏代码 -->
+	<div id="orientLayer" class="mod-orient-layer">
+	    <div class="mod-orient-layer__content">
+	        <i class="icon mod-orient-layer__icon-orient"></i>
+	        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+
+		$(".nav-icon").click(function(){
+			if($(this).hasClass("active")){
+				$(this).removeClass("active");
+				$(".mask").hide();
+			}else{
+				$(this).addClass("active");
+				$(".mask").show();
+			}
+
+			$(".menu").slideToggle();
+		})
+
+		$(".mask").click(function(){
+			$(".nav-icon").removeClass("active");
+			$(this).hide();
+			$(".menu").slideToggle();
+		})
+
+		$(".menu li").click(function(e){
+			if($(this).hasClass("active")) return false;
+			$(".menu li").removeClass("active");
+			$(this).addClass("active");
+			e.stopPropagation();
+		})
+
+	</script>
+
+{% endblock %}

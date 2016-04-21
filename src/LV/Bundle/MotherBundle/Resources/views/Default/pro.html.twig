@@ -1,0 +1,31 @@
+
+{% extends 'LVMotherBundle::layout.html.twig' %} 
+
+{% block boxcontent %}
+
+<div class="section" id="prolist">
+	<div class="con">
+		<!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">{{ id }}
+	            	<img src="/motherdayImg/pro.png" width="100%" />
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="profooter">
+	    	<a href="javascript:;" class="btn pricebtn">
+				<img src="/motherdayImg/price_btn.jpg" width="100%" />
+			</a>
+			<a href="{{ path('lv_mother_card', {'id': id}) }}" class="btn backmorebtn">
+				<img src="/motherdayImg/backmore_btn.jpg" width="100%" />
+			</a>
+	    </div>
+
+	    <img src="/motherdayImg/more.png" width="100%" />
+
+	</div>
+</div>
+
+{% endblock %}

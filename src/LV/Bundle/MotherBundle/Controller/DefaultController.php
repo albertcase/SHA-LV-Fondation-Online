@@ -12,19 +12,19 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $user = $this->get('lv.user.service');
-        $wechat = $this->get('same.wechat');
-        if(!$user->userLoad()) {
+        // $user = $this->get('lv.user.service');
+        // $wechat = $this->get('same.wechat');
+        // if(!$user->userLoad()) {
 
-            $url = $this->getRequest()->getRequestUri();
+        //     $url = $this->getRequest()->getRequestUri();
 
-            $isWechatLogin = $wechat->isLogin($url, 'snsapi_userinfo');
-            if($isWechatLogin instanceof RedirectResponse)
-               return $isWechatLogin;
+        //     $isWechatLogin = $wechat->isLogin($url, 'snsapi_userinfo');
+        //     if($isWechatLogin instanceof RedirectResponse)
+        //        return $isWechatLogin;
 
-           $user->userLogin($isWechatLogin);
-        }
-        echo $openid = $user->userLoad()->getOpenid();exit;
+        //    $user->userLogin($isWechatLogin);
+        // }
+        // echo $openid = $user->userLoad()->getOpenid();exit;
         return $this->render('LVMotherBundle:Default:index.html.twig');
     }
 
@@ -60,14 +60,33 @@ class DefaultController extends Controller
         return $response;
     }
 
-    public function cardAction($id)
-    {
-        $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
-        $greeting = $repository->findById($id);
-        if (!$greeting) {
-            $url = $this->generateUrl('lv_mother_homepage');
-            return new RedirectResponse($url, 302);
-        }
+    public function cardAction($id = 0){
+        // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        // $greeting = $repository->findById($id);
+        // if (!$greeting) {
+        //     $url = $this->generateUrl('lv_mother_homepage');
+        //     return new RedirectResponse($url, 302);
+        // }
         return $this->render('LVMotherBundle:Default:card.html.twig', array('id' => $id));
+    }
+
+    public function proAction($id = 0){
+        // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        // $greeting = $repository->findById($id);
+        // if (!$greeting) {
+        //     $url = $this->generateUrl('lv_mother_homepage');
+        //     return new RedirectResponse($url, 302);
+        // }
+        return $this->render('LVMotherBundle:Default:pro.html.twig', array('id' => $id));
+    }
+
+    public function homeAction($id = 0){
+        // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        // $greeting = $repository->findById($id);
+        // if (!$greeting) {
+        //     $url = $this->generateUrl('lv_mother_homepage');
+        //     return new RedirectResponse($url, 302);
+        // }
+        return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'isplay'=> 1));
     }
 }

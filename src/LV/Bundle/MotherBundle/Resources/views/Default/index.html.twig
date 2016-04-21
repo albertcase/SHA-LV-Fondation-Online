@@ -1,1 +1,162 @@
-Hello {{ name }}!
+{% extends 'LVMotherBundle::layout.html.twig' %} 
+
+{% block boxcontent %}
+<div class="loading udmiddle">
+	<div class="loadingImg">
+		<img src="/motherdayImg/loading_logo.png" width="100%" />
+		<em>100%</em>
+	</div>
+</div>
+
+
+<div class="puplayer udmiddle" id="sharePup">
+
+	<div class="puplayerCon">
+		<a href="javascript:;" class="close">
+			<img src="" sourcesrc="/motherdayImg/close.png" width="100%" />
+		</a>
+
+		<div class="shareContent">
+			<textarea maxlength="20" wrap="hard" class="messageTextarea"></textarea>
+		</div>
+
+		<a href="javascript:;" class="sendbtn">
+			<img src="" sourcesrc="/motherdayImg/send_btn.jpg" width="100%" />
+		</a>
+	</div>
+
+</div>
+
+<div class="section" id="home"></div>
+<div class="section" id="shake">
+	<div class="con">
+
+		<div class="prosingel">
+			<div class="procon">
+				<img src="" sourcesrc="/motherdayImg/kv-1.jpg" width="100%" id="kvImg" />
+			</div>
+			<div class="shakeTips">
+				<img src="" sourcesrc="/motherdayImg/shake.png" width="100%" />
+				<a href="javascript:;" class="btn sharebtn">
+					<img src="" sourcesrc="/motherdayImg/sharebtn.jpg" width="100%" />
+				</a>
+				<img src="" sourcesrc="/motherdayImg/more.png" class="more" width="100%" />
+			</div>
+		</div>
+
+
+
+		<div class="prolist" style="display:none;">
+			<ul>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-1.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-2.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-3.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-4.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-5.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+				<li>
+					<div class="listImg">
+						<img src="" sourcesrc="/motherdayImg/list-6.jpg" />
+					</div>
+					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+				</li>
+			</ul>
+		</div>
+
+
+
+	</div>
+</div>
+
+{% javascripts output="js/index.min.js"
+    '@LVMotherBundle/Resources/public/js/shake.js'
+    '@LVMotherBundle/Resources/public/js/index.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+
+	$(".messageTextarea").focus(function(){
+		if($(this).val() == ""){
+			$(".shareContent").addClass("nobg");
+		}	
+	}).blur(function(){
+		if($(this).val() == ""){
+			$(".shareContent").removeClass("nobg");
+		}	
+	})
+
+	$(".close").click(function(){
+		$(".puplayer").css({"height": "0","opacity": 0});
+	})
+
+	$(".puplayer").click(function(e){
+		$(".puplayer").css({"height": "0","opacity": 0});
+		e.stopPropagation();
+	})
+
+	$(".puplayerCon").click(function(e){
+		e.stopPropagation();
+	})
+
+	$(".sharebtn").click(function(){
+		$(".puplayer").css({"height": "100%"}).animate({"opacity": 1});
+	})
+
+
+
+		
+	var i=1;
+	window.onload = function() {
+	    //create a new instance of shake.js.
+	    var myShakeEvent = new Shake({
+	        threshold: 6
+	    });
+	    // start listening to device motion
+	    myShakeEvent.start();
+	    // register a shake event
+	    window.addEventListener('shake', shakeEventDidOccur, false);
+	    //shake event callback
+	    function shakeEventDidOccur () {
+
+	        //put your own code here etc.
+	        i++;
+	        if(i>6){
+	        	i=1;
+	        }
+	        $("#kvImg").attr("src", "/motherdayImg/kv-"+i+".jpg");
+	        
+	        //alert('Shake!');
+	    }
+	};
+
+
+</script>
+
+
+{% endblock %}

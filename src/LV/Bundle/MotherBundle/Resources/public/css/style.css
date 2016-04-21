@@ -1,0 +1,471 @@
+@charset "utf-8";
+
+#dreambox{
+    width: 100%;
+    height: 100%;
+    /*background: url("/motherdayImg/bg.jpg") center top no-repeat;
+    background-size: 100% auto;*/
+}
+
+
+#header{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 3%;
+    z-index: 6;
+}
+
+.mask{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 5;
+	display: none;
+	background: rgba(255,255,255,0.3);
+}
+
+/* section */
+.section{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+
+.section .con{
+	width: 100%;
+	height: 88.5%;
+	display: inline-block;
+	position: relative;
+	margin: 18.5% 0 0 0;
+	overflow: auto;
+}
+
+#shake{
+	display: inline-block;
+}
+
+.shakeTips{
+	width: 100%;
+	margin: 6% 0 0 0;
+	text-align: center;
+	display: inline-block;
+}
+
+.btn{
+	width: 50%;
+	margin: 4% 0;
+	display: inline-block;
+}
+
+.prolist, .prolist ul{
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+}
+
+.prolist ul{
+	padding: 0 0 10px 0;
+}
+
+.prolist li{
+	width: 42%;
+	display: inline-block;
+	margin: 0 2% 0 0;
+	position: relative;
+}
+
+.prolist li:nth-child(even){
+	margin: 0;
+}
+
+.listImg{
+	width: 100%;
+	height: 92%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+
+.listImg img{
+	width: 100%;
+	display: inline-block;
+}
+
+
+/* share */
+.puplayer{
+	width: 100%;
+	height: 0;
+	background: rgba(0,0,0,.8);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	text-align: center;
+	opacity: 0;
+	overflow: auto;
+}
+
+.puplayerCon{
+	width: 70%;
+	background: #f9fcff;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+}
+
+.close{
+	width: 8%;
+	position: absolute;
+	right: 5%;
+	top: 5%;
+}
+
+.sendbtn, .telbtn{
+	width: 70%;
+	margin: 0 0 9% 0;
+	display: inline-block;
+}
+
+.shareContent, .orderContent, .qrcodeContent{
+	width: 70%;
+	min-height: 100px;
+	background: #f9fcff url("/motherdayImg/placeholder.png") center 30% no-repeat;
+    background-size: 80% auto;
+	margin: 18% 0 10% 0;
+	display: inline-block;
+	text-align: center;
+}
+
+.shareContent.nobg, .orderContent, .qrcodeContent{
+	background: none;
+}
+
+.shareContent textarea{
+	width: 80%;
+	height: 80%;
+	background: none;
+	display: inline-block;
+	text-align: center;
+	border: none;
+	margin: 10% 0 0 0;
+	font-size: 1.6rem
+}
+
+.orderContent{
+	height: 57%;
+}
+
+.qrcodeContent{
+	width: 80%;
+	height: auto;
+	margin: 10% 0 10% 0;
+}
+
+
+
+/* card */
+.section#prolist{
+	display: inline-block;
+}
+
+.swiper-container {
+    width: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: none;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+	background: url("/motherdayImg/arr_r.png") center no-repeat;
+    background-size: 60% auto;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+	background: url("/motherdayImg/arr_l.png") center no-repeat;
+    background-size: 60% auto;
+}
+
+.swiper-button-next, .swiper-button-prev{
+	top: 30%;
+}
+
+#prolist .swiper-container{
+	margin: 7% 0 0 0;
+	display: inline-block;
+	background: url("/motherdayImg/pro_light.png") center 40% no-repeat;
+    background-size: 100% auto;
+}
+
+.profooter{
+	width: 100%;
+	display: inline-block;
+	padding: 7% 0 5% 0;
+	text-align: center;
+}
+
+.profooter a.btn{
+	margin-bottom: 2%;
+}
+
+.more{
+	margin: 0 0 6% 0;
+}
+
+
+/* home */
+#home .con{
+	overflow: hidden;
+}
+
+.homecon{
+	width: 100%;
+	height: 100%;
+	background: url("/motherdayImg/blessing.jpg") center top no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+.slidePrompt{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 6%;
+}
+
+.slidePrompt span{
+	width: 8%;
+	height: 60%;
+	position: absolute;
+	left: 50%;
+	bottom: -85%;
+	margin: 0 0 0 -4%;
+	background: url("/motherdayImg/slideArr.png") center top no-repeat;
+    background-size: 100% auto;
+}
+
+.message_con{
+	width: 60%;
+	display: inline-block;
+	margin: 20% 0 0 0;
+}
+
+.message_con p{
+	height: 72px;
+	display: inline-block;
+	width: 100%;
+	line-height: 2rem;
+}
+
+.message_con em{
+	font-size: 1.4rem;
+	padding: 0 2%;
+}
+
+
+
+
+/* 6plus */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+
+}
+
+/* 5s */
+@media handheld and (min-height:490px),screen and (max-height:510px) {
+
+}
+
+/* 4s */
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.section .con{
+		margin: 15% 0 0 0;
+	}
+
+	.homecon{
+		background: url("/motherdayImg/blessing-4s.jpg") center top no-repeat;
+	    background-size: 100% auto;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+.slidePrompt span{
+    -webkit-animation: bouncingBox 1.5s linear infinite;
+    -moz-animation: bouncingBox 1.5s linear infinite;
+    -ms-animation: bouncingBox 1.5s linear infinite;
+    -o-animation: bouncingBox 1.5s linear infinite;
+    animation: bouncingBox 1.5s linear infinite
+}
+
+@-webkit-keyframes bouncingBox {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    25% {
+        -webkit-transform: translateY(-20%);
+        -moz-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+        -o-transform: translateY(-20%);
+        transform: translateY(-20%)
+    }
+
+    75% {
+        -webkit-transform: translateY(30%);
+        -moz-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+        -o-transform: translateY(30%);
+        transform: translateY(30%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-moz-keyframes bouncingBox {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    25% {
+        -webkit-transform: translateY(-20%);
+        -moz-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+        -o-transform: translateY(-20%);
+        transform: translateY(-20%)
+    }
+
+    75% {
+        -webkit-transform: translateY(30%);
+        -moz-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+        -o-transform: translateY(30%);
+        transform: translateY(30%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-ms-keyframes bouncingBox {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    25% {
+        -webkit-transform: translateY(-20%);
+        -moz-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+        -o-transform: translateY(-20%);
+        transform: translateY(-20%)
+    }
+
+    75% {
+        -webkit-transform: translateY(30%);
+        -moz-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+        -o-transform: translateY(30%);
+        transform: translateY(30%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes bouncingBox {
+    0% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    25% {
+        -webkit-transform: translateY(-20%);
+        -moz-transform: translateY(-20%);
+        -ms-transform: translateY(-20%);
+        -o-transform: translateY(-20%);
+        transform: translateY(-20%)
+    }
+
+    75% {
+        -webkit-transform: translateY(30%);
+        -moz-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+        -o-transform: translateY(30%);
+        transform: translateY(30%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

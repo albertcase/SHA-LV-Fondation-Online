@@ -357,6 +357,9 @@ input[type="file"] {
 .choose{
 	margin:0px 0px 10px 98px; 
 }
+.dream{
+	resize:none;
+}
 
 
 /* Progressbar */

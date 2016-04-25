@@ -1,5 +1,5 @@
-lv_mother_homepage:
-    path:     /
+lv_mother_index:
+    path:     /index/{id}
     defaults: { _controller: LVMotherBundle:Default:index }
 
 lv_mother_logout:

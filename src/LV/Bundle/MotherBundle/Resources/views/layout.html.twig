@@ -14,6 +14,7 @@
     '%kernel.root_dir%/Resources/public/js/jquery.js'
     '%kernel.root_dir%/Resources/public/js/jweixin.js'
     '%kernel.root_dir%/Resources/public/js/PxLoader.js'
+    '@LVMotherBundle/Resources/public/js/public.js'
 %}
 
 
@@ -25,7 +26,7 @@
 {% endblock %}
 
 {% block dreambox %}
-	
+
 	<div id="dreambox">
 		<div id="header">
 			<div class="nav-icon udmiddle">
@@ -33,7 +34,7 @@
 					<div class="menu">
 						<img src="/motherdayImg/nav_bg_h.png" width="100%" />
 						<ul>
-							<li class="active">臻选1</li>
+							<li>臻选1</li>
 							<li>臻选2</li>
 							<li>臻选3</li>
 							<li>臻选4</li>
@@ -48,6 +49,27 @@
 
 			<img src="/motherdayImg/logo.png" width="100%" />
 		</div>
+
+		<!-- 分享弹窗 -->
+		<div class="puplayer udmiddle" id="sharePup">
+
+			<div class="puplayerCon">
+				<a href="javascript:;" class="close">
+					<img src="" sourcesrc="/motherdayImg/close.png" width="100%" />
+				</a>
+
+				<div class="shareContent">
+					<textarea maxlength="30" wrap="hard" class="messageTextarea">MY FIRST LOVE
+妈妈我爱你</textarea>
+				</div>
+
+				<a href="javascript:sendShareFun();" class="sendbtn">
+					<img src="" sourcesrc="/motherdayImg/send_btn.jpg" width="100%" />
+				</a>
+			</div>
+
+		</div>
+
 		{% block boxcontent %}
 		{% endblock %}
 		<!-- <img src="/motherdayImg/bg.jpg" width="100%" /> -->
@@ -67,6 +89,7 @@
 	<script type="text/javascript">
 
 		$(".nav-icon").click(function(){
+
 			if($(this).hasClass("active")){
 				$(this).removeClass("active");
 				$(".mask").hide();
@@ -76,6 +99,8 @@
 			}
 
 			$(".menu").slideToggle();
+			_hmt.push(['_trackEvent', 'btn', 'click', 'Menu']);
+
 		})
 
 		$(".mask").click(function(){
@@ -84,11 +109,69 @@
 			$(".menu").slideToggle();
 		})
 
-		$(".menu li").click(function(e){
-			if($(this).hasClass("active")) return false;
-			$(".menu li").removeClass("active");
-			$(this).addClass("active");
+		
+		/* share */
+
+		$(".messageTextarea").focus(function(){
+			if($(this).val() == ""){
+				$(".shareContent").addClass("nobg");
+			}	
+		}).blur(function(){
+			if($(this).val() == ""){
+				$(".shareContent").removeClass("nobg");
+			}	
+		})
+
+		$(".close").click(function(){
+			$(".puplayer").css({"height": "0","opacity": 0});
+		})
+
+		$(".puplayer").click(function(e){
+			$(".puplayer").css({"height": "0","opacity": 0});
 			e.stopPropagation();
+		})
+
+		$(".puplayerCon").click(function(e){
+			e.stopPropagation();
+		})
+
+
+
+		function sendShareFun(){
+			if($(".sendbtn").hasClass("disable")) return false;
+			var shareText = $(".messageTextarea").val();
+			if(shareText == ""){
+				formErrorTips("祝福语文本不能为空!");
+			}else{
+				$(".sendbtn").addClass("disable");
+				sendDataFun(shareText);
+			}
+
+			_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Greeting']);
+		}
+
+
+
+		function sendDataFun(_messages){
+			$.ajax({
+		        type: "POST",
+		        url: "{{ url('lv_mother_save') }}",
+		        data: {
+		            "message": _messages,
+		        },
+		        dataType:"json"
+		    }).done(function(data){
+		    	console.log(data);
+		    	$(".sendbtn").removeClass("disable");
+		    }).fail(function(){
+		        $(".sendbtn").removeClass("disable");
+		        formErrorTips("很抱歉，拉取列表失败！");
+		    })
+		}
+			
+
+		$(".more").click(function(){
+			_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Official website']);
 		})
 
 	</script>

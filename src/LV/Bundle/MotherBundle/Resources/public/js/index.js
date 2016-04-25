@@ -36,42 +36,17 @@ var LoadingImg = [
     "/motherdayImg/placeholder.png",
     "/motherdayImg/price_btn.jpg",
     "/motherdayImg/pro_light.png",
-    "/motherdayImg/pro-1.png",
-    "/motherdayImg/pro-2.png",
-    "/motherdayImg/pro-3.png",
-    "/motherdayImg/pro-4.png",
     "/motherdayImg/qrcode.jpg",
     "/motherdayImg/send_btn.jpg",
     "/motherdayImg/shake.png",
     "/motherdayImg/sharebtn.jpg",
 
-    "/motherdayImg/slide_slogan.png",
     "/motherdayImg/slideArr.png",
     "/motherdayImg/slogan.png",
     "/motherdayImg/tel_btn.jpg",
 
 ];
 
-
-/* 图片加载 */
-function LoadFn ( arr , fn , fn2){
-    var loader = new PxLoader();
-    for( var i = 0 ; i < arr.length; i ++)
-    {
-        loader.addImage(arr[i]);
-    };
-
-    loader.addProgressListener(function(e) {
-        var percent = Math.round( e.completedCount / e.totalCount * 100 );
-        if(fn2) fn2(percent)
-    });
-
-
-    loader.addCompletionListener( function(){
-        if(fn) fn();
-    });
-    loader.start();
-}
 
 
 function loading(allAmg){

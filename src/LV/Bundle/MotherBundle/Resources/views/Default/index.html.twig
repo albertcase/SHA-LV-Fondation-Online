@@ -9,90 +9,163 @@
 </div>
 
 
-<div class="puplayer udmiddle" id="sharePup">
-
-	<div class="puplayerCon">
-		<a href="javascript:;" class="close">
-			<img src="" sourcesrc="/motherdayImg/close.png" width="100%" />
-		</a>
-
-		<div class="shareContent">
-			<textarea maxlength="20" wrap="hard" class="messageTextarea"></textarea>
-		</div>
-
-		<a href="javascript:;" class="sendbtn">
-			<img src="" sourcesrc="/motherdayImg/send_btn.jpg" width="100%" />
-		</a>
-	</div>
-
-</div>
-
-<div class="section" id="home"></div>
 <div class="section" id="shake">
+
 	<div class="con">
+		<div id="islider">
+			<div class="iSlidercon">
+				<div class="homecon homebg">
+					<img src="/motherdayImg/slogan.png" class="slogan" width="100%" />
 
-		<div class="prosingel">
-			<div class="procon">
-				<img src="" sourcesrc="/motherdayImg/kv-1.jpg" width="100%" id="kvImg" />
+					<div class="slidePrompt">
+						<img src="/motherdayImg/index_arr_text.png" width="100%" />
+						<span></span>
+					</div>
+				</div>
 			</div>
-			<div class="shakeTips">
-				<img src="" sourcesrc="/motherdayImg/shake.png" width="100%" />
-				<a href="javascript:;" class="btn sharebtn">
-					<img src="" sourcesrc="/motherdayImg/sharebtn.jpg" width="100%" />
-				</a>
-				<img src="" sourcesrc="/motherdayImg/more.png" class="more" width="100%" />
+
+			<div class="iSlidercon">
+				<div class="prosingel">
+
+					<div class="procon" style="display: inline-block;">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 7}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 9}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 9}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 8}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 10}) }}"></a>
+						</div>
+						
+						<img src="" sourcesrc="/motherdayImg/kv-1.jpg" width="100%" />
+					</div>
+					<div class="procon">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 11}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 14}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 14}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 13}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 12}) }}"></a>
+						</div>
+						<img src="" sourcesrc="/motherdayImg/kv-2.jpg" width="100%" />
+					</div>
+					<div class="procon">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 2}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 4}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 4}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 6}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 5}) }}"></a>
+						</div>
+						<img src="" sourcesrc="/motherdayImg/kv-3.jpg" width="100%" />
+					</div>
+					<div class="procon">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 18}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 15}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 15}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 16}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 17}) }}"></a>
+						</div>
+						<img src="" sourcesrc="/motherdayImg/kv-4.jpg" width="100%" />
+					</div>
+					<div class="procon">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 3}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 1}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 1}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 2}) }}"></a>
+						</div>
+						<img src="" sourcesrc="/motherdayImg/kv-5.jpg" width="100%" />
+					</div>
+					<div class="procon">
+						<div class="hotArea">
+							<a href="{{ path('lv_mother_card', {'id': 22}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 21}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 21}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 19}) }}"></a>
+							<a href="{{ path('lv_mother_card', {'id': 20}) }}"></a>
+						</div>
+						<img src="" sourcesrc="/motherdayImg/kv-6.jpg" width="100%" />
+					</div>
+
+					<div class="shakeTips">
+						<img src="" sourcesrc="/motherdayImg/shake.png" width="100%" />
+						<a href="javascript:shareFun();" class="btn sharebtn">
+							<img src="" sourcesrc="/motherdayImg/sharebtn.jpg" width="100%" />
+						</a>
+						<a class="more" href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"><img src="" sourcesrc="/motherdayImg/more.png" width="100%" /></a>
+					</div>
+				</div>
+
+
+
+				<div class="prolist" style="display:none;">
+					<ul>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('1');">
+									<img src="" sourcesrc="/motherdayImg/list-1.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+						</li>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('2');">
+									<img src="" sourcesrc="/motherdayImg/list-2.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+						</li>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('3');">
+									<img src="" sourcesrc="/motherdayImg/list-3.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+						</li>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('4');">
+									<img src="" sourcesrc="/motherdayImg/list-4.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
+						</li>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('5');">
+									<img src="" sourcesrc="/motherdayImg/list-5.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" class="opacity0" width="100%" />
+						</li>
+						<li>
+							<div class="listImg">
+								<a href="javascript:prosingelFun('6');">
+									<img src="" sourcesrc="/motherdayImg/list-6.jpg" />
+								</a>
+							</div>
+							<img src="" sourcesrc="/motherdayImg/listbg.png" class="opacity0" width="100%" />
+						</li>
+					</ul>
+				</div>
+
+
 			</div>
+
 		</div>
-
-
-
-		<div class="prolist" style="display:none;">
-			<ul>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-1.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-2.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-3.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-4.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-5.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-				<li>
-					<div class="listImg">
-						<img src="" sourcesrc="/motherdayImg/list-6.jpg" />
-					</div>
-					<img src="" sourcesrc="/motherdayImg/listbg.png" width="100%" />
-				</li>
-			</ul>
-		</div>
-
-
-
 	</div>
+
+
+
 </div>
+
+
 
 {% javascripts output="js/index.min.js"
+	'@LVMotherBundle/Resources/public/js/iSlider.js'
     '@LVMotherBundle/Resources/public/js/shake.js'
     '@LVMotherBundle/Resources/public/js/index.js'
 %}
@@ -100,37 +173,15 @@
 {% endjavascripts %}
 
 <script type="text/javascript">
-
-	$(".messageTextarea").focus(function(){
-		if($(this).val() == ""){
-			$(".shareContent").addClass("nobg");
-		}	
-	}).blur(function(){
-		if($(this).val() == ""){
-			$(".shareContent").removeClass("nobg");
-		}	
-	})
-
-	$(".close").click(function(){
-		$(".puplayer").css({"height": "0","opacity": 0});
-	})
-
-	$(".puplayer").click(function(e){
-		$(".puplayer").css({"height": "0","opacity": 0});
-		e.stopPropagation();
-	})
-
-	$(".puplayerCon").click(function(e){
-		e.stopPropagation();
-	})
-
-	$(".sharebtn").click(function(){
-		$(".puplayer").css({"height": "100%"}).animate({"opacity": 1});
-	})
+	var myslider;
+	
+	function shareFun(){
+		$("#sharePup").css({"height": "100%"}).animate({"opacity": 1});
+		_hmt.push(['_trackEvent', 'btn', 'click', "点击事件：share"]);
+	}
 
 
-
-		
+	/* shake 执行代码 */
 	var i=1;
 	window.onload = function() {
 	    //create a new instance of shake.js.
@@ -146,14 +197,86 @@
 
 	        //put your own code here etc.
 	        i++;
-	        if(i>6){
+	        if(i>8){
 	        	i=1;
 	        }
-	        $("#kvImg").attr("src", "/motherdayImg/kv-"+i+".jpg");
+	        
+	        if(i==4 || i==8){
+	        	prolistFun();
+	        }else{
+	        	if(i==5 || i==6 || i==7){
+	        		prosingelFun(parseInt(i-1, 10));
+	        	}else{
+	        		prosingelFun(i);
+	        	}
+	        	
+	        }
+	        
 	        
 	        //alert('Shake!');
 	    }
 	};
+
+
+
+	/* 导航切换代码 */
+	var cid = {{ id }};
+	
+
+	$(".menu li").click(function(e){
+		
+		if($(this).hasClass("active")) return false;
+		var ci = $(this).index();
+
+		if(ci == 6){
+			prolistFun();
+		}else if(ci == 7){
+			$(".puplayer").css({"height": "100%"}).animate({"opacity": 1});
+			_hmt.push(['_trackEvent', 'btn', 'click', "Customized card"]);
+		}else{
+			prosingelFun(parseInt(ci+1, 10));
+		}
+
+		$(".nav-icon").removeClass("active");
+		$(".mask").hide();
+		$(".menu").slideToggle();
+		e.stopPropagation();
+
+	})
+
+
+
+	myslider = new iSlider({
+        wrap:'#islider',
+        item:'.iSlidercon',
+        fullScr: 'false',
+        onslide:function (index) {
+            if (index == 1) {
+                $(".nav-icon").show();
+            }
+
+            //loaded();
+        }
+    });
+
+
+	if(cid > 0 && cid < 8){
+
+		myslider.slideTo(1);
+
+		if(cid == 7){
+			prolistFun();
+		}else{
+			prosingelFun(cid);
+		}
+		
+	}else{
+		myslider.slideTo(0);
+		$(".nav-icon").hide();
+	}
+
+   
+
 
 
 </script>

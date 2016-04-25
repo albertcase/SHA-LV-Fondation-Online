@@ -11,9 +11,8 @@
 <div class="section" id="home" style="display:inline-block;">
 	<div class="con">
 		{% if isplay == 1 %}
-			<img src="/motherdayImg/blessing.jpg" sourcesrc="/motherdayImg/blessing.jpg" class="opacity0" width="100%" />
-
-			<div class="homecon">
+			<!-- <img src="/motherdayImg/blessing.jpg" sourcesrc="/motherdayImg/blessing.jpg" class="opacity0" width="100%" /> -->
+			<div class="homecon blessing_bg">
 
 				<div class="message_con">
 					<p>您的厚爱渗入我的心底<br />祝母亲安康长寿</p>
@@ -21,16 +20,47 @@
 				</div>
 
 				<div class="slidePrompt">
-					<img src="/motherdayImg/home_arr_text.png" sourcesrc="/motherdayImg/home_arr_text.png" width="100%" />
-
+					<img src="/motherdayImg/home_arr_text.png" width="100%" />
 					<span></span>
 				</div>
 			</div>
 
 		{% else %}
+			<div class="homecon homebg">
+				<img src="/motherdayImg/slogan.png" width="100%" />
 
+				<div class="slidePrompt">
+					<img src="/motherdayImg/index_arr_text.png" width="100%" />
+					<span></span>
+				</div>
+			</div>
 		{% endif %}
 	</div>
 </div>
+
+
+
+{% javascripts output="js/touch.min.js"
+	'@LVMotherBundle/Resources/public/js/touch.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
+<script type="text/javascript">
+$(document).ready(function () { /*must*/
+	$(this).swipeUp(function (event) {
+        window.location.href = "{{ path('lv_mother_index', {'id': 9})}}"
+    }, {
+        x: 50,
+        /*update the minimum swiping distance*/
+        y: 50
+    });
+
+});
+
+
+</script>
+
 
 {% endblock %}

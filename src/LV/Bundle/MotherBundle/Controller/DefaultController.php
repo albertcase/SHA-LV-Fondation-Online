@@ -10,7 +10,7 @@ use LV\Bundle\MotherBundle\Entity\Greeting;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction($id = 1)
     {
         // $user = $this->get('lv.user.service');
         // $wechat = $this->get('same.wechat');
@@ -25,7 +25,7 @@ class DefaultController extends Controller
         //    $user->userLogin($isWechatLogin);
         // }
         // echo $openid = $user->userLoad()->getOpenid();exit;
-        return $this->render('LVMotherBundle:Default:index.html.twig');
+        return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id));
     }
 
     public function logoutAction()

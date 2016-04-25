@@ -52,6 +52,9 @@ class DefaultController extends Controller
         if (!$log) {
             $greeting = new Greeting();
             $greeting->setUser($user);
+            $repository2 = $this->getDoctrine()->getRepository('SameWechatBundle:Info');
+            $info = $repository2->findByOpenid($user->openid);
+            $greeting->setNickname($info->getNickname());
             $greeting->setMessage($message);     
             $greeting->setCreatetime(date("Y-m-d H:i:s"));
             $doctrine = $this->getDoctrine()->getManager();
@@ -71,11 +74,12 @@ class DefaultController extends Controller
     public function cardAction($id)
     {
         $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
-        $greeting = $repository->findById($id);
+        $greeting = $repository->findOneById($id);
         if (!$greeting) {
             $url = $this->generateUrl('lv_mother_homepage');
             return new RedirectResponse($url, 302);
         }
-        return $this->render('LVMotherBundle:Default:card.html.twig', array('id' => $id));
+        echo $greeting->getNickname();exit;
+        return $this->render('LVMotherBundle:Default:card.html.twig', array('id' => $id , 'greeting' => $greeting));
     }
 }

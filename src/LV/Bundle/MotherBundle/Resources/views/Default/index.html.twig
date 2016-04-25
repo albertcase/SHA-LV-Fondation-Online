@@ -9,7 +9,7 @@
 </div>
 
 
-<div class="section" id="shake">
+<div class="section" id="shake" data-variable="{{ id }}">
 
 	<div class="con">
 		<div id="islider">
@@ -173,7 +173,16 @@
 {% endjavascripts %}
 
 <script type="text/javascript">
-	var myslider;
+	/* 导航切换代码 */
+	var cid = {{ id }};
+	var myslider, shakeId, shakeArr = ["1", "2", "3", "fulllist", "4", "5", "6", "fulllist"];
+
+	if(cid <= 0){
+		shakeId = 0;
+	}else{
+		cid >= 3 ? shakeId = cid : shakeId = parseInt(cid-1, 10);
+	}
+	
 	
 	function shareFun(){
 		$("#sharePup").css({"height": "100%"}).animate({"opacity": 1});
@@ -182,8 +191,9 @@
 
 
 	/* shake 执行代码 */
-	var i=1;
+
 	window.onload = function() {
+
 	    //create a new instance of shake.js.
 	    var myShakeEvent = new Shake({
 	        threshold: 6
@@ -194,33 +204,33 @@
 	    window.addEventListener('shake', shakeEventDidOccur, false);
 	    //shake event callback
 	    function shakeEventDidOccur () {
+	    	
+	    	var shakeVal = $("#shake").attr("data-variable");
+
+	    	if(shakeVal<=0 || shakeVal>7)return false;
+	    	//shakeId = $(".menu li.active").index();	    	
+
+	    	shakeId++;
+
+	    	if(shakeId > 7){
+	        	shakeId=0;
+	        }
 
 	        //put your own code here etc.
-	        i++;
-	        if(i>8){
-	        	i=1;
-	        }
-	        
-	        if(i==4 || i==8){
+	        if(shakeArr[shakeId] == "fulllist"){
 	        	prolistFun();
 	        }else{
-	        	if(i==5 || i==6 || i==7){
-	        		prosingelFun(parseInt(i-1, 10));
-	        	}else{
-	        		prosingelFun(i);
-	        	}
-	        	
+	        	prosingelFun(shakeArr[shakeId]);	
 	        }
 	        
-	        
+  
 	        //alert('Shake!');
 	    }
 	};
 
 
 
-	/* 导航切换代码 */
-	var cid = {{ id }};
+	
 	
 
 	$(".menu li").click(function(e){
@@ -229,11 +239,18 @@
 		var ci = $(this).index();
 
 		if(ci == 6){
+			shakeId = ci;
 			prolistFun();
 		}else if(ci == 7){
 			$(".puplayer").css({"height": "100%"}).animate({"opacity": 1});
 			_hmt.push(['_trackEvent', 'btn', 'click', "Customized card"]);
 		}else{
+			if(ci>=3){
+				shakeId = parseInt(ci+1, 10);
+			}else{
+				shakeId = ci;
+			}
+			
 			prosingelFun(parseInt(ci+1, 10));
 		}
 
@@ -253,6 +270,7 @@
         onslide:function (index) {
             if (index == 1) {
                 $(".nav-icon").show();
+                $("#shake").attr("data-variable", "1");
             }
 
             //loaded();

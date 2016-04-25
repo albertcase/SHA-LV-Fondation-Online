@@ -1,4 +1,4 @@
-console.log("%c☺","font-size: 40px; color: #e74c3c");
+console.log("%c☺","font-size: 60px; color: #e74c3c");
 
 /* 图片加载 */
 function LoadFn ( arr , fn , fn2){
@@ -88,41 +88,40 @@ wx.ready(function(){
         title: '路易威登•母亲节温情献礼',
         desc: '无尽感恩，在这个母亲节化为永恒礼赞。',
         link: window.location.host,
-        imgUrl: ''
+        imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg'
     };
 
     wx.onMenuShareAppMessage({
-    title: '路易威登•母亲节温情献礼',
-    desc: '无尽感恩，在这个母亲节化为永恒礼赞。',
-    link: window.location.host,
-    imgUrl: '', 
-    type: '', 
-    dataUrl: '', 
-    success: function () { 
-        _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
-    },
-    cancel: function () { 
-    }
-    });
-
-
-
-    window.wechat_setting.timeline = {
-            title: '路易威登•母亲节温情献礼', 
-            link: window.location.host,
-            imgUrl: ''
-    };
-    wx.onMenuShareTimeline({
-        title: '路易威登•母亲节温情献礼', 
+        title: '路易威登•母亲节温情献礼',
+        desc: '无尽感恩，在这个母亲节化为永恒礼赞。',
         link: window.location.host,
-        imgUrl: '', 
+        imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
+        type: '', 
+        dataUrl: '', 
         success: function () { 
-            _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
+            _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
         },
         cancel: function () { 
         }
     });
 
+
+
+    window.wechat_setting.timeline = {
+        title: '路易威登•母亲节温情献礼', 
+        link: window.location.host,
+        imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg'
+    };
+    wx.onMenuShareTimeline({
+        title: '路易威登•母亲节温情献礼', 
+        link: window.location.host,
+        imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
+        success: function () { 
+            _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
+        },
+        cancel: function () {
+        }
+    });
 
 })
 

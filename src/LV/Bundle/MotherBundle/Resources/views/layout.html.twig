@@ -87,6 +87,7 @@
 	</div>
 
 	<script type="text/javascript">
+		var tzUrl = "{{ path('lv_mother_home', {'id': 0})}}";
 
 		$(".nav-icon").click(function(){
 
@@ -161,7 +162,12 @@
 		        },
 		        dataType:"json"
 		    }).done(function(data){
-		    	console.log(data);
+		    	//console.log(data);
+		    	if(data.code == 1){
+		    		window.location.href = tzUrl.replace("home/0", data.msg);
+		    	}else{
+		    		formErrorTips(data.msg);
+		    	}
 		    	$(".sendbtn").removeClass("disable");
 		    }).fail(function(){
 		        $(".sendbtn").removeClass("disable");

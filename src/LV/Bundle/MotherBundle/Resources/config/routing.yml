@@ -12,7 +12,7 @@ lv_mother_save:
 
 lv_mother_card:
     path:     /card/{id}
-    defaults: { _controller: LVMotherBundle:Default:card }
+    defaults: { _controller: LVMotherBundle:Default:card, id: 1}
 
 lv_mother_pro:
     path:     /pro/{id}
@@ -20,5 +20,5 @@ lv_mother_pro:
 
 lv_mother_home:
     path:     /home/{id}
-    defaults: { _controller: LVMotherBundle:Default:home}
+    defaults: { _controller: LVMotherBundle:Default:home }
 

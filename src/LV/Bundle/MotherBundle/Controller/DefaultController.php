@@ -72,7 +72,7 @@ class DefaultController extends Controller
         return $response;
     }
 
-    public function cardAction($id = 0){
+    public function cardAction($id = 1){
         // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
         // $greeting = $repository->findById($id);
         // if (!$greeting) {

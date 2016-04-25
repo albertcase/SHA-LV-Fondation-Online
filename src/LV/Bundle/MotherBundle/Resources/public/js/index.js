@@ -59,6 +59,7 @@ function loading(allAmg){
         $(".loading").fadeOut();
 
         $("#dreambox").show();
+
         
     } , function (p){
         $(".loadingImg em").html(p+"%");

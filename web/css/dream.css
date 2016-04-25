@@ -1,4 +1,4 @@
-@charset "utf-8";
+ddddd@charset "utf-8";
 /* =reset 网页样式重置
 ------------------------------------------------------------------------------------------------------------------------------*/
 html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
@@ -431,7 +431,8 @@ html, body, #dreambox {
 }
 
 .s-img{
-    width: 100%;
+    width: 103%;
+    margin: 0 0 0 -1.5%;
 }
 
 

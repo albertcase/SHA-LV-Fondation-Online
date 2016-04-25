@@ -2,7 +2,7 @@
 /* =reset 网页样式重置
 ------------------------------------------------------------------------------------------------------------------------------*/
 html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;/*强制firefox出现滑动条*/}
-body { font-size:0.75em; font-family: "微软雅黑"; }
+body { font-size:0.75em;}
 label { cursor:pointer;}
 a:link, a:visited { text-decoration:none;}
 input:focus { outline: none; }
@@ -13,37 +13,30 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; } /*利
 
 textarea,input,select { background: none; border:none; margin: 0; padding: 0; }
 
-a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, menu, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt,
-u, ul, var { margin:0; padding:0;}
-
 article, aside, footer, header, hgroup, nav, section, figure, figcaption { display: block;} /*html5设置*/
 
 h1, h2, h3, h4, h5, h6, th, td, table, input, button, select, textarea, sub{ font-size:1em;}
 body, input, button, select, textarea, sub{ font-family:Arial, sans-serif;}
 em, cite, address, optgroup { font-style:normal;}
-kbd, samp, code { font-family:monospace;}
 
 img, input, button, select, textarea { vertical-align:middle;outline:none;}
-ul, ol { list-style:none;}
+ul,li { list-style:none;}
 img, fieldset { border:0;}
-abbr, acronym { cursor:help; border-bottom:1px dotted black;}
-table {	width:100%; border-spacing:0; border:0;}
-table th, table td { border:0;}
-legend, hr { overflow:hidden; position:absolute; top:0; left:0;}
-legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0;}
 
 /**
  * = global 统一样式
  *******************************************************************************************************/
 /* 改变动画的效果方式*/
 * {
-  -webkit-transition-timing-function: ease-in-out;
-     -moz-transition-timing-function: ease-in-out;
-      -ms-transition-timing-function: ease-in-out;
-       -o-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+          -webkit-text-size-adjust: none;
+          margin: 0;
+          padding: 0;
 }
-html {height: 100%;}
+
 body { position: relative; font-family:"微软雅黑"; width: 100%; height: 100%; margin: 0 auto; }
 body h1,body h2,body h3,body h4,body h5,body h6,body strong,body em {font-weight:normal; } /*微软雅体 将原有的bold属性去掉*/
 
@@ -53,14 +46,14 @@ body h1,body h2,body h3,body h4,body h5,body h6,body strong,body em {font-weight
 a,img { -webkit-touch-callout: none;}
 
 /* 去除input和输入框的默认样式，并默认赋予30%的黑色背景 */
-input { -webkit-appearance: none; border: none; background:#f4f5f1; border-radius: 0; color:#000; }
+/*input { -webkit-appearance: none; border: none; background:#f4f5f1; border-radius: 0; color:#000; }*/
 textarea { border: none; background: #f6f7f3; border-radius: 0; border:1px #ededed solid; color:#000; }
 
 
 /* 去除iphone中按下时的高亮效果 */
 /* 无法选择复制内容 */
 * { -webkit-user-select: none; -moz-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
-input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-transform:Capitalize;*/ }
+input,textarea { -webkit-user-select: auto; -moz-user-select: auto; text-transform:Capitalize; }
 
 /* 阻止旋转屏幕时自动调整字体大小 */
 * { -webkit-text-size-adjust: none;}
@@ -69,10 +62,224 @@ input,textarea { -webkit-user-select: auto; -moz-user-select: auto; /*text-trans
 
 
 
+html, body{
+    font-family: Roboto,Arial,Helvetica,sans-serif, "Microsoft YaHei", "微软雅黑", "黑体";
+    width:100%;
+    height:100%;
+    position: relative;
+    font-size: 65%;
+    background: #fff;
 
+    -webkit-font-smoothing: antialiased; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight: rgba(0,0,0,0);
+    -webkit-text-size-adjust: none;
+    overflow: -moz-scrollbars-vertical
 
-.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
-	  text-shadow: none;
-  	  border: none;
-  	  background: none;
+    -ms-overflow-scrolling: touch; 
+    -moz-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; 
+    -o-overflow-scrolling: touch;  
+    overflow: hidden;
 }
+
+@-webkit-keyframes rotation {
+        10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+        50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+        90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+        100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    }
+@keyframes rotation {
+        10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+        50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+        90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+        100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+    }
+#orientLayer { display: none; }
+@media screen and (min-aspect-ratio: 13/9) { 
+    #orientLayer { display: block; } 
+}
+.mod-orient-layer { display: none; position: fixed; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; background: #000; z-index: 9997 }
+.mod-orient-layer__content { position: absolute; width: 100%; top: 45%; margin-top: -75px; text-align: center }
+.mod-orient-layer__icon-orient {background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAXVBMVEUAAAD29vb////x8fH////////x8fH5+fn29vby8vL////5+fn39/f6+vr////x8fH////////+/v7////09PT////x8fH39/f////////////////////x8fH///+WLTLGAAAAHXRSTlMAIpML+gb4ZhHWn1c2gvHBvq1uKJcC6k8b187lQ9yhhboAAAQYSURBVHja7d3blpowFIDhTUIAOchZDkre/zE7ycySrbUUpsRN2/1fzO18KzEqxEVgTiZNfgmmtxRc8iaR8HNe8x4BtjQePKayYCIoyBSgvNNE1AkNSHqZyLqk97EgUCCHBzZ5mkg7ScvIJuIyOyXBRFxgpqWZyGsAZLB1KjsJi8nutHU4JCRbFRH8tmirI9k8Jx2sqNs8K/m0LQkrktO2crgcgXGB4AiTEsB0hJfo9MGgX7CGcYiYwQxmMOOvZwRhBG8tCoMXjBDeXvWCEcHbi14wgCBmMIMZzGAGM5jxETNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxY6E2rUQxnH2tz9cirlJFwFBJedaPnUv0M7++egPDE8iAJcIDmxwH5wwv9vUviw2kLbVO3TJU5uul/EyB0FoLp4x60PdGUd3qPurrWyjGGTc05u+1dcgI7/+tCCPARWGhH7o5Y7RCf+bH9ctXLp6v2BVDxfqz0oPXeSVaNtINo/1SXDv4dck8IIkbhtC2ol+iouEonTBCbYvVMnXOjxww6s/RFrBUpXHh/gw1rHj5d/qhYn9Gpk2FWh6xRBRX5Oj3Znh2Sq49/L6+y8pB26q9GbE2dbA2mVbx6I+7MfBglLCttm73ZQi7AD3iL4HqjFYJHSPRppqaUaJ3ATpGa+ckpGak2hRRMyqjGMkvl+xyFeSMwjAqcsZgGDdyhl0oNTnDN4yenJGZFGxNChP5/Y3efh6SM2rDOJMzboYxkDMqwyjIGcIw6F+io2FU1IxIm1JqRmgXSkvNKNCXeTpGrU0JNSO2c6LIGPgCS8AuDHz9ta0SXWDtxoDRH+MqlbC2Dt2G2JFRadtQZt2qq/orGowdGb2euxYiqWEpVWhTBnszoNAPdStuQwxqf0aocdWKW4Z+DfszIh8pxJqbuCE4YAC+4bm0evtipjpgJHeFnyyt1Ku2xa0bhjxr27p75rECNwyI9ZwvXkHq+7aTaMEV44YYy/spfgjgjNHaWW+GeUhGEX7tLlVinIFDDSgnOwhi1V6bU0b6tVS9eAERe863g4dRrtiHdc6o+nn5vtyVVgR79Cqt4uL6gfHPQyGqtP2vf7HADGbcYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JjhtOM+J/AgT008yDMkN/dPP9hzS8zAMQN3OEYeekp5YU7KOKXwVXqiY+QS7smcinGKABWdiBgpPJTSMHJ4KidhhPBUSMLw4CmPhKHgKUXCkHsygum71ftNSgCX6bsl8FQyfbcL5EdYsDk0R3j7aiA5wpt5AjKg/2gLJEBD/0Hf2OOf/vRrj6z/7GtP4B3nMKyjHA12kIPSjnJs3FEO0TvKkYJHOWCR+rjJH0Vn6fI5PjNbAAAAAElFTkSuQmCC');display: inline-block; width: 67px; height: 109px;
+    transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-animation: rotation infinite 1.5s ease-in-out; animation: rotation infinite 1.5s ease-in-out; -webkit-background-size: 67px; background-size: 67px }
+.mod-orient-layer__desc { margin-top: 20px; font-size: 15px; color: #fff }
+
+
+
+
+
+/* menu */
+
+
+.nav-icon{
+
+    width: 7%;
+    height: 100%;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    position: absolute;
+    z-index: 1005;
+    top: 0;
+    left: 8%;
+
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.nav-icon i{
+    font: bold 14px/.4 "黑体";
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 100%;
+    height: 2px;
+
+    text-indent: -55px;
+    text-transform: uppercase;
+
+    color: #000;
+    background: #383839;
+    border-radius: 3px;
+}
+.nav-icon i:before,
+.nav-icon i:after{
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    content: '';
+    transition: all .2s ease-out;
+
+    background: #383839;
+    border-radius: 3px;
+}
+.nav-icon i:before{
+    top: -10px;
+}
+.nav-icon i:after{
+    bottom: -10px;
+}
+.nav-icon.active i:before{
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+.nav-icon.active i:after{
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.nav-icon.active i:before{
+    top: 0;
+}
+.nav-icon.active i:after{
+    bottom: 0;
+}
+
+.nav-icon.active i{
+    background: none;
+}
+
+
+/* menu 127px */
+.menu{
+    width: 450%;
+    position: absolute;
+    left: -90%;
+    top: 127%;
+    display: none;
+}
+.menu ul{
+    width: 100%;
+    background: url("/motherdayImg/nav_bg_c.png") center repeat-y;
+    background-size: 100% auto;
+    float: left;
+    display: inline-block;
+}
+
+.menu img{
+    float: left;
+    display: inline-block;
+}
+.menu li{
+    width: 100%;
+    height: 30px;
+    background: url("/motherdayImg/nav.png") 0 0 no-repeat;
+    background-size: 100% auto;
+    display: inline-block;
+    text-indent: -999rem;
+    margin: 1px 0;
+} 
+.menu li.active{
+    background: url("/motherdayImg/nav_hover.png") 0 0 no-repeat;
+    background-size: 100% auto;
+}
+.menu li:nth-child(1), .menu li:nth-child(1).active{
+    background-position: 0 -3%;
+}
+.menu li:nth-child(2), .menu li:nth-child(2).active{
+    background-position: 0 12%;
+}
+.menu li:nth-child(3), .menu li:nth-child(3).active{
+    background-position: 0 28%;
+}
+.menu li:nth-child(4), .menu li:nth-child(4).active{
+    background-position: 0 43%;
+}
+.menu li:nth-child(5), .menu li:nth-child(5).active{
+    background-position: 0 58%;
+}
+.menu li:nth-child(6), .menu li:nth-child(6).active{
+    background-position: 0 73%;
+}
+.menu li:nth-child(7), .menu li:nth-child(7).active{
+    background-position: 0 89%;
+    margin: 3px 0;
+}
+.menu li:nth-child(8), .menu li:nth-child(8).active{
+    background-position: 0 104%;
+}
+
+
+.loading{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+

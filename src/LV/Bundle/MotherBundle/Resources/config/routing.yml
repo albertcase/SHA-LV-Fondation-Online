@@ -1,6 +1,6 @@
-lv_mother_homepage:
-    path:     /
-    defaults: { _controller: LVMotherBundle:Default:index }
+lv_mother_index:
+    path:     /{id}
+    defaults: { _controller: LVMotherBundle:Default:index, id: 0}
 
 lv_mother_logout:
     path:     /logout
@@ -13,3 +13,12 @@ lv_mother_save:
 lv_mother_card:
     path:     /card/{id}
     defaults: { _controller: LVMotherBundle:Default:card }
+
+lv_mother_pro:
+    path:     /pro/{id}
+    defaults: { _controller: LVMotherBundle:Default:pro }
+
+lv_mother_home:
+    path:     /home/{id}
+    defaults: { _controller: LVMotherBundle:Default:home}
+

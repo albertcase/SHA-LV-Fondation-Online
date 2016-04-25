@@ -1,2 +1,200 @@
+<<<<<<< HEAD
 {{ id }}
 {{ greeting.nickname }}
+=======
+
+{% extends 'LVMotherBundle::layout.html.twig' %} 
+
+{% block boxcontent %}
+
+<!-- <div class="puplayer udmiddle" id="qrcodePup">
+
+	<div class="puplayerCon">
+		<a href="javascript:;" class="close">
+			<img src="/motherdayImg/close.png" width="100%" />
+		</a>
+
+		<div class="qrcodeContent">
+			<img src="/motherdayImg/qrcode.jpg" width="100%" />
+		</div>
+
+	</div>
+
+</div> -->
+
+<div class="puplayer udmiddle" id="orderPup">
+
+	<div class="puplayerCon">
+		<a href="javascript:;" class="close">
+			<img src="/motherdayImg/close.png" width="100%" />
+		</a>
+
+		<div class="orderContent">
+			<img src="/motherdayImg/gift.png" width="100%" />
+		</div>
+		
+
+		<a href="tel:400-6588-555" onclick="_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Call center']);" class="telbtn">
+			<img src="/motherdayImg/tel_btn.jpg" width="100%" />
+		</a>
+	</div>
+
+</div>
+
+
+
+
+<div class="section" id="proInfo">
+	<div class="con">
+		<!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper" id="proInfoCon">
+	            
+	        </div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div>
+	    </div>
+
+	    <div class="profooter">
+	    	<a href="javascript:;" class="btn csmorebtn">
+				<img src="/motherdayImg/cs_more_btn.jpg" width="100%" />
+			</a>
+			<!-- <a href="javascript:;" class="btn getinfobtn">
+				<img src="/motherdayImg/getinfo_btn.jpg" width="100%" />
+			</a> -->
+	    </div>
+
+	    <a class="more" href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces " target="_blank"><img src="" sourcesrc="/motherdayImg/more.png" width="100%" /></a>
+
+	</div>
+</div>
+
+
+	{% javascripts output="js/vmain.min.js"
+	    '%kernel.root_dir%/Resources/public/js/swiper.min.js'
+	%}
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+    <!-- Initialize Swiper -->
+    <script>
+
+    	var defaultNum = {{ id }};
+
+	    
+
+		$(".close").click(function(){
+			$(".puplayer").css({"height": "0","opacity": 0});
+		})
+
+		$(".puplayer").click(function(e){
+			$(".puplayer").css({"height": "0","opacity": 0});
+			e.stopPropagation();
+		})
+
+		$(".puplayerCon").click(function(e){
+			e.stopPropagation();
+		})
+
+		$(".getinfobtn").click(function(){
+			$("#qrcodePup").css({"height": "100%"}).animate({"opacity": 1});
+		})
+
+		$(".csmorebtn").click(function(){
+			$("#orderPup").css({"height": "100%"}).animate({"opacity": 1});
+			_hmt.push(['_trackEvent', 'btn', 'click', "点击事件：Incentive"]);
+		})
+
+
+
+		var proInfoImgArr = [];
+
+
+		for(var i=1; i<=22; i++){
+			proInfoImgArr.push("/motherdayImg/pro/"+i+".jpg");
+		}
+
+		var proInfoHtml = $.map(proInfoImgArr, function(v, k){
+			return '<div class="swiper-slide"><img src="'+v+'" /></div>'
+		})
+
+		$("#proInfoCon").html(proInfoHtml);
+
+		LoadFn(proInfoImgArr , function (){
+
+	        $("img").each(function(){ 
+	            $(this).attr("src",$(this).attr("sourcesrc"));
+	        })
+
+	        $("#proInfo").show();
+
+	        var swiper = new Swiper('.swiper-container', {
+		        nextButton: '.swiper-button-next',
+		        prevButton: '.swiper-button-prev',
+		        slidesPerView: 1,
+		        paginationClickable: true,
+		        spaceBetween: 30,
+		        loop: false,
+		        initialSlide : parseInt(defaultNum-1, 10)
+		    });
+
+		    
+	        
+	    } , function (p){
+	        //$(".loadingImg em").html(p+"%");
+	        //console.log(p);
+	    });
+
+
+
+	    $(".menu li").click(function(e){
+			
+			if($(this).hasClass("active")) return false;
+			var ci = parseInt($(this).index() + 1, 10);
+			if(ci == 7){
+				window.location.href = "{{ path('lv_mother_index', {'id': 7}) }}"
+				_hmt.push(['_trackEvent', 'btn', 'click', "Customized card"]);
+			}else if(ci == 8){
+				$("#sharePup").css({"height": "100%"}).animate({"opacity": 1});
+			}else{
+
+				switch (ci){ 
+					case 1 : 
+					 	window.location.href = "{{ path('lv_mother_index', {'id': 1})}}"
+					break; 
+					case 2 : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 2})}}" 
+					break; 
+					case 3 : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 3})}}" 
+					break; 
+					case 4 : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 4})}}" 
+					break; 
+					case 5 : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 5})}}" 
+					break; 
+					case 6 : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 6})}}" 
+					break; 
+					default : 
+						window.location.href = "{{ path('lv_mother_index', {'id': 1})}}" 
+					break; 
+				} 
+
+				
+			}
+
+			$(".nav-icon").removeClass("active");
+			$(".mask").hide();
+			$(".menu").slideToggle();
+			e.stopPropagation();
+			
+		})
+
+
+
+    </script>
+{% endblock %}
+>>>>>>> 8754391f605cfb15ecbc3c6117fac8734db8155e

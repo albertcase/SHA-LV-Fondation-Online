@@ -27,6 +27,7 @@ class DefaultController extends Controller
         //echo $openid = $user->userLoad()->getOpenid();exit;
         $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
         $log = $repository->findOneByUser($user);
+        var_dump($log);exit;
         $greeting = 0; 
         if ($log) {
             $greeting = $log->getId();

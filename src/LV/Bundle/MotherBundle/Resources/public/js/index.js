@@ -185,7 +185,7 @@ function mysliderLoader(){
 
 
 
-
+alert(6);
 
 
 

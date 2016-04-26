@@ -98,7 +98,6 @@ class DefaultController extends Controller
             $url = $this->generateUrl('lv_mother_homepage');
             return new RedirectResponse($url, 302);
         }
-        var_dump($greeting);exit;
-        return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'greeting' => $greeting, 'isplay'=> 1));
+        return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'message' => $greeting->getMessage(), 'nickname' => stream_get_contents($greeting->getNickname()), 'isplay'=> 1));
     }
 }

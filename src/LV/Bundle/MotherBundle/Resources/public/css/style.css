@@ -48,9 +48,9 @@
 	display: inline-block;
 }
 
-#shake{
+/*#shake{
     opacity: 0;
-}
+}*/
 
 
 .slogan{
@@ -411,6 +411,7 @@
 	border-radius: 2px;
 	display: inline-block;
 	position: relative;
+    margin: 16% 0 0 0;
 }
 
 .close{
@@ -428,10 +429,10 @@
 
 .shareContent, .orderContent, .qrcodeContent{
 	width: 70%;
-	min-height: 122px;
-	background: #f9fcff url("/motherdayImg/placeholder.png") center bottom no-repeat;
+	min-height: 162px;
+	background: #f9fcff url("/motherdayImg/placeholder.png") center top no-repeat;
     background-size: 60% auto;
-	margin: 18% 0 10% 0;
+	margin: 15% 0 10% 0;
 	display: inline-block;
 	text-align: center;
 }
@@ -447,7 +448,7 @@
 	display: inline-block;
 	text-align: center;
 	border: none;
-	margin: 6% 0 0 0;
+	margin: 36% 0 0 0;
 	font-size: 1.4rem;
     line-height: 2.0rem;
     overflow: hidden;
@@ -604,8 +605,6 @@
 }
 
 
-
-
 /* 6plus */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 
@@ -664,6 +663,10 @@
 
     .newone{
         width: 70%;
+    }
+
+    .shareContent, .orderContent, .qrcodeContent{
+        min-height: 122px;
     }
 
 }

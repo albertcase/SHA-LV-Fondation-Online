@@ -594,7 +594,8 @@
 	display: inline-block;
 	width: 100%;
     font-size: 1.2rem;
-	line-height: 2rem;
+	line-height: 2.2rem;
+    white-space: pre;
 }
 
 .message_con em{

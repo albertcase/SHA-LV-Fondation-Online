@@ -53,7 +53,7 @@ class DefaultController extends Controller
             $greeting = new Greeting();
             $greeting->setUser($user);
             $repository2 = $this->getDoctrine()->getRepository('SameWechatBundle:Info');
-            $info = $repository2->findByOpenid($user->openid);
+            $info = $repository2->findByOpenid($user->getOpenid());
             var_dump($info);exit;
             $greeting->setNickname($info->getNickname());
             $greeting->setMessage($message);     

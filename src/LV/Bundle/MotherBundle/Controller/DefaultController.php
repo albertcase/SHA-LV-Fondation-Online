@@ -92,12 +92,12 @@ class DefaultController extends Controller
     }
 
     public function homeAction($id = 0){
-        // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
-        // $greeting = $repository->findById($id);
-        // if (!$greeting) {
-        //     $url = $this->generateUrl('lv_mother_homepage');
-        //     return new RedirectResponse($url, 302);
-        // }
-        return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'isplay'=> 1));
+        $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        $greeting = $repository->findOneById($id);
+        if (!$greeting) {
+            $url = $this->generateUrl('lv_mother_homepage');
+            return new RedirectResponse($url, 302);
+        }
+        return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'greeting' => $greeting, 'isplay'=> 1));
     }
 }

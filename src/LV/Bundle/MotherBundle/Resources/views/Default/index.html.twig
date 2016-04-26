@@ -17,7 +17,9 @@
 				<div class="homecon">
 					<img src="/motherdayImg/slogan.png" class="slogan" width="100%" />
 
-					<div class="video">
+					<div class="newone">
+						<img src="" id="newonebox" width="100%" />
+						<img src="/motherdayImg/new-one-flower.gif" width="100%" />
 					</div>
 
 					<div class="slidePrompt">
@@ -274,6 +276,11 @@
             if (index == 1) {
                 $(".nav-icon").show();
                 $("#shake").attr("data-variable", "1");
+                $("#newonebox").attr("src", " ").hide();
+            }else{
+            	$(".nav-icon").hide();
+                $("#shake").attr("data-variable", "0");
+                $("#newonebox").attr("src", "/motherdayImg/new-one-box.gif").show();
             }
 
             //loaded();

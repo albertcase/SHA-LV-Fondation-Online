@@ -1,5 +1,7 @@
 
 var LoadingImg = [
+    "/motherdayImg/new-one-box.gif",
+    "/motherdayImg/new-one-flower.gif",
     "/motherdayImg/arr_l.png",
     "/motherdayImg/arr_r.png",
     "/motherdayImg/backmore_btn.jpg",
@@ -59,6 +61,8 @@ function loading(allAmg){
         $(".loading").fadeOut();
 
         $("#dreambox").show();
+
+        $("#newonebox").attr("src", "/motherdayImg/new-one-box.gif");
 
         
     } , function (p){

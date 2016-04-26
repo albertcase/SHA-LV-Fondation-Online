@@ -53,6 +53,22 @@
     display: inline-block;
 }
 
+.newone{
+    width: 100%;
+    margin: 6% 0 0 0;
+    display: inline-block;
+}
+
+.newone img:nth-child(1){
+    position: relative;
+    z-index: 2;
+}
+
+.newone img:nth-child(2){
+    margin: -1% 0 0 0;
+    display: inline-block;
+}
+
 .shakeTips{
 	width: 100%;
 	margin: 6% 0 0 0;
@@ -452,7 +468,7 @@
 
 .swiper-container {
     width: 100%;
-    margin: 12% 0 8% 0;
+    margin: 9% 0 1% 0;
 }
 
 .swiper-slide {
@@ -496,6 +512,10 @@
 
 .profooter a.btn{
 	margin-bottom: 2%;
+}
+
+.profooter a.btn.csmorebtn{
+    margin-bottom: 12%;
 }
 
 .more{
@@ -623,6 +643,10 @@
     .swiper-container {
         width: 100%;
         margin: 0 0 0 0;
+    }
+
+    .newone{
+        width: 70%;
     }
 
 }

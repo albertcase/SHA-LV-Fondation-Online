@@ -284,7 +284,7 @@ iSlider.prototype={
     _touchmove : function (e) {
         var parent=e.target;
         var self = this;
-        if(this.index == 1) return false;
+        //if(this.index == 1) return false;
 
         do {
             parent=parent.parentNode;

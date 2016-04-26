@@ -1,6 +1,8 @@
 
 var LoadingImg = [
-
+    // "/motherdayImg/new-one-box.gif",
+    // "/motherdayImg/new-one-flower.gif",
+    "/motherdayImg/new-one-box.jpg",
     "/motherdayImg/arr_l.png",
     "/motherdayImg/arr_r.png",
     "/motherdayImg/backmore_btn.jpg",
@@ -151,7 +153,7 @@ var myslider, shakeId, shakeArr = ["1", "2", "3", "fulllist", "4", "5", "6", "fu
             if (index == 1) {
                 $(".nav-icon").show();
                 $("#shake").attr("data-variable", "1");
-                $("#newonebox").attr("src", " ").hide();
+                $("#newonebox").attr("src", "/motherdayImg/new-one-box.jpg").hide();
             }else{
                 $(".nav-icon").hide();
                 $("#shake").attr("data-variable", "0");

@@ -32,7 +32,7 @@ class DefaultController extends Controller
             $greeting = 0; 
         }
         $greeting = $log->getId();
-        return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id));
+        return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id, 'greeting' => $greeting));
     }
 
     public function logoutAction()

@@ -12,19 +12,19 @@ class DefaultController extends Controller
 {
     public function indexAction($id = 0)
     {
-        // $user = $this->get('lv.user.service');
-        // $wechat = $this->get('same.wechat');
-        // if(!$user->userLoad()) {
+        $user = $this->get('lv.user.service');
+        $wechat = $this->get('same.wechat');
+        if(!$user->userLoad()) {
 
-        //     $url = $this->getRequest()->getRequestUri();
+            $url = $this->getRequest()->getRequestUri();
 
-        //     $isWechatLogin = $wechat->isLogin($url, 'snsapi_userinfo');
-        //     if($isWechatLogin instanceof RedirectResponse)
-        //        return $isWechatLogin;
+            $isWechatLogin = $wechat->isLogin($url, 'snsapi_userinfo');
+            if($isWechatLogin instanceof RedirectResponse)
+               return $isWechatLogin;
 
-        //    $user->userLogin($isWechatLogin);
-        // }
-        // echo $openid = $user->userLoad()->getOpenid();exit;
+           $user->userLogin($isWechatLogin);
+        }
+        //echo $openid = $user->userLoad()->getOpenid();exit;
         return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id));
     }
 
@@ -49,12 +49,11 @@ class DefaultController extends Controller
         $message = $request->get('message');
         $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
         $log = $repository->findByUser($user);
-        var_dump($log);exit;
         if (!$log) {
             $greeting = new Greeting();
             $greeting->setUser($user);
             $repository2 = $this->getDoctrine()->getRepository('SameWechatBundle:Info');
-            $info = $repository2->findByOpenid($user->openid);
+            $info = $repository2->findOneByOpenid($user->getOpenid());
             $greeting->setNickname($info->getNickname());
             $greeting->setMessage($message);     
             $greeting->setCreatetime(date("Y-m-d H:i:s"));

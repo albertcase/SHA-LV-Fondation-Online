@@ -48,6 +48,11 @@
 	display: inline-block;
 }
 
+#shake{
+    opacity: 0;
+}
+
+
 .slogan{
     margin: 6% 0 0 0;
     display: inline-block;
@@ -457,6 +462,18 @@
 	width: 80%;
 	height: auto;
 	margin: 10% 0 10% 0;
+}
+
+.shareTips{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: #fff url("/motherdayImg/shareTips.png") 80% 20% no-repeat;
+    background-size: 70% auto;
+    display: none;
 }
 
 

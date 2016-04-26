@@ -54,6 +54,8 @@
 		<div class="puplayer udmiddle" id="sharePup">
 
 			<div class="puplayerCon">
+				<div class="shareTips"></div>
+
 				<a href="javascript:;" class="close">
 					<img src="" sourcesrc="/motherdayImg/close.png" width="100%" />
 				</a>
@@ -164,7 +166,11 @@
 		    }).done(function(data){
 		    	//console.log(data);
 		    	if(data.code == 1){
-		    		window.location.href = tzUrl.replace("home/0", data.msg);
+		    		$(".shareTips").show();
+
+		    		var sharelink = tzUrl.replace("home/0", data.msg);
+		    		shareFun(sharelink);
+		    		
 		    	}else{
 		    		formErrorTips(data.msg);
 		    	}

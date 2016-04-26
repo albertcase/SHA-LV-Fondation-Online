@@ -201,6 +201,10 @@ function loading(allAmg){
         $(".loading").fadeOut();
 
         mysliderLoader();
+
+        if(greeting != 0){
+            $(".shareTips").show();
+        }
         //$("#shake").css({"opacity": 1});
         // $("#shake").animate({"opacity": 1}, function(){
         //     mysliderLoader();

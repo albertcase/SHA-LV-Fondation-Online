@@ -141,7 +141,7 @@
 
 
 		function sendShareFun(){
-			if($(".sendbtn").hasClass("disable")) return false;
+			if($(".sendbtn").hasClass("disable") || greeting == 0) return false;
 			var shareText = $(".messageTextarea").val();
 			if(shareText == ""){
 				formErrorTips("祝福语文本不能为空!");
@@ -168,7 +168,7 @@
 		    	if(data.code == 1){
 		    		$(".shareTips").show();
 
-		    		var sharelink = tzUrl.replace("home/0", data.msg);
+		    		var sharelink = tzUrl.replace("home/0",  "home/" + data.msg);
 		    		shareFunSet(sharelink);
 		    		
 		    	}else{
@@ -185,6 +185,13 @@
 		$(".more").click(function(){
 			_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Official website']);
 		})
+
+
+		if(greeting != 0){
+            $(".shareTips").show();
+            var sharelink = tzUrl.replace("home/0", "home/" + greeting);
+		    	shareFunSet(sharelink);
+        }
 
 	</script>
 

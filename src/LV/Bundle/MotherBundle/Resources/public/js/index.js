@@ -202,9 +202,6 @@ function loading(allAmg){
 
         mysliderLoader();
 
-        if(greeting != 0){
-            $(".shareTips").show();
-        }
         //$("#shake").css({"opacity": 1});
         // $("#shake").animate({"opacity": 1}, function(){
         //     mysliderLoader();

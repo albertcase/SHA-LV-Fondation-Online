@@ -150,7 +150,7 @@ function shareFun(_shareLink){
 
     window.wechat_setting.friend  = {
         title: _unescape('路易威登•母亲节温情献礼'),
-        desc: _unescape('无尽感恩，在这个母亲节化为永恒礼赞。)',
+        desc: _unescape('无尽感恩，在这个母亲节化为永恒礼赞。'),
         link: _shareLink,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg'
     };

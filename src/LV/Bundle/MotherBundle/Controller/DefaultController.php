@@ -25,6 +25,13 @@ class DefaultController extends Controller
            $user->userLogin($isWechatLogin);
         }
         //echo $openid = $user->userLoad()->getOpenid();exit;
+        $message = $request->get('message');
+        $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        $log = $repository->findOneByUser($user);
+        if (!$log) {
+            $greeting = 0; 
+        }
+        $greeting = $log->getId();
         return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id));
     }
 

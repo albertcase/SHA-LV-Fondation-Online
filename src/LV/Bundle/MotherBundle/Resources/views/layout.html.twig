@@ -51,7 +51,7 @@
 		</div>
 
 		<!-- 分享弹窗 -->
-		<div class="puplayer udmiddle" id="sharePup">
+		<div class="puplayer" id="sharePup">
 
 			<div class="puplayerCon">
 				<div class="shareTips"></div>
@@ -169,7 +169,7 @@
 		    		$(".shareTips").show();
 
 		    		var sharelink = tzUrl.replace("home/0", data.msg);
-		    		shareFun(sharelink);
+		    		shareFunSet(sharelink);
 		    		
 		    	}else{
 		    		formErrorTips(data.msg);

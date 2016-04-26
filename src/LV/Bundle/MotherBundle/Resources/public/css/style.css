@@ -411,6 +411,7 @@
 	border-radius: 2px;
 	display: inline-block;
 	position: relative;
+    margin: 16% 0 0 0;
 }
 
 .close{
@@ -428,8 +429,8 @@
 
 .shareContent, .orderContent, .qrcodeContent{
 	width: 70%;
-	min-height: 122px;
-	background: #f9fcff url("/motherdayImg/placeholder.png") center bottom no-repeat;
+	min-height: 182px;
+	background: #f9fcff url("/motherdayImg/placeholder.png") center top no-repeat;
     background-size: 60% auto;
 	margin: 18% 0 10% 0;
 	display: inline-block;
@@ -447,7 +448,7 @@
 	display: inline-block;
 	text-align: center;
 	border: none;
-	margin: 6% 0 0 0;
+	margin: 26% 0 0 0;
 	font-size: 1.4rem;
     line-height: 2.0rem;
     overflow: hidden;

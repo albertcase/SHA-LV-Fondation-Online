@@ -139,7 +139,7 @@ wx.ready(function(){
 
 
 
-function shareFun(_shareLink){
+function shareFunSet(_shareLink){
     var _unescape = function(str) {
         return str.replace(/&amp;/g, "&")
                   .replace(/&gt;/g, ">")

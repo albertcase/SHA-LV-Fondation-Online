@@ -49,7 +49,6 @@ class DefaultController extends Controller
         $message = $request->get('message');
         $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
         $log = $repository->findByUser($user);
-        var_dump($log);exit;
         if (!$log) {
             $greeting = new Greeting();
             $greeting->setUser($user);

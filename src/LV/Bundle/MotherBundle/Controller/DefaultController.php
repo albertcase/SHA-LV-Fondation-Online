@@ -57,6 +57,7 @@ class DefaultController extends Controller
             $greeting->setNickname($info->getNickname());
             $greeting->setMessage($message);     
             $greeting->setCreatetime(date("Y-m-d H:i:s"));
+            var_dump($greeting);exit;
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($greeting);
             $doctrine->flush();

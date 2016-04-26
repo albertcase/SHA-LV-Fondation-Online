@@ -163,6 +163,7 @@ function shareFun(_shareLink){
         type: '', 
         dataUrl: '', 
         success: function () { 
+            alert(_shareLink);
             window.location.href = _shareLink;
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
         },
@@ -182,6 +183,7 @@ function shareFun(_shareLink){
         link: _shareLink,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
         success: function () { 
+            alert(_shareLink);
             window.location.href = _shareLink;
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
         },

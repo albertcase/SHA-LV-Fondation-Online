@@ -200,9 +200,11 @@ function loading(allAmg){
 
         $(".loading").fadeOut();
 
-        $("#shake").animate({"opacity": 1}, function(){
-            mysliderLoader();
-        });
+        mysliderLoader();
+        //$("#shake").css({"opacity": 1});
+        // $("#shake").animate({"opacity": 1}, function(){
+        //     mysliderLoader();
+        // });
         
 
         

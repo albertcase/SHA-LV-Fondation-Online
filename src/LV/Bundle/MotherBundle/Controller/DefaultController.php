@@ -27,10 +27,10 @@ class DefaultController extends Controller
         //echo $openid = $user->userLoad()->getOpenid();exit;
         $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
         $log = $repository->findOneByUser($user);
-        if (!$log) {
-            $greeting = 0; 
+        $greeting = 0; 
+        if ($log) {
+            $greeting = $log->getId();
         }
-        $greeting = $log->getId();
         return $this->render('LVMotherBundle:Default:index.html.twig', array('id' => $id, 'greeting' => $greeting));
     }
 

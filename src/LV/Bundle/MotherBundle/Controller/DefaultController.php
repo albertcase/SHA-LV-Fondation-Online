@@ -54,11 +54,9 @@ class DefaultController extends Controller
             $greeting->setUser($user);
             $repository2 = $this->getDoctrine()->getRepository('SameWechatBundle:Info');
             $info = $repository2->findByOpenid($user->getOpenid());
-            var_dump($info);exit;
-            $greeting->setNickname($info->getNickname());
+            $greeting->setNickname($info[0]->nickname);
             $greeting->setMessage($message);     
             $greeting->setCreatetime(date("Y-m-d H:i:s"));
-            var_dump($greeting);exit;
             $doctrine = $this->getDoctrine()->getManager();
             $doctrine->persist($greeting);
             $doctrine->flush();

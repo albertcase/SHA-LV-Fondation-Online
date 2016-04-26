@@ -191,6 +191,7 @@ function mysliderLoader(){
 
 
 function loading(allAmg){
+    alert(6);
     LoadFn(allAmg , function (){
 
         $("img").each(function(){ 

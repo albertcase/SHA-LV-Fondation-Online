@@ -1,4 +1,4 @@
-console.log("%c☺","font-size: 60px; color: #e74c3c");
+// console.log("%c☺","font-size: 60px; color: #e74c3c");
 
 /* 图片加载 */
 function LoadFn ( arr , fn , fn2){

@@ -140,7 +140,6 @@ function shareFunSetDefault(){
 
 
 function shareFunSet(_shareLink){
-    alert('http://' + window.location.host + _shareLink);
 
     wx.ready(function () {
 

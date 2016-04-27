@@ -148,7 +148,7 @@ function shareFunSet(_shareLink){
         // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
 
         wx.onMenuShareAppMessage({
-            title: '路易威登•母亲节温情献礼',
+            title: '-----路易威登•母亲节温情献礼',
             desc: '无尽感恩，在这个母亲节化为永恒礼赞。',
             link: 'http://' + window.location.host + _shareLink,
             imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
@@ -172,7 +172,7 @@ function shareFunSet(_shareLink){
         // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
 
         wx.onMenuShareTimeline({
-            title: '路易威登•母亲节温情献礼', 
+            title: '----路易威登•母亲节温情献礼', 
             link: 'http://' + window.location.host + _shareLink,
             imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
             trigger: function (res) {

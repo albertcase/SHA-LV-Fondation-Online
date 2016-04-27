@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
 		})
 
 
-		if(greeting != 0){
+		if(greeting != 0 || !greeting){
             $(".shareTips").show();
             var sharelink = tzUrl.replace("home/0", "home/" + greeting);
 		    	shareFunSet(sharelink);

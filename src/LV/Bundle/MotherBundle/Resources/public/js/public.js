@@ -105,6 +105,7 @@ function shareFunSetDefault(){
         type: '', 
         dataUrl: '', 
         success: function () { 
+            alert(6);
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
         },
         cancel: function () { 
@@ -123,6 +124,7 @@ function shareFunSetDefault(){
         link: window.location.host,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
         success: function () { 
+            alert(6);
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
         },
         cancel: function () {
@@ -137,6 +139,7 @@ function shareFunSetDefault(){
 
 
 function shareFunSet(_shareLink){
+    alert('http://' + window.location.host + _shareLink);
     var _unescape = function(str) {
         return str.replace(/&amp;/g, "&")
                   .replace(/&gt;/g, ">")
@@ -153,7 +156,7 @@ function shareFunSet(_shareLink){
     };
 
     wx.onMenuShareAppMessage({
-        title: _unescape('路易威登•母亲节温情献礼'),
+        title: _unescape('-----路易威登•母亲节温情献礼'),
         desc: _unescape('无尽感恩，在这个母亲节化为永恒礼赞。'),
         link: 'http://' + window.location.host + _shareLink,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
@@ -171,7 +174,7 @@ function shareFunSet(_shareLink){
 
 
     window.wechat_setting.timeline = {
-        title: _unescape('路易威登•母亲节温情献礼'), 
+        title: _unescape('------路易威登•母亲节温情献礼'), 
         link: 'http://' + window.location.host + _shareLink,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg'
     };

@@ -206,6 +206,7 @@ $(window).load(function() {
             $(".shareTips").show();
             var sharelink = tzUrl.replace("home/0", "home/" + greeting);
 		    	shareFunSet(sharelink);
+		    	$(".sharebtn").attr("data-greeting", "66");
         }else{
         		shareFunSetDefault();
         }

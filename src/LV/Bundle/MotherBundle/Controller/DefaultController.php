@@ -12,7 +12,7 @@ class DefaultController extends Controller
 {
     public function indexAction($id = 0)
     { 
-        if (strpos($_SERVER['HTTP_USER_AGENT'],"mobile")>0) {
+        if (!strpos($_SERVER['HTTP_USER_AGENT'],"mobile")) {
              $url = $this->router->generate('lv_mother_desktop');
              return new RedirectResponse($url);
         }

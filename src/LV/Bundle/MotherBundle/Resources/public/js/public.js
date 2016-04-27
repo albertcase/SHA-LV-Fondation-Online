@@ -81,9 +81,7 @@ function formErrorTips(alertNodeContext){
 */
 
 
-
-wx.ready(function(){
-
+function shareFunSetDefault(){
     var _unescape = function(str) {
         return str.replace(/&amp;/g, "&")
                   .replace(/&gt;/g, ">")
@@ -130,8 +128,7 @@ wx.ready(function(){
         cancel: function () {
         }
     });
-
-})
+}
 
 
 

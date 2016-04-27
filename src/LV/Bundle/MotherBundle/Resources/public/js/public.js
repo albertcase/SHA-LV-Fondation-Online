@@ -160,6 +160,7 @@ function shareFunSet(_shareLink){
         type: '', 
         dataUrl: '', 
         success: function () { 
+            alert('http://' + window.location.host + _shareLink);
             window.location.href = 'http://' + window.location.host + _shareLink;
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
         },
@@ -179,6 +180,7 @@ function shareFunSet(_shareLink){
         link: 'http://' + window.location.host + _shareLink,
         imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
         success: function () { 
+            alert('http://' + window.location.host + _shareLink);
             window.location.href = 'http://' + window.location.host + _shareLink;
             _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
         },

@@ -199,6 +199,9 @@ var _hmt = _hmt || [];
 		})
 
 
+
+$(window).load(function() {
+
 		if(greeting != 0 || !greeting){
             $(".shareTips").show();
             var sharelink = tzUrl.replace("home/0", "home/" + greeting);
@@ -206,6 +209,9 @@ var _hmt = _hmt || [];
         }else{
         		shareFunSetDefault();
         }
+
+}
+
 
 	</script>
 

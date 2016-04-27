@@ -171,7 +171,6 @@ function shareFunSet(_shareLink){
                 //  alert('用户点击发送给朋友');
             },
             success: function (res) {
-                alert('http://' + window.location.host + _shareLink);
                 window.location.href = 'http://' + window.location.host + _shareLink;
                 _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
                 //  alert('已分享');

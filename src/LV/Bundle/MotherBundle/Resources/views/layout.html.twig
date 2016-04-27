@@ -151,7 +151,7 @@ var _hmt = _hmt || [];
 
 
 		function sendShareFun(){
-			if($(".sendbtn").hasClass("disable") || greeting == 0) return false;
+			if($(".sendbtn").hasClass("disable")) return false;
 			var shareText = $(".messageTextarea").val();
 			if(shareText == ""){
 				formErrorTips("祝福语文本不能为空!");

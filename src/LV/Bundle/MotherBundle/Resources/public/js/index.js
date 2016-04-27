@@ -68,6 +68,7 @@ var myslider, shakeId, shakeArr = ["1", "2", "3", "fulllist", "4", "5", "6", "fu
     
     function shareFun(){
         $("#sharePup").css({"height": "100%"}).css({"opacity": 1});
+        alert(greeting);
         $(".messageTextarea").focus();
         _hmt.push(['_trackEvent', 'btn', 'click', "点击事件：share"]);
     }

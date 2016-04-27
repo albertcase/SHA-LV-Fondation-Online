@@ -604,6 +604,10 @@
 	padding: 0 2%;
 }
 
+#proInfo{
+    opacity: 0;
+}
+
 
 /* 6plus */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {

@@ -11,7 +11,11 @@ use LV\Bundle\MotherBundle\Entity\Greeting;
 class DefaultController extends Controller
 {
     public function indexAction($id = 0)
-    {
+    { 
+        if (strpos($_SERVER['HTTP_USER_AGENT'],"mobile")>0) {
+             $url = $this->router->generate('lv_mother_desktop');
+             return new RedirectResponse($url);
+        }
         $user = $this->get('lv.user.service');
         $wechat = $this->get('same.wechat');
         if(!$user->userLoad()) {

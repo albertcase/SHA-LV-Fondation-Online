@@ -106,4 +106,14 @@ class DefaultController extends Controller
         }
         return $this->render('LVMotherBundle:Default:home.html.twig', array('id' => $id, 'greeting' => $greeting, 'isplay'=> 1));
     }
+
+    public function desktopAction(){
+        // $repository = $this->getDoctrine()->getRepository('LVMotherBundle:Greeting');
+        // $greeting = $repository->findById($id);
+        // if (!$greeting) {
+        //     $url = $this->generateUrl('lv_mother_homepage');
+        //     return new RedirectResponse($url, 302);
+        // }
+        return $this->render('LVMotherBundle:Default:desktop.html.twig');
+    }
 }

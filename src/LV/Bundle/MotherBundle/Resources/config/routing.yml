@@ -1,3 +1,7 @@
+lv_mother_desktop:
+    path:     /desktop
+    defaults: { _controller: LVMotherBundle:Default:desktop }
+
 lv_mother_logout:
     path:     /logout
     defaults: { _controller: LVMotherBundle:Default:logout }

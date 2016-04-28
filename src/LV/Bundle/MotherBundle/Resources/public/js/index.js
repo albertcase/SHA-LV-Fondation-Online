@@ -1,7 +1,7 @@
 
 var LoadingImg = [
     // "/motherdayImg/new-one-box.gif",
-    "/motherdayImg/new-one-flower.gif",
+    // "/motherdayImg/new-one-flower.gif",
     "/motherdayImg/new-one-box.jpg",
     "/motherdayImg/arr_l.png",
     "/motherdayImg/arr_r.png",

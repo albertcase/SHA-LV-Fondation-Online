@@ -41,7 +41,7 @@ class UserService
         if($uid) {
             return $uid;
         }
-        
+        //return 1;
         return NULL;
         
     }

@@ -46,7 +46,9 @@ EOF
         $wechat = $this->getContainer()->get('same.wechat');
         $repository = $this->getContainer()->get('doctrine')->getRepository('LVCvdBundle:Sharelog');
         $sharelog = $repository->findByStatus(0);
-        foreach ($sharelog as $log) {
+        $key = array_rand($sharelog,2);
+        for ($i=0; $i < count($key); $i++) { 
+            $log = $sharelog[$key[$i]];
             $openid = $log->getUser()->getOpenid();
             $data = array();
             $data['first']['value'] = '恭喜您获得参与路易威登浪漫七夕茶歇邀请函';
@@ -61,7 +63,16 @@ EOF
             $url = 'http://www.lvcampaign.com/chinesevday';
             $topcolor = '#000000';          
             $result = $wechat->sendTemplate($template_id, $url, $topcolor, $data, $openid);
-            $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $openid));
+            if($result){
+                $status=1;
+            }else{
+                $status=2;
+            }
+            $log->setStatus($status);
+            $doctrine = $this->getDoctrine()->getManager();
+            $doctrine->persist($log);
+            $doctrine->flush();
+            $output->writeln(sprintf('Create Successful <comment>%s</comment>!', $log->getId()));
         }
 
     }

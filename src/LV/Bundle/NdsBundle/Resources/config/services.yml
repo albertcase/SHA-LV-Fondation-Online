@@ -1,0 +1,4 @@
+services:
+#    lv_nds.example:
+#        class: LV\Bundle\NdsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

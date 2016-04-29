@@ -1,0 +1,11 @@
+lv_nds_homepage:
+    path:     /reservation
+    defaults: { _controller: LVNdsBundle:Default:index }
+
+lv_nds_api:
+    path:     /info
+    defaults: { _controller: LVNdsBundle:Default:info }
+
+lv_nds_test:
+    path:     /test
+    defaults: { _controller: LVNdsBundle:Default:test }

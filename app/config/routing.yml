@@ -1,6 +1,14 @@
+lv_mother:
+    resource: "@LVMotherBundle/Resources/config/routing.yml"
+    prefix:   /16mothersday
+
+lv_nds:
+    resource: "@LVNdsBundle/Resources/config/routing.yml"
+    prefix:   /neverendingstory
+
 lv_cvd:
     resource: "@LVCvdBundle/Resources/config/routing.yml"
-    prefix:   /chinesevday
+    prefix:   /
 
 same_admin:
     resource: "@SameAdminBundle/Resources/config/routing.yml"

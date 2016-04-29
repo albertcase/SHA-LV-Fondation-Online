@@ -1,0 +1,219 @@
+{% extends '::cvd_base.html.twig' %}
+{% block title %}路易威登•母亲节温情献礼{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/motherday.css"
+	'@LVMotherBundle/Resources/public/css/reset.css'
+	'%kernel.root_dir%/Resources/public/css/swiper.min.css'
+	'@LVMotherBundle/Resources/public/css/style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+<script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/94986039-d911-4614-bfd4-4b1ea4b7b775/wechat.js"></script>
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/motherday.js"
+    '%kernel.root_dir%/Resources/public/js/jquery.js'
+    '%kernel.root_dir%/Resources/public/js/jweixin.js'
+    '%kernel.root_dir%/Resources/public/js/PxLoader.js'
+    '@LVMotherBundle/Resources/public/js/public.js'
+%}
+
+
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block dreambox %}
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b7a2cd5c2846295a1aede8d92ea9e91b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">{}
+	var greeting;
+</script>
+	<div id="dreambox">
+		<div id="header">
+			<div class="nav-icon udmiddle">
+					<i></i>
+					<div class="menu">
+						<img src="/motherdayImg/nav_bg_h.png" width="100%" />
+						<ul>
+							<li>臻选1</li>
+							<li>臻选2</li>
+							<li>臻选3</li>
+							<li>臻选4</li>
+							<li>臻选5</li>
+							<li>臻选6</li>
+							<li>view all</li>
+							<li>定制母亲节贺卡</li>
+						</ul>
+						<img src="/motherdayImg/nav_bg_b.png" width="100%" />
+					</div>
+			</div>
+
+			<img src="/motherdayImg/logo.png" width="100%" />
+		</div>
+
+		<!-- 分享弹窗 -->
+		<div class="puplayer" id="sharePup">
+
+			<div class="puplayerCon">
+				<div class="shareTips"></div>
+
+				<a href="javascript:;" class="close">
+					<img src="" sourcesrc="/motherdayImg/close.png" width="100%" />
+				</a>
+
+				<div class="shareContent">
+					<textarea maxlength="30" wrap="hard" class="messageTextarea">MY FIRST LOVE
+妈妈我爱你</textarea>
+				</div>
+
+				<a href="javascript:sendShareFun();" class="sendbtn">
+					<img src="" sourcesrc="/motherdayImg/send_btn.jpg" width="100%" />
+				</a>
+			</div>
+
+		</div>
+
+		{% block boxcontent %}
+		{% endblock %}
+		<!-- <img src="/motherdayImg/bg.jpg" width="100%" /> -->
+	</div>
+
+	<div class="mask"></div>
+
+
+	<!-- 横屏代码 -->
+	<div id="orientLayer" class="mod-orient-layer">
+	    <div class="mod-orient-layer__content">
+	        <i class="icon mod-orient-layer__icon-orient"></i>
+	        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+		var tzUrl = "{{ path('lv_mother_home', {'id': 0})}}";
+
+		$(".nav-icon").click(function(){
+
+			if($(this).hasClass("active")){
+				$(this).removeClass("active");
+				$(".mask").hide();
+			}else{
+				$(this).addClass("active");
+				$(".mask").show();
+			}
+
+			$(".menu").slideToggle();
+			_hmt.push(['_trackEvent', 'btn', 'click', 'Menu']);
+
+		})
+
+		$(".mask").click(function(){
+			$(".nav-icon").removeClass("active");
+			$(this).hide();
+			$(".menu").slideToggle();
+		})
+
+		
+		/* share */
+
+		$(".messageTextarea").focus(function(){
+			if($(this).val() == ""){
+				$(".shareContent").addClass("nobg");
+			}	
+		}).blur(function(){
+			if($(this).val() == ""){
+				$(".shareContent").removeClass("nobg");
+			}	
+		})
+
+		$(".close").click(function(){
+			$(".puplayer").css({"height": "0","opacity": 0});
+		})
+
+		$(".puplayer").click(function(e){
+			$(".puplayer").css({"height": "0","opacity": 0});
+			e.stopPropagation();
+		})
+
+		$(".puplayerCon").click(function(e){
+			e.stopPropagation();
+		})
+
+
+
+		function sendShareFun(){
+			if($(".sendbtn").hasClass("disable")) return false;
+			var shareText = $(".messageTextarea").val();
+			if(shareText == ""){
+				formErrorTips("祝福语文本不能为空!");
+			}else{
+				$(".sendbtn").addClass("disable");
+				sendDataFun(shareText);
+			}
+
+			_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Greeting']);
+		}
+
+
+
+		function sendDataFun(_messages){
+			$.ajax({
+		        type: "POST",
+		        url: "{{ url('lv_mother_save') }}",
+		        data: {
+		            "message": _messages,
+		        },
+		        dataType:"json"
+		    }).done(function(data){
+		    	//console.log(data);
+		    	if(data.code == 1){
+		    		$(".shareTips").show();
+
+		    		var sharelink = tzUrl.replace("home/0",  "home/" + data.msg);
+		    		shareFunSet(sharelink);
+		    		
+		    	}else{
+		    		formErrorTips(data.msg);
+		    	}
+		    	$(".sendbtn").removeClass("disable");
+		    }).fail(function(){
+		        $(".sendbtn").removeClass("disable");
+		        formErrorTips("很抱歉，拉取列表失败！");
+		    })
+		}
+			
+
+		$(".more").click(function(){
+			_hmt.push(['_trackEvent', 'btn', 'click', '点击事件：Official website']);
+		})
+
+
+
+$(window).load(function() {
+
+		if(greeting != 0){
+            $(".shareTips").show();
+            var sharelink = tzUrl.replace("home/0", "home/" + greeting);
+		    	shareFunSet(sharelink);
+		    	$(".sharebtn").attr("data-greeting", "66");
+        }else{
+        		shareFunSetDefault();
+        }
+
+})
+
+
+	</script>
+
+{% endblock %}

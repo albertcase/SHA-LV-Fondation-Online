@@ -1,0 +1,27 @@
+lv_mother_desktop:
+    path:     /desktop
+    defaults: { _controller: LVMotherBundle:Default:desktop }
+
+lv_mother_logout:
+    path:     /logout
+    defaults: { _controller: LVMotherBundle:Default:logout }
+
+lv_mother_save:
+    path:     /save
+    defaults: { _controller: LVMotherBundle:Default:save }
+
+lv_mother_card:
+    path:     /card/{id}
+    defaults: { _controller: LVMotherBundle:Default:card, id: 1}
+
+lv_mother_pro:
+    path:     /pro/{id}
+    defaults: { _controller: LVMotherBundle:Default:pro }
+
+lv_mother_home:
+    path:     /home/{id}
+    defaults: { _controller: LVMotherBundle:Default:home }
+
+lv_mother_index:
+    path:     /{id}
+    defaults: { _controller: LVMotherBundle:Default:index, id: 0}

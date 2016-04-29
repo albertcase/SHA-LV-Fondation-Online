@@ -1,7 +1,7 @@
 {% extends '::cvd_base.html.twig' %}
 {% block title %}路易威登浪漫七夕{% endblock %}
 {% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/main.css"
+{% stylesheets filter='cssrewrite' output="css/cvdmain.css"
 	'%kernel.root_dir%/Resources/public/css/reset.css'
 	'@LVCvdBundle/Resources/public/css/swiper.min.css'
 	'@LVCvdBundle/Resources/public/css/style.css'
@@ -10,7 +10,7 @@
 {% endstylesheets %}
 {% endblock %}
 {% block head_scripts %}
-{% javascripts output="js/main.js"
+{% javascripts output="js/cvdmain.js"
     '%kernel.root_dir%/Resources/public/js/jquery.js'
     '%kernel.root_dir%/Resources/public/js/jweixin.js'
     '%kernel.root_dir%/Resources/public/js/wechat_cvd.js'

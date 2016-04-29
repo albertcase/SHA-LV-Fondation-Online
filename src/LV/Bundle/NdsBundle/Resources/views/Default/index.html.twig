@@ -1,0 +1,293 @@
+{% extends 'LVNdsBundle::layout.html.twig' %} 
+{% block content %}
+
+<div class="successPup">
+	<div class="successPup_con">
+		<span>提交成功</span>
+	</div>
+</div>
+
+<div class="wrapFrom">
+
+<a href="javascript:;" class="logo" >
+	<img src="/neverendingstory/imgs/logo_black.png" width="100%" />
+</a>
+
+
+
+{% if subscribe %}
+
+	<section class="fpage" id="form">
+	
+
+		<h1>
+			<img src="/neverendingstory/imgs/form_tips.png" width="49%" />
+		</h1>
+		<!-- <h2>
+			跟随路易威登踏上永无止境的旅程
+		</h2> -->
+
+		<ul>
+			<li>
+				<span>姓 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名</span><input type="text" name="name" placeholder="">
+			</li>
+			<li>
+				<span>电 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 话</span><input type="tel" name="tel" maxlength="11" placeholder="">
+			</li>
+
+			<li class="sex">
+				<span>性 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别</span>
+				<select name="sex">
+					<!-- <option>请选择</option> -->
+					<option></option>
+					<option>男</option>
+					<option>女</option>
+				</select>
+				<!--  <input type="text" name="sex" placeholder=""> -->
+			</li>
+			<!-- <li>
+				<span>城市</span><input type="text" name="city" placeholder="">
+			</li> -->
+			<!-- <li>
+				<span>身份证</span><input type="text" name="id_card" placeholder="">
+			</li> -->
+
+			<li>
+				<span>出行日期</span>
+				<select name="time">
+					<!-- <option>请选择</option> -->
+					<option></option>
+				</select>
+			</li>
+		</ul>
+		<!-- <div class="agreement hover">
+				<div class="checkboxInput">
+					<span>
+					</span>
+				</div>
+				
+				<img src="/neverendingstory/imgs/agreement_text.png" />
+		</div> -->
+
+
+		<div class="pf_footer">
+			<a href="javascript:;" class="submit_btn">
+				<em>提 交</em>
+				<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
+			</a>
+
+			<!-- <a href="javascript:changePage('rule');" class="rule_link">
+				<i>活动细则</i>
+			</a> -->
+			
+		</div>
+
+	</section>
+	<div class="formTips">
+		<img src="/neverendingstory/imgs/formTips.png" width="100%" />
+	</div>
+
+{% else %}
+
+	<section class="fpage" id="attention" style="display:inline-block;">
+		<img src="/neverendingstory/imgs/attention.png" width="60%" />
+	</section>
+
+{% endif %}
+
+
+<section class="fpage" id="rule">
+	<h1>活动细则</h1>
+	<div class="rule_con">
+		<img src="/neverendingstory/imgs/r_1.png" width="100%" />
+		<img src="/neverendingstory/imgs/r_2.png" width="100%" />
+		<img src="/neverendingstory/imgs/r_3.png" width="100%" />
+		<img src="/neverendingstory/imgs/r_4.png" width="100%" />
+		<img src="/neverendingstory/imgs/r_5.png" width="100%" />
+	</div>
+	
+	<div class="pf_footer">
+		<a href="javascript:changePage('form');" class="back_btn">
+			<em>返 回</em>
+			<img src="/neverendingstory/imgs/btn.jpg" width="100%" />
+		</a>
+	</div>
+</section>
+
+</div>
+
+
+<!-- 横屏代码 -->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+var reg = new RegExp("-","g");
+
+function GetDateStr(AddDayCount) { 
+	var dd = new Date(); 
+	dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期 
+	var y = dd.getFullYear(); 
+	var m = dd.getMonth()+1;//获取当前月份的日期 
+	var d = dd.getDate(); 
+	return y+"/"+m+"/"+d; 
+} 
+
+
+
+function getDays(strDateStart,strDateEnd){
+   var strSeparator = "/"; //日期分隔符
+   var oDate1;
+   var oDate2;
+   var iDays;
+   oDate1= strDateStart.split(strSeparator);
+   oDate2= strDateEnd.split(strSeparator);
+   var strDateS = new Date(oDate1[0], oDate1[1]-1, oDate1[2]);
+   var strDateE = new Date(oDate2[0], oDate2[1]-1, oDate2[2]);
+   iDays = parseInt(Math.abs(strDateS - strDateE ) / 1000 / 60 / 60 /24)//把相差的毫秒数转换为天数 
+   return iDays ;
+}
+
+
+var laveDays = getDays(GetDateStr(1),"2016/2/21");
+
+
+for(var i=0; i<=laveDays; i++){
+	var date1 = new Date(GetDateStr(1).replace(reg,"/"));
+	var date2 = new Date(date1);
+
+	date2.setDate(date1.getDate()+i);
+	var times = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+	$("select[name='time']").append("<option>"+times+"</option>");
+	//console.log(times);
+}
+
+
+
+
+
+    function isPhoneNum(value){
+		return /^0?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
+	}
+
+	function isIdCard(card)  {  
+	   // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
+	   var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
+	   return reg.test(card)
+	} 
+
+
+	$(".agreement").click(function(){
+		//console.log($(this).hasClass("hover"));
+		if($(this).hasClass("hover")){
+			$(".checkboxInput span img").hide();
+			$(this).removeClass("hover");
+		}else{
+			$(".checkboxInput span img").show();
+			$(this).addClass("hover");
+		}
+	})
+
+	$(".submit_btn").click(function(){
+		if($(this).hasClass("disable")) return false;
+		var _name = $("input[name='name']").val();
+		var _tel = $("input[name='tel']").val();
+		var _sex = $("select[name='sex'] option:selected").text();  // $("input[name='sex']").val();select
+		var _time = $("select[name='time'] option:selected").text();
+		// var _id_card = $("input[name='id_card']").val();
+		// var pcb = $(".agreement").hasClass("hover");
+
+		// else if(!isIdCard(_id_card)){
+		// 	alert("请填写正确的身份证");
+		// else if(_city == ""){
+		// 	alert("请填写城市");
+		// 	return false;
+		// }else if(!pcb){
+		// 	alert("请阅读“活动细则”并勾选");
+		// }
+
+		if(_name == "" || !_name){
+			alert("请填写姓名");
+			return false;
+		}else if(!isPhoneNum(_tel)){
+			alert("请填写正确的手机号码");
+			return false;
+		}else if(_sex == "请选择"||_sex == ""){
+			alert("请选择性别");
+			return false;
+		}else if(_time == "请选择"||_time == ""){
+			alert("请选择出行日期");
+			return false;
+		}else{
+			var submitVal = {
+			    	"name": _name,
+			    	"mobile": _tel,
+			    	"sex": _sex,
+			    	// "city": _city,
+			    	"time": _time
+			    }
+			$(".submit_btn").addClass("disable").find("em").html("提交中..");
+			submitForm(submitVal);
+			//console.log(_name+":"+_tel);
+		}
+	})
+
+
+
+
+	function changePage(cp){
+		$(".fpage").hide();
+		$("#"+cp).css("display","inline-block");
+	}
+
+	
+function submitForm(value){
+	$.ajax({
+	    type: "POST",
+	    url: "{{ url('lv_nds_api') }}",
+	    data: value,
+	    dataType:"json"
+    }).done(function(data){
+
+    	if(data.code == 1){
+    		$(".successPup").show();
+    		$(".submit_btn").removeClass("disable").find("em").html("提交");
+    	}else{
+    		alert(data.msg);
+    		$(".submit_btn").removeClass("disable").find("em").html("提交");
+    	}
+    	
+    }).fail(function(data) {
+        alert(data.msg);
+    });
+}
+
+
+
+
+function onBridgeReady(){
+ WeixinJSBridge.call('hideOptionMenu');
+}
+
+if (typeof WeixinJSBridge == "undefined"){
+    if( document.addEventListener ){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }else if (document.attachEvent){
+        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+    }
+}else{
+    onBridgeReady();
+}
+
+
+
+
+</script>
+
+{% endblock %}

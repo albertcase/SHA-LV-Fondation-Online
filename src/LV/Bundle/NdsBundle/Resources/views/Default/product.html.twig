@@ -1,0 +1,143 @@
+{% extends 'LVCvdBundle::layout.html.twig' %} 
+{% block content %}
+	
+
+	<!-- products -->
+	<section class="mainer" id="product" data-type={{gender}}>
+		<div class="container">
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" width="100%" />
+			</a>
+
+			
+
+
+
+
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper"></div>
+		        <!-- Add Arrows -->
+		        <div class="swiper-button-next">
+		        	<img src="/images/cvd/arr_r.png" />
+		        </div>
+		        <div class="swiper-button-prev">
+		        	<img src="/images/cvd/arr_l.png" />
+		        </div>
+		    </div>
+
+
+
+
+		</div>
+		<div class="lockLove">
+			<a href="http://www.louisvuitton.cn/zhs-cn/homepage" onclick="_hmt.push(['_trackEvent', 'link', '前往官网了解七夕臻品', '前往官网了解七夕臻品({{gender}})']);" target="_blank" class="gomore"><img src="/images/cvd/magnifier.png" /><span>前往官网了解七夕臻品</span></a>
+			<a href=" {{ url('lv_cvd_create') }}?gender={{gender}}" onclick="_hmt.push(['_trackEvent', 'link', '锁住这份爱', '锁住这份爱({{gender}})']);" title="锁住这份爱"><img src="/images/cvd/lockLove_btn.png" width="100%" /></a>
+		</div>
+		<img src="/images/cvd/bg2.jpg" width="100%" style="margin:-12% 0 0 0;" />
+	</section>
+
+
+<script type="text/javascript">
+	_hmt.push(['_setAutoPageview', true]);
+	_hmt.push(['_trackPageview', 'product/{{gender}}']);
+
+	var female = {
+        "bags": ["Capucines<br />中号手袋","Go-14 Malletage<br />中号手袋","Sac Triangle Monogram<br />小号手袋","Twist Epi Azteque<br />中号手袋"],
+        "accessories": ["经典V水晶石手镯","经典V水晶石耳环","LVllusion V <br />披肩","Rock N' Roses <br />长围巾"],
+        "shoe": ["Eyeline 高跟鞋","Vinyl 高跟鞋","Sixties 便鞋","Oxford 芭蕾舞鞋"],
+        "watch": ["Monogram Sun<br />垂饰，玫瑰金与白色珍珠母","Lockit 手镯","Tambour Lovely Cup 腕表,28 毫米","Emprise<br />小号精钢腕表"]
+	}
+
+	var male = {
+        "bags": ["Ombre PDV<br />手袋","PDJ 公文包","Tadao<br />小号手提包 ","Christopher<br />小号双肩包"],
+        "accessories": ["LV Taurillon<br />腰带, 40毫米","Pont Neuf<br />腰带 35毫米","Illustre<br />钥匙扣","Dragonne LV<br />钥匙扣"],
+        "shoe": ["Loyalty 翼纹鞋","Trooper 便鞋","Frontrow 休闲鞋","Run Away 休闲鞋"],
+        "watch": ["Clous陶瓷及铂金<br />大号戒指","Empreinte 白金<br />大号戒指","Tambour In Black GMT<br />大号自动腕表","Tambour Blue GMT<br />腕表，39.5 毫米"]
+	}
+
+
+	var femaleCoatHtml =  $.map(female,function(v,k){
+		return '<div class="swiper-slide"><div class="products" id="'+k+'"><ul><li class="current"><img src="/images/cvd/pro/female/'+k+'/'+k+'-1.png" width="100%" /><p>'+v[0]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-2.png" width="100%" /><p>'+v[1]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-3.png" width="100%" /><p>'+v[2]+'</p></li><li><img src="/images/cvd/pro/female/'+k+'/'+k+'-4.png" width="100%" /><p>'+v[3]+'</p></li></ul></div></div>';
+		num++;
+	}).join("");
+
+	var maleCoatHtml =  $.map(male,function(v,k){
+		return '<div class="swiper-slide"><div class="products" id="'+k+'"><ul><li class="current"><img src="/images/cvd/pro/male/'+k+'/'+k+'-1.png" width="100%" /><p>'+v[0]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-2.png" width="100%" /><p>'+v[1]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-3.png" width="100%" /><p>'+v[2]+'</p></li><li><img src="/images/cvd/pro/male/'+k+'/'+k+'-4.png" width="100%" /><p>'+v[3]+'</p></li></ul></div></div>';
+		num++;
+	}).join("");
+
+
+	function getType(){
+		var str = window.location.pathname;
+		var pos = "female";
+
+		if(str.indexOf('product/female') > 0){
+			pos = "female"
+		}else{
+			pos = "male"
+		}
+
+		return pos;
+	}
+
+	if(getType() == "female"){
+		$(".swiper-wrapper").html(femaleCoatHtml);
+		$(".gomore").attr("href","http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces?campaign=m_2015cvd/women");
+	}else{
+		$(".swiper-wrapper").html(maleCoatHtml);
+		$(".gomore").attr("href","http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces?campaign=m_2015cvd/men");
+	}
+
+	
+
+	// 0 accessories   1 bags   2 shoe   3 watch
+
+	var swiper = new Swiper('.swiper-container', {
+	    nextButton: '.swiper-button-next',
+	    prevButton: '.swiper-button-prev',
+	    effect : 'coverflow',
+	    slidesPerView: 1,
+		centeredSlides: true,
+	    coverflow: {
+            rotate: 100,
+            stretch: 30,
+            depth: 20,
+            modifier: 1,
+            slideShadows : false
+        }
+	});
+
+	$(".products li").click(function(){
+		var prevCur = $(this).siblings("li.current");
+		$(prevCur).insertAfter($(this).siblings("li").eq(2));
+		$(this).siblings("li").removeClass("current");
+		$(this).insertBefore($(this).siblings("li").eq(0)).addClass("current");
+	})
+
+
+
+
+	$(function(){
+
+		shareData = {
+		    title: '路易威登臻礼相伴爱情旅程，七夕一起见证我们的爱情',
+		    desc: '将你的名字印记在我的心锁上，愿真挚之爱如影随行。',
+		    descTimeline: '“锁住爱”- 路易威登与您相伴浪漫七夕',
+			link: window.location.host + "/chinesevday",
+			imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+			sharePage: getType(),
+			sharePageVal: getType()
+		};
+		editShare();
+
+	})
+
+
+</script>
+
+
+
+
+
+{% endblock %}

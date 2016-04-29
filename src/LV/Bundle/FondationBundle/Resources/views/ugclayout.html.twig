@@ -1,11 +1,11 @@
 {% extends '::base.html.twig' %}
 {% block title %}筑梦之旅{% endblock %}
 {% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/main.css"
-	'%kernel.root_dir%/Resources/public/css/reset.css'
-	'%kernel.root_dir%/Resources/public/css/menu.css'
-	'bundles/lvfondation/css/swiper.min.css'
-	'bundles/lvfondation/css/ugc-style.css'
+{% stylesheets filter='cssrewrite' output="css/ugcmain.css"
+    '%kernel.root_dir%/Resources/public/css/reset.css'
+    '%kernel.root_dir%/Resources/public/css/menu.css'
+    '@LVFondationBundle/Resources/public/css/swiper.min.css'
+    '@LVFondationBundle/Resources/public/css/ugc-style.css'
 %}
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
 {% endstylesheets %}

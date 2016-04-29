@@ -1,0 +1,353 @@
+{% extends 'LVCvdBundle::layout.html.twig' %} 
+{% block content %}
+	
+	<div id="wechat">
+		<img src="/images/cvd/wechat.png" />
+	</div>
+
+	<!-- create -->
+	<section class="mainer" id="create">
+		<div class="container">
+			<canvas id="canvas"></canvas>
+			<a href="javascript:;" class="logo">
+				<img src="/images/cvd/logo.png" width="100%" />
+			</a>
+
+			<div class="locked_con">
+				<img src="/images/cvd/lock.png" class="lockImg" width="38%" />
+				<div class="withlove">
+					<div class="sweetHeartArea"></div>
+					<input type="text" class="sweetHeart" maxlength="3"> 
+					<p>
+						<img src="/images/cvd/withlove.png" width="30%" />
+					</p>
+					<input type="text" class="yourname" maxlength="12"> 
+				</div>
+			</div>
+
+
+			<div class="btnArea">
+				<p><img src="/images/cvd/t1.png" width="60%" /></p>
+
+				<a href="javascript:;" class="btn createBtn">
+					<img src="/images/cvd/text-3.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+		<img src="/images/cvd/bg2.jpg" class="create_bg" width="100%" />
+	</section>
+
+
+
+	<section class="mainer" id="complete" style="display:none;">
+		<div id="resultImg"></div>
+		<div class="createLoading">正在加载...</div>
+		<div class="btnArea" style="display:none;">
+			<p><img src="/images/cvd/t2.png" width="60%" /></p>
+
+			<a href="javascript:;" class="btn shareBtn">
+				<img src="/images/cvd/text-4.png" width="100%" />
+			</a>
+		</div>
+	</section>
+
+
+<script type="text/javascript">
+		_hmt.push(['_setAutoPageview', true]);
+		_hmt.push(['_trackPageview', 'create']);
+
+		TweenMax.fromTo(document.querySelector('.lockImg'), 1, {
+	        scale:2,
+	        y:-600,
+	        autoAlpha:0,
+	        blurFilter:{blurX:50, blurY:10},
+	        opacity:0
+	    }, {
+	        autoAlpha:1,
+	    	scale:1,
+	    	y:0,
+	    	opacity:1,
+	        ease: Elastic.easeOut,
+	        easeParams: [0.2, 0.7],
+	        force3D: false,
+	        onComplete:function(){
+	        	$(".sweetHeart").animate({"opacity":1},function(){
+	        		//$(".sweetHeart").focus();
+	        	});
+	        }
+	    });		
+
+		function GetQueryString(name){
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return unescape(r[2]); return null;
+		}
+
+		var curGender = GetQueryString("gender");
+
+		$(".shareBtn").click(function(){
+			$("#wechat").show();
+		})
+
+		$("#wechat").click(function(){
+			$(this).hide();
+			_hmt.push(['_trackEvent', 'btn', 'create页面', 'create分享按钮']);
+		})
+
+		$(".sweetHeart").focus(function(){
+			$(this).addClass("hover");
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).removeClass("hover");
+			}
+		})
+
+		$(".yourname").focus(function(){
+			$(this).addClass("hover");
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).removeClass("hover");
+			}
+		})
+
+		$(".sweetHeart").change(function(){
+			$(".sweetHeart").val($(this).val().replace(/\s/g,""));
+			var sweetHeartName = $(this).val().replace(/\s/g,"");
+			var isEn = /^[A-Za-z]+$/;
+			if(!isEn.test(sweetHeartName)){ 
+				$(this).val("");
+				alert("请在锁上铭刻爱人英文姓名缩写");
+				return false;              
+			}
+
+			if(sweetHeartName != "" && sweetHeartName.length>=2){
+				$(this).hide();
+				var sweetHeartHtml = "";
+				for(var i=0; i<sweetHeartName.length; i++){
+					sweetHeartHtml += '<img src="/images/cvd/'+sweetHeartName[i].toLocaleLowerCase()+'.png" />'
+				}
+				$(".sweetHeartArea").html(sweetHeartHtml);
+			}
+
+		})
+
+
+		$(".sweetHeartArea").click(function(){
+			$(this).html("");
+			$(".sweetHeart").show().val("");
+			$(".sweetHeart").focus();
+		})
+
+
+
+
+		var imgSrcArr = [
+			"/images/cvd/a.png",
+			"/images/cvd/b.png",
+			"/images/cvd/c.png",
+			"/images/cvd/d.png",
+			"/images/cvd/e.png",
+			"/images/cvd/f.png",
+			"/images/cvd/g.png",
+			"/images/cvd/h.png",
+			"/images/cvd/i.png",
+			"/images/cvd/j.png",
+			"/images/cvd/k.png",
+			"/images/cvd/l.png",
+			"/images/cvd/m.png",
+			"/images/cvd/n.png",
+			"/images/cvd/o.png",
+			"/images/cvd/p.png",
+			"/images/cvd/q.png",
+			"/images/cvd/r.png",
+			"/images/cvd/s.png",
+			"/images/cvd/t.png",
+			"/images/cvd/u.png",
+			"/images/cvd/v.png",
+			"/images/cvd/w.png",
+			"/images/cvd/x.png",
+			"/images/cvd/y.png",
+			"/images/cvd/z.png"
+		];
+
+		var loadingFunName = function(sweetName, yourname){
+
+
+				function LoadFn ( arr , fn , fn2){
+						var loader = new PxLoader();
+						for( var i = 0 ; i < arr.length; i ++)
+						{
+							loader.addImage(arr[i]);
+						};
+						
+						loader.addProgressListener(function(e) {
+								var percent = Math.round( e.completedCount / e.totalCount * 100 );
+								if(fn2) fn2(percent)
+						});	
+						
+						
+						loader.addCompletionListener( function(){
+							if(fn) fn();	
+						});
+						loader.start();	
+				}
+
+
+				LoadFn(imgSrcArr , function (){
+					create(sweetName, yourname);
+				    console.log("加载完成!");
+				} , function ( p ){
+					//$('.loading_con p').html(p+"%");
+				});
+
+		};
+
+
+		/* create */
+		function create(sweetName, yourname){
+
+			sweetName = sweetName.toLowerCase();
+			
+
+			var bg = new Image();
+			bg.src = "/images/cvd/bg2.jpg";
+
+			var logo = new Image();
+			logo.src = "/images/cvd/logo.png";
+
+			var lock = new Image();
+			lock.src = "/images/cvd/lock.png";
+
+			var withlove = new Image();
+			withlove.src = "/images/cvd/withlove.png";
+
+			var c=document.getElementById("canvas");
+			canvasWidth = bg.width,
+			canvasHeight = bg.height,
+			c.width = canvasWidth;
+			c.height = canvasHeight;
+			var ctx=c.getContext("2d");
+
+			//bg
+			ctx.drawImage(bg,0,0);
+
+			//logo
+			ctx.drawImage(logo,(bg.width-logo.width)/2,38);
+
+			//lock
+			ctx.drawImage(lock,(bg.width-lock.width)/2+30,-80);
+			
+			//withlove
+			ctx.drawImage(withlove,(bg.width-withlove.width)/2,lock.height*0.83);
+
+			//line
+			ctx.lineWidth = 1; 
+			ctx.beginPath(); 
+			ctx.moveTo(logo.width*0.52 ,lock.height*0.97); 
+			ctx.lineTo(logo.width*0.88 ,lock.height*0.97); 
+			ctx.stroke(); 
+
+			//yourname
+			ctx.textAlign = "center";
+			ctx.fillStyle = "#403233";
+			ctx.font = 'normal 42px Arial';
+			ctx.fillText(yourname,logo.width*0.69,lock.height*0.94);
+
+			for(var i=0; i<sweetName.length; i++){
+				var nImg = new Image();
+				nImg.src = '/images/cvd/'+sweetName[i]+'.png'; 
+
+				switch(i){
+					case 0:
+						if(sweetName.length < 3){
+							ctx.drawImage(nImg,logo.width*0.59 ,lock.height*0.64);
+						}else{
+							ctx.drawImage(nImg,logo.width*0.56,lock.height*0.64);
+						}
+						break;
+					case 1:
+						if(sweetName.length < 3){
+							ctx.drawImage(nImg,logo.width*0.67,lock.height*0.64);
+						}else{
+							ctx.drawImage(nImg,logo.width*0.63,lock.height*0.64);
+						}
+						
+						break;
+					case 2:
+						ctx.drawImage(nImg,logo.width*0.70,lock.height*0.64);
+						break;
+				}
+	
+			}
+
+			$("#create").hide();
+			$("#complete").show();
+			var rImg = new Image();
+			rImg.src = c.toDataURL("image/png", 1.0);
+			rImg.width = window.document.body.clientWidth;
+			document.getElementById("resultImg").appendChild(rImg);
+
+			var rImgUrl = c.toDataURL("image/png", 1.0).replace("data:image/png;base64,", "");
+			submitPhoto(rImgUrl, curGender);
+		}
+
+
+		// 提交生成的图片
+	function submitPhoto(_imgurl, _sex){
+		$.ajax({
+		    type: "POST",
+		    url: "{{ url('lv_cvd_save') }}",
+		    data: {
+		    	"imgurl": _imgurl,
+		    	"sex": _sex
+		    },
+		    dataType:"json"
+	    }).done(function(data){
+	    	$(".createLoading").hide();
+    		$("#complete .btnArea").show();	
+    		shareData = {
+			    title: '路易威登臻礼相伴爱情旅程，七夕一起见证我们的爱情',
+			    desc: '将你的名字印记在我的心锁上，愿真挚之爱如影随行。',
+			    descTimeline: '“锁住爱”- 路易威登与您相伴浪漫七夕',
+				link: data.url,
+				imgUrl: 'http://' + window.location.host + '/images/cvd/share.jpg',
+				sharePage: "create",
+				sharePageVal: 'create',
+				shareLog:'1',
+				returnFun: function(){
+					window.location.href = data.url;
+				}
+			};
+			editShare();
+	    });
+	}
+
+
+	$(".createBtn").click(function(){
+		var shName = $(".sweetHeart").val();
+		var yName = $(".yourname").val();
+
+		if(shName == "" || shName.length<2){
+			alert("请在锁上铭刻爱人英文姓名缩写");
+			return false;
+		}
+
+		if(yName == "" || shName.length<2){
+			alert("输入您的署名");
+			return false;
+		}
+
+		loadingFunName(shName, yName);
+		_hmt.push(['_trackEvent', 'btn', 'create页面', 'create确认按钮']);
+	})
+
+
+
+
+	
+</script>
+
+
+
+{% endblock %}

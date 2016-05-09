@@ -596,7 +596,7 @@
 	width: 100%;
     font-size: 1.2rem;
 	line-height: 1.8rem;
-    white-space: pre-wrap;
+    white-space: pre-line;
 }
 
 .message_con em{

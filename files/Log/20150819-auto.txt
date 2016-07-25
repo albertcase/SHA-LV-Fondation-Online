@@ -1,0 +1,12 @@
+请求时间--2015-08-19 02:50:30
+请求地址--http://vuitton.cynocloud.com/interface/getsignpackage
+请求原因--memcache取不到token
+返回结果--{}
+----------------------
+
+请求时间--2015-08-19 02:51:28
+请求地址--http://vuitton.cynocloud.com/interface/getsignpackage
+请求原因--memcache取不到token
+返回结果--{}
+----------------------
+

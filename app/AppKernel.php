@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new LV\Bundle\CvdBundle\LVCvdBundle(),
             new LV\Bundle\NdsBundle\LVNdsBundle(),
             new LV\Bundle\MotherBundle\LVMotherBundle(),
+            new LV\Bundle\SevenBundle\LVSevenBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

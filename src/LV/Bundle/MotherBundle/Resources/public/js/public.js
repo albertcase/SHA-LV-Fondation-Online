@@ -88,11 +88,19 @@ function shareFunSetDefault(){
         // 2. 分享接口
         // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
 
+        var _unescape = function(str) {
+            return str.replace(/&amp;/g, "&")
+                      .replace(/&gt;/g, ">")
+                      .replace(/&lt;/g, "<")
+                      .replace(/&quot;/g, '"')
+                      .replace(/&#39;/g, "'");
+        };
+        
         wx.onMenuShareAppMessage({
             title: _unescape('路易威登•母亲节温情献礼'),
             desc: _unescape('无尽感恩，在这个母亲节化为永恒礼赞。'),
             link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
+            imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/3837a392-95a4-49c3-8231-71cf9b44119e?imageView2/1/w/200/h/200/format/jpg/q80/interlace/1', 
             trigger: function (res) {
                 //  alert('用户点击发送给朋友');
             },
@@ -114,7 +122,7 @@ function shareFunSetDefault(){
         wx.onMenuShareTimeline({
             title: _unescape('路易威登•母亲节温情献礼'), 
             link: window.location.host,
-            imgUrl: 'http://' + window.location.host + '/images/motherdayImg/share.jpg', 
+            imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/3837a392-95a4-49c3-8231-71cf9b44119e?imageView2/1/w/200/h/200/format/jpg/q80/interlace/1', 
             trigger: function (res) {
                 //   alert('用户点击分享到朋友圈');
             },

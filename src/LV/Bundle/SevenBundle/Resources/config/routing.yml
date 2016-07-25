@@ -1,0 +1,3 @@
+lv_seven_homepage:
+    path:     /
+    defaults: { _controller: LVSevenBundle:Default:index }

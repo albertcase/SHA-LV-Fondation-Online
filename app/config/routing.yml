@@ -1,3 +1,7 @@
+lv_seven:
+    resource: "@LVSevenBundle/Resources/config/routing.yml"
+    prefix:   /seven
+
 lv_mother:
     resource: "@LVMotherBundle/Resources/config/routing.yml"
     prefix:   /16mothersday

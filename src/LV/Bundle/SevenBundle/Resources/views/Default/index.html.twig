@@ -1,1 +1,110 @@
-Hello Seven!
+{% extends 'LVSevenBundle::layout.html.twig' %} 
+{% block content %}
+<!-- http://192.168.2.6:9023/app_dev.php/seven/ -->
+
+<div class="loading">
+    <div class="cssload-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div id="index">
+	<div class="cblack1"></div>
+	<img src="" sourcesrc="/cvd2016/logoWhite.png" width="100%" />
+	<div class="cblack2"></div>
+	<img src="" sourcesrc="/cvd2016/love.png" width="100%" />
+	<div class="cblack3"></div>
+	<img src="" sourcesrc="/cvd2016/swiperTips.png" class="swiperTips" width="100%" />
+</div>
+
+<div class="dreambox" id="list">
+	<a href="javascript:;" class="logoBlack">
+		<img src="" sourcesrc="/cvd2016/logoBlack.png" width="100%" />
+	</a>
+
+	<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide list_m1 ycenter">Slide 1</div>
+            <div class="swiper-slide list_m2 ycenter">Slide 2</div>
+            <div class="swiper-slide list_f1 ycenter">Slide 3</div>
+            <div class="swiper-slide list_f2 ycenter">Slide 4</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: '.swiper-pagination',
+        initialSlide : 0
+    });
+    </script>
+
+</div>
+
+
+
+<script type="text/javascript">
+	
+	var allImgSrcArr = [
+		"/cvd2016/indexBg.jpg",
+		"/cvd2016/logoWhite.png",
+		"/cvd2016/love.png",
+		"/cvd2016/swiperTips.png",
+	];
+
+	var loadingFun = function(){
+
+
+			function LoadFn ( arr , fn , fn2){
+					var loader = new PxLoader();
+					for( var i = 0 ; i < arr.length; i ++)
+					{
+						loader.addImage(arr[i]);
+					};
+					
+					loader.addProgressListener(function(e) {
+							var percent = Math.round( e.completedCount / e.totalCount * 100 );
+							if(fn2) fn2(percent)
+					});	
+					
+					
+					loader.addCompletionListener( function(){
+						if(fn) fn();	
+					});
+					loader.start();	
+			}
+
+
+			LoadFn(allImgSrcArr , function (){
+			    //console.log("加载完成!");
+			    $("img").each(function(){ 
+					$(this).attr("src",$(this).attr("sourcesrc"));
+				})
+			    
+			    $(".loading").hide();
+			} , function ( p ){
+				//$('.loading_con p').html(p+"%");
+				console.log(p);
+			});
+
+	};
+
+	loadingFun();
+
+
+
+
+</script>
+
+
+
+{% endblock %}

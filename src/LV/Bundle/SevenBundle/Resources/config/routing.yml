@@ -1,3 +1,7 @@
 lv_seven_homepage:
     path:     /
     defaults: { _controller: LVSevenBundle:Default:index }
+
+lv_seven_pro:
+    path:     /pro/{type}/{id}
+    defaults: { _controller: LVSevenBundle:Default:pro }

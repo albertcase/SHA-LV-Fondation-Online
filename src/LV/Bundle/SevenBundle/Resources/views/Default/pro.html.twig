@@ -1,0 +1,269 @@
+{% extends 'LVSevenBundle::layout.html.twig' %} 
+{% block content %}
+<!-- http://192.168.2.6:9023/app_dev.php/seven/ -->
+
+<div class="loading">
+    <div class="cssload-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+{# {% if type == "m1" %}
+	m1
+{% else %}
+	m2
+{% endif %} #}
+
+
+
+<div class="dreambox" id="pro" data-type="{{ type }}">
+	<div class="pup ycenter" id="telpup">
+		<div class="pupcon">
+			<a href="javascript:;" class="close"></a>
+			<img src="" sourcesrc="/cvd2016/telKv.png" width="100%" />
+			<img src="" sourcesrc="/cvd2016/telText.png" class="telText" width="100%" />
+			<span>
+				<a href="javascript:;"></a>
+				<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
+			</span>
+		</div>
+	</div>
+
+
+	<a href="javascript:;" class="logoBlack">
+		<img src="" sourcesrc="/cvd2016/logoBlack.png" width="100%" />
+	</a>
+
+	<!-- Swiper -->
+    <div class="swiper-container" id="pro-{{ type }}">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/1.png" width="100%" />
+				<span>
+					{% if type == "m1" %}
+						{{ title.m1[0] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[0] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[0] }}
+					{% else %}
+						{{ title.f2[0] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/2.png" width="100%" />
+				<span>
+					{% if type == "m1" %}
+						{{ title.m1[1] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[1] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[1] }}
+					{% else %}
+						{{ title.f2[1] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/3.png" width="100%" />
+				<span>
+					{% if type == "m1" %}
+						{{ title.m1[2] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[2] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[2] }}
+					{% else %}
+						{{ title.f2[2] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+            	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/4.png" width="100%" />
+            	<span>
+					{% if type == "m1" %}
+						{{ title.m1[3] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[3] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[3] }}
+					{% else %}
+						{{ title.f2[3] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+            	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/5.png" width="100%" />
+            	<span>
+					{% if type == "m1" %}
+						{{ title.m1[4] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[4] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[4] }}
+					{% else %}
+						{{ title.f2[4] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+            	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/6.png" width="100%" />
+            	<span>
+					{% if type == "m1" %}
+						{{ title.m1[5] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[5] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[5] }}
+					{% else %}
+						{{ title.f2[5] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+            	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/7.png" width="100%" />
+            	<span>
+					{% if type == "m1" %}
+						{{ title.m1[6] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[6] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[6] }}
+					{% else %}
+						{{ title.f2[6] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/8.png" width="100%" />
+				<span>
+					{% if type == "m1" %}
+						{{ title.m1[7] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[7] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[7] }}
+					{% else %}
+						{{ title.f2[7] }}
+					{% endif %}
+				</span>
+            </div>
+            <div class="swiper-slide">
+				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/9.png" width="100%" />
+				<span>
+					{% if type == "m1" %}
+						{{ title.m1[8] }}
+					{% elseif type == "m2" %}
+						{{ title.m2[8] }}
+					{% elseif type == "f1" %}
+						{{ title.f1[8] }}
+					{% else %}
+						{{ title.f2[8] }}
+					{% endif %}
+				</span>
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="proFooter">
+    	<img src="" sourcesrc="/cvd2016/telTips.png" width="100%" />
+    	<span class="telBtn">
+    		<a href="javascript:;"></a>
+    		<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
+    	</span>
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var _pid = "{{ id }}";
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        initialSlide : _pid,
+        spaceBetween: 30
+    });
+    </script>
+
+</div>
+
+
+<script type="text/javascript">
+	
+	var allImgSrcArr = [
+		"/cvd2016/pro/m1/bg.jpg",
+		"/cvd2016/pro/m2/bg.jpg",
+		"/cvd2016/pro/f1/bg.jpg",
+		"/cvd2016/pro/f2/bg.jpg",
+	];
+
+
+	var loadingFun = function(){
+
+			function LoadFn ( arr , fn , fn2){
+					var loader = new PxLoader();
+					for( var i = 0 ; i < arr.length; i ++){
+						loader.addImage(arr[i]);
+					};
+					
+					loader.addProgressListener(function(e) {
+							var percent = Math.round( e.completedCount / e.totalCount * 100 );
+							if(fn2) fn2(percent)
+					});	
+					
+					
+					loader.addCompletionListener( function(){
+						if(fn) fn();	
+					});
+					loader.start();	
+			}
+
+
+			LoadFn(allImgSrcArr , function (){
+			    //console.log("加载完成!");
+			    $("img").each(function(){ 
+					$(this).attr("src",$(this).attr("sourcesrc"));
+				})
+			    
+			    $(".loading").fadeOut();
+			} , function ( p ){
+				//$('.loading_con p').html(p+"%");
+				console.log(p+"%");
+			});
+
+	};
+
+
+	$("img").each(function(k,v){ 
+		allImgSrcArr.push($(this).attr("sourcesrc"));
+		if(k>=parseInt($("img").length, 10)*1-1){
+			loadingFun();
+		};
+	})
+	
+
+
+
+	$(".telBtn a").on("touchstart", function(){
+		$("#telpup").css("visibility", "visible");
+	})
+
+	$(".close").on("touchstart", function(){
+		$("#telpup").css("visibility", "hidden");
+	})
+
+
+
+
+</script>
+
+
+
+{% endblock %}

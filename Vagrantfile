@@ -3,19 +3,17 @@
 
 Vagrant.configure("2") do |config|
  
-  config.vm.box = "ubuntu12.04-symfony2-20150518"
-
+  config.vm.box = "ubuntu14.04-20150827"
   config.vm.hostname = "LV-Fondation-Online"
 
   
   config.vm.network :forwarded_port, guest: 80, host: 9023
   config.vm.network :forwarded_port, guest: 3306, host: 33093
   
-  config.vm.network :private_network, ip: "192.168.33.12"
+  config.vm.network :private_network, ip: "192.168.33.10"
 
-
-  config.vm.synced_folder "./", "/vagrant", :nfs => true
-  #config.vm.synced_folder "./", "/vagrant"
+  #config.vm.synced_folder "./", "/vagrant", :nfs => true
+  config.vm.synced_folder "./", "/vagrant"
 
 
   config.vm.provider :virtualbox do |vb|
@@ -27,10 +25,10 @@ Vagrant.configure("2") do |config|
   end
   #
 
-  #config.vm.provision :puppet do |puppet|
-  #  puppet.module_path = "puppet/modules"
-  #  puppet.manifests_path = "puppet/manifests"
-  #  puppet.manifest_file  = "site.pp"
-  #end
+  config.vm.provision :puppet do |puppet|
+    puppet.module_path = "puppet/modules"
+    puppet.manifests_path = "puppet/manifests"
+    puppet.manifest_file  = "site.pp"
+  end
 
 end

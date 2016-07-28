@@ -1,0 +1,32 @@
+{% extends '::cvd_base.html.twig' %}
+{% block title %}路易威登七夕节{% endblock %}
+{% block head_style %}
+{% stylesheets filter='cssrewrite' output="css/cvdmain2016.css"
+	'%kernel.root_dir%/Resources/public/css/reset.css'
+  '%kernel.root_dir%/Resources/public/css/swiper.min.css'
+	'@LVSevenBundle/Resources/public/css/style.css'
+%}
+<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block head_scripts %}
+{% javascripts output="js/cvdmain2016.js"
+    '%kernel.root_dir%/Resources/public/js/jquery.js'
+    '%kernel.root_dir%/Resources/public/js/jweixin.js'
+    '%kernel.root_dir%/Resources/public/js/PxLoader.js'
+    '%kernel.root_dir%/Resources/public/js/swiper.min.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<!-- 横屏代码 -->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+
+
+{% endblock %}
+

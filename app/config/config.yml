@@ -36,7 +36,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [LVFondationBundle,SameAdminBundle,LVCvdBundle,LVNdsBundle,LVMotherBundle]
+    bundles:        [LVFondationBundle,SameAdminBundle,LVCvdBundle,LVNdsBundle,LVMotherBundle,LVSevenBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

@@ -110,16 +110,19 @@ class Wechat
 	// }
 
 	private function getAccessToken() {
-		$time = $this->_memcache->get('wechat_server_access_time');
-		$access_token = $this->_memcache->get('wechat_server_access_token');
-		if((!$access_token) || ($time - time() <= 0)){
-			$result = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='
-				.$this->_container->getParameter('appid').'&secret='.$this->_container->getParameter('appsecret'));
-			$result = json_decode($result,true);
-			$this->_memcache->set('wechat_server_access_time', time() + $result['expires_in']);
-			$this->_memcache->set('wechat_server_access_token', $result['access_token']);
-		}
-		return $this->_memcache->get('wechat_server_access_token');
+		// $time = $this->_memcache->get('wechat_server_access_time');
+		// $access_token = $this->_memcache->get('wechat_server_access_token');
+		// if((!$access_token) || ($time - time() <= 0)){
+		// 	$result = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='
+		// 		.$this->_container->getParameter('appid').'&secret='.$this->_container->getParameter('appsecret'));
+		// 	$result = json_decode($result,true);
+		// 	$this->_memcache->set('wechat_server_access_time', time() + $result['expires_in']);
+		// 	$this->_memcache->set('wechat_server_access_token', $result['access_token']);
+		// }
+		$result = file_get_contents("http://api.guestops.com/connect-api/organization/getWechatAccessToken.jsn?access_token=8892e784122f0602f670a75d235ffd73");
+		$result = json_decode($result, true);
+		return $result['message'];
+		//return $this->_memcache->get('wechat_server_access_token');
 		
 	}
 

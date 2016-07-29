@@ -8,6 +8,10 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        if (!strpos($_SERVER['HTTP_USER_AGENT'],"Mobile")) {
+             $url = $this->generateUrl('lv_seven_desktop');
+             return new RedirectResponse($url);
+        }
         return $this->render('LVSevenBundle:Default:index.html.twig');
     }
 
@@ -67,9 +71,9 @@ class DefaultController extends Controller
         );
     }
 
-    public function jssdkAction()
+    public function desktopAction()
     {
 
-  		
+  		return $this->render('LVSevenBundle:Default:desktop.html.twig');
     }
 }

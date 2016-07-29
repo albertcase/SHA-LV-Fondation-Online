@@ -5,3 +5,7 @@ lv_seven_homepage:
 lv_seven_pro:
     path:     /pro/{type}/{id}
     defaults: { _controller: LVSevenBundle:Default:pro }
+
+lv_seven_desktop:
+    path:     /desktop
+    defaults: { _controller: LVSevenBundle:Default:desktop }

@@ -3,9 +3,9 @@ var shareData = {
     desc: '永恒之礼，至臻爱意',
     descTimeline: '路易威登•七夕甄礼',
     link: window.location.host + "/seven",
-    imgUrl: 'http://' + window.location.host + '/images/share.jpg',
+    imgUrl: 'http://' + window.location.host + '/cvd2016/share.jpg',
     returnFunTimeline: function(){
-        //alert(6);
+
     },
     returnFunAppmessage: function(){
 

@@ -198,10 +198,27 @@
 <script type="text/javascript">
 	
 	var allImgSrcArr = [
-		"/cvd2016/pro/m1/bg.jpg",
-		"/cvd2016/pro/m2/bg.jpg",
-		"/cvd2016/pro/f1/bg.jpg",
-		"/cvd2016/pro/f2/bg.jpg",
+		"/cvd2016/arr_l.png",
+		"/cvd2016/arr_r.png",
+		"/cvd2016/f1Bg.jpg",
+		"/cvd2016/f2Bg.jpg",
+		"/cvd2016/indexBg.jpg",
+		"/cvd2016/logoBlack.png",
+		"/cvd2016/logoWhite.png",
+		"/cvd2016/love.png",
+		"/cvd2016/m1Bg.jpg",
+		"/cvd2016/m2Bg.jpg",
+		"/cvd2016/share.jpg",
+		"/cvd2016/swiperTips.png",
+		"/cvd2016/telBtn.png",
+		"/cvd2016/telKv.png",
+		"/cvd2016/telText.png",
+		"/cvd2016/telTips.png",
+
+		"/cvd2016/list/f1.png",
+		"/cvd2016/list/f2.png",
+		"/cvd2016/list/m1.png",
+		"/cvd2016/list/m2.png",
 	];
 
 
@@ -260,6 +277,24 @@
 	})
 
 
+	$(function(){
+
+        shareData = {
+            title: '路易威登•七夕甄礼',
+            desc: '永恒之礼，至臻爱意',
+            descTimeline: '路易威登•七夕甄礼',
+            link: window.location.host + "/seven",
+            imgUrl: 'http://' + window.location.host + '/cvd2016/share.jpg',
+            returnFunTimeline: function(){
+                _hmt.push(['_trackEvent', 'share', 'ShareTimeline', 'pro');
+            },
+            returnFunAppmessage: function(){
+                _hmt.push(['_trackEvent', 'share', 'ShareAppMessage', 'pro');
+            }
+        };
+        editShare();
+
+    })
 
 
 </script>

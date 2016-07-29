@@ -2,6 +2,13 @@
 {% block content %}
 <!-- http://192.168.2.6:9023/app_dev.php/seven/ -->
 
+{% javascripts output="js/vmain.min.js"
+    '@LVSevenBundle/Resources/public/js/touch.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
 <div class="loading">
     <div class="cssload-loader">
         <div></div>
@@ -29,24 +36,63 @@
 	<!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide list_m1 ycenter">Slide 1</div>
-            <div class="swiper-slide list_m2 ycenter">Slide 2</div>
-            <div class="swiper-slide list_f1 ycenter">Slide 3</div>
-            <div class="swiper-slide list_f2 ycenter">Slide 4</div>
+            <div class="swiper-slide list_m1">
+            	<div class="hotlink">
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '8'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '2'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '5'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '3'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '1'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '4'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '0'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '6'}) }}"></a>
+            	</div>
+				<img src="" sourcesrc="/cvd2016/list/m1.png" width="100%" />
+            </div>
+            <div class="swiper-slide list_m2">
+            	<div class="hotlink">
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '7'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '5'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '6'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '8'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '0'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '4'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '1'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '3'}) }}"></a>
+            	</div>
+				<img src="" sourcesrc="/cvd2016/list/m2.png" width="100%" />
+            </div>
+            <div class="swiper-slide list_f1">
+            	<div class="hotlink">
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '6'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '8'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '7'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '2'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '4'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '1'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '5'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '0'}) }}"></a>
+            	</div>
+				<img src="" sourcesrc="/cvd2016/list/f1.png" width="100%" />
+            </div>
+            <div class="swiper-slide list_f2">
+            	<div class="hotlink">
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '0'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '7'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '5'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '1'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '2'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '4'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '3'}) }}"></a>
+            		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '8'}) }}"></a>
+            	</div>
+            	<img src="" sourcesrc="/cvd2016/list/f2.png" width="100%" />
+            </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
 
-
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: '.swiper-pagination',
-        initialSlide : 0
-    });
-    </script>
 
 </div>
 
@@ -100,8 +146,29 @@
 
 	loadingFun();
 
+	function swiperFun(_id){
+		var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        paginationClickable: '.swiper-pagination',
+	        initialSlide : _id,
+	        loop: true
+	    });
+	}
 
+	//swipe example
+	var jumpId = 0;
+	touch.on('#index', 'swipeleft swiperight', function(ev){
+	    //console.log("you have done", ev.type);
+	    if(ev.type == "swipeleft"){
+	    	jumpId = 0;
+	    }else{
+	    	jumpId = 2;
+	    }
 
+	    swiperFun(jumpId);
+	    $("#index").hide();
+	    
+	});
 
 </script>
 

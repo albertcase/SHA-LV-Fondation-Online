@@ -37,7 +37,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide list_m1">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="m1">
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '8'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '2'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '5'}) }}"></a>
@@ -50,7 +50,7 @@
 				<img src="" sourcesrc="/cvd2016/list/m1.png" width="100%" />
             </div>
             <div class="swiper-slide list_m2">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="m2">
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '7'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '5'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '6'}) }}"></a>
@@ -63,7 +63,7 @@
 				<img src="" sourcesrc="/cvd2016/list/m2.png" width="100%" />
             </div>
             <div class="swiper-slide list_f1">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="f1">
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '6'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '8'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '7'}) }}"></a>
@@ -76,7 +76,7 @@
 				<img src="" sourcesrc="/cvd2016/list/f1.png" width="100%" />
             </div>
             <div class="swiper-slide list_f2">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="f2">
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '0'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '7'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '5'}) }}"></a>
@@ -151,7 +151,10 @@
 	        pagination: '.swiper-pagination',
 	        paginationClickable: '.swiper-pagination',
 	        initialSlide : _id,
-	        loop: true
+	        loop: true,
+            onSlideChangeEnd: function(swiper){
+              _hmt.push(['_trackEvent', 'change', 'page', swiper.activeIndex]);
+            }
 	    });
 	}
 
@@ -189,6 +192,14 @@
         };
         editShare();
 
+    })
+
+
+    $(".hotlink").delegate("a", "click", function(){
+        var proType = $(this).parents(".hotlink").attr("data-type"),
+            proSize = $(this).index();
+
+        _hmt.push(['_trackEvent', 'click', 'pro', proType + "_" + proSize]);
     })
 
 </script>

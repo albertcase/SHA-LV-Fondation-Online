@@ -804,7 +804,7 @@ html,body,.dreambox{
 
     #index{
         background: url("/cvd2016/indexBg.jpg") center top no-repeat;
-        background-size: 100%;
+        background-size: 100% 100%;
     }
 
     .telBtn{
@@ -818,7 +818,7 @@ html,body,.dreambox{
     
     #index{
         background: url("/cvd2016/indexBg.jpg") center top no-repeat;
-        background-size: 100%;
+        background-size: 100% 100%;
     }
 
     .telBtn{

@@ -37,7 +37,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide list_m1">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="m1">
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '8'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '2'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm1','id': '5'}) }}"></a>
@@ -50,7 +50,7 @@
 				<img src="" sourcesrc="/cvd2016/list/m1.png" width="100%" />
             </div>
             <div class="swiper-slide list_m2">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="m2">
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '7'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '5'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'm2','id': '6'}) }}"></a>
@@ -63,7 +63,7 @@
 				<img src="" sourcesrc="/cvd2016/list/m2.png" width="100%" />
             </div>
             <div class="swiper-slide list_f1">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="f1">
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '6'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '8'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f1','id': '7'}) }}"></a>
@@ -76,7 +76,7 @@
 				<img src="" sourcesrc="/cvd2016/list/f1.png" width="100%" />
             </div>
             <div class="swiper-slide list_f2">
-            	<div class="hotlink">
+            	<div class="hotlink" data-type="f2">
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '0'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '7'}) }}"></a>
             		<a href="{{ url('lv_seven_pro', {'type': 'f2','id': '5'}) }}"></a>
@@ -100,6 +100,40 @@
 
 <script type="text/javascript">
 	
+    var overscroll = function(el) {
+      el.addEventListener('touchstart', function() {
+        var top = el.scrollTop
+          , totalScroll = el.scrollHeight
+          , currentScroll = top + el.offsetHeight
+        //If we're at the top or the bottom of the containers
+        //scroll, push up or down one pixel.
+        //
+        //this prevents the scroll from "passing through" to
+        //the body.
+        if(top === 0) {
+          el.scrollTop = 1
+        } else if(currentScroll === totalScroll) {
+          el.scrollTop = top - 1
+        }
+      })
+      el.addEventListener('touchmove', function(evt) {
+        //if the content is actually scrollable, i.e. the content is long enough
+        //that scrolling can occur
+        if(el.offsetHeight < el.scrollHeight)
+          evt._isScroller = true
+      })
+    }
+    overscroll(document.querySelector('#list'));
+    //overscroll(document.querySelector('#page2-3'));
+    document.body.addEventListener('touchmove', function(evt) {
+      //In this case, the default behavior is scrolling the body, which
+      //would result in an overflow.  Since we don't want that, we preventDefault.
+      if(!evt._isScroller) {
+        evt.preventDefault()
+      }
+    });
+
+
 	var allImgSrcArr = [
 		"/cvd2016/indexBg.jpg",
 		"/cvd2016/logoWhite.png",
@@ -136,6 +170,23 @@
 					$(this).attr("src",$(this).attr("sourcesrc"));
 				})
 			    
+                //swipe example
+                var jumpId = 0;
+                touch.on('#index', 'swipeleft swiperight', function(ev){
+                    //console.log("you have done", ev.type);
+                    if(ev.type == "swipeleft"){
+                        jumpId = 0;
+                        _hmt.push(['_trackEvent', 'swiper', 'index', '向左滑']);
+                    }else{
+                        jumpId = 2;
+                        _hmt.push(['_trackEvent', 'swiper', 'index', '向右滑']);
+                    }
+
+                    swiperFun(jumpId);
+                    $("#index").fadeOut();
+                    
+                });
+                            
 			    $(".loading").hide();
 			} , function ( p ){
 				//$('.loading_con p').html(p+"%");
@@ -146,30 +197,18 @@
 
 	loadingFun();
 
+    var swiperArrTJ = ["Male 1", "Male 1", "Male 2", "Female 1", "Female 2", "Male 1"];
 	function swiperFun(_id){
 		var swiper = new Swiper('.swiper-container', {
 	        pagination: '.swiper-pagination',
 	        paginationClickable: '.swiper-pagination',
 	        initialSlide : _id,
-	        loop: true
+	        loop: true,
+            onSlideChangeEnd: function(swiper){
+              _hmt.push(['_trackEvent', 'change', 'page', swiperArrTJ[swiper.activeIndex]]);
+            }
 	    });
 	}
-
-	//swipe example
-	var jumpId = 0;
-	touch.on('#index', 'swipeleft swiperight', function(ev){
-	    //console.log("you have done", ev.type);
-	    if(ev.type == "swipeleft"){
-	    	jumpId = 0;
-	    }else{
-	    	jumpId = 2;
-	    }
-
-	    swiperFun(jumpId);
-	    $("#index").hide();
-	    
-	});
-
 
 
     $(function(){
@@ -181,14 +220,22 @@
             link: window.location.host + "/seven",
             imgUrl: 'http://' + window.location.host + '/cvd2016/share.jpg',
             returnFunTimeline: function(){
-                _hmt.push(['_trackEvent', 'share', 'ShareTimeline', 'index');
+                _hmt.push(['_trackEvent', 'share', 'ShareTimeline', 'index']);
             },
             returnFunAppmessage: function(){
-                _hmt.push(['_trackEvent', 'share', 'ShareAppMessage', 'index');
+                _hmt.push(['_trackEvent', 'share', 'ShareAppMessage', 'index']);
             }
         };
         editShare();
 
+    })
+
+
+    $(".hotlink").delegate("a", "click", function(){
+        var proType = $(this).parents(".hotlink").attr("data-type"),
+            proSize = $(this).index();
+
+        _hmt.push(['_trackEvent', 'click', 'pro', proType + "_" + proSize]);
     })
 
 </script>

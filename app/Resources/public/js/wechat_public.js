@@ -178,7 +178,7 @@ function editShare(){   ///demon
 
 
 
-
+wechatFun();
 
 
 

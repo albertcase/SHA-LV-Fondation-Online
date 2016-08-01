@@ -24,10 +24,10 @@
 	<div class="pup ycenter" id="telpup">
 		<div class="pupcon">
 			<a href="javascript:;" class="close"></a>
-			<img src="" sourcesrc="/cvd2016/telKv.png" width="100%" />
+			<img src="" sourcesrc="/cvd2016/telKv.jpg" width="100%" />
 			<img src="" sourcesrc="/cvd2016/telText.png" class="telText" width="100%" />
 			<span>
-				<a href="tel:4006588555"></a>
+				<a href="tel:4006588555" onclick="_hmt.push(['_trackEvent', 'click', 'btn', 'call center']);"></a>
 				<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
 			</span>
 		</div>
@@ -44,7 +44,8 @@
             <div class="swiper-slide">
 				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/1.png" width="100%" />
 				<span>
-					{% if type == "m1" %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t1.png" width="100%" />
+					{# {% if type == "m1" %}
 						{{ title.m1[0] }}
 					{% elseif type == "m2" %}
 						{{ title.m2[0] }}
@@ -52,119 +53,55 @@
 						{{ title.f1[0] }}
 					{% else %}
 						{{ title.f2[0] }}
-					{% endif %}
+					{% endif %} #}
 				</span>
             </div>
             <div class="swiper-slide">
 				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/2.png" width="100%" />
 				<span>
-					{% if type == "m1" %}
-						{{ title.m1[1] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[1] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[1] }}
-					{% else %}
-						{{ title.f2[1] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t2.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
 				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/3.png" width="100%" />
 				<span>
-					{% if type == "m1" %}
-						{{ title.m1[2] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[2] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[2] }}
-					{% else %}
-						{{ title.f2[2] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t3.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
             	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/4.png" width="100%" />
             	<span>
-					{% if type == "m1" %}
-						{{ title.m1[3] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[3] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[3] }}
-					{% else %}
-						{{ title.f2[3] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t4.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
             	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/5.png" width="100%" />
             	<span>
-					{% if type == "m1" %}
-						{{ title.m1[4] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[4] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[4] }}
-					{% else %}
-						{{ title.f2[4] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t5.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
             	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/6.png" width="100%" />
             	<span>
-					{% if type == "m1" %}
-						{{ title.m1[5] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[5] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[5] }}
-					{% else %}
-						{{ title.f2[5] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t6.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
             	<img src="" sourcesrc="/cvd2016/pro/{{ type }}/7.png" width="100%" />
             	<span>
-					{% if type == "m1" %}
-						{{ title.m1[6] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[6] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[6] }}
-					{% else %}
-						{{ title.f2[6] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t7.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
 				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/8.png" width="100%" />
 				<span>
-					{% if type == "m1" %}
-						{{ title.m1[7] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[7] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[7] }}
-					{% else %}
-						{{ title.f2[7] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t8.png" width="100%" />
 				</span>
             </div>
             <div class="swiper-slide">
 				<img src="" sourcesrc="/cvd2016/pro/{{ type }}/9.png" width="100%" />
 				<span>
-					{% if type == "m1" %}
-						{{ title.m1[8] }}
-					{% elseif type == "m2" %}
-						{{ title.m2[8] }}
-					{% elseif type == "f1" %}
-						{{ title.f1[8] }}
-					{% else %}
-						{{ title.f2[8] }}
-					{% endif %}
+					<img src="" sourcesrc="/cvd2016/pro/{{ type }}/t9.png" width="100%" />
 				</span>
             </div>
         </div>
@@ -179,18 +116,20 @@
     		<a href="javascript:;"></a>
     		<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
     	</span>
+
+    	<span class="more">
+			{% if type == "m1" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Male 1']);"></a>
+			{% elseif type == "m2" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Male 2']);"></a>
+			{% elseif type == "f1" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Female 1']);"></a>
+			{% else %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Female 2']);"></a>
+			{% endif %}
+    		<img src="" sourcesrc="/cvd2016/more.png" width="100%" /></span>
     </div>
 
-    <!-- Initialize Swiper -->
-    <script>
-    var _pid = "{{ id }}";
-    var swiper = new Swiper('.swiper-container', {
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        initialSlide : _pid,
-        spaceBetween: 30
-    });
-    </script>
 
 </div>
 
@@ -211,7 +150,7 @@
 		"/cvd2016/share.jpg",
 		"/cvd2016/swiperTips.png",
 		"/cvd2016/telBtn.png",
-		"/cvd2016/telKv.png",
+		"/cvd2016/telKv.jpg",
 		"/cvd2016/telText.png",
 		"/cvd2016/telTips.png",
 
@@ -248,8 +187,28 @@
 			    $("img").each(function(){ 
 					$(this).attr("src",$(this).attr("sourcesrc"));
 				})
+
+				var _pid = "{{ id }}";
+			    var swiper = new Swiper('.swiper-container', {
+			        nextButton: '.swiper-button-next',
+			        prevButton: '.swiper-button-prev',
+			        loop: true,
+			        //initialSlide : _pid,
+			        effect : 'flip',
+					flip: {
+			            slideShadows : true,
+			            limitRotation : true,
+			        },
+			        onInit: function(v){
+			        	v.slideTo(parseInt(_pid*1+1, 10), 100, true);
+			        	setTimeout(function(){
+			        		$(".loading").fadeOut();
+			        	}, 200)
+			        }
+
+			    });
 			    
-			    $(".loading").fadeOut();
+			    
 			} , function ( p ){
 				//$('.loading_con p').html(p+"%");
 				console.log(p+"%");
@@ -269,6 +228,7 @@
 
 
 	$(".telBtn a").on("touchstart", function(){
+		_hmt.push(['_trackEvent', 'click', 'btn', "incentive"]);
 		$("#telpup").css("visibility", "visible");
 	})
 
@@ -286,15 +246,16 @@
             link: window.location.host + "/seven",
             imgUrl: 'http://' + window.location.host + '/cvd2016/share.jpg',
             returnFunTimeline: function(){
-                _hmt.push(['_trackEvent', 'share', 'ShareTimeline', 'pro');
+                _hmt.push(['_trackEvent', 'share', 'ShareTimeline', 'pro']);
             },
             returnFunAppmessage: function(){
-                _hmt.push(['_trackEvent', 'share', 'ShareAppMessage', 'pro');
+                _hmt.push(['_trackEvent', 'share', 'ShareAppMessage', 'pro']);
             }
         };
         editShare();
 
     })
+
 
 
 </script>

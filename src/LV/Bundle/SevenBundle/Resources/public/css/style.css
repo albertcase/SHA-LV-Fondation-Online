@@ -48,12 +48,15 @@ html,body,.dreambox{
     -o-overflow-scrolling: touch;  
 }
 
+.dreambox{
+    overflow: auto;
+}
 
 /* index */
 #index{
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	background: url("/cvd2016/indexBg.jpg") center top no-repeat;
@@ -65,6 +68,9 @@ html,body,.dreambox{
 .cblack1,.cblack2,.cblack3{
 	width: 20%;
 	background: #f08181;
+    border: 6px #fff solid;
+    border-top: none;
+    border-bottom: none;
 	display: inline-block;
 }
 
@@ -143,7 +149,7 @@ html,body,.dreambox{
     /*background: rgba(36,27,72,.6);*/
     position: absolute;
     left: 5%;
-    top: 15%;
+    top: 12%;
     z-index: 2;
 }
 
@@ -166,49 +172,49 @@ html,body,.dreambox{
     width: 16%;
     height: 18%;
     left: 69%;
-    top: -1%;
+    top: 0%;
 }
 
 .list_m1 .hotlink a:nth-child(3){
     width: 30%;
     height: 10%;
     left: 17%;
-    top: 34%;
+    top: 32%;
 }
 
 .list_m1 .hotlink a:nth-child(4){
     width: 30%;
     height: 38%;
     left: 62%;
-    top: 20%;
+    top: 18%;
 }
 
 .list_m1 .hotlink a:nth-child(5){
     width: 22%;
     height: 23%;
     left: 10%;
-    top: 47%;
+    top: 43%;
 }
 
 .list_m1 .hotlink a:nth-child(6){
     width: 17%;
     height: 22%;
     left: 38%;
-    top: 48%;
+    top: 44%;
 }
 
 .list_m1 .hotlink a:nth-child(7){
     width: 46%;
     height: 20%;
     left: 9%;
-    top: 75%;
+    top: 69%;
 }
 
 .list_m1 .hotlink a:nth-child(8){
     width: 34%;
     height: 36%;
     left: 62%;
-    top: 62%;
+    top: 56%;
 }
 
 
@@ -232,42 +238,42 @@ html,body,.dreambox{
     width: 30%;
     height: 10%;
     left: 60%;
-    top: 24%;
+    top: 23%;
 }
 
 .list_m2 .hotlink a:nth-child(4){
     width: 19%;
     height: 22%;
     left: 8%;
-    top: 39%;
+    top: 36%;
 }
 
 .list_m2 .hotlink a:nth-child(5){
     width: 27%;
     height: 20%;
     left: 29%;
-    top: 40%;
+    top: 36%;
 }
 
 .list_m2 .hotlink a:nth-child(6){
     width: 33%;
     height: 25%;
     left: 59%;
-    top: 37%;
+    top: 34%;
 }
 
 .list_m2 .hotlink a:nth-child(7){
     width: 39%;
     height: 34%;
     left: 9%;
-    top: 62%;
+    top: 56%;
 }
 
 .list_m2 .hotlink a:nth-child(8){
-    width: 35%;
+    width: 40%;
     height: 24%;
-    left: 57%;
-    top: 68%;
+    left: 54%;
+    top: 65%;
 }
 
 
@@ -291,42 +297,42 @@ html,body,.dreambox{
     width: 40%;
     height: 14%;
     left: 56%;
-    top: 32%;
+    top: 29%;
 }
 
 .list_f1 .hotlink a:nth-child(4){
     width: 30%;
     height: 26%;
     left: 4%;
-    top: 45%;
+    top: 42%;
 }
 
 .list_f1 .hotlink a:nth-child(5){
     width: 20%;
     height: 30%;
     left: 41%;
-    top: 41%;
+    top: 37%;
 }
 
 .list_f1 .hotlink a:nth-child(6){
     width: 34%;
     height: 19%;
     left: 4%;
-    top: 80%;
+    top: 73%;
 }
 
 .list_f1 .hotlink a:nth-child(7){
     width: 18%;
     height: 23%;
     left: 41%;
-    top: 76%;
+    top: 69%;
 }
 
 .list_f1 .hotlink a:nth-child(8){
     width: 32%;
     height: 48%;
     left: 64%;
-    top: 52%;
+    top: 47%;
 }
 
 
@@ -357,21 +363,21 @@ html,body,.dreambox{
     width: 22%;
     height: 30%;
     left: 18%;
-    top: 36%;
+    top: 34%;
 }
 
 .list_f2 .hotlink a:nth-child(5){
     width: 35%;
     height: 23%;
     left: 56%;
-    top: 32%;
+    top: 30%;
 }
 
 .list_f2 .hotlink a:nth-child(6){
     width: 35%;
     height: 18%;
     left: 56%;
-    top: 56%;
+    top: 51%;
 
 }
 
@@ -379,14 +385,14 @@ html,body,.dreambox{
     width: 39%;
     height: 29%;
     left: 10%;
-    top: 68%;
+    top: 62%;
 }
 
 .list_f2 .hotlink a:nth-child(8){
     width: 35%;
     height: 22%;
     left: 56%;
-    top: 75%;
+    top: 68%;
 }
 
 
@@ -398,7 +404,7 @@ html,body,.dreambox{
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top: 6%;
+	top: 4%;
 	z-index: 2;
 }
 
@@ -439,8 +445,8 @@ html,body,.dreambox{
 .swiper-slide span{
 	/*padding: 10% 0;*/
 	width: 100%;
-	font-size: 1.8rem;
-    line-height: 2.2rem;
+	font-size: 1.6rem;
+    line-height: 2.0rem;
 	color: #2a1413;
 	font-weight: bold;
 	text-align: center;
@@ -458,20 +464,38 @@ html,body,.dreambox{
 
 .telBtn{
     width: 60%;
-    margin: 6% 0 0 0;
+    margin: 2% 0 4% 0;
     text-align: center;
     position: relative;
     display: inline-block;
 }
 
 .telBtn a{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -35%;
+}
+
+.more{
+    display: inline-block;
+    padding: 6px 0;
+    position: relative;
+}
+
+.more a{
     width: 80%;
     height: 100%;
     position: absolute;
     left: 50%;
     top: 0;
+    /*background: rgba(34,67,67,.6);*/
     margin: 0 0 0 -40%;
+    z-index: 2;
 }
+
 
 .pup{
     width: 100%;
@@ -493,7 +517,7 @@ html,body,.dreambox{
 }
 
 .telText{
-    margin: 27px 0;
+    margin: 30px 0 27px 0;
     display: inline-block;
 }
 
@@ -781,12 +805,72 @@ html,body,.dreambox{
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 
+    .telBtn{
+        margin: 4% 0 6% 0;
+    }
+
+    .list_m1{
+        background: url("/cvd2016/m1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_m2{
+        background: url("/cvd2016/m2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f1{
+        background: url("/cvd2016/f1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f2{
+        background: url("/cvd2016/f2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    #list .swiper-container{
+        height: 100%;
+    }
 
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
 
+    .telBtn{
+        margin: 4% 0 6% 0;
+    }
+    
+    #index{
+        background: url("/cvd2016/indexBg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+
+    .list_m1{
+        background: url("/cvd2016/m1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_m2{
+        background: url("/cvd2016/m2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f1{
+        background: url("/cvd2016/f1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f2{
+        background: url("/cvd2016/f2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    #list .swiper-container{
+        height: 100%;
+    }
 
 }
 

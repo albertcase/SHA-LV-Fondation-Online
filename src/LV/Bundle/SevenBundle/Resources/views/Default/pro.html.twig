@@ -27,7 +27,7 @@
 			<img src="" sourcesrc="/cvd2016/telKv.png" width="100%" />
 			<img src="" sourcesrc="/cvd2016/telText.png" class="telText" width="100%" />
 			<span>
-				<a href="tel:4006588555" onclick="_hmt.push(['_trackEvent', 'click', 'btn', '致电专属客服']);"></a>
+				<a href="tel:4006588555" onclick="_hmt.push(['_trackEvent', 'click', 'btn', 'call center']);"></a>
 				<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
 			</span>
 		</div>
@@ -119,13 +119,13 @@
 
     	<span class="more">
 			{% if type == "m1" %}
-				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank"></a>
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Male 1']);"></a>
 			{% elseif type == "m2" %}
-				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank"></a>
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Male 2']);"></a>
 			{% elseif type == "f1" %}
-				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"></a>
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Female 1']);"></a>
 			{% else %}
-				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"></a>
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank" onclick="_hmt.push(['_trackEvent', 'click', 'link', '前往官网了解更多--Female 2']);"></a>
 			{% endif %}
     		<img src="" sourcesrc="/cvd2016/more.png" width="100%" /></span>
     </div>
@@ -228,6 +228,7 @@
 
 
 	$(".telBtn a").on("touchstart", function(){
+		_hmt.push(['_trackEvent', 'click', 'btn', "incentive"]);
 		$("#telpup").css("visibility", "visible");
 	})
 

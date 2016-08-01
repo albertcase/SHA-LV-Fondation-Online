@@ -180,6 +180,7 @@
 
 	loadingFun();
 
+    var swiperArrTJ = ["Male 1", "Male 1", "Male 2", "Female 1", "Female 2", "Male 1"];
 	function swiperFun(_id){
 		var swiper = new Swiper('.swiper-container', {
 	        pagination: '.swiper-pagination',
@@ -187,7 +188,7 @@
 	        initialSlide : _id,
 	        loop: true,
             onSlideChangeEnd: function(swiper){
-              _hmt.push(['_trackEvent', 'change', 'page', swiper.activeIndex]);
+              _hmt.push(['_trackEvent', 'change', 'page', swiperArrTJ[swiper.activeIndex]]);
             }
 	    });
 	}
@@ -198,8 +199,10 @@
 	    //console.log("you have done", ev.type);
 	    if(ev.type == "swipeleft"){
 	    	jumpId = 0;
+            _hmt.push(['_trackEvent', 'swiper', 'index', '向左滑']);
 	    }else{
 	    	jumpId = 2;
+            _hmt.push(['_trackEvent', 'swiper', 'index', '向右滑']);
 	    }
 
 	    swiperFun(jumpId);

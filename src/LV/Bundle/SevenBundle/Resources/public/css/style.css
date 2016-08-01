@@ -57,7 +57,7 @@ html,body,.dreambox{
 	left: 0;
 	top: 0;
 	background: url("/cvd2016/indexBg.jpg") center top no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
     text-align: center;
     z-index: 6;
 }
@@ -807,6 +807,26 @@ html,body,.dreambox{
         margin: 4% 0 6% 0;
     }
 
+    .list_m1{
+        background: url("/cvd2016/m1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_m2{
+        background: url("/cvd2016/m2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f1{
+        background: url("/cvd2016/f1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f2{
+        background: url("/cvd2016/f2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
 }
 
 /* 6 */
@@ -814,6 +834,32 @@ html,body,.dreambox{
 
     .telBtn{
         margin: 4% 0 6% 0;
+    }
+    
+    #index{
+        background: url("/cvd2016/indexBg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+
+    .list_m1{
+        background: url("/cvd2016/m1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_m2{
+        background: url("/cvd2016/m2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f1{
+        background: url("/cvd2016/f1Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
+    }
+
+    .list_f2{
+        background: url("/cvd2016/f2Bg.jpg") center top no-repeat;
+        background-size: auto 100%;
     }
 
 }

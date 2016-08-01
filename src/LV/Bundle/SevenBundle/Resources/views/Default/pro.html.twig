@@ -193,12 +193,16 @@
 			        nextButton: '.swiper-button-next',
 			        prevButton: '.swiper-button-prev',
 			        loop: true,
-			        initialSlide : _pid,
+			        //initialSlide : _pid,
 			        effect : 'flip',
 					flip: {
 			            slideShadows : true,
 			            limitRotation : true,
+			        },
+			        onInit: function(){
+			        	swiper.slideTo(_pid, 600, true)
 			        }
+
 			    });
 			    
 			    $(".loading").fadeOut();
@@ -247,6 +251,7 @@
         editShare();
 
     })
+
 
 
 </script>

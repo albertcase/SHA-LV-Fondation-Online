@@ -16,7 +16,7 @@ class DefaultController extends Controller
         return $this->render('LVSevenBundle:Default:index.html.twig');
     }
 
-    public function proAction($type, $id = 0)
+    public function proAction($type, $id = 1)
     {
         return $this->render('LVSevenBundle:Default:pro.html.twig', 
         	array(

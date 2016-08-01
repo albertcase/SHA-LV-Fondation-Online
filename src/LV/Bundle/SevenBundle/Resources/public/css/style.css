@@ -807,12 +807,23 @@ html,body,.dreambox{
         background-size: 100%;
     }
 
+    .telBtn{
+        margin: 4% 0 6% 0;
+    }
+
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
     
-    
+    #index{
+        background: url("/cvd2016/indexBg.jpg") center top no-repeat;
+        background-size: 100%;
+    }
+
+    .telBtn{
+        margin: 4% 0 6% 0;
+    }
 
 }
 

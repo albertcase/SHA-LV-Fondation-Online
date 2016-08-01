@@ -56,7 +56,7 @@ html,body,.dreambox{
 	position: fixed;
 	left: 0;
 	top: 0;
-	background: url("/cvd2016/indexBg.jpg") center top no-repeat;
+	background: #f09 url("/cvd2016/indexBg.jpg") center top no-repeat;
     background-size: 100% auto;
     text-align: center;
     z-index: 6;

@@ -1,6 +1,6 @@
 lv_seven:
     resource: "@LVSevenBundle/Resources/config/routing.yml"
-    prefix:   /seven
+    prefix:   /16chinesevday
 
 lv_mother:
     resource: "@LVMotherBundle/Resources/config/routing.yml"

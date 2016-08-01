@@ -48,6 +48,9 @@ html,body,.dreambox{
     -o-overflow-scrolling: touch;  
 }
 
+.dreambox{
+    overflow: auto;
+}
 
 /* index */
 #index{

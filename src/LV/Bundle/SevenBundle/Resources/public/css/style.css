@@ -106,22 +106,22 @@ html,body,.dreambox{
 
 .list_m1{
     background: url("/cvd2016/m1Bg.jpg") center top no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
 }
 
 .list_m2{
     background: url("/cvd2016/m2Bg.jpg") center top no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
 }
 
 .list_f1{
     background: url("/cvd2016/f1Bg.jpg") center top no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
 }
 
 .list_f2{
     background: url("/cvd2016/f2Bg.jpg") center top no-repeat;
-    background-size: auto 100%;
+    background-size: 100% auto;
 }
 
 .swiper-container-horizontal>.swiper-pagination{

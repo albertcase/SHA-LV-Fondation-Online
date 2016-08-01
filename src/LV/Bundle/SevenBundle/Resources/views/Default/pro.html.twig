@@ -200,15 +200,14 @@
 			            limitRotation : true,
 			        },
 			        onInit: function(v){
-			        	console.log(this);
-			        	console.log(v);
-			        	console.log(_pid);
-			        	v.slideTo(_pid*1, 2000, true)
+			        	v.slideTo(_pid, 100, function(){
+			        		$(".loading").fadeOut();
+			        	})
 			        }
 
 			    });
 			    
-			    $(".loading").fadeOut();
+			    
 			} , function ( p ){
 				//$('.loading_con p').html(p+"%");
 				console.log(p+"%");

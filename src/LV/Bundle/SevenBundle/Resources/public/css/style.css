@@ -458,20 +458,38 @@ html,body,.dreambox{
 
 .telBtn{
     width: 60%;
-    margin: 6% 0 0 0;
+    margin: 2% 0 3% 0;
     text-align: center;
     position: relative;
     display: inline-block;
 }
 
 .telBtn a{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -35%;
+}
+
+.more{
+    display: inline-block;
+    padding: 6px 0;
+    position: relative;
+}
+
+.more a{
     width: 80%;
     height: 100%;
     position: absolute;
     left: 50%;
     top: 0;
+    /*background: rgba(34,67,67,.6);*/
     margin: 0 0 0 -40%;
+    z-index: 2;
 }
+
 
 .pup{
     width: 100%;

@@ -200,8 +200,10 @@
 			            limitRotation : true,
 			        },
 			        onInit: function(v){
-			        	v.slideTo(_pid, 100, false);
-			        	$(".loading").fadeOut();
+			        	v.slideTo(_pid, 100, true);
+			        	setTimeout(function(){
+			        		$(".loading").fadeOut();
+			        	}, 200)
 			        }
 
 			    });

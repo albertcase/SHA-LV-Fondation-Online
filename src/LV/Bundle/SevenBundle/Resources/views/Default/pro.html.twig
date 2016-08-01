@@ -130,17 +130,6 @@
     		<img src="" sourcesrc="/cvd2016/more.png" width="100%" /></span>
     </div>
 
-    <!-- Initialize Swiper -->
-    <script>
-    var _pid = "{{ id }}";
-    var swiper = new Swiper('.swiper-container', {
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        // loop: true,
-        initialSlide : _pid,
-        spaceBetween: 30
-    });
-    </script>
 
 </div>
 
@@ -198,6 +187,15 @@
 			    $("img").each(function(){ 
 					$(this).attr("src",$(this).attr("sourcesrc"));
 				})
+
+				var _pid = "{{ id }}";
+			    var swiper = new Swiper('.swiper-container', {
+			        nextButton: '.swiper-button-next',
+			        prevButton: '.swiper-button-prev',
+			        loop: true,
+			        initialSlide : _pid,
+			        spaceBetween: 30
+			    });
 			    
 			    $(".loading").fadeOut();
 			} , function ( p ){

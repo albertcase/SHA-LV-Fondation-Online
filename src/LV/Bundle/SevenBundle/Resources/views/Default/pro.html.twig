@@ -180,7 +180,17 @@
     		<img src="" sourcesrc="/cvd2016/telBtn.png" width="100%" />
     	</span>
 
-    	<span class="more"><a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"></a><img src="" sourcesrc="/cvd2016/more.png" width="100%" /></span>
+    	<span class="more">
+			{% if type == "m1" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank"></a>
+			{% elseif type == "m2" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/men/gift-inspirations/timeless-pieces" target="_blank"></a>
+			{% elseif type == "f1" %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"></a>
+			{% else %}
+				<a href="http://www.louisvuitton.cn/zhs-cn/women/gift-inspirations/timeless-pieces" target="_blank"></a>
+			{% endif %}
+    		<img src="" sourcesrc="/cvd2016/more.png" width="100%" /></span>
     </div>
 
     <!-- Initialize Swiper -->

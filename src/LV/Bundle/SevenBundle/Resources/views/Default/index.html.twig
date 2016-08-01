@@ -170,6 +170,23 @@
 					$(this).attr("src",$(this).attr("sourcesrc"));
 				})
 			    
+                //swipe example
+                var jumpId = 0;
+                touch.on('#index', 'swipeleft swiperight', function(ev){
+                    //console.log("you have done", ev.type);
+                    if(ev.type == "swipeleft"){
+                        jumpId = 0;
+                        _hmt.push(['_trackEvent', 'swiper', 'index', '向左滑']);
+                    }else{
+                        jumpId = 2;
+                        _hmt.push(['_trackEvent', 'swiper', 'index', '向右滑']);
+                    }
+
+                    swiperFun(jumpId);
+                    $("#index").fadeOut();
+                    
+                });
+                            
 			    $(".loading").hide();
 			} , function ( p ){
 				//$('.loading_con p').html(p+"%");
@@ -192,24 +209,6 @@
             }
 	    });
 	}
-
-	//swipe example
-	var jumpId = 0;
-	touch.on('#index', 'swipeleft swiperight', function(ev){
-	    //console.log("you have done", ev.type);
-	    if(ev.type == "swipeleft"){
-	    	jumpId = 0;
-            _hmt.push(['_trackEvent', 'swiper', 'index', '向左滑']);
-	    }else{
-	    	jumpId = 2;
-            _hmt.push(['_trackEvent', 'swiper', 'index', '向右滑']);
-	    }
-
-	    swiperFun(jumpId);
-	    $("#index").fadeOut();
-	    
-	});
-
 
 
     $(function(){

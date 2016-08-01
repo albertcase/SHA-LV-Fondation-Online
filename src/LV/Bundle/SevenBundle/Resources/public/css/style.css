@@ -65,6 +65,9 @@ html,body,.dreambox{
 .cblack1,.cblack2,.cblack3{
 	width: 20%;
 	background: #f08181;
+    border: 6px #fff solid;
+    border-top: none;
+    border-bottom: none;
 	display: inline-block;
 }
 

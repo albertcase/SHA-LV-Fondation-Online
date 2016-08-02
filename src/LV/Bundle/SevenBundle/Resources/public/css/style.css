@@ -803,8 +803,10 @@ html,body,.dreambox{
 
 /* 6plus */
 
-@media only screen and (min-device-width: 412px) and (max-device-width: 736px) and (orientation: portrait) {
-
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+#index{
+    opacity: 0.6;
+}
     .telBtn{
         margin: 4% 0 6% 0;
     }

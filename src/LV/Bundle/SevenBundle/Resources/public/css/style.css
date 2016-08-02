@@ -804,11 +804,14 @@ html,body,.dreambox{
 /* 6plus */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
-#index{
-    opacity: 0.6;
-}
+
     .telBtn{
         margin: 4% 0 6% 0;
+    }
+
+    #index{
+        background: url("/cvd2016/indexBg.jpg") center top no-repeat;
+        background-size: auto 100%;
     }
 
     .list_m1{

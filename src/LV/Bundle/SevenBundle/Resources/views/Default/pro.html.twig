@@ -2,7 +2,7 @@
 {% block content %}
 <!-- http://192.168.2.6:9023/app_dev.php/seven/ -->
 
-<div class="loading">
+{# <div class="loading">
     <div class="cssload-loader">
         <div></div>
         <div></div>
@@ -10,7 +10,7 @@
         <div></div>
         <div></div>
     </div>
-</div>
+</div> #}
 
 {# {% if type == "m1" %}
 	m1
@@ -202,7 +202,7 @@
 			        onInit: function(v){
 			        	v.slideTo(parseInt(_pid*1+1, 10), 100, true);
 			        	setTimeout(function(){
-			        		$(".loading").fadeOut();
+			        		$("#loading_public").fadeOut();
 			        	}, 200)
 			        }
 
@@ -210,8 +210,7 @@
 			    
 			    
 			} , function ( p ){
-				//$('.loading_con p').html(p+"%");
-				console.log(p+"%");
+				$('.loading_con p').html(p+"%");
 			});
 
 	};

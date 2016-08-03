@@ -9,14 +9,13 @@
 {% endjavascripts %}
 
 
-<div class="loading">
-    <div class="cssload-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+<div id="loading_public">
+
+    <div class="loading_con">
+        <img src="/images/cvd/loading.png" width="100%" />
+        <p></p>
     </div>
+
 </div>
 
 <div id="index">
@@ -187,10 +186,10 @@
                     
                 });
                             
-			    $(".loading").hide();
+			    $("#loading_public").hide();
 			} , function ( p ){
-				//$('.loading_con p').html(p+"%");
-				console.log(p);
+                $('.loading_con p').html(p+"%");
+				//console.log(p);
 			});
 
 	};

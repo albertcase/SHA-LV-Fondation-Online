@@ -12,7 +12,7 @@
 <div id="loading_public">
 
     <div class="loading_con">
-        <img src="/images/cvd/loading.png" width="100%" />
+        <img src="/cvd2016/loading_logo.png" width="100%" />
         <p></p>
     </div>
 
@@ -194,7 +194,12 @@
 
 	};
 
-	loadingFun();
+    var loadingImg = new Image();
+    loadingImg.src="/cvd2016/loading_logo.png";
+    loadingImg.onload = function(){
+        loadingFun();
+    }
+
 
     var swiperArrTJ = ["Male 1", "Male 1", "Male 2", "Female 1", "Female 2", "Male 1"];
 	function swiperFun(_id){
